@@ -2,6 +2,6 @@
 
 ## las historias de los webotes de Joselu
 
-[!NOTE] Setzo 
+> [!NOTE] Setzo 
 
-[!IMPORTANT] xexi es tolai
+> [!IMPORTANT] xexi es tolai

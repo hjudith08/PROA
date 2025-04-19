@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRueba</title>
-    <link rel="stylesheet" href="style.css"> <!-- Enlace a la hoja de estilos CSS -->
+    <title>EduSync | Venta de Modulos Educativos</title>
+    <!-- imagen de pestaña -->
+    <link rel="icon" href="imagenes/LogoEduSyncBlancoV3.png" type="image/png">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
     <header>
         <a href="./">
-            <img src="LogoEduSyncBlanco.png" alt="Logotipo">
+            <img src="imagenes/LogoEduSyncBlanco.png" alt="Logotipo">
         </a>
     
         
         <nav>
-            <p> Bienvenido Serchas! </p>
             <ul>
-                <input type="button" value="Contacto" onclick="location.href='./Contacto.php'">
+                <input type="button" value="CONTACTO" onclick="location.href='./Contacto.php'">
             </ul>
         </nav>
         
-        <button popovertarget="menu-usuario"><img src="user_1b.png" alt=""></button>
+        <button popovertarget="menu-usuario"><img src="imagenes/vik.jpg" alt=""></button>
         <div id="menu-usuario" popover>
-            <div>Bienvenido Profesor de mierdas<br><?php echo $userdata['nombre'] . " " . $userdata['apellidos']; ?></div>
-            <div><a href="./mi-perfil.php">Mi perfil</a></div>
+            <div>Bienvenido Victor Nicolas!<br><?php echo $userdata['nombre'] . " " . $userdata['apellidos']; ?></div>
+            <div><a href="./mis herramietas.php">Mis herramientas</a></div>
             <div><a href="./logout.php">Salir</a></div>
         </div>
     </header>

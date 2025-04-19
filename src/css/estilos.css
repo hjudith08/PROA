@@ -28,7 +28,7 @@ a { color: inherit; }
 }
 
 body {
-    font-family: system-ui;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* region --- MENU --- */
@@ -49,7 +49,7 @@ body > header > nav {
     gap: 1em;
     flex-grow: 1;
     justify-content: right;
-    padding-right: 1em;
+
 }
 
 
@@ -65,9 +65,9 @@ body > header button[popovertarget] {
 
 /* hacemos mas pequeño el icono del perfil */
 body > header p{
-    padding: 1em;
-    margin-left: 1em;
-    margin-right: 1em;
+    display: flex;
+    align-items: center;
+
     color: white;
 }
 
@@ -75,7 +75,7 @@ body > header input{
     margin: 1em;
     height: 2em;
     display: flex;
-   
+    background-color: #E8D9C5;
 }
 body > header button{
     background-color: transparent;
@@ -87,8 +87,10 @@ body > header button{
     align-items: center;
 }
 body > header button img{
-    background-color: transparent;
+    padding: .1em;
+    background-color: #E8D9C5;
     border: 0;
+    border-radius: .7em;
     width: 2em;
     height: 2em;
     display: flex;
@@ -96,11 +98,18 @@ body > header button img{
     align-items: center;
 }
 
+body > header button img:hover {
+    background-color: rgb(18, 135, 238);
+}
+
+
 body > header > a > img {
+    align-items: center;
 
     height: 2em;
-  padding-left: .5em;
+    padding-left: .5em;
     margin-right: 1em;
+
 }
 #menu-usuario {
     inset: unset;
@@ -134,102 +143,24 @@ body > header > a > img {
 
 /* endregion */
 
-.panel {
-    min-width: 300px;
-    border: solid 1px #ccc;
-    border-radius: .5rem;
-    box-shadow: 0 .5rem .5rem #00000063;
-    padding: .5rem;
-}
-
-main {
-    display: grid;
-    place-content: center;
-    height: calc(100dvh - var(--header-height));
-}
-
-.panel > h1 {
-    font-size: 1.5em;
-    margin-bottom: 1em;
-}
-/*region --- Login --- */
-#login {
-    display: flex;
-    flex-direction: column;
-}
-
-#login > input {
-    margin-bottom: 1em;
-}
-
-#login > input[type="submit"] {
-    width: 150px;
-    padding: .5em;
-    align-self: center;
-    border-radius: .5em;
-    border: 1px solid #ccc;
-}
-/*endregion*/
-
-/* region --- Formularios --- */
-
 input {
     padding: .3em .5em;
-    border-radius: .3em;
+    border-radius: .7em;
     border: 1px solid rgba(0, 0, 0, 0.3);
     outline-color: rgba(49, 105, 190, 0.3);
+    cursor: pointer;
+    font-weight: bold;
+    height: 1em;
+
 }
 
-input::placeholder {
-    font-style: italic;
+
+input[type=button]:hover {
+    background-color: rgb(180, 182, 183);
 }
 
-input[type=submit]:hover {
-    background-color: rgba(49, 105, 190, 0.3);
-}
 
-label:has(+ input[required])::after {
-    content: '*';
-    color: red;
-    margin-left: .6ch;
-}
 
-input:user-invalid {
-    outline: 2px solid rgba(225, 13, 13, 0.3);
-}
-
-input:user-valid {
-    outline: 2px solid rgba(53, 144, 39, 0.3);
-}
-
-input:focus:invalid {
-    outline: 2px solid rgba(255, 193, 9, 0.3);
-}
-
-/*endregion*/
-
-.panel > a {
-    display: block;
-    text-align: center;
-}
-
-.nota {
-    border: solid 1px #ccc;
-    margin: 1em;
-    padding: 1em;
-    border-radius: .5em;
-}
-
-.nota .fecha {
-    font-size: 80%;
-    font-style: italic;
-    opacity: .8;
-}
-
-.contenedor {
-    max-width: 80ch;
-    margin: 0 auto;
-}
 
 
 

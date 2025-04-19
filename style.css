@@ -1,0 +1,238 @@
+/* region --- RESET --- */
+* { margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; }
+
+body { min-height: 100dvh; }
+input, button, textarea, select { font: inherit; }
+
+p { text-wrap: pretty; }
+h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
+
+img, video, svg { height: auto; max-width: 100%; }
+
+@media (prefers-reduced-motion: reduce)  {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
+    }
+}
+
+a { color: inherit; }
+/* endregion */
+
+:root {
+    --header-height: 60px;
+}
+
+body {
+    font-family: system-ui;
+}
+
+/* region --- MENU --- */
+body > header {
+    position: sticky;
+    padding: .5rem;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    background-color: #0b082d;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    
+
+}
+
+body > header > nav {
+    display: flex;
+    gap: 1em;
+    flex-grow: 1;
+    justify-content: right;
+    padding-right: 1em;
+}
+
+
+body > header nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1em;
+}
+
+body > header button[popovertarget] {
+    anchor-name: --menu-usuario;
+}
+
+/* hacemos mas pequeño el icono del perfil */
+body > header p{
+    padding: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+    color: white;
+}
+
+body > header input{
+    margin: 1em;
+    height: 2em;
+    display: flex;
+   
+}
+body > header button{
+    background-color: transparent;
+    border: 0;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body > header button img{
+    background-color: transparent;
+    border: 0;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body > header > a > img {
+
+    height: 2em;
+  padding-left: .5em;
+    margin-right: 1em;
+}
+#menu-usuario {
+    inset: unset;
+    position-anchor: --menu-usuario;
+    top: anchor(bottom);
+    left: anchor(right);
+    margin-top: .3em;
+    position-try-fallbacks: --bottom-left;
+
+    max-width: 20ch;
+    padding: 1em;
+    border: none;
+    border-radius: .2em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#menu-usuario div:first-child {
+    font-size: .8em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+#menu-usuario div {
+    padding: 0.5em;
+}
+
+@position-try --bottom-left {
+    inset: unset;
+    top: anchor(bottom);
+    right: anchor(right);
+}
+
+/* endregion */
+
+.panel {
+    min-width: 300px;
+    border: solid 1px #ccc;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem .5rem #00000063;
+    padding: .5rem;
+}
+
+main {
+    display: grid;
+    place-content: center;
+    height: calc(100dvh - var(--header-height));
+}
+
+.panel > h1 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+/*region --- Login --- */
+#login {
+    display: flex;
+    flex-direction: column;
+}
+
+#login > input {
+    margin-bottom: 1em;
+}
+
+#login > input[type="submit"] {
+    width: 150px;
+    padding: .5em;
+    align-self: center;
+    border-radius: .5em;
+    border: 1px solid #ccc;
+}
+/*endregion*/
+
+/* region --- Formularios --- */
+
+input {
+    padding: .3em .5em;
+    border-radius: .3em;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    outline-color: rgba(49, 105, 190, 0.3);
+}
+
+input::placeholder {
+    font-style: italic;
+}
+
+input[type=submit]:hover {
+    background-color: rgba(49, 105, 190, 0.3);
+}
+
+label:has(+ input[required])::after {
+    content: '*';
+    color: red;
+    margin-left: .6ch;
+}
+
+input:user-invalid {
+    outline: 2px solid rgba(225, 13, 13, 0.3);
+}
+
+input:user-valid {
+    outline: 2px solid rgba(53, 144, 39, 0.3);
+}
+
+input:focus:invalid {
+    outline: 2px solid rgba(255, 193, 9, 0.3);
+}
+
+/*endregion*/
+
+.panel > a {
+    display: block;
+    text-align: center;
+}
+
+.nota {
+    border: solid 1px #ccc;
+    margin: 1em;
+    padding: 1em;
+    border-radius: .5em;
+}
+
+.nota .fecha {
+    font-size: 80%;
+    font-style: italic;
+    opacity: .8;
+}
+
+.contenedor {
+    max-width: 80ch;
+    margin: 0 auto;
+}
+
+
+
+
+
+

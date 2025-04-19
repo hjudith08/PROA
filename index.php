@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="src/css/estilos.css">
 </head>
 <body>
-    <header>
+<header>
         <a href="./">
             <img src="imagenes/LogoEduSyncBlanco.png" alt="Logotipo">
         </a>
@@ -18,15 +18,12 @@
         <nav>
             <ul>
                 <input type="button" value="CONTACTO" onclick="location.href='./Contacto.php'">
+                <!-- login-->
+                <input type="button" value="LOGIN" onclick="location.href='./src/app/EduSync/index.php'">
             </ul>
         </nav>
         
-        <button popovertarget="menu-usuario"><img src="imagenes/vik.jpg" alt=""></button>
-        <div id="menu-usuario" popover>
-            <div>Bienvenido Victor Nicolas!<br><?php echo $userdata['nombre'] . " " . $userdata['apellidos']; ?></div>
-            <div><a href="./mis-herramietas.php">Mis herramientas</a></div>
-            <div><a href="./logout.php">Salir</a></div>
-        </div>
     </header>
+
 </body>
 </html>

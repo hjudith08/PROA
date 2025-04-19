@@ -14,18 +14,19 @@ $userdata = $usuarios[0];
     
     <header>
         <a href="./">
-            <img src="../../../imagenes/LogoEduSyncBlanco.png" alt="Logotipo">
+            <img src="../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
         </a>
         <nav>
             <ul>
-                <input type="button" value="CONTACTO" onclick="location.href='./Contacto.php'">
+                <input type="button" value="CONTACTO" onclick="location.href='../EduSync/contacto.php'">
             </ul>
         </nav>
         
-        <button popovertarget="menu-usuario"><img src="../../../imagenes/vik.jpg" alt=""></button>
+        <button popovertarget="menu-usuario"><img src="../../../imagenes/user_1.png" alt=""></button>
         <div id="menu-usuario" popover>
             <div>Bienvenido <?php echo $userdata['nombre'] . " " . $userdata['apellidos'];?>!</div>
-            <div><a href="./mis-herramietas.php">Mis herramientas</a></div>
+            <div><a href="../EduSync/mis-herramientas.php">Mis herramientas</a></div>
             <div><a href="../../../">Salir</a></div>
+            
         </div>
     </header>

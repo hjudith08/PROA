@@ -25,6 +25,7 @@ a { color: inherit; }
 
 :root {
     --header-height: 60px;
+    
 }
 
 body {
@@ -38,7 +39,7 @@ body > header {
     height: var(--header-height);
     display: flex;
     align-items: center;
-    background-color: #0b082d;
+    background-color: #F2F5FF;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -65,7 +66,6 @@ body > header button[popovertarget] {
 body > header p{
     display: flex;
     align-items: center;
-
     color: white;
 }
 
@@ -73,8 +73,10 @@ body > header input{
     margin: .5em;
     height: 2em;
     display: flex;
-    background-color: #E8D9C5;
+    background-color: transparent;
+    border: 0;
 }
+
 body > header button{
     background-color: transparent;
     border: 0;
@@ -87,17 +89,17 @@ body > header button{
 body > header button img{
     padding: .1em;
     margin: 1em;
-    background-color: #E8D9C5;
-    border: 0;
     border-radius: .7em;
     width: 2em;
     height: 2em;
     display: flex;
     align-items: center;
+    background-color: transparent;
+    border: 0;
 }
 
 body > header button img:hover {
-    background-color: rgb(18, 135, 238);
+    background-color: rgb(180, 182, 183);
     
 }
 
@@ -143,7 +145,7 @@ body > header > a > img {
 /* endregion */
 
 input {
-    padding: .3em .5em;
+    padding: .3em 1em;
     border-radius: .7em;
     border: 1px solid rgba(0, 0, 0, 0.3);
     outline-color: rgba(49, 105, 190, 0.3);
@@ -157,6 +159,8 @@ input {
 input[type=button]:hover {
     background-color: rgb(180, 182, 183);
 }
+
+/* Login */
 
 
 

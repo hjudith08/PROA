@@ -26,7 +26,20 @@ $userdata = $usuarios[0];
         <div id="menu-usuario" popover>
             <div>Bienvenido <?php echo $userdata['nombre'] . " " . $userdata['apellidos'];?>!</div>
             <div><a href="../EduSync/mis-herramientas.php">Mis herramientas</a></div>
-            <div><a href="../../../">Salir</a></div>
-            
-        </div>
-    </header>
+            <div><button popovertarget="confirmar-cierre">Salir</button></div>
+    </div>
+</header>
+
+<!-- Popover de confirmación -->
+<div id="confirmar-cierre" popover>
+    <p>¿Estás seguro que quieres cerrar sesión?</p>
+    <button onclick="cerrarSesion()">Sí</button>
+    <button onclick="document.getElementById('confirmar-cierre').hidePopover()">No</button>
+</div>
+
+<script>
+function cerrarSesion() {
+    // Redirige al script de cierre de sesión real
+    window.location.href = "../../../"; // o el archivo PHP que uses
+}
+</script>

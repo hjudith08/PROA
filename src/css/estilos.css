@@ -164,8 +164,80 @@ input[type=button]:hover {
 
 
 
+/* landing page */
 
+.hero {
+    background-image: url('../../imagenes/vik.jpg'); /* Usa aquí tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurece un poco la imagen para mejor contraste */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    color: white;
+    text-align: right;
+    padding: 20px;
+    margin-left: 400px;
+}
+
+.hero-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hero-content .logo-proa {
+    max-width: 150px;
+    margin: 20px 0;
+}
+
+.boton-demo {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #2c3e50;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.sobre-nosotros {
+    background-color: #eef1f6;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.sobre-nosotros h2 {
+    color: #1f2c4c;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.sobre-nosotros p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+}
+
+.icono {
+    margin-top: 30px;
+    width: 50px;
+}
 
 
 

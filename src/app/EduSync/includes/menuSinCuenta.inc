@@ -1,6 +1,6 @@
 <header>
         <a href="./">
-            <img src="imagenes/LogoEduSyncAzul.png" alt="Logotipo">
+            <img src="../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
         </a>
     
         <nav>

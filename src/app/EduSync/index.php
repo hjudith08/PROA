@@ -35,5 +35,10 @@ include 'includes/menuSinCuenta.inc';
     <img src="../../../imagenes/usuariosazul.png" alt="Icono personas" class="icono">
 </section>
 
+
+<?php
+include 'includes/footer.inc';
+?>
+
 </body>
 </html>

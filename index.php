@@ -13,6 +13,10 @@
 <?php
 include 'src/app/EduSync/includes/menuSinCuenta.inc';
 ?>
-
 </body>
+<footer>
+<?php
+include 'src/app/EduSync/includes/footer.inc';
+?>
+</footer>
 </html>

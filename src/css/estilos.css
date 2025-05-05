@@ -212,7 +212,7 @@ input {
     font-weight: bold;
     border-radius: 8px;
     margin-bottom: 15px;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* AÑADIDO */
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .boton-demo:hover {
@@ -223,22 +223,27 @@ input {
 .sobre-nosotros {
     background-color: #eef1f6;
     height: 680px;
-    display:block;
-    align-items: center;
-    justify-content: center;
+    display: flex; /* Cambiar de block a flex */
+    flex-direction: column; /* Organizar elementos en columna */
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
     text-align: center;
     padding: 80px 20px;
 }
 
+
+
 .sobre-nosotros h2 {
     color: #1f2c4c;
     font-size: 2em;
+    margin-bottom: 50px;
 }
 
 .sobre-nosotros p {
     font-size: 1.1em;
     line-height: 1.6;
     color: #333;
+    margin-bottom: 50px;
 }
 
 .icono {
@@ -273,4 +278,95 @@ input {
 .boton-flecha:hover {
     background-color: #ddd;
     transform: translateY(3px);
+}
+
+/*CSS MOVIL*/
+@media (max-width: 1170px) {
+
+    .hero {
+        background-image: url('../../imagenes/foto-landing.JPG');
+        height: 100vh;
+    }
+
+    .overlay {
+        padding: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin: 0;
+        padding: 40px 20px 20px;
+        text-align: center;
+        color: white;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5em;
+        margin-bottom: 30px;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+
+    .hero-content .logo-proa {
+        max-width: 150px;
+        margin: 15px 0;
+        margin-bottom: 40px;
+    }
+    
+    .boton-demo{
+        margin-bottom: 40px;
+    }
+
+    .flecha-bajar {
+        margin: 20px 0 0;
+    }
+
+    .boton-flecha {
+        width: 35px;
+        height: 35px;
+    }
+
+    .sobre-nosotros {
+        padding: 40px 20px;
+        height: 80vh;
+    }
+
+    .sobre-nosotros h2 {
+        font-size: 1.4em;
+        margin-bottom: 20px;
+    }
+
+    .sobre-nosotros p {
+        font-size: 1em;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .icono {
+        width: 35px;
+        margin: 10px 0 0;
+    }
+
+    body > header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        padding: 0.5rem 1rem;
+    }
+
+    body > header nav ul {
+        flex-direction: row;
+        justify-content: end;
+    }
+
+    body > header a img {
+        height: 1.8em;
+    }
 }

@@ -1,0 +1,432 @@
+
+/* region --- RESET --- */
+* { margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; }
+
+body { min-height: 100dvh;
+    background-color: #F8F5FF;}
+input, button, textarea, select { font: inherit; }
+
+p {text-wrap: pretty;}
+h1, h2, h3, h4, h5, h6 { text-wrap: balance;}
+
+img, video, svg { height: auto; max-width: 100%; }
+
+@media (prefers-reduced-motion: reduce)  {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
+    }
+}
+
+a { color: inherit; }
+
+:root {
+    --header-height: 60px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* endregion */
+
+/* region --- HEADER --- */
+body > header {
+    position: sticky;
+    padding: .5rem;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    background-color: #3F2A52;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body > header > nav {
+    display: flex;
+    gap: 1em;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo-asignatura {
+    width: 345px;
+    height: 32px;
+    margin-left: 258px;
+    color: white;
+    line-height: 32px;
+}
+
+body > header nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1em;
+}
+
+body > header button[popovertarget] {
+    anchor-name: --menu-usuario;
+}
+
+body > header p{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+body > header input{
+    margin: .5em;
+    height: 2em;
+    display: flex;
+    background-color: transparent;
+    border: 0;
+}
+
+body > header button{
+    background-color: transparent;
+    border: 0;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body > header button img{
+    padding: .1em;
+    margin: 1em;
+    border-radius: .7em;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+}
+
+body > header button img:hover {
+    background-color: rgb(180, 182, 183);
+}
+
+body > header > a > img {
+    align-items: center;
+    margin: .5em;
+    height: 2em;
+    padding-left: .5em;
+    margin-right: 1em;
+}
+
+header nav .usuario-bienvenida {
+    margin-right: 44px;
+    color: #ffffff;
+}
+
+#menu-usuario .nombre-menu {
+    color: black;
+}
+
+#menu-usuario {
+    inset: unset;
+    position-anchor: --menu-usuario;
+    top: anchor(bottom);
+    left: anchor(right);
+    margin-top: .3em;
+    position-try-fallbacks: --bottom-left;
+    max-width: 20ch;
+    padding: 1em;
+    border: none;
+    border-radius: .2em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#menu-usuario div:first-child {
+    font-size: .8em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+#menu-usuario div {
+    padding: 0.5em;
+}
+
+@position-try --bottom-left {
+    inset: unset;
+    top: anchor(bottom);
+    right: anchor(right);
+}
+/* endregion HEADER */
+
+/* region --- SIDEBAR --- */
+aside.sidebar {
+    position: fixed;
+    top: var(--header-height, 70px);
+    left: 0;
+    width: 220px;
+    height: calc(100dvh - var(--header-height, 70px));
+    background-color: #7865A0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    padding-top: 0;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    height: 92px;
+    padding: 0 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    background-color: #7865A0;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.2) inset;
+    transition: all 0.2s ease;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+}
+
+.menu-btn:hover {
+    background-color: #BEAED8;
+    color: black;
+}
+
+.icono-menu {
+    width: 29px;
+    height: 29px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.menu-btn span {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-btn.activo {
+    background-color: #f7f7fb;
+    box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.1) inset,
+    0 3px 5px rgba(0, 0, 0, 0.1) inset;
+    color: #3F2A52;
+}
+
+.menu-btn.activo .icono-activo {
+    filter: brightness(0);
+}
+
+@media (max-width: 250px) {
+    .menu-btn {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    .icono-menu {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+}
+/* endregion SIDEBAR */
+
+/* region --- CONTENIDO PRINCIPAL Y TAREAS --- */
+.contenido-principal {
+    position: relative;
+    margin-left: 220px;
+    padding: 2rem;
+    min-height: calc(100dvh - var(--header-height));
+}
+
+.capa-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #D9D9D9;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.contenedor-tareas {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.cabecera-tareas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.cabecera-tareas h1 {
+    font-size: 1.8rem;
+    color: #3F2A52;
+}
+
+.filtros-tareas select {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-size: 0.9rem;
+}
+
+/* Estilos para la tabla Flexbox */
+.tabla-flex-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 1rem;
+}
+
+.fila-flex {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.encabezado-flex {
+    background-color: #D9D9D9;
+    color: #000000;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.columna-flex {
+    flex: 1;
+    padding: 1rem;
+    text-align: left;
+}
+
+/* Filas alternas */
+.fila-flex:nth-child(even):not(.encabezado-flex) {
+    background-color: #F8F5FF;
+}
+
+.fila-flex:nth-child(odd):not(.encabezado-flex) {
+    background-color: #FFFFFF;
+}
+
+.fila-flex:not(.encabezado-flex):hover {
+    background-color: #EDE7F6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .contenido-principal {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    aside.sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .tabla-flex-container {
+        gap: 8px;
+    }
+
+    .fila-flex {
+        flex-wrap: wrap;
+        padding: 0.5rem;
+    }
+
+    .columna-flex {
+        flex: 1 1 100%;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .encabezado-flex {
+        display: none;
+    }
+
+    .columna-flex::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.25rem;
+        color: #3F2A52;
+    }
+}
+/* endregion TAREAS */
+
+/* region --- POPOVER CONFIRMACION --- */
+#confirmar-cierre {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 500px;
+    height: 220px;
+    font-size: 1.5rem;
+}
+
+#confirmar-cierre button {
+    font-size: 1.2rem;
+    margin: 2rem;
+    padding: 1.2rem 3rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#confirmar-cierre button:first-of-type {
+    background-color: #007BFF;
+    color: white;
+}
+
+#confirmar-cierre button:last-of-type {
+    background-color: #ccc;
+}
+
+@media (max-width: 600px) {
+    #confirmar-cierre {
+        width: 90%;
+        height: auto;
+        padding: 1.5rem;
+    }
+
+    #confirmar-cierre button {
+        margin: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+/* endregion POPOVER */
+

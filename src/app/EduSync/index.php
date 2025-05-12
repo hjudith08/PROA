@@ -49,7 +49,7 @@ include 'includes/menuSinCuenta.inc';
         Somos una empresa proveniente de una matriz de GTI (Grado en Tecnologías Interactivas) dedicada a mejorar la experiencia educativa dentro de las instituciones, diseñamos módulos educativos que hacen que la interacción entre alumnos y profesores sea más simple, fluida y agradable. Queremos que las plataformas educativas no solo funcionen, sino que realmente conecten con quienes las usan.
     </p>
     <!-- icono -->
-    <img src="../../../imagenes/usuariosazul.png" alt="Icono personas" class="icono">
+    <img src="../../../imagenes/usuariosazul.png" alt="Icono personas" class="icono-ns">
 </section>
 
 <?php

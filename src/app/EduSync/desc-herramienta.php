@@ -18,8 +18,102 @@ include 'includes/menuSinCuenta.inc';
 
 <section class="desc-section1">
     <div class="sec1-div">
-            
+        <div class="informacion-sec1">
+            <img src="../../../imagenes/LogosProaBlanco.png" alt="Logo PROA" class="logo-proa"><br>
+            <p>Ayudamos a las instituciones a tener una mejor interacción entre alumnos y profesores mediante módulos educativos con una interfaz más intuitiva, moderna y agradable.</p>
+            <a href="desc-herramienta.php" class="boton-probar">¡Prueba PROA Gratis!</a>
+        </div>
+        <div class="informacion-sec2">
+            <img src="../../../imagenes/ordenador-proa.png" alt="Ordenador PROA" class="ordenador-proa">
+        </div>
+        <div class="flecha-bajar-h">
+        <a href="#desc-section2" class="boton-flecha">
+            <span class="flecha"><img src="../../../imagenes/down-arrow.png" alt="Boton bajar"></span>
+        </a>
     </div>
+    </div>
+    
+</section>
+
+<section class="desc-section2" id="desc-section2">
+    <div class="container-sec2">
+        <h2>¿Cómo funciona la demo?</h2>
+        <div class="pasos-demo">
+            <div class="paso">
+                <div class="icono">
+                    <img src="../../../imagenes/keyb.png" alt="Icono Credenciales">
+                </div>
+                <h3>Solicita las credenciales</h3>
+                <p>Te facilitaremos unas credenciales temporales para probar nuestro módulo con diferentes vistas</p>
+            </div>
+            <div class="paso">
+                <div class="icono">
+                    <img src="../../../imagenes/demob.png" alt="Icono Demo">
+                </div>
+                <h3>Prueba la DEMO</h3>
+                <p>Puedes ver todas las funcionalidades que podría tener tu web.</p>
+            </div>
+            <div class="paso">
+                <div class="icono">
+                    <img src="../../../imagenes/cartb.png" alt="Icono Compra">
+                </div>
+                <h3>Compra PROA</h3>
+                <p>Si te ha gustado ponte en contacto con nosotros para más información.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="desc-section3">
+    <div class="overlay-s3">
+        <img src="../../../imagenes/fotobg.png" alt="">
+        <p>Nuestra demo educativa ofrece una experiencia interactiva y personalizada para estudiantes, permitiéndoles explorar conceptos de manera práctica y a su propio ritmo.<br><br>
+            Con tecnología de vanguardia y simulaciones inmersivas, facilita un aprendizaje profundo y atractivo. <br>
+            
+            Además, su fácil integración en plataformas educativas existentes mejora la enseñanza sin complicaciones.<br> 
+            
+            Los educadores pueden hacer un seguimiento detallado del progreso de los estudiantes, optimizando la enseñanza en tiempo real. <br><br>
+            
+            ¡Descubre cómo esta herramienta puede transformar la educación de manera eficiente y accesible!</p>
+    </div>
+</section>
+
+<section class="desc-white">
+</section>
+
+<section class="desc-section4">
+    <div class="contenedor-flex">
+        <div class="img-movil">
+            <img src="../../../imagenes/movil-proa.png" alt="Vista móvil">
+        </div>
+        <div class="texto-multiplataforma">
+            <h2><strong>Funcionalidad multiplataforma</strong></h2>
+            <p>
+                App educativa multiplataforma accesible desde móvil, tablet y ordenador.<br>
+                Sincronización en tiempo real y experiencia fluida para alumnos, docentes y familias.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="desc-section5">
+    <div class="contenedor-flex">
+        <div class="texto-inferior">
+            <p>
+                La app tiene un diseño intuitivo y adaptable, con una interfaz clara y moderna que facilita la navegación en cualquier dispositivo.
+                Su experiencia visual es atractiva y optimizada para un uso cómodo y eficiente.
+            </p>
+        </div>
+        <div class="img-tablet">
+            <img src="../../../imagenes/tablet-proa.png" alt="Vista tablet/ordenador">
+        </div>
+        
+    </div>
+</section>
+
+
+
+<section class="desc-white">
 </section>
 
 

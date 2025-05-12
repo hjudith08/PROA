@@ -12,7 +12,7 @@ $userdata = $usuarios[0];
 ?>
 
 <header>
-    <a href="./">
+    <a href="index.php">
         <img src="imagenes/LogosProaBlanco.png" alt="Logotipo">
     </a>
     <nav>
@@ -33,7 +33,7 @@ $userdata = $usuarios[0];
 </header>
 <aside class="sidebar">
     <nav class="menu-container">
-        <button class="menu-btn">
+        <button class="menu-btn" onclick="window.location.href='InicioAsignatura.php';">
             <img src="imagenes/homeb.png" class="icono-menu" />
             <span>Inicio asignatura</span>
         </button>
@@ -43,7 +43,6 @@ $userdata = $usuarios[0];
         </button>
     </nav>
 </aside>
-<!-- Añade esto en el body, después del sidebar -->
 <main class="contenido-principal">
     <div class="capa-fondo"></div>
 
@@ -51,11 +50,11 @@ $userdata = $usuarios[0];
         <div class="cabecera-tareas">
             <h1>TAREAS</h1>
             <div class="filtros-tareas">
-                <select>
-                    <option>Todas las tareas</option>
-                    <option>Pendientes</option>
-                    <option>Completadas</option>
-                    <option>Calificadas</option>
+                <select id="filtro-tareas">
+                    <option value="todas">Todas las tareas</option>
+                    <option value="pendiente">Pendientes</option>
+                    <option value="completado">Completadas</option>
+                    <option value="calificada">Calificadas</option>
                 </select>
             </div>
         </div>
@@ -106,6 +105,15 @@ $userdata = $usuarios[0];
     </div>
 </main>
 
+<footer class="footer-anclado">
+    <div class="footer-contenido">
+        <div class="footer-poweredby">
+            <span class="footer-texto">Powered by</span>
+            <img src="imagenes/LogoEduSyncBlanco.png" alt="Logo Edusync" class="footer-logo">
+        </div>
+    </div>
+</footer>
+
 <!-- Popover de confirmación -->
 <div id="confirmar-cierre" popover>
     <p>¿Estás seguro que quieres cerrar sesión?</p>
@@ -119,3 +127,4 @@ $userdata = $usuarios[0];
         window.location.href = "../../../"; // o el archivo PHP que uses
     }
 </script>
+<script src="js/FiltroTareas.js"></script>

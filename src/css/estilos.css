@@ -36,7 +36,20 @@ body {
 /* endregion */
 
 /* region --- HEADER --- */
+body {
+    display: grid;
+    grid-template-rows: var(--header-height) 1fr auto; /* header, main, footer */
+    grid-template-columns: 220px 1fr; /* sidebar, contenido */
+    grid-template-areas:
+        "header header"
+        "sidebar contenido"
+        "footer footer";
+    min-height: 100dvh;
+}
+
 body > header {
+    grid-area: header;
+    z-index: 2;
     position: sticky;
     padding: .5rem;
     height: var(--header-height);
@@ -161,17 +174,16 @@ header nav .usuario-bienvenida {
 
 /* region --- SIDEBAR --- */
 aside.sidebar {
-    position: fixed;
-    top: var(--header-height, 70px);
-    left: 0;
+    /* Quitar: position: fixed; top: var(--header-height)... */
     width: 220px;
-    height: calc(100dvh - var(--header-height, 70px));
     background-color: #7865A0;
     display: flex;
     flex-direction: column;
     box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 10;
+    z-index: 1;
     padding-top: 0;
+    height: 100%;
+    grid-area: sidebar;
 }
 
 .menu-container {
@@ -248,7 +260,7 @@ aside.sidebar {
 }
 /* endregion SIDEBAR */
 
-/* region --- CONTENIDO PRINCIPAL Y TAREAS --- */
+/* region --- TAREAS --- */
 .contenido-principal {
     position: relative;
     margin-left: 220px;
@@ -275,22 +287,25 @@ aside.sidebar {
 }
 
 .cabecera-tareas {
+    border: 1px solid #75619E;
+    border-radius: 8px; /* puedes ajustar el valor a tu gusto */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2rem;
-    border-bottom: 1px solid #eee;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+
 .cabecera-tareas h1 {
-    font-size: 1.8rem;
-    color: #3F2A52;
+    font-size: 1.5rem;
+    color: #75619E;
 }
 
 .filtros-tareas select {
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid #75619E;
     background-color: white;
     font-size: 0.9rem;
 }
@@ -381,6 +396,90 @@ aside.sidebar {
 }
 /* endregion TAREAS */
 
+/* region --- FOOTER --- */
+main.contenido-principal {
+    grid-area: contenido;
+}
+
+.contenido-principal {
+    margin-left: 0; /* El grid ya maneja el espacio */
+}
+
+.footer-anclado {
+    background-color: #3A2D34;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 100;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 0;
+    width: 100%;
+}
+
+.footer-contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.footer-texto {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.footer-logo {
+    height: 30px;
+    width: auto;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-logo:hover {
+    opacity: 1;
+}
+
+footer.footer-anclado {
+    grid-area: footer;
+    width: 100%;
+    margin-left: 0;
+}
+
+.footer-poweredby {
+    display: flex;
+    align-items: center;
+    gap: 26px; /* Espacio entre texto y logo */
+    margin-left: auto;  /* Empuja el bloque hacia la derecha */
+    margin-right: 34px; /* Separación del borde derecho */
+}
+
+/* Ajustes para móvil */
+@media (max-width: 768px) {
+    .footer-anclado {
+        width: 100%;
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .footer-contenido {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .footer-texto {
+        order: 2;
+        font-size: 0.8rem;
+    }
+
+    .footer-logo {
+        order: 1;
+        height: 25px;
+    }
+}
+/* endregion FOOTER */
+
 /* region --- POPOVER CONFIRMACION --- */
 #confirmar-cierre {
     position: fixed;
@@ -429,4 +528,3 @@ aside.sidebar {
     }
 }
 /* endregion POPOVER */
-

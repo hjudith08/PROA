@@ -27,7 +27,7 @@ include 'includes/menuSinCuenta.inc';
                 <img src="../../../imagenes/LogosProaBlanco.png" alt="Logo PROA" class="logo-proa"><br>
                 
                 <!-- botón que simula una llamada a la demo -->
-                <a href="#" class="boton-demo">DEMO PROA</a>
+                <a href="desc-herramienta.php" class="boton-demo">DEMO PROA</a>
 
                 <p>Descubre cómo podemos ayudarte a modernizar tu institución<br> hoy mismo con nuestras herramientas educativas.</p>
             </div>

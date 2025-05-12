@@ -285,6 +285,7 @@ body > footer {
     color: white;
     padding: 1rem 0;
     text-align: center;
+    position: fixed;
 }
 
 body > footer .footer-container {
@@ -342,9 +343,14 @@ body > footer .footer-col img {
     pointer-events: auto;
 }
 
+/* -------------- ESTILO DESCRIPCIÓN HERRAMIENTA ------------------ */
 
+.desc-section1 {
+    height: 100vh;
+    background-color: #2F4256;
+}
 
-/* -------------- CSS MOVIL RESPONSIVE ------------------ */
+/* -------------- CSS MOVIL TABLET RESPONSIVE ------------------ */
 @media (max-width: 1170px) {
 
     .hero {

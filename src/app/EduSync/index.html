@@ -11,10 +11,19 @@
 
 <body>
 
-<?php
-// include del header sin sesión iniciada
-include 'includes/menuSinCuenta.inc';
-?>
+<header>
+        <a href="./">
+            <img src="../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
+        </a>
+    
+        <nav>
+            <ul>
+                <input type="button" value="CONTACTO" onclick="location.href='./src/app/EduSync/contacto.php'">
+                <!-- login-->
+                <input type="button" value="LOGIN" onclick="location.href='./src/app/EduSync/login.php'">
+            </ul>
+        </nav>
+</header>
 
 <!-- sección principal -->
 <section class="hero">
@@ -27,7 +36,7 @@ include 'includes/menuSinCuenta.inc';
                 <img src="../../../imagenes/LogosProaBlanco.png" alt="Logo PROA" class="logo-proa"><br>
                 
                 <!-- botón que simula una llamada a la demo -->
-                <a href="desc-herramienta.php" class="boton-demo">DEMO PROA</a>
+                <a href="desc-herramienta.html" class="boton-demo">DEMO PROA</a>
 
                 <p>Descubre cómo podemos ayudarte a modernizar tu institución<br> hoy mismo con nuestras herramientas educativas.</p>
             </div>
@@ -52,10 +61,20 @@ include 'includes/menuSinCuenta.inc';
     <img src="../../../imagenes/usuariosazul.png" alt="Icono personas" class="icono-ns">
 </section>
 
-<?php
-// include del pie de página
-include 'includes/footer.inc';
-?>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <p>Contáctanos: edusync@gti.com</p>
+        </div>
+        <div class="footer-col">
+            <p>© 2025 - EduSync | Matriz de GTI</p>
+        </div>
+        <div class="footer-col">
+            <img src="../../../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
+        </div>
+    </div>
+</footer>
+
 
 <!-- botón para volver arriba -->
 <a href="#" class="scroll-to-top" aria-label="Subir al inicio">

@@ -11,10 +11,19 @@
 
 <body>
 
-<?php
-// include del header sin sesión iniciada
-include 'includes/menuSinCuenta.inc';
-?>
+<header>
+        <a href="./">
+            <img src="../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
+        </a>
+    
+        <nav>
+            <ul>
+                <input type="button" value="CONTACTO" onclick="location.href='./src/app/EduSync/contacto.php'">
+                <!-- login-->
+                <input type="button" value="LOGIN" onclick="location.href='./src/app/EduSync/login.php'">
+            </ul>
+        </nav>
+</header>
 
 <section class="desc-section1">
     <div class="sec1-div">
@@ -111,16 +120,22 @@ include 'includes/menuSinCuenta.inc';
     </div>
 </section>
 
-
-
 <section class="desc-white">
 </section>
 
-
-<?php
-// include del pie de página
-include 'includes/footer.inc';
-?>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <p>Contáctanos: edusync@gti.com</p>
+        </div>
+        <div class="footer-col">
+            <p>© 2025 - EduSync | Matriz de GTI</p>
+        </div>
+        <div class="footer-col">
+            <img src="../../../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
+        </div>
+    </div>
+</footer>
 
 <!-- botón para volver arriba -->
 <a href="#" class="scroll-to-top" aria-label="Subir al inicio">

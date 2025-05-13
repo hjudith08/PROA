@@ -346,8 +346,14 @@ body > footer .footer-col img {
 
 /* SECCION 1 */
 .desc-section1 {
+     display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
     height: 100vh;
-    background-color: #2F4256;
+    background-color: #2a3b4c;
+    color: white;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .boton-probar {
@@ -367,21 +373,14 @@ body > footer .footer-col img {
     transform: scale(1.05);
 }
 
-.desc-section1 {
-    align-items: center;
-    background-color: #2a3b4c; /* tono similar al azul grisáceo de fondo */
-    color: white;
-    padding: 60px 20px;
-    font-family: 'Segoe UI', sans-serif;
-}
-
 .sec1-div {
-    max-width: 1200px;
-    margin: 90px auto 10px; /* Centra horizontalmente */
+     max-width: 1200px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    margin: 0 auto;
 }
 
 
@@ -614,11 +613,7 @@ body > footer .footer-col img {
     .boton-demo{
         margin-bottom: 40px;
     }
-
-    .flecha-bajar {
-        margin: 20px 0 0;
-    }
-
+    
     .boton-flecha {
         width: 48px;
         height: 48px;
@@ -641,8 +636,17 @@ body > footer .footer-col img {
     }
 
     .icono {
-        width: 35px;
-        margin: 10px 0 0;
+        width: 50px;
+        height: 50px;
+    }
+
+    .icono img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .pasos-demo {
+        flex-direction: column;
     }
 
     body > header {
@@ -660,5 +664,58 @@ body > footer .footer-col img {
 
     body > header a img {
         height: 1.8em;
+    }
+    
+      .sec1-div {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .informacion-sec1, .informacion-sec2 {
+        flex: 1 1 100%;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .informacion-sec1 h2, .informacion-sec2 h2 {
+        font-size: 1.2rem;
+    }
+
+    .informacion-sec1 p, .informacion-sec2 p {
+        font-size: 1rem;
+    }
+
+    .contenedor-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .desc-section3 {
+        height: auto;
+    }
+
+    .desc-section3 p {
+        font-size: 1rem;
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .flecha-bajar {
+        margin: 0 auto;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .flecha-bajar-h {
+        margin: 0 auto;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .section3 {
+        padding: 2rem 1rem;
     }
 }

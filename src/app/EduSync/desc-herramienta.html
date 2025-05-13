@@ -142,5 +142,18 @@
     <img src="../../../imagenes/high-arrowb.png" alt="Subir inicio pagina">
 </a>
 
+<!-- script para mostrar/ocultar el botón de scroll al hacer scroll -->
+<script>
+    const scrollBtn = document.querySelector('.scroll-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollBtn.classList.add('visible'); // muestra el botón
+        } else {
+            scrollBtn.classList.remove('visible'); // oculta el botón
+        }
+    });
+</script>
+
 </body>
 </html>

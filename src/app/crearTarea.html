@@ -3,117 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROA | Nueva Tarea</title>
-    <link rel="stylesheet" href="../css/estilos.css">
+    <title>Nueva Tarea</title>
+    <link rel="icon" href="imagenes/LogosProaBlancoV3.png" type="image/png">
+    <link rel="stylesheet" href="../css/estiloscrearTarea.css">
 </head>
 <body>
-    <!--Aquí va el header-->
-    <header>
-    <a href="index.html">
-        <img class="logotipo" src="../../images/LogosProaBlanco.png" alt="Logotipo">
-    </a>
-    <nav>
-        <!--<h3 class="titulo-asignatura"><?php echo $asignaturas['seleccion']; ?></h3>-->
-        <h3 class="titulo-asignatura">Álgebra Matricial y Geometría</h3>
-
-        <ul>
-            <!--<div>Bienvenido <?php echo $userdata['nombre'] . " " . $userdata['apellidos'];?>!</div> -->
-            <p class="usuario-bienvenida">Bienvenido xexi mexi</p>
-        </ul>
-    </nav>
-    <button popovertarget="menu-usuario"><img src="imagenes/user_1b.png" alt=""></button>
-    <div id="menu-usuario" popover>
-        <!--<div><?php echo $userdata['nombre'] . " " . $userdata['apellidos'];?>!</div> -->
-        <p class="nombre-menu">xexi mexi</p>
-        <div><button popovertarget="confirmar-cierre">Salir</button></div>
+  <!-- Header -->
+  <header class="header">
+    <div>
+      <img class="header-logo" alt="Logo">
+      <h1 class="header-title">Matemáticas</h1>
     </div>
-</header>
-    <!--Aquí termina el header-->
-
-    <!--Aquí va la barra lateral-->
-   <aside class="sidebar">
-    <nav class="menu-container">
-        <button class="menu-btn" onclick="window.location.href='InicioAsignatura.php';">
-            <img src="imagenes/homeb.png" class="icono-menu" />
-            <span>Inicio asignatura</span>
-        </button>
-        <button class="menu-btn activo">
-            <img src="imagenes/libro-alt.png" class="icono-menu icono-activo" />
-            <span class="texto-activo">Tareas</span>
-        </button>
-    </nav>
-    </aside>
-    <!--Aquí termina la barra lateral-->
-
-    <!--Aquí va el formulario para crear la tarea-->
-<main class="contenido-principal">
-        <div class="capa-fondo"></div>
- <!-- Aquí va el botón volver-->
-    <div class="botones-container">
-        <div class="botonatras" onclick="window.location.href='Asignaturas.html'">
-            <p>Volver</p>
-        </div>
-    </div> 
-<!-- Aquí termina el botón volver -->
-
-<!--Aquí empeiza CREAR TAREA-->
-    <div class="contenedor-tareas">
-        <div class="cabecera-tareas">
-            <h1>CREAR TAREA</h1>
-        </div>
-            <div class="tabla-flex-container"> <!--tabla-flex-container-->
-            <!-- Inputs -->
-            <div class="fila-flex-inputs" style="cursor: pointer;">
-                <div class="columna-flex">Programar tarea para:
-                    <input class="input" type="date">
-                </div>
-                <div class="columna-flex"><!--<span class="estado-pendiente">Pendiente</span>-->Título para:
-                    <input class="input" type="text">
-                </div>
-                <div class="columna-flex descripción">Descripción de la tarea:
-                    <input class="input" type="text">
-                </div>
-                <!-- Contenedor relativo para posicionar elementos absolutos dentro -->
-                <div class="columna-flex">
-                <!-- input file oculto -->
-                    <input class="input" type="file" id="fileInput" style="display:none" />
-
-                <!-- botón personalizado -->
-                    <div for="fileInput" class="custom-file-button input">Subir archivo
-                        <!--<img src="cloud-computing.png" alt="Subir archivo" class="icono-nube" />-->
-                    </div>
-                </div>
-
-                <div class="columna-flex">Fecha de entrega:
-                    <input class="input" type="date">
-                </div>
-                <div class="columna-flex">Puntuación sobre:
-                    <input class="input" type="number">
-                </div>
-            <!--Fin inputs-->
-            <button class="boton-crear/editar">CREAR</button>
-            </div>
-        </div>
+    <div class="header-user">
+      <div class="header-user-text">¡Bienvenido [Nombre del Usuario]!</div>
+      <img class="header-user-icon" alt="User">
     </div>
-</main>
-<footer class="footer-anclado">
-    <div class="footer-contenido">
-        <div class="footer-poweredby">
-            <span class="footer-texto">Powered by</span>
-            <img src="imagenes/LogoEduSyncBlanco.png" alt="Logo Edusync" class="footer-logo">
-        </div>
+  </header>
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-top"></div>
+    <div class="sidebar-nav">
+      <div class="nav-item">
+        <svg class="nav-item-icon" viewBox="0 0 24 24" fill="white">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span class="nav-item-text inactive">Inicio asignatura</span>
+      </div>
+      <div class="nav-item">
+        <svg class="nav-item-icon" viewBox="0 0 24 24" fill="#75619e">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+        <span class="nav-item-text active">Tareas</span>
+      </div>
     </div>
-</footer>
-<!-- PopUp Cerrar Sesión -->
-<div id="popupCerrarSesion" class="popup oculto">
-    <div class="popup-contenido-C">
-        <p class="popup-texto">¿Estás seguro que quieres cerrar sesión?</p>
-        <div class="popup-botones">
-            <button id="btn-si" class="boton-si">Sí</button>
-            <button id="btn-no" class="boton-no">No</button>
-        </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main">
+    <button class="back-button">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Volver
+    </button>
+
+    <div class="card">
+      <div class="card-title">
+        <div class="card-title-text">NUEVA TAREA</div>
+      </div>
+      
+      <div class="card-content">
+        <form class="form" id="taskForm">
+          <!-- Programar tarea para -->
+          <label class="form-label">Programar tarea para:</label>
+          <div class="input-date-wrapper">
+            <input type="date" class="input-date" id="scheduleDate">
+          </div>
+          
+          <!-- Título tarea -->
+          <label class="form-label">Título tarea:</label>
+          <input type="text" class="input-text" id="taskTitle" placeholder="Ingrese el título">
+          
+          <!-- Descripción de la tarea -->
+          <div class="form-row">
+            <label class="form-label">Descripción de la tarea:</label>
+            <textarea class="textarea" id="taskDescription" placeholder="Describa la tarea aquí"></textarea>
+          </div>
+          
+          <!-- Adjuntar archivos -->
+          <label class="form-label">Adjuntar archivos:</label>
+          <div class="file-input-wrapper">
+            <input type="file" class="file-input" id="taskFile">
+            <button type="button" class="file-input-button">
+              <svg class="file-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              <span>Subir archivo</span>
+            </button>
+          </div>
+          
+          <!-- Fecha entrega -->
+          <label class="form-label">Fecha entrega:</label>
+          <div class="input-date-wrapper">
+            <input type="date" class="input-date" id="dueDate">
+          </div>
+          
+          <!-- Puntuación sobre -->
+          <label class="form-label">Puntuación sobre:</label>
+          <input type="number" class="input-text" id="taskScore" placeholder="100" min="1">
+          
+          <!-- Submit button -->
+          <div class="submit-button">
+            <button type="submit">CREAR</button>
+          </div>
+        </form>
+      </div>
     </div>
-</div>
-<!--------------------------------------------------->
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-text">powered by</div>
+    <img class="footer-logo" alt="Logoedusyncbb">
+  </footer>
+
+  <script src="creartarea.js"></script>
 </body>
 </html>

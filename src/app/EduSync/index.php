@@ -11,10 +11,18 @@
 <body>
 
 <?php
+
+include 'includes/menuSinCuenta.inc';
 include 'includes/menuConCuenta.inc';
 ?>
 
 
+
 <h1>Esta es la landing page</h1>
+
+<?php
+include 'includes/footer.inc';
+?>
+
 </body>
 </html>

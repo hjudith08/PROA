@@ -1,8 +1,0 @@
-[{"dni":"01-9218611","nombre":"Lief","apellidos":"Simants Dredge", "email": "l.simdre@epsg.upv.es", "password": "9218611", "rol": "alumno" },
-{"dni":"04-1320191","nombre":"Merline","apellidos":"Kirdsch Kampshell", "email": "m.kirkam@epsg.upv.es", "password": "1320191", "rol": "alumno" },
-{"dni":"05-9971924","nombre":"Debora","apellidos":"Rawstorne", "email": "d.rawabc@epsg.upv.es", "password": "9971924", "rol": "alumno" },
-{"dni":"60-4525956","nombre":"Kevan","apellidos":"Pounds Mainston", "email": "k.poumai@upv.es", "password": "4525956", "rol": "profesor" },
-{"dni":"64-6055365","nombre":"Luelle","apellidos":"Pridmore Starsmeare", "email": "l.prista@upv.es", "password": "6055365", "rol": "profesor" },
-{"dni":"64-6738133","nombre":"Eolande","apellidos":"Merriton Mizzi", "email": "e.mermiz@upv.es", "password": "6738133", "rol": "profesor" },
-{"dni":"88-1316390","nombre":"Ondrea","apellidos":"Brezlaw Sherwill", "email": "o.breshe@upv.es", "password": "1316390", "rol": "pas" },
-{"dni":"91-1970980","nombre":"Brooke","apellidos":"Malimoe Thomerson", "email": "b.maltho@upv.es", "password": "1970980", "rol": "pas" }]

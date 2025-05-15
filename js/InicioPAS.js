@@ -64,12 +64,19 @@ function cargarAsignaturas(lista = asignaturas) {
         
         // Añadir evento al checkbox
         const checkbox = item.querySelector('input[type="checkbox"]');
-        checkbox.addEventListener('change', function() {
-            asignatura.selected = this.checked;
-            item.querySelector('div:first-child').innerHTML = this.checked ? 
-                '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>' : 
-                '';
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                // Desmarcar todos los demás
+                asignaturas.forEach(a => a.selected = false);
+                asignatura.selected = true;
+            } else {
+                asignatura.selected = false;
+            }
+
+            // Recargar la lista para reflejar cambios
+            cargarAsignaturas(lista);
         });
+
         
         listaHtml.appendChild(item);
     });

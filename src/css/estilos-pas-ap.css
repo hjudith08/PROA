@@ -250,7 +250,7 @@ header {
 }
 
 .lista-asignaturas {
-    max-height: 200px;
+    max-height: 250px;
     overflow-y: auto;
     padding-right: 20px;
 }

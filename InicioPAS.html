@@ -10,7 +10,7 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="logo" >
+        <div class="logo">
             <img src="imagenes/LogosProaBlanco.png" alt="Logo Proa" class="logo">
         </div>
         <h1 class="titulo-header">Asignaturas</h1>
@@ -22,6 +22,12 @@
     
     <!-- Contenedor principal -->
     <div class="contenedor-principal">
+        <!-- Botón para móvil (nuevo) -->
+        <button class="boton-filtros-mobile" onclick="toggleFiltros()">
+            <span>Filtros</span>
+            <img src="imagenes/pngwing.com.png" alt="Filtros" class="icono-filtros">
+        </button>
+        
         <!-- Sidebar -->
         <aside class="sidebar scrollbar">
             <h2 class="titulo-filtro">FILTRAR POR</h2>
@@ -35,7 +41,7 @@
                     <label for="tipo-doble-grado">Doble Grado</label>
                 </div>
                 <div class="opcion-filtro">
-                    <input type="checkbox" id="tipo-grado" checked>
+                    <input type="checkbox" id="tipo-grado">
                     <label for="tipo-grado">Grado</label>
                 </div>
                 <div class="opcion-filtro">
@@ -48,7 +54,7 @@
             <div class="seccion-filtro">
                 <h3 class="subtitulo-filtro">Curso</h3>
                 <div class="opcion-filtro">
-                    <input type="checkbox" id="curso-1" checked>
+                    <input type="checkbox" id="curso-1">
                     <label for="curso-1">1º</label>
                 </div>
                 <div class="opcion-filtro">
@@ -65,7 +71,7 @@
             <div class="seccion-filtro">
                 <h3 class="subtitulo-filtro">Cuatrimestre</h3>
                 <div class="opcion-filtro">
-                    <input type="checkbox" id="cuatrimestre-1" checked>
+                    <input type="checkbox" id="cuatrimestre-1">
                     <label for="cuatrimestre-1">1º</label>
                 </div>
                 <div class="opcion-filtro">
@@ -73,56 +79,34 @@
                     <label for="cuatrimestre-2">2º</label>
                 </div>
             </div>
-            
-            <!-- Filtro por nombre -->
-            <div class="seccion-filtro">
-                <h3 class="subtitulo-filtro">Nombre</h3>
-                <div class="opcion-filtro">
-                    <input type="checkbox" id="nombre-ciencias" checked>
-                    <label for="nombre-ciencias">Grado en Ciencias Ambientales</label>
-                </div>
-                <div class="opcion-filtro">
-                    <input type="checkbox" id="nombre-comunicacion">
-                    <label for="nombre-comunicacion">Grado en Comunicación Audiovisual</label>
-                </div>
-                <div class="opcion-filtro">
-                    <input type="checkbox" id="nombre-tecnologias" checked>
-                    <label for="nombre-tecnologias">Grado en Tecnologías Interactivas</label>
-                </div>
-                <div class="opcion-filtro">
-                    <input type="checkbox" id="nombre-telecomunicacion">
-                    <label for="nombre-telecomunicacion">Grado en Ingeniería de Sistemas de Telecomunicación</label>
-                </div>
-            </div>
         </aside>
         
         <!-- Contenido principal -->
         <main class="contenido scrollbar">
-    
-        <div class="barra-titulo">
-            <h2 class="titulo-contenido">Asignaturas</h2>
-        </div>
-        <div class="recuadro-asignaturas">
-        <!-- Aquí va el resto de tu contenido principal -->
-        <div class="barra-busqueda">
-    <input type="text" class="input-busqueda" placeholder="Nombre:">
-    <img src="imagenes/loupe.png" alt="Buscar" class="icono-busqueda">
-</div>
-<div class="bloque-asignaturas">
-    <div class="tarjeta">
-        <div class="contenido-tarjeta">
-            <h3 class="titulo-tarjeta">ASIGNATURAS</h3>
-            <div class="lista-asignaturas scrollbar" id="lista-asignaturas">
-                <!-- Las asignaturas se cargarán aquí con JavaScript -->
+            <div class="barra-titulo">
+                <h2 class="titulo-contenido">Asignaturas</h2>
             </div>
-        </div>
-    </div>
-    <div class="botones-accion">
-        <button class="boton-accion" id="asociar-profesores">Asociar profesores</button>
-        <button class="boton-accion" id="asociar-alumnos">Asociar alumnos matriculados</button>
-    </div>
-</div>
-</main>
+            <div class="recuadro-asignaturas">
+                <div class="barra-busqueda">
+                    <input type="text" class="input-busqueda" placeholder="Nombre:" id="input-busqueda">
+                    <img src="imagenes/loupe.png" alt="Buscar" class="icono-busqueda">
+                </div>
+                <div class="bloque-asignaturas">
+                    <div class="tarjeta">
+                        <div class="contenido-tarjeta">
+                            <h3 class="titulo-tarjeta">ASIGNATURAS</h3>
+                            <div class="lista-asignaturas scrollbar" id="lista-asignaturas">
+                                <!-- Las asignaturas se cargarán aquí con JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="botones-accion">
+                        <button class="boton-accion" id="asociar-profesores">Asociar profesores</button>
+                        <button class="boton-accion" id="asociar-alumnos">Asociar alumnos matriculados</button>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
     
     <!-- Footer -->

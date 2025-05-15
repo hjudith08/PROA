@@ -1,30 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduSync | Venta de Modulos Educativos</title>
-    <!-- imagen de pestaña -->
-    <link rel="icon" href="../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
-    <link rel="stylesheet" href="../../css/estilos.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduSync | Mis herramientas</title>
+  <link rel="icon" href="../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
+  <link rel="stylesheet" href="../../css/estilo-mis-herramientas.css">
 </head>
 <body>
+    <header>
+            <a href="./">
+                <img src="../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
+            </a>
+            <nav>
+                <ul>
+                    <input type="button" value="CONTACTO" onclick="location.href='contacto.html'">
+                    <input type="button" value="LOGIN" onclick="location.href='../EduSync/login.php'">
+                </ul>
+            </nav>
+    </header>
+  <div class="contenedor-fondo">
+    <div class="contenedor-principal">
+      <!-- Cabecera -->
+        
 
-<header>
-        <a href="./">
-            <img src="../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
-        </a>
-    
-        <nav>
-            <ul>
-                <input type="button" value="CONTACTO" onclick="location.href='./src/app/EduSync/contacto.php'">
-                <!-- login-->
-                <input type="button" value="LOGIN" onclick="location.href='./src/app/EduSync/login.php'">
-            </ul>
-        </nav>
-</header>
+      <!-- Contenido principal -->
+      <main class="contenido-principal">
+        <h1 class="titulo-principal">Mis herramientas</h1>
 
-<h1>Esta es la seccion de mis herramientas</h1>
+        <p class="descripcion-principal">
+          Aquí encontrarás las herramientas que hayas probado anteriormente
+        </p>
 
+        <!-- Carrusel de herramientas -->
+        <div class="carrusel-herramientas">
+          <!-- Contenedor de slides del carrusel -->
+          <div class="slides-carrusel">
+            <!-- Slide 1 - Actualmente visible -->
+            <div class="slide-carrusel slide-activo" style="background-image: url('../../../imagenes/foto-info.png')">
+              <div class="contenido-carrusel">
+                <div class="tarjeta-carrusel">
+                  <div class="contenido-tarjeta">
+                    <p class="texto-tarjeta">
+                      App con un diseño intuitivo y adaptable y una interfaz clara
+                      y moderna que facilita la navegación en cualquier
+                      dispositivo. Su experiencia visual es atractiva y optimizada
+                      para un uso cómodo y eficiente.
+                    </p>
+
+                    <button class="boton-demo">
+                      Entrar demo PROA
+                    </button>
+                  </div>
+                </div>
+
+                <div class="lado-derecho-carrusel">
+                  <img class="logo-carrusel" src="../../../imagenes/LogosProaBlanco.png" alt="Logo PROA">
+                  
+                  <!-- Botón para siguiente slide -->
+                  <button class="boton-siguiente" onclick="moverCarrusel(1)">
+                    <i data-lucide="chevron-right" class="icono-siguiente"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 - Oculto por defecto -->
+                <div class="lado-derecho-carrusel">
+                  <img class="logo-carrusel" src="../../imagenes/LogosProaBlanco.png" alt="Logo PROA">
+                  
+              <div class="contenido-carrusel">
+                <!-- Contenido del segundo slide -->
+              </div>
+            </div>
+
+            <!-- Slide 3 - Oculto por defecto -->
+                <div class="lado-derecho-carrusel">
+                  <img class="logo-carrusel" src="../../imagenes/LogosProaBlanco.png" alt="Logo PROA">
+                  
+              <div class="contenido-carrusel">
+                <!-- Contenido del tercer slide -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Indicadores del carrusel -->
+          <div class="indicadores-carrusel">
+            <span class="indicador indicador-activo" onclick="irASlide(0)"></span>
+            <span class="indicador" onclick="irASlide(1)"></span>
+            <span class="indicador" onclick="irASlide(2)"></span>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <p>Contáctanos: edusync@gti.com</p>
+        </div>
+        <div class="footer-col">
+            <p>© 2025 - EduSync | Matriz de GTI</p>
+        </div>
+        <div class="footer-col">
+            <img src="../../../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
+        </div>
+    </div>
+</footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/1.0.0/lucide.min.js"></script>
+  <script src="misherramientas.js"></script>
 </body>
 </html>

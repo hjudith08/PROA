@@ -140,34 +140,34 @@ input {
 }
 
 
-/* -------------- ESTILO FOOTER ------------------ */
-body > footer {
-    background-color: #0D273D;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
-}
+    /* -------------- ESTILO FOOTER ------------------ */
+    body > footer {
+        background-color: #0D273D;
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+    }
 
-body > footer .footer-container {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
+    body > footer .footer-container {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+    }
 
-body > footer .footer-col {
-    flex: 1 1 250px;
-    max-width: 300px;
-    padding: 1rem;
-}
+    body > footer .footer-col {
+        flex: 1 1 250px;
+        max-width: 300px;
+        padding: 1rem;
+    }
 
-body > footer .footer-col img {
-    max-height: 50px;
-    margin-top: -20px;
-    margin-bottom: -20px;
-}
+    body > footer .footer-col img {
+        max-height: 50px;
+        margin-top: -20px;
+        margin-bottom: -20px;
+    }
 
 .contenedor-credenciales {
     margin-top: calc(var(--header-height) + 1rem);

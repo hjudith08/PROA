@@ -1,0 +1,449 @@
+:root {
+    /* Colores */
+    --color-principal: #3f2a52;
+    --color-principal-claro: #75619e;
+    --color-principal-muy-claro: #beaed8;
+    --color-principal-oscuro: #3a2d34;
+    --color-fondo: #f8f5ff;
+    --color-blanco: #ffffff;
+    --color-gris-claro: #f5f5f5;
+    --color-borde: #75619e;
+    --color-texto: #333333;
+    --color-texto-claro: #6b6b6b;
+    
+    /* Sombras */
+    --sombra-generica: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+    --sombra-interior: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+    /* Tamaños */
+    --altura-header: 80px;
+    --altura-footer: 80px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: var(--color-blanco);
+    color: var(--color-texto);
+}
+
+/* Header */
+header {
+    width: 100%;
+    height: var(--altura-header);
+    background-color: var(--color-principal);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+
+.logo {
+    width: 74px;
+    height: 33px;
+    margin-right: 30px;
+}
+
+.titulo-header {
+    color: var(--color-blanco);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.usuario {
+    display: flex;
+    align-items: center;
+    color: var(--color-blanco);
+}
+
+.icono-usuario {
+    width: 29px;
+    height: 29px;
+    margin-left: 15px;
+    color: var(--color-blanco);
+}
+
+/* Contenedor principal */
+.contenedor-principal {
+    display: flex;
+    height: calc(100vh - var(--altura-header) - var(--altura-footer));
+}
+
+/* Sidebar */
+.sidebar {
+    width: 318px;
+    background-color: var(--color-blanco);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.sidebar.oculto {
+    display: none;
+}
+
+.boton-toggle-filtro {
+    display: none;
+    margin: 10px;
+    padding: 5px 20px;
+    background-color: var(--color-principal-claro);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.titulo-filtro {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.boton-limpiar {
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--color-borde);
+    border-radius: 5px;
+    background-color: var(--color-blanco);
+    color: var(--color-principal);
+    font-size: 12px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.seccion-filtro {
+    margin-bottom: 25px;
+}
+
+.subtitulo-filtro {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.opcion-filtro {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.opcion-filtro input[type="checkbox"] {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+.opcion-filtro label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Contenido principal */
+.contenido {
+    flex: 1;
+    background-color: var(--color-fondo);
+    padding: 10px;
+    overflow-y: auto;
+}
+
+
+.barra-titulo {
+    height: 45px;
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    box-shadow: var(--sombra-generica);
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    margin-bottom: 20px;
+}
+
+.titulo-contenido {
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--color-principal-claro);
+}
+
+.barra-busqueda {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-busqueda {
+    width: 100%;
+    height: 35px;
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    border-radius: 20px;
+    padding: 0 45px 0 15px;
+    box-shadow: var(--sombra-generica);
+    
+}
+.bloque-asignaturas {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+}
+
+.bloque-asignaturas {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.icono-busqueda {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-principal-claro);
+    width: 20px;
+    height: 20px;
+}
+
+/* Tarjeta de asignaturas */
+
+
+.tarjeta {
+    background-color: var(--color-blanco);
+    border-radius: 10px;
+    box-shadow: var(--sombra-generica);
+    margin-bottom: 20px;
+}
+
+.recuadro-asignaturas {
+    background: #E7EAEE;
+    border-radius: 10px;
+    box-shadow: var(--sombra-generica);
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    max-height: 90%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.contenido-tarjeta {
+    padding: 20px;
+    max-height: 300px;
+}
+
+.titulo-tarjeta {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: var(--sombra-interior);
+}
+
+.lista-asignaturas {
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 20px;
+}
+
+
+.item-asignatura {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-gris-claro);
+}
+
+.item-asignatura:hover {
+    background-color: #f8f5ff;
+}
+
+.item-asignatura > div:first-child {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.nombre-asignatura {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 50px;
+}
+
+/* Botones de acción */
+.botones-accion {
+    display: flex;
+    gap: 20px;
+}
+
+.boton-accion {
+    flex: 1;
+    height: 45px;
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    color: var(--color-principal-claro);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    height: var(--altura-footer);
+    background-color: var(--color-principal-oscuro);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 30px;
+}
+
+.texto-footer {
+    color: var(--color-blanco);
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.logo-footer {
+    width: 103px;
+    height: 31px;
+}
+.logo-footer img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Scrollbar personalizada */
+.scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-principal-claro) var(--color-fondo);
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background: var(--color-fondo);
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--color-principal-claro);
+    border-radius: 5px;
+}
+
+.item-asignatura {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px solid #ccc;
+}
+
+.nombre-asignatura {
+    margin-left: 10px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    .logo {
+        width: 50px;
+        height: 20px;
+        margin-right: 20px;
+    }
+
+    .titulo-header {
+        display: none;
+    }
+
+    .usuario span {
+        font-size: 14px;
+    }
+
+    .icono-usuario {
+        width: 29px;
+        height: 29px;
+        margin-left: 15px;
+        color: var(--color-blanco);
+    }
+
+    .usuario {
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .contenedor-principal {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        order: 1;
+    }
+
+    .titulo-contenido {
+        font-size: 14px;
+    }
+
+    .contenido {
+        width: 100%;
+        order: 1;
+    }
+
+    .barra-titulo {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 5px 15px;
+    }
+
+    .barra-busqueda {
+        flex-direction: column;
+        align-items: stretch;
+        height: 30px;
+    }
+
+    .input-busqueda {
+        width: 100%;
+        padding-right: 45px;
+    }
+
+    .icono-busqueda {
+        right: 15px;
+    }
+
+    .botones-accion {
+        flex-direction: column;
+    }
+
+    .boton-limpiar{
+        height: 30px;
+    }
+
+    .boton-toggle-filtro {
+        display: inline-block;
+    }
+
+    .sidebar.oculto {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    .sidebar {
+        display: block !important; /* para que ignore el display:none */
+    }
+}
+

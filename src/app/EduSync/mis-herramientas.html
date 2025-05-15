@@ -8,36 +8,29 @@
   <link rel="stylesheet" href="../../css/estilo-mis-herramientas.css">
 </head>
 <body>
-    <header>
-            <a href="./">
-                <img src="../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
-            </a>
-            <nav>
-                <ul>
-                    <input type="button" value="CONTACTO" onclick="location.href='contacto.html'">
-                    <input type="button" value="LOGIN" onclick="location.href='../EduSync/login.php'">
-                </ul>
-            </nav>
-    </header>
+  <header>
+    <a href="./">
+      <img src="../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
+    </a>
+    <nav>
+      <ul>
+        <input type="button" value="CONTACTO" onclick="location.href='contacto.html'">
+        <img class="logo-user" src="../../../imagenes/user_1.png" alt="user">
+      </ul>
+    </nav>
+  </header>
+
   <div class="contenedor-fondo">
     <div class="contenedor-principal">
-      <!-- Cabecera -->
-        
-
-      <!-- Contenido principal -->
       <main class="contenido-principal">
         <h1 class="titulo-principal">Mis herramientas</h1>
-
-        <p class="descripcion-principal">
-          Aquí encontrarás las herramientas que hayas probado anteriormente
-        </p>
+        <p class="descripcion-principal">Aquí encontrarás las herramientas que hayas probado anteriormente</p>
 
         <!-- Carrusel de herramientas -->
         <div class="carrusel-herramientas">
-          <!-- Contenedor de slides del carrusel -->
-          <div class="slides-carrusel">
-            <!-- Slide 1 - Actualmente visible -->
-            <div class="slide-carrusel slide-activo" style="background-image: url('../../../imagenes/foto-info.png')">
+          <div class="slides-carrusel" id="carruselSlides">
+            <!-- Slide 1 -->
+            <div class="slide-carrusel" style="background-image: url('../../../imagenes/foto-info.png')">
               <div class="contenido-carrusel">
                 <div class="tarjeta-carrusel">
                   <div class="contenido-tarjeta">
@@ -47,70 +40,38 @@
                       dispositivo. Su experiencia visual es atractiva y optimizada
                       para un uso cómodo y eficiente.
                     </p>
-
-                    <button class="boton-demo">
-                      Entrar demo PROA
-                    </button>
+                    <button class="boton-demo">Entrar demo PROA</button>
                   </div>
                 </div>
-
                 <div class="lado-derecho-carrusel">
                   <img class="logo-carrusel" src="../../../imagenes/LogosProaBlanco.png" alt="Logo PROA">
-                  
-                  <!-- Botón para siguiente slide -->
                   <button class="boton-siguiente" onclick="moverCarrusel(1)">
-                    <i data-lucide="chevron-right" class="icono-siguiente"></i>
+                    <img src="../../../imagenes/flecha-derecha.png" alt="Siguiente">
                   </button>
                 </div>
               </div>
             </div>
-
-            <!-- Slide 2 - Oculto por defecto -->
-                <div class="lado-derecho-carrusel">
-                  <img class="logo-carrusel" src="../../imagenes/LogosProaBlanco.png" alt="Logo PROA">
-                  
-              <div class="contenido-carrusel">
-                <!-- Contenido del segundo slide -->
-              </div>
-            </div>
-
-            <!-- Slide 3 - Oculto por defecto -->
-                <div class="lado-derecho-carrusel">
-                  <img class="logo-carrusel" src="../../imagenes/LogosProaBlanco.png" alt="Logo PROA">
-                  
-              <div class="contenido-carrusel">
-                <!-- Contenido del tercer slide -->
-              </div>
-            </div>
-          </div>
-
-          <!-- Indicadores del carrusel -->
-          <div class="indicadores-carrusel">
-            <span class="indicador indicador-activo" onclick="irASlide(0)"></span>
-            <span class="indicador" onclick="irASlide(1)"></span>
-            <span class="indicador" onclick="irASlide(2)"></span>
-          </div>
+          <!-- Indicadores -->
         </div>
       </main>
     </div>
   </div>
 
-  <!-- footer -->
-<footer class="footer">
+  <!-- Footer -->
+  <footer class="footer">
     <div class="footer-container">
-        <div class="footer-col">
-            <p>Contáctanos: edusync@gti.com</p>
-        </div>
-        <div class="footer-col">
-            <p>© 2025 - EduSync | Matriz de GTI</p>
-        </div>
-        <div class="footer-col">
-            <img src="../../../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
-        </div>
+      <div class="footer-col">
+        <p>Contáctanos: edusync@gti.com</p>
+      </div>
+      <div class="footer-col">
+        <p>© 2025 - EduSync | Matriz de GTI</p>
+      </div>
+      <div class="footer-col">
+        <img src="../../../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
+      </div>
     </div>
-</footer>
+  </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/1.0.0/lucide.min.js"></script>
-  <script src="misherramientas.js"></script>
+  <script src="../../../js/misherramientas.js"></script>
 </body>
 </html>

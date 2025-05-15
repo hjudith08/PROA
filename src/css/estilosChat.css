@@ -1,0 +1,247 @@
+/* =================== GENERAL =================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f1fa;
+    color: #2d2144;
+}
+
+/* =================== HEADER =================== */
+header {
+    background-color: #452e61;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    position: relative;
+}
+
+header img {
+    height: 40px;
+}
+
+nav .titulo-asignatura {
+    font-size: 20px;
+}
+
+.usuario-bienvenida {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Botón usuario */
+header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+header button img {
+    height: 30px;
+}
+
+#menu-usuario[popover] {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px;
+    position: absolute;
+    right: 30px;
+    top: 70px;
+    z-index: 100;
+}
+
+#menu-usuario p,
+#menu-usuario button {
+    color: #452e61;
+}
+
+/* =================== SIDEBAR =================== */
+.sidebar {
+    width: 220px;
+    background-color: #7b61a8;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 80px;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 15px 20px;
+    margin: 10px;
+    width: 90%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.menu-btn:hover,
+.menu-btn.activo {
+    background-color: #6d56a1;
+}
+
+.icono-menu {
+    width: 20px;
+}
+
+.icono-activo {
+    filter: brightness(1.5);
+}
+
+/* =================== MAIN CONTENT =================== */
+.contenido-principal {
+    margin-left: 220px;
+    padding: 30px;
+}
+
+.botonatras {
+    background-color: #e2d9f3;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.botonatras:hover {
+    background-color: #d5c4ee;
+}
+
+/* =================== TAREAS =================== */
+.contenedor-tareas {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.cabecera-tareas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cabecera-tareas h1 {
+    font-size: 28px;
+    color: #452e61;
+}
+
+.filtros-tareas select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Tabla estilo flex */
+.tabla-flex-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fila-flex {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f4f1fa;
+    border-radius: 10px;
+    padding: 12px 16px;
+    transition: background-color 0.2s;
+}
+
+.fila-flex:hover {
+    background-color: #e8e0f4;
+}
+
+.encabezado-flex {
+    background-color: #d7c8ef;
+    font-weight: bold;
+}
+
+.columna-flex {
+    flex: 1;
+    text-align: center;
+}
+
+/* Estados */
+.estado-pendiente {
+    color: #c7584e;
+    font-weight: bold;
+}
+
+.estado-completado {
+    color: #4eaf65;
+    font-weight: bold;
+}
+
+/* =================== FOOTER =================== */
+.footer-anclado {
+    background-color: #2f2139;
+    color: white;
+    padding: 15px 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-left: 0;
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.footer-logo {
+    height: 20px;
+    margin-left: 10px;
+}
+
+/* =================== POPUP =================== */
+.popup-cerrar-sesion {
+    background-color: white;
+    border-radius: 12px;
+    border: 2px solid #452e61;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    z-index: 999;
+}
+
+.boton-si,
+.boton-no {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.boton-si {
+    background-color: #6d56a1;
+    color: white;
+}
+
+.boton-no {
+    background-color: #ccc;
+}

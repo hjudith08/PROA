@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROA | Nueva Tarea</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <!--Aquí va el header-->
+    <header>
+    <a href="index.html">
+        <img class="logotipo" src="../../images/LogosProaBlanco.png" alt="Logotipo">
+    </a>
+    <nav>
+        <!--<h3 class="titulo-asignatura"><?php echo $asignaturas['seleccion']; ?></h3>-->
+        <h3 class="titulo-asignatura">Álgebra Matricial y Geometría</h3>
+
+        <ul>
+            <!--<div>Bienvenido <?php echo $userdata['nombre'] . " " . $userdata['apellidos'];?>!</div> -->
+            <p class="usuario-bienvenida">Bienvenido xexi mexi</p>
+        </ul>
+    </nav>
+    <button popovertarget="menu-usuario"><img src="imagenes/user_1b.png" alt=""></button>
+    <div id="menu-usuario" popover>
+        <!--<div><?php echo $userdata['nombre'] . " " . $userdata['apellidos'];?>!</div> -->
+        <p class="nombre-menu">xexi mexi</p>
+        <div><button popovertarget="confirmar-cierre">Salir</button></div>
+    </div>
+</header>
+    <!--Aquí termina el header-->
+
+    <!--Aquí va la barra lateral-->
+   <aside class="sidebar">
+    <nav class="menu-container">
+        <button class="menu-btn" onclick="window.location.href='InicioAsignatura.php';">
+            <img src="imagenes/homeb.png" class="icono-menu" />
+            <span>Inicio asignatura</span>
+        </button>
+        <button class="menu-btn activo">
+            <img src="imagenes/libro-alt.png" class="icono-menu icono-activo" />
+            <span class="texto-activo">Tareas</span>
+        </button>
+    </nav>
+    </aside>
+    <!--Aquí termina la barra lateral-->
+
+    <!--Aquí va el formulario para crear la tarea-->
+<main class="contenido-principal">
+        <div class="capa-fondo"></div>
+ <!-- Aquí va el botón volver-->
+    <div class="botones-container">
+        <div class="botonatras" onclick="window.location.href='Asignaturas.html'">
+            <p>Volver</p>
+        </div>
+    </div> 
+<!-- Aquí termina el botón volver -->
+
+<!--Aquí empeiza CREAR TAREA-->
+    <div class="contenedor-tareas">
+        <div class="cabecera-tareas">
+            <h1>CREAR TAREA</h1>
+        </div>
+            <div class="tabla-flex-container"> <!--tabla-flex-container-->
+            <!-- Inputs -->
+            <div class="fila-flex-inputs" style="cursor: pointer;">
+                <div class="columna-flex">Programar tarea para:
+                    <input class="input" type="date">
+                </div>
+                <div class="columna-flex"><!--<span class="estado-pendiente">Pendiente</span>-->Título para:
+                    <input class="input" type="text">
+                </div>
+                <div class="columna-flex descripción">Descripción de la tarea:
+                    <input class="input" type="text">
+                </div>
+                <!-- Contenedor relativo para posicionar elementos absolutos dentro -->
+                <div class="columna-flex">
+                <!-- input file oculto -->
+                    <input class="input" type="file" id="fileInput" style="display:none" />
+
+                <!-- botón personalizado -->
+                    <div for="fileInput" class="custom-file-button input">Subir archivo
+                        <!--<img src="cloud-computing.png" alt="Subir archivo" class="icono-nube" />-->
+                    </div>
+                </div>
+
+                <div class="columna-flex">Fecha de entrega:
+                    <input class="input" type="date">
+                </div>
+                <div class="columna-flex">Puntuación sobre:
+                    <input class="input" type="number">
+                </div>
+            <!--Fin inputs-->
+            <button class="boton-crear/editar">CREAR</button>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer-anclado">
+    <div class="footer-contenido">
+        <div class="footer-poweredby">
+            <span class="footer-texto">Powered by</span>
+            <img src="imagenes/LogoEduSyncBlanco.png" alt="Logo Edusync" class="footer-logo">
+        </div>
+    </div>
+</footer>
+<!-- PopUp Cerrar Sesión -->
+<div id="popupCerrarSesion" class="popup oculto">
+    <div class="popup-contenido-C">
+        <p class="popup-texto">¿Estás seguro que quieres cerrar sesión?</p>
+        <div class="popup-botones">
+            <button id="btn-si" class="boton-si">Sí</button>
+            <button id="btn-no" class="boton-no">No</button>
+        </div>
+    </div>
+</div>
+<!--------------------------------------------------->
+</body>
+</html>

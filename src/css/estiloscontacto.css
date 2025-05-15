@@ -1,0 +1,386 @@
+/* Estilos generales - Mobile First */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Contenedor principal */
+.main-container {
+    background-color: #0d273d;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Encabezado */
+.page-header {
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    background-color: #f1f5ff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    max-height: 37px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.header-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-link {
+    font-weight: bold;
+    color: #2f4256;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+.header-link.active {
+    color: #0d273d;
+    border-bottom: 2px solid #0d273d;
+}
+
+/* Contenido principal */
+.content-area {
+    width: 100%;
+    min-height: 620px;
+    background-color: #f1f5ff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+/* Tarjeta de información de contacto */
+.contact-info-card {
+    width: 100%;
+    height: auto;
+    background-color: #0d273d;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    order: 2; /* Para móvil, va debajo del formulario */
+}
+
+.contact-info-content {
+    position: relative;
+    z-index: 10;
+    padding: 30px 20px;
+    color: white;
+}
+
+.contact-subtitle {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+}
+
+.contact-title {
+    font-weight: bold;
+    font-size: 28px;
+    margin: 10px 0 20px 0;
+    line-height: 1.3;
+}
+
+.contact-description {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+/* Tarjetas de información */
+.info-card {
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+    background-color: #2f4256;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.info-card-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.info-icon {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    margin-left: 0;
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    font-weight: 500;
+    color: white;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.info-value, .info-value a {
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    line-height: 1.4;
+    text-decoration: underline;
+    margin: 0;
+}
+
+/* Formulario de contacto */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    order: 1; /* Para móvil, va primero */
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-label {
+    color: black;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.required {
+    color: #ff0000;
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 0 12px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.form-textarea {
+    height: 150px;
+    padding: 12px;
+    resize: vertical;
+}
+
+/* Botón de enviar */
+.submit-button {
+    width: 100%;
+    max-width: 233px;
+    height: 42px;
+    background-color: #2f4256;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #3d5166;
+}
+
+/* Botón para volver */
+.back-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    font-weight: bold;
+    color: #0d273d;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 5px 10px;
+}
+
+/* Pie de página */
+.page-footer {
+    width: 100%;
+    height: auto;
+    min-height: 102px;
+    background-color: #0d273d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    gap: 15px;
+}
+
+.footer-contact, .footer-copyright {
+    color: white;
+    font-size: 14px;
+}
+
+.footer-contact a {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer-logo {
+    width: 60px;
+    height: auto;
+    max-height: 60px;
+    object-fit: contain;
+}
+
+/* Media Queries para tablet (768px en adelante) */
+@media (min-width: 768px) {
+    .page-header {
+        flex-direction: row;
+        padding: 0 30px;
+        height: 60px;
+    }
+    
+    .logo {
+        margin-bottom: 0;
+    }
+    
+    .content-area {
+        padding: 30px;
+    }
+    
+    .form-row {
+        flex-direction: row;
+    }
+    
+    .form-group {
+        width: 50%;
+    }
+    
+    .footer-contact, .footer-copyright {
+        font-size: 15px;
+    }
+}
+
+/* Media Queries para desktop (1024px en adelante) */
+@media (min-width: 1024px) {
+    .content-area {
+        flex-direction: row;
+        padding: 40px;
+        gap: 40px;
+    }
+    
+    .contact-info-card {
+        width: 60%;
+        height: 585px;
+        order: 1;
+    }
+    
+    .contact-form {
+        width: 40%;
+        order: 2;
+    }
+    
+    .contact-info-content {
+        padding: 56px;
+    }
+    
+    .contact-subtitle {
+        font-size: 20px;
+    }
+    
+    .contact-title {
+        font-size: 48px;
+    }
+    
+    .contact-description {
+        font-size: 18px;
+    }
+    
+    .info-card {
+        width: 278px;
+        height: 93px;
+    }
+    
+    .info-icon {
+        width: 37px;
+        height: 37px;
+        margin-left: 16px;
+    }
+    
+    .info-label, .info-value {
+        font-size: 16px;
+    }
+    
+    .page-footer {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        padding: 0 80px;
+        height: 102px;
+    }
+    
+    .footer-contact, .footer-copyright {
+        font-size: 16px;
+    }
+    
+    .footer-logo {
+        width: 73px;
+        max-height: 70px;
+    }
+}
+
+/* Media Queries para pantallas muy grandes (1557px es el max-width del contenedor original) */
+@media (min-width: 1557px) {
+    .main-container {
+        max-width: 1557px;
+        margin: 0 auto;
+    }
+}

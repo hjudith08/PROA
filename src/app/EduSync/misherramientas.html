@@ -1,92 +1,122 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis herramientas</title>
-    <link rel="icon" href="../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
-    <link rel="stylesheet" href="../../css/estilomisherramientas.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis herramientas</title>
+  <link rel="icon" href="../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
+  <link rel="stylesheet" href="../../css/estilomisherramientas.css">
 </head>
 <body>
-  <div class="bg-container">
-    <div class="main-container">
-      <!-- Header -->
-      <header class="header">
-        <div class="header-content">
-          <div class="logo-container">
-            <img class="logo" alt="Logoedusyncazul" src="">
+  <div class="contenedor-fondo">
+    <div class="contenedor-principal">
+      <!-- Cabecera -->
+      <header class="cabecera">
+        <div class="contenido-cabecera">
+          <div class="contenedor-logo">
+            <img class="logo" alt="Logo EduSync" src=""> <!-- Logo principal -->
           </div>
 
-          <div class="user-container">
-            <div class="username">[Nombre del Usuario]</div>
-            <button class="contact-btn">CONTACTO</button>
-            <div class="user-icon">
-              <img class="icon-img" alt="User icon" src="">
+          <div class="contenedor-usuario">
+            <div class="nombre-usuario">XERXI</div>
+            <button class="boton-contacto">CONTACTO</button>
+            <div class="icono-usuario">
+              <img class="imagen-icono" alt="Icono de usuario" src=""> <!-- Icono de usuario -->
             </div>
           </div>
         </div>
       </header>
 
-      <!-- Main Content -->
-      <main class="main-content">
-        <h1 class="main-title">Mis herramientas</h1>
+      <!-- Contenido principal -->
+      <main class="contenido-principal">
+        <h1 class="titulo-principal">Mis herramientas</h1>
 
-        <p class="main-description">
-          Aquí encontraras las herramientas que hayas probado anteriormente
+        <p class="descripcion-principal">
+          Aquí encontrarás las herramientas que hayas probado anteriormente
         </p>
 
-        <!-- Hero Banner -->
-        <div class="hero-banner">
-          <div class="banner-content">
-            <div class="banner-card">
-              <div class="card-content">
-                <p class="card-text">
-                  App con un diseño intuitivo y adaptable y una interfaz clara
-                  y moderna que facilita la navegación en cualquier
-                  dispositivo. Su experiencia visual es atractiva y optimizada
-                  para un uso cómodo y eficiente.
-                </p>
+        <!-- Carrusel de herramientas -->
+        <div class="carrusel-herramientas">
+          <!-- Contenedor de slides del carrusel -->
+          <div class="slides-carrusel">
+            <!-- Slide 1 - Actualmente visible -->
+            <div class="slide-carrusel slide-activo" style="background-image: url('../../imagenes/IMAGENMISHERRAMIENTAS.png')">
+              <div class="contenido-carrusel">
+                <div class="tarjeta-carrusel">
+                  <div class="contenido-tarjeta">
+                    <p class="texto-tarjeta">
+                      App con un diseño intuitivo y adaptable y una interfaz clara
+                      y moderna que facilita la navegación en cualquier
+                      dispositivo. Su experiencia visual es atractiva y optimizada
+                      para un uso cómodo y eficiente.
+                    </p>
 
-                <button class="demo-btn">
-                  Entrar demo PROA
-                </button>
+                    <button class="boton-demo">
+                      Entrar demo PROA
+                    </button>
+                  </div>
+                </div>
+
+                <div class="lado-derecho-carrusel">
+                  <img class="logo-carrusel" src="../../imagenes/LogosProaBlanco.png" alt="Logo PROA">
+                  
+                  <!-- Botón para siguiente slide -->
+                  <button class="boton-siguiente" onclick="moverCarrusel(1)">
+                    <i data-lucide="chevron-right" class="icono-siguiente"></i>
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div class="banner-right">
-              <img class="banner-logo" alt="Logosproaoblanco" src="">
-
-              <button class="next-btn">
-                <i data-lucide="chevron-right" class="next-icon"></i>
-              </button>
+            <!-- Slide 2 - Oculto por defecto -->
+                <div class="lado-derecho-carrusel">
+                  <img class="logo-carrusel" src="../../imagenes/LogosProaBlanco.png" alt="Logo PROA">
+                  
+              <div class="contenido-carrusel">
+                <!-- Contenido del segundo slide -->
+              </div>
             </div>
+
+            <!-- Slide 3 - Oculto por defecto -->
+                <div class="lado-derecho-carrusel">
+                  <img class="logo-carrusel" src="../../imagenes/LogosProaBlanco.png" alt="Logo PROA">
+                  
+              <div class="contenido-carrusel">
+                <!-- Contenido del tercer slide -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Indicadores del carrusel -->
+          <div class="indicadores-carrusel">
+            <span class="indicador indicador-activo" onclick="irASlide(0)"></span>
+            <span class="indicador" onclick="irASlide(1)"></span>
+            <span class="indicador" onclick="irASlide(2)"></span>
           </div>
         </div>
       </main>
 
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="footer-content">
-          <div class="footer-contact">
-            Contactanos: edusync
-            <a href="mailto:correo@correo.com" rel="noopener noreferrer" target="_blank" class="footer-email">
+      <!-- Pie de página -->
+      <footer class="pie-pagina">
+        <div class="contenido-pie">
+          <div class="contacto-pie">
+            Contáctanos: edusync
+            <a href="mailto:correo@correo.com" rel="noopener noreferrer" target="_blank" class="correo-pie">
               @gti.com
             </a>
           </div>
 
-          <div class="footer-copyright">
+          <div class="derechos-pie">
             © 2025 - EduSync | Matriz de GTI
           </div>
 
-          <img class="footer-logo" alt="Gtiblancosdsds" src="">
+          <img class="logo-pie" alt="Logo GTI" src=""> <!-- Logo en el pie de página -->
         </div>
       </footer>
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/1.0.0/lucide.min.js"></script>
   <script src="misherramientas.js"></script>
-  <script>
-    lucide.createIcons();
-  </script>
 </body>
 </html>

@@ -464,7 +464,7 @@ header input {
     width: 70%;
     min-height: 60px;
     background-color: #0D273D;
-    border-radius: var(--border-radius);
+    border-radius: 10px;
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
@@ -567,19 +567,19 @@ header input {
 .boton-enviar {
     width: 100%;
     padding: 1rem;
-    background-color: var(--color-primario);
-    border-radius: var(--border-radius);
-    color: var(--color-texto-claro);
+    background-color: #0D273D;
+    border-radius: 10px;
+    color: white;
     font-weight: 600;
     border: none;
     cursor: pointer;
     margin-top: 0.5rem;
-    transition: var(--transition);
+     transition: color 0.2s ease;
 }
 
 .boton-enviar:hover {
-    background-color: var(--color-boton-hover);
-    transform: translateY(-2px);
+    background-color: #0b2031;
+    transform: scale(1.05);
 }
 
 .mensaje-exito{

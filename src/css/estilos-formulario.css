@@ -235,6 +235,102 @@ input {
   height: 20px;
   object-fit: cover;
 }
+
+/* CERRAR SESION POPUP */
+/* Menú desplegable usuario */
+.dropdown-usuario {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: column;
+  z-index: 10000;
+  padding: 10px;
+  min-width: 180px;
+  align-items: center;
+}
+
+.dropdown-usuario p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.dropdown-usuario button {
+  color: black;
+  border: none;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+   transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-usuario button:hover {
+  color: white;
+  background-color: #2c3e50;
+}
+
+/* Fondo del popup */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 20000;
+}
+
+/* Contenedor del contenido del popup */
+.popup-contenido {
+  background-color: #f1f5fb;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+
+/* Texto del popup */
+.popup-texto {
+  padding: 30px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #000;
+  margin: 0;
+}
+
+/* Contenedor de los botones */
+.popup-botones {
+  background-color: #2d3e50;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;  
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+/* Botones */
+.popup-botones button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: background 0.3s;
+
+}
+
+
     /* -------------- ESTILO FOOTER ------------------ */
     body > footer {
         background-color: #0D273D;

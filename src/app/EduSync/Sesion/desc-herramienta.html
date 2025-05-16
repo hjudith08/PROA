@@ -7,22 +7,41 @@
     <title>EduSync | Venta de Modulos Educativos</title>
     <link rel="icon" href="../../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
     <link rel="stylesheet" href="../../../css/estilos.css">
+    <link rel="stylesheet" href="../../../css/estilo-contacto-sesion.css">
 </head>
 
 <body>
 
-<!-- header -->
-<header>
-        <a href="../../../index.html">
-            <img src="../../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
-        </a>
-        <nav>
-            <ul>
-                <input type="button" value="CONTACTO" onclick="location.href='contacto.html'">
-                <input type="button" value="LOGIN" onclick="location.href='../EduSync/login.php'">
-            </ul>
-        </nav>
-</header>
+  
+ <!-- header -->
+  <header>
+    <a href="./">
+      <img src="../../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
+    </a>
+    <nav>
+      <ul>
+        <input type="button" value="CONTACTO" onclick="location.href='contacto.html'">
+        <img class="logo-user" src="../../../../imagenes/user_1.png" alt="user">
+        <!-- Dentro del <nav> antes de cerrar el </ul> -->
+        <div class="dropdown-usuario" id="dropdownUsuario">
+        <button><a href="mis-herramientas.html" class="nombre-usuario">Mis herramientas</a></button>
+        <button class="boton-cerrar-sesion" onclick="mostrarPopupCerrarSesion()">Cerrar sesión</button>
+        </div>
+
+        <!-- Popup de confirmación -->
+        <div class="popup" id="popupCerrarSesion">
+        <div class="popup-contenido">
+            <p class="popup-texto">¿Estás seguro que quieres cerrar sesión?</p>
+            <div class="popup-botones">
+            <button onclick="cerrarSesion()">Sí</button>
+            <button onclick="ocultarPopupCerrarSesion()">No</button>
+            </div>
+        </div>
+        </div>
+
+      </ul>
+    </nav>
+  </header>
 
 <!-- primera sección información PROA -->
 <section class="desc-section1">
@@ -33,7 +52,7 @@
             <p>Ayudamos a las instituciones a tener una mejor interacción entre alumnos 
                 y profesores mediante módulos educativos con una interfaz más intuitiva, moderna y agradable, 
                 formando parte de EduSync podrás acceder a pruebas exclusivas.</p>
-            <a href="login.html" class="boton-probar">¡Prueba PROA Gratis!</a>
+            <a href="../../Proa/loginProa.html" class="boton-probar">¡Prueba PROA Gratis!</a>
         </div>
         <!-- imagen proa ordenador -->
         <div class="informacion-sec2">
@@ -177,6 +196,7 @@
     });
 </script>
 <!-- fin del script -->
+<script src="../../../js/misherramientas.js"></script>
 
 </body>
 </html>

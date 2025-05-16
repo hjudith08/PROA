@@ -6,23 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduSync | Venta de Modulos Educativos</title>
     <link rel="icon" href="../../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
-    <link rel="stylesheet" href="../../../css/estilos-desc-herr.css">
+    <link rel="stylesheet" href="../../../css/estilos-formulario.css">
 </head>
 
 <body>
 
 <!-- header -->
-<header>
-        <a href="../../../index.html">
-            <img src="../../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
-        </a>
-        <nav>
-            <ul>
-                <input type="button" value="CONTACTO" onclick="location.href='contacto.html'">
-                <input type="button" value="LOGIN" onclick="location.href='login.html'">
-            </ul>
-        </nav>
-</header>
+  <header>
+    <a href="./">
+      <img src="../../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
+    </a>
+    <nav>
+      <ul>
+        <input type="button" value="CONTACTO" onclick="location.href='contacto.html'">
+        <img class="logo-user" src="../../../../imagenes/user_1.png" alt="user">
+        <!-- Dentro del <nav> antes de cerrar el </ul> -->
+        <div class="dropdown-usuario" id="dropdownUsuario">
+        <button><a href="mis-herramientas.html" class="nombre-usuario">Mis herramientas</a></button>
+        <button class="boton-cerrar-sesion" onclick="mostrarPopupCerrarSesion()">Cerrar sesión</button>
+        </div>
+
+        <!-- Popup de confirmación -->
+        <div class="popup" id="popupCerrarSesion">
+        <div class="popup-contenido">
+            <p class="popup-texto">¿Estás seguro que quieres cerrar sesión?</p>
+            <div class="popup-botones">
+            <button onclick="cerrarSesion()">Sí</button>
+            <button onclick="ocultarPopupCerrarSesion()">No</button>
+            </div>
+        </div>
+        </div>
+
+      </ul>
+    </nav>
+  </header>
 
 <main class="contenedor-credenciales">
     <section class="formulario-credenciales">
@@ -55,11 +72,9 @@
                 <label for="mensaje">Mensaje <span>*</span></label>
                 <textarea id="mensaje" name="mensaje" placeholder="Comenta por qué quieres contactarnos" required></textarea>
             </div>
-
-            <button type="submit" class="btn-enviar">SOLICITA</button>
+            <button type="submit" href="../../Proa/loginProa.html" class="btn-enviar">SOLICITA</button>
         </form>
-
-        <p class="subtexto">¿Ya tienes las credenciales?</p>
+        <a class="subtexto" href="../../Proa/loginProa.html">¿Ya tienes las credenciales?</a>
     </section>
 </main>
 
@@ -74,10 +89,12 @@
             <p>© 2025 - EduSync | Matriz de GTI</p>
         </div>
         <div class="footer-col">
-            <img src="../../../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
+            <img src="../../../../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
         </div>
     </div>
 </footer>
+
+<script src="../../../js/misherramientas.js"></script>
 
 </body>
 </html>

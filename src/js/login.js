@@ -133,7 +133,7 @@ registroForm.addEventListener("submit", async function(e) {
 
     setTimeout(() => {
         contenedor.classList.remove("panel-derecho-activo");
-    }, 2000);
+    }, 1000);
 });
 
 // =============================================

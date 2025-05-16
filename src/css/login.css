@@ -43,7 +43,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: space-between;
-    font-family: 'Asap', system-ui;
+    font-family: 'Segoe UI', system-ui;
     position: relative;
     margin: 0;
     height: auto;
@@ -190,6 +190,7 @@ header input:focus{
 .btn-volver {
     bottom: 0;
     margin-left: 40px;
+
 }
 
 /* aca se le da el efecto de que el formulario de registro se vea */
@@ -429,7 +430,7 @@ input:focus {
     height: 50px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 882px) {
     /* Desactivar todas las animaciones */
     .contenedor,
     .formulario-contenedor,
@@ -452,7 +453,7 @@ input:focus {
     
     /* Mostrar ambos formularios en columna */
     .formulario-contenedor {
-        position: relative !important;
+       /* position: relative !important;*/
         width: 100% !important;
         height: auto !important;
         opacity: 1 !important;
@@ -462,99 +463,19 @@ input:focus {
     
     .formulario-contenedor.activo {
         display: flex;
-    }
-    
-    .login, 
-    .registro {
-        width: 100% !important;
-        height: auto !important;
-        position: relative !important;
-        transform: none !important;
-        padding: 2rem 1.5rem;
-    }
-    
-    /* Overlay como selector de formulario */
-    .overlay-contenedor {
-        display: block !important;
-        position: relative !important;
-        width: 100% !important;
-        height: 30vh !important;
-        left: 0 !important;
-        margin: 0 !important;
-        transform: none !important;
-        border-radius: 0 0 var(--overlay-radius) var(--overlay-radius);
-    }
-    
-    .overlay {
-        width: 100% !important;@media (max-width: 768px) {
-    /* Reset de animaciones */
-    * {
-        transition: none !important;
-        animation: none !important;
-    }
-    
-    /* Reestructuración del layout */
-    .contenedor {
-        flex-direction: column;
-        height: 100vh;
-        padding: 0;
         position: relative;
     }
-    
-    /* Overlay en la parte superior */
-    .overlay-contenedor {
-        position: relative !important;
-        width: 100% !important;
-        height: 30vh !important;
-        left: 0 !important;
-        top: 0 !important;
-        margin: 0 !important;
-        transform: none !important;
-        border-radius: 0;
-        order: 1;
-    }
+ 
     
     .overlay {
         width: 100% !important;
-        height: 100% !important;
+         height: 100% !important;
         left: 0 !important;
+        top: 0 !important;
+        min-height: auto !important;
         transform: none !important;
         background-size: cover;
         background-position: center;
-    }
-    
-    .overlay-panel {
-        width: 100% !important;
-        height: 100% !important;
-        padding: 1.5rem;
-        justify-content: center;
-    }
-    
-    /* Formulario en el centro */
-    .formulario-contenedor {
-        position: relative !important;
-        width: 100% !important;
-        height: auto !important;
-        order: 2;
-        flex-grow: 1;
-        display: flex;
-        justify-content: center;
-        padding: 2rem 1.5rem;
-    }
-    
-    /* Solo mostrar el formulario activo */
-    .login, 
-    .registro {
-        width: 100% !important;
-        max-width: 400px;
-        opacity: 1 !important;
-        transform: none !important;
-        display: none;
-    }
-    
-    .contenedor.panel-derecho-activo .registro,
-    .contenedor:not(.panel-derecho-activo) .login {
-        display: flex;
     }
     
     /* Botones del overlay */
@@ -562,18 +483,9 @@ input:focus {
         width: 200px;
         margin-top: 1.5rem;
     }
-    
-    /* Efecto de cambio al hacer clic */
-    .overlay-left {
-        transform: translateX(0) !important;
-    }
-    
-    .overlay-right {
-        transform: translateX(100%) !important;
-    }
-    
-    .contenedor.panel-derecho-activo .overlay {
-        transform: translateX(-50%) !important;
+
+    .inputs label {
+        margin-top: 0;
     }
     
     /* Ajustes para formularios */
@@ -581,19 +493,6 @@ input:focus {
     .inputs button {
         width: 100% !important;
         max-width: 100% !important;
-    }
-    
-    /* Footer en la parte inferior */
-    .footer {
-        order: 3;
-    }
-}
-        height: 100% !important;
-        left: 0 !important;
-        min-height: auto !important;
-        transform: none !important;
-        background-size: cover;
-        background-position: center;
     }
     
     .overlay-panel {
@@ -604,57 +503,31 @@ input:focus {
         padding: 1rem;
     }
     
-    .overlay-left {
-        transform: translateX(0) !important;
-    }
-    
-    .overlay-right {
-        transform: translateX(100%) !important;
-        left: 0 !important;
-    }
-    
-    .contenedor.panel-derecho-activo .overlay-right {
-        transform: translateX(0) !important;
-    }
-    
-    .contenedor.panel-derecho-activo .overlay-left {
-        transform: translateX(-100%) !important;
-    }
     
     /* Ajustar elementos del formulario */
     .inputs input,
     .inputs button {
-        width: 100% !important;
+        width: 300px !important;
         max-width: 100% !important;
     }
     
+    .overlay-panel h1 {
+        font-size: 1.7rem !important;
+        margin-bottom: 0 !important;
+    }
     /* Footer ajustado */
     .footer {
+        bottom: 0 !important;
+        height: 100px;
         position: relative;
-    }
-}
-
-
-@media (max-width: 882px) {
-    /* Reset de animaciones */
-    * {
-        transition: none !important;
-        animation: none !important;
-    }
-    
-    /* Reestructuración del layout */
-    .contenedor {
-        flex-direction: column;
-        height: 100vh;
-        padding: 0;
-        position: relative;
+        
     }
     
     /* Overlay en la parte superior */
     .overlay-contenedor {
         position: relative !important;
         width: 100% !important;
-        height: 30vh !important;
+        height: 25vh !important;
         left: 0 !important;
         top: 0 !important;
         margin: 0 !important;
@@ -663,78 +536,132 @@ input:focus {
         order: 1;
     }
     
-    .overlay {
-        width: 100% !important;
-        height: 100% !important;
-        left: 0 !important;
-        transform: none !important;
-        background-size: cover;
-        background-position: center;
+    /* aca se le da el efecto de que el formulario de registro se vea */
+    .contenedor.panel-derecho-activo .registro,
+    .contenedor .login {
+        display: flex;
     }
-    
-    .overlay-panel {
-        width: 100% !important;
-        height: 100% !important;
-        padding: 1.5rem;
-        justify-content: center;
-    }
-    
-    /* Formulario en el centro */
+
+    /* contenedor del formulario en movil */
     .formulario-contenedor {
-        position: relative !important;
-        width: 100% !important;
-        height: auto !important;
         order: 2;
         flex-grow: 1;
         display: flex;
-        justify-content: center;
-        padding: 2rem 1.5rem;
+        position: relative;
+        justify-content: space-between;
+        align-content: space-between;
     }
     
-    /* Solo mostrar el formulario activo */
+    .formulario-contenedor p {
+        margin-bottom: 16px;
+    }
+    /* para  que el formulario de registro y el de login se vean uno al lado del otro */
     .login, 
     .registro {
-        width: 100% !important;
-        max-width: 400px;
-        opacity: 1 !important;
-        transform: none !important;
+        width: 100%;
         display: none;
     }
     
-    .contenedor.panel-derecho-activo .registro,
-    .contenedor:not(.panel-derecho-activo) .login {
-        display: flex;
-    }
-    
-    /* Botones del overlay */
+    /* Overlay buttons */
     .trigger {
-        width: 200px;
-        margin-top: 1.5rem;
+        width: 180px;
+        margin-top: 1rem;
+        padding: 0.7rem;
+        font-size: 0.9rem;
     }
     
-    /* Efecto de cambio al hacer clic */
-    .overlay-left {
-        transform: translateX(0) !important;
+    /* Adjusted footer */
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 0.5rem;
     }
     
-    .overlay-right {
-        transform: translateX(100%) !important;
+    .footer p {
+        font-size: 0.8rem;
+        margin: 0;
     }
     
-    .contenedor.panel-derecho-activo .overlay {
-        transform: translateX(-50%) !important;
+    .footer-logo {
+        height: 35px;
     }
     
-    /* Ajustes para formularios */
+    /* Form adjustments */
     .inputs input,
     .inputs button {
-        width: 100% !important;
-        max-width: 100% !important;
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.9rem;
     }
     
-    /* Footer en la parte inferior */
-    .footer {
-        order: 3;
+    .btn-registro, 
+    .btn-login {
+        height: 42px;
+        font-size: 0.95rem;
     }
     
+    /* Overlay text */
+    .overlay-panel h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .overlay-panel p {
+        font-size: 0.95rem;
+    }
+    
+    .login {
+        z-index: 2;
+        opacity: 1;
+        transition: all 0.6s ease-in-out;
+    }
+
+    .contenedor.panel-derecho-activo .login {
+        display: none;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    /* Estilos para el formulario de registro */
+    .registro {
+        z-index: 1;
+        opacity: 0;
+        transition: all 0.6s ease-in-out;
+       
+    }
+
+    
+    .contenedor.panel-derecho-activo .registro {
+        opacity: 1;
+        z-index: 2;
+    }
+
+    .overlay-right {
+    
+        z-index: 2;
+        opacity: 1;
+        transition: all 0.6s ease-in-out;
+    }
+
+    .contenedor.panel-derecho-activo .overlay-right {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    /* Estilos para el formulario de registro */
+    .overlay-left {
+        z-index: 1;
+        opacity: 0;
+        transition: all 0.6s ease-in-out;
+    }
+
+    .contenedor.panel-derecho-activo .overlay-left {
+        opacity: 1;
+        z-index: 2;
+    }
+    .btn-volver {
+        margin-left: 40px;
+        margin-bottom: 20px;
+    }
+
 }

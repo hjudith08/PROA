@@ -4,18 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EduSync | Mis herramientas</title>
-  <link rel="icon" href="../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
-  <link rel="stylesheet" href="../../css/estilo-mis-herramientas.css">
+  <link rel="icon" href="../../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
+  <link rel="stylesheet" href="../../../css/estilo-mis-herramientas.css">
 </head>
 <body>
   <header>
     <a href="./">
-      <img src="../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
+      <img src="../../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
     </a>
     <nav>
       <ul>
         <input type="button" value="CONTACTO" onclick="location.href='contacto.html'">
-        <img class="logo-user" src="../../../imagenes/user_1.png" alt="user">
+        <img class="logo-user" src="../../../../imagenes/user_1.png" alt="user">
+        <!-- Dentro del <nav> antes de cerrar el </ul> -->
+        <div class="dropdown-usuario" id="dropdownUsuario">
+        <button><a href="mis-herramientas.html" class="nombre-usuario">Mis herramientas</a></button>
+        <button class="boton-cerrar-sesion" onclick="mostrarPopupCerrarSesion()">Cerrar sesión</button>
+        </div>
+
+        <!-- Popup de confirmación -->
+        <div class="popup" id="popupCerrarSesion">
+        <div class="popup-contenido">
+            <p class="popup-texto">¿Estás seguro que quieres cerrar sesión?</p>
+            <div class="popup-botones">
+            <button onclick="cerrarSesion()">Sí</button>
+            <button onclick="ocultarPopupCerrarSesion()">No</button>
+            </div>
+        </div>
+        </div>
+
       </ul>
     </nav>
   </header>
@@ -30,7 +47,7 @@
         <div class="carrusel-herramientas">
           <div class="slides-carrusel" id="carruselSlides">
             <!-- Slide 1 -->
-            <div class="slide-carrusel" style="background-image: url('../../../imagenes/foto-info.png')">
+            <div class="slide-carrusel" style="background-image: url('../../../../imagenes/foto-info.png')">
               <div class="contenido-carrusel">
                 <div class="tarjeta-carrusel">
                   <div class="contenido-tarjeta">
@@ -44,9 +61,9 @@
                   </div>
                 </div>
                 <div class="lado-derecho-carrusel">
-                  <img class="logo-carrusel" src="../../../imagenes/LogosProaBlanco.png" alt="Logo PROA">
+                  <img class="logo-carrusel" src="../../../../imagenes/LogosProaBlanco.png" alt="Logo PROA">
                   <button class="boton-siguiente" onclick="moverCarrusel(1)">
-                    <img src="../../../imagenes/flecha-derecha.png" alt="Siguiente">
+                    <img src="../../../../imagenes/flecha-derecha.png" alt="Siguiente">
                   </button>
                 </div>
               </div>
@@ -67,7 +84,7 @@
         <p>© 2025 - EduSync | Matriz de GTI</p>
       </div>
       <div class="footer-col">
-        <img src="../../../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
+        <img src="../../../../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
       </div>
     </div>
   </footer>

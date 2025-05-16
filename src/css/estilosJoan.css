@@ -1,0 +1,680 @@
+/* ---------- VARIABLES DE COLOR ---------- */
+:root {
+    --header-height: 60px;
+    --size-header: 60px;
+    --size-footer: 80px;
+    --size-sidebar: 220px;
+
+    /* Colores */
+    --color-header: #3F2A52;
+    --color-footer: #3A2D34;
+    --color-sidebar: #7865A0;
+    --color-fondo: #F8F5FF;
+    --color-columnamorada: #75619E;
+    --color-opcion: #F8F5FF;
+    --blanco:#D9D9D9;
+    --sombra:box-shadow 0px 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- ESTILO GENERAL DEL CUERPO ---------- */
+* { margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; }
+input, button, textarea, select { font: inherit; }
+
+p {text-wrap: pretty;}
+h1, h2, h3, h4, h5, h6 { text-wrap: balance;}
+
+img, video, svg { height: auto; max-width: 100%; }
+
+@media (prefers-reduced-motion: reduce)  {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
+    }
+}
+
+a { color: inherit; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ---------- HEADER ---------- */
+body {
+    display: grid;
+    grid-template-rows: var(--header-height) 1fr auto;
+    grid-template-columns: var(--size-sidebar) 1fr;
+    grid-template-areas:
+        "header header"
+        "sidebar contenido"
+        "footer footer";
+    min-height: 100dvh;
+    background-color: var(--color-fondo);
+}
+
+body > header {
+    grid-area: header;
+    z-index: 2;
+    position: sticky;
+    padding: .5rem;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    background-color: var(--color-header);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body > header > nav {
+    display: flex;
+    gap: 1em;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo-asignatura {
+    width: 345px;
+    height: 32px;
+    margin-left: 258px;
+    color: white;
+    line-height: 32px;
+}
+
+body > header nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1em;
+}
+
+body > header button[popovertarget] {
+    anchor-name: --menu-usuario;
+}
+
+body > header p{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+body > header input{
+    margin: .5em;
+    height: 2em;
+    display: flex;
+    background-color: transparent;
+    border: 0;
+}
+
+body > header button{
+    background-color: transparent;
+    border: 0;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body > header button img{
+    padding: .1em;
+    margin: 1em;
+    border-radius: .7em;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+}
+
+body > header button img:hover {
+    background-color: rgb(180, 182, 183);
+}
+
+body > header > a > img {
+    align-items: center;
+    margin: .5em;
+    height: 2em;
+    padding-left: .5em;
+    margin-right: 1em;
+}
+
+header nav .usuario-bienvenida {
+    margin-right: 44px;
+    color: #ffffff;
+}
+
+/* Estilos para el menú de usuario */
+#menu-usuario {
+    box-sizing: border-box;
+    width: 296px;
+    background: #FFFFFF;
+    border: 1px solid #3F2A52;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px 0px 10px 10px;
+    padding: 15px;
+    position: fixed;
+    top: 62px;
+    right: 10px;
+    margin: 0;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+#menu-usuario[popover]:popover-open {
+    display: flex;
+    inset: unset;
+    top: anchor(--menu-usuario bottom);
+    right: anchor(--menu-usuario right);
+    margin-top: 8px;
+}
+
+#menu-usuario .nombre-menu {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #75619E;
+    text-align: center;
+    width: 100%;
+}
+
+#menu-usuario .separador {
+    width: 100%;
+    height: 1px;
+    background-color: #3F2A52;
+    margin: 5px 0;
+}
+
+#menu-usuario div:last-child {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    color: #75619E;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+/* ---------- SIDEBAR ---------- */
+aside.sidebar {
+    width: var(--size-sidebar);
+    background-color: var(--color-sidebar);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding-top: 0;
+    height: 100%;
+    grid-area: sidebar;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    height: 92px;
+    padding: 0 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    background-color: var(--color-sidebar);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.2) inset;
+    transition: all 0.2s ease;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+}
+
+.menu-btn:hover {
+    background-color: #BEAED8;
+    color: black;
+}
+
+.icono-menu {
+    width: 29px;
+    height: 29px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.menu-btn span {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-btn.activo {
+    background-color: #f7f7fb;
+    box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.1) inset,
+    0 3px 5px rgba(0, 0, 0, 0.1) inset;
+    color: var(--color-header);
+}
+
+.menu-btn.activo .icono-activo {
+    filter: brightness(0);
+}
+
+/* end region SIDEBAR */
+
+
+@media (max-width: 250px) {
+    .menu-btn {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    .icono-menu {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+}
+
+/* ---------- FOOTER ---------- */
+main.contenido-principal {
+    grid-area: contenido;
+}
+
+.contenido-principal {
+    margin-left: 0;
+}
+
+.footer-anclado {
+    background-color: var(--color-footer);
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 100;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 0;
+    width: 100%;
+}
+
+.footer-contenido {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.footer-texto {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.footer-logo {
+    height: 30px;
+    width: auto;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-logo:hover {
+    opacity: 1;
+}
+
+footer.footer-anclado {
+    grid-area: footer;
+    width: 100%;
+    margin-left: 0;
+}
+
+.footer-poweredby {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+/* ---------- CONTENIDO PRINCIPAL ---------- */
+.contenido-principal {
+    grid-area: contenido;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Títulos de sección */
+main.content h2 {
+    color: var(--color-header);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-left: 5px solid var(--color-columnamorada);
+    padding-left: 0.5rem;
+}
+
+/* Estilos para listas de asignaturas y tareas */
+ul.asignaturas, ul.tareas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+}
+
+/* Tarjeta común para asignaturas y tareas */
+ul.asignaturas li, ul.tareas li {
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid #7865A0;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+ul.asignaturas li:hover,
+ul.tareas li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Enlaces dentro de tarjetas */
+ul.asignaturas li a,
+ul.tareas li a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Iconos de asignaturas */
+ul.asignaturas i {
+    font-size: 2rem;
+    color: var(--color-header);
+}
+
+/* Título y materia de tareas */
+
+ul.tareas li em {
+    color: var(--color-sidebar);
+    font-size: 0.9rem;
+    font-style: normal;
+    margin-top: 0.2rem;
+}
+
+ul.tareas li p {
+    font-size: 1rem;
+    color: #444;
+}
+
+@media (max-width: 768px) {
+    .footer-anclado {
+        width: 100%;
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .footer-contenido {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo {
+        height: 20px;
+    }
+}
+.contenedor-tareas {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.cabecera-tareas {
+    border: 1px solid var(--color-columnamorada);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.cabecera-tareas h1 {
+    font-size: 1.5rem;
+    color: var(--color-columnamorada);
+}
+.tabla-flex-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 1rem;
+}
+/* Contenedor principal para distribuir los bloques de asignaturas y tareas */
+.contenedor-flex-principal {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+
+/* Estilos individuales para cada bloque */
+.contenedor-flex-principal .contenedor-tareas {
+    flex: 1 1 48%;
+}
+.asignaturas li {
+    padding: 16px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.asignaturas li:hover {
+    background-color: #e9e9e9;
+}
+
+.texto-desplegable {
+    display: none;
+    margin-top: 8px;
+    font-weight: normal;
+    font-size: 0.95rem;
+    color: #333;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.fila-objetivo {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.encabezado-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boton-revisar {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 30px;
+    gap: 10px;
+    width: 135px;
+    height: 38px;
+    background: #FEFEFF;
+    border: 1px solid #75619E;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    color: #3F2A52;
+}
+.textarea-edicion {
+    width: 100%;
+    min-height: 80px;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Segoe UI', sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    resize: vertical;
+}
+
+.botonesEditaryVer {
+    display: flex;
+    padding-top: 15px;
+    gap: 10px;
+    flex-wrap: wrap; /* Por si no caben en la misma línea */
+    margin-left: 70px; /* Espaciado entre el rectángulo y los botones */
+}
+
+.botonesEditaryVer button {
+    white-space: normal;     /* Permite saltos de línea */
+    width: auto;             /* Se ajusta al contenido */
+    max-width: 100%;         /* Nunca se sale del contenedor */
+    padding: 10px 20px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+
+.rectangulo-fecha {
+    position: absolute;
+    left: 10px;  /* Asegura que se quede en el lado izquierdo */
+    top: 50%;  /* Centrado vertical */
+    transform: translateY(-50%);  /* Centrado vertical exacto */
+    width: 54px;
+    height: 65px;
+    background: rgba(217, 217, 217, 0.6);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 27px;
+    color: #75619E;
+    z-index: 10;  /* Asegura que no esté cubierto por otros elementos */
+    visibility: visible;  /* Asegura que siempre sea visible */
+    opacity: 1;  /* Totalmente visible */
+    padding: 5px;  /* Espaciado dentro del rectángulo */
+}
+
+.tareas li {
+    position: relative; /* Para que el rectángulo esté posicionado respecto a este li */
+}
+
+.texto-lista-tareas {
+    text-align: center;
+}
+
+/* region ---PopUp CerrarSesion--- */
+/* Popup general */
+.popup {
+    position: fixed; /* mejor que absolute para centrar en viewport */
+    width: 462px;
+    height: 225px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25));
+    z-index: 999;
+}
+
+/* Ocultar */
+.oculto {
+    display: none;
+}
+
+/* Contenido interno */
+.popup-contenido-C {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    max-width: 100%;
+}
+
+/* Texto principal */
+.popup-texto {
+    font-family: 'Segoe UI', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    color: #3F2A52;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Contenedor de botones */
+.popup-botones {
+    display: flex;
+    width: 100%;
+    height: 81px;
+}
+
+/* Botón Sí */
+.boton-si {
+    width: 50%;
+    background: #75619E;
+    border: 1px solid #3F2A52;
+    border-bottom-left-radius: 10px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Botón No */
+.boton-no {
+    width: 50%;
+    background: #75619E;
+    border: 1px solid #3F2A52;
+    border-bottom-right-radius: 10px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+/* endregion */

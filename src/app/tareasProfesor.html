@@ -6,7 +6,7 @@
     <title>PROA</title>
     <!-- imagen de pestaña -->
     <link rel="icon" href="imagenes/LogosProaBlancoV3.png" type="image/png">
-    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/estilosEli.css">
     <script src="js/PopUpEntregas.js" defer></script>
     <!--<script src="js/FiltroTareas.js" defer></script>
     <script src="js/PopUpCerrarSesion.js" defer></script>-->
@@ -69,10 +69,10 @@
     <div class="contenedor-tareas">
         <div class="cabecera-tareas">
             <h1>TAREAS</h1>
-            <div class="botones-encabezado-tarea">
-                <button class="boton-revisar">Eliminar tarea</button>
-                <button class="boton-revisar">
-                    <img src="../../images/pluspurple.png" alt="plus">
+            <div class="grupo-botones-cabecera">
+                <button  class="botones-cabecera-tareas">Eliminar tarea</button>
+                <button  class="botones-cabecera-tareas">
+                    <img class="icono-plus" src="../../images/pluspurple.png" alt="plus">
                     Nueva tarea</button>
             </div>
         </div>
@@ -89,54 +89,54 @@
 
 
             <!-- Filas de datos -->
-             <div class="caja-tarea-eli">
-                <input class="checkbox" type="checkbox">
+             <div class="caja-tarea">
+                <input class="checkbox trozo-caja-aparte" type="checkbox">
             <div class="fila-flex" onclick="window.location.href='InformacionTarea.html'" style="cursor: pointer;">
-                <div class="columna-flex">Análisis de sucesiones y series de números reales</div>
-                <div class="columna-flex">08/04/25</div>
-                <div class="columna-flex">10/04/25</div>
+                <div class="columna-flex" id="titulo-tarea">Análisis de sucesiones y series de números reales</div>
+                <div class="columna-flex" id="apertura">08/04/25</div>
+                <div class="columna-flex" id="entrega">10/04/25</div>
                 </div> 
-                <div class="botones-eli">
-                    <button class="boton-revisar botones-editar-entrega">Editar Tarea</button>
-                    <button class="boton-revisar botones-editar-entrega">Ver entrega</button>
+                <div class="botones trozo-caja-aparte ">
+                    <button class="botones-editar-entrega">Editar Tarea</button>
+                    <button class="botones-editar-entrega">Ver entrega</button>
                 </div>
             </div>
 
-            <div class="caja-tarea-eli">
-                <input class="checkbox" type="checkbox">
+            <div class="caja-tarea">
+                <input class="checkbox trozo-caja-aparte" type="checkbox">
             <div class="fila-flex" onclick="window.location.href='InformacionTareaEntregada.html'" style="cursor: pointer;">
                 <div class="columna-flex">Resolución de sistemas de ecuaciones lineales</div>
                 <div class="columna-flex">04/04/25</div>
                 <div class="columna-flex">15/04/25</div>
                 </div>
-                <div class="botones-eli">
-                    <button class="boton-revisar botones-editar-entrega">Editar Tarea</button>
-                    <button class="boton-revisar botones-editar-entrega">Ver entrega</button>
+                <div class="botones trozo-caja-aparte ">
+                    <button class="botones-editar-entrega">Editar Tarea</button>
+                    <button class="botones-editar-entrega">Ver entrega</button>
                 </div>
             </div>  
-            <div class="caja-tarea-eli">
-                <input class="checkbox" type="checkbox">
+            <div class="caja-tarea">
+                <input class="checkbox trozo-caja-aparte" type="checkbox">
             <div class="fila-flex" onclick="window.location.href='InformacionTarea.html'" style="cursor: pointer;">
                 <div class="columna-flex">Análisis de funciones y estudio de sus gráficos</div>
                 <div class="columna-flex">08/04/25</div>
                 <div class="columna-flex">20/04/25</div>
                 </div>
-                <div class="botones-eli">
-                    <button class="boton-revisar botones-editar-entrega">Editar Tarea</button>
-                    <button class="boton-revisar botones-editar-entrega">Ver entrega</button>
+                <div class="botones trozo-caja-aparte ">
+                    <button class="botones-editar-entrega">Editar Tarea</button>
+                    <button class="botones-editar-entrega">Ver entrega</button>
                 </div>
             </div>
 
-            <div class="caja-tarea-eli">
-                <input class="checkbox" type="checkbox">
+            <div class="caja-tarea">
+                <input class="checkbox trozo-caja-aparte" type="checkbox">
                 <div class="fila-flex" onclick="window.location.href='InformacionTarea.html'" style="cursor: pointer;">
                 <div class="columna-flex">Estudio de espacios vectoriales y subespacios</div>
                 <div class="columna-flex">08/04/25</div>
                 <div class="columna-flex">26/04/25</div>
                 </div>
-                <div class="botones-eli">
-                   <button class="boton-revisar botones-editar-entrega">Editar Tarea</button>
-                    <button class="boton-revisar  botones-editar-entrega">Ver entrega</button>
+                <div class="botones trozo-caja-aparte ">
+                   <button class="botones-editar-entrega">Editar Tarea</button>
+                    <button class="botones-editar-entrega">Ver entrega</button>
                 </div>
             </div>
         </div>

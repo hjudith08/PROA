@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduSync | Mis herramientas</title>
+  <link rel="icon" href="../../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
+  <link rel="stylesheet" href="../../../css/estilo-mis-herramientas.css">
+</head>
+<body>
+  <header>
+    <a href="./">
+      <img src="../../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
+    </a>
+    <nav>
+      <ul>
+        <input type="button" value="CONTACTO" onclick="location.href='contacto.html'">
+        <img class="logo-user" src="../../../../imagenes/user_1.png" alt="user">
+        <!-- Dentro del <nav> antes de cerrar el </ul> -->
+        <div class="dropdown-usuario" id="dropdownUsuario">
+        <button><a href="mis-herramientas.html" class="nombre-usuario">Mis herramientas</a></button>
+        <button class="boton-cerrar-sesion" onclick="mostrarPopupCerrarSesion()">Cerrar sesión</button>
+        </div>
+
+        <!-- Popup de confirmación -->
+        <div class="popup" id="popupCerrarSesion">
+        <div class="popup-contenido">
+            <p class="popup-texto">¿Estás seguro que quieres cerrar sesión?</p>
+            <div class="popup-botones">
+            <button onclick="cerrarSesion()">Sí</button>
+            <button onclick="ocultarPopupCerrarSesion()">No</button>
+            </div>
+        </div>
+        </div>
+
+      </ul>
+    </nav>
+  </header>
+
+  <div class="contenedor-fondo">
+    <div class="contenedor-principal">
+      <main class="contenido-principal">
+        <h1 class="titulo-principal">Mis herramientas</h1>
+        <p class="descripcion-principal">Aquí encontrarás las herramientas que hayas probado anteriormente</p>
+
+        <!-- Carrusel de herramientas -->
+        <div class="carrusel-herramientas">
+          <div class="slides-carrusel" id="carruselSlides">
+            <!-- Slide 1 -->
+            <div class="slide-carrusel" style="background-image: url('../../../../imagenes/foto-info.png')">
+              <div class="contenido-carrusel">
+                <div class="tarjeta-carrusel">
+                  <div class="contenido-tarjeta">
+                    <p class="texto-tarjeta">
+                      App con un diseño intuitivo y adaptable y una interfaz clara
+                      y moderna que facilita la navegación en cualquier
+                      dispositivo. Su experiencia visual es atractiva y optimizada
+                      para un uso cómodo y eficiente.
+                    </p>
+                    <a href="../../Proa/loginProa.html" class="boton-demo">Entrar demo PROA</a>
+                  </div>
+                </div>
+                <div class="lado-derecho-carrusel">
+                  <img class="logo-carrusel" src="../../../../imagenes/LogosProaBlanco.png" alt="Logo PROA">
+                  <button class="boton-siguiente" onclick="moverCarrusel(1)">
+                    <img src="../../../../imagenes/flecha-derecha.png" alt="Siguiente">
+                  </button>
+                </div>
+              </div>
+            </div>
+          <!-- Indicadores -->
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <p>Contáctanos: edusync@gti.com</p>
+      </div>
+      <div class="footer-col">
+        <p>© 2025 - EduSync | Matriz de GTI</p>
+      </div>
+      <div class="footer-col">
+        <img src="../../../../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../../js/misherramientas.js"></script>
+</body>
+</html>

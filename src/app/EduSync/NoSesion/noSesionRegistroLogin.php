@@ -15,17 +15,7 @@
     <!-- contenedor para el formulario de registro-->
     <div class="formulario-contenedor registro">
         <!-- cabecera del registro-->
-        <header class="header header-registro">
-           <a href="../../../../index.html" class="logo">
-                <img src="../../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
-            </a>
-            <!-- Boton para ir a la pagina de contacto-->
-            <nav>
-                 <ul>
-                     <input type="button" value="CONTACTO" onclick="location.href='contacto.html'">
-                </ul>
-            </nav>
-        </header>
+    <?php include 'includes/edusyncNoSesionHeaderInclude.php'; ?>
         <!-- formulario de registro-->
         <form id="registro-form" action="#" method="post">
             <h1>Registro</h1>

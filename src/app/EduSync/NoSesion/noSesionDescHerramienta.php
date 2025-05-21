@@ -12,17 +12,7 @@
 <body>
 
 <!-- header -->
-<header>
-        <a href="../../../index.html">
-            <img src="../../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
-        </a>
-        <nav>
-            <ul>
-                <input type="button" value="CONTACTO" onclick="location.href='contacto.html'">
-                <input type="button" value="LOGIN" onclick="location.href='../EduSync/login.php'">
-            </ul>
-        </nav>
-</header>
+    <?php include 'includes/edusyncNoSesionHeaderInclude.php'; ?>
 
 <!-- primera sección información PROA -->
 <section class="desc-section1">

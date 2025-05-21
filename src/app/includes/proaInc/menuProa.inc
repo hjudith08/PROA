@@ -20,7 +20,7 @@ $asignatura = [
     <!-- Elementos a la izquierda del header -->
     <div class="elementos-izquierda">
         <!-- Logo de la herramienta educativa -->
-        <a class="logo-header" href ="../loginProa.php"> <img src="../../../imagenes/LogosProaBlanco.png" alt="Logotipo"> </a>
+        <a class="logo-header" href ="inicioGeneral.php"> <img src="../../../imagenes/LogosProaBlanco.png" alt="Logotipo"> </a>
         <!-- Nombre de la asignatura en la q se encuentra, en caso de q no este en ninguna no saldrá nada) -->
         <h3 class="titulo-asignatura"> <?php echo $asignatura['nombre'] ?> </h3>
     </div>

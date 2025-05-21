@@ -29,7 +29,7 @@
     <div class="contenido-interior">
         
         <!--Rellenar-->
-        
+        <a href="inicioAsignatura.php">ESTO TE LLEVA A UNA ASIGNATURA</a>
         <!-- lo haceis con lo siguiente<?php /* include '../../includes/proaInc/proa[pas-alumno-profesor]/[nombreDelArchivo].inc'; */ ?> -->
 
     </div>

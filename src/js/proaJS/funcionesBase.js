@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         botonSi.addEventListener("click", () => {
-            window.location.href = "../loginProa.html";
+            window.location.href = "../loginProa.php";
         });
     }
 });

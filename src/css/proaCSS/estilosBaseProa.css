@@ -79,7 +79,7 @@
     background-color: var(--color-blanco);
     box-shadow: var(--sombra-generica);
     padding: 20px;
-    min-height: calc(100% - var(--altura-footer));
+    min-height: calc(100% - var(--altura-footer) + 0.5rem);
 }
 
 .migas a{    

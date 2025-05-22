@@ -23,7 +23,10 @@
     <h2>Tareas</h2>
 <!--  recorrido de donde te situas -->
     <div class="migas">
-        <a href="inicioGeneral.php">Inicio General / </a><a href="asignaturas.php">Asignaturas / </a><a href="inicioAsignatura.php">Inicio Asignatura / </a><a href="#">Tareas /</a>
+        <a href="inicioGeneral.php">Inicio General / </a>
+        <a href="asignaturas.php">Asignaturas / </a>
+        <a href="inicioAsignatura.php">Inicio Asignatura / </a>
+        <a class="ubicacion-actual"href="#">Tareas /</a>
     </div>
 <!-- Contenido de la seccion-->
     <div class="contenido-interior">

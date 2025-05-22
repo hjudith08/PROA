@@ -88,6 +88,10 @@
     color: var(--color-texto-claro);
     text-decoration: none;
 }
+
+.ubicacion-actual{
+    font-weight: 600;
+}
 /*region --- MENU --- */
 
 body > header {

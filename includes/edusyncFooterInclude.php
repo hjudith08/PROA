@@ -7,7 +7,7 @@
             <p>© 2025 - EduSync | Matriz de GTI</p>
         </div>
         <div class="footer-col">
-            <img src="../../../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
+            <img src="../../../../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
         </div>
     </div>
 </footer>

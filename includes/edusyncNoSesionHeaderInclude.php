@@ -1,13 +1,13 @@
-
-    <header>
-        <a href="#" class="logo">
-            <img src="/imagenes/logo-edusync.png" alt="EduSync Logo">
+<header>
+        <a href="./">
+            <img src="../../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
         </a>
+
         <nav>
             <ul>
-                <li><a href="#" class="enlace-nav">Contacto</a></li>
-                <li><input type="button" class="boton-login" value="Login"></li>
+                <input type="button" value="CONTACTO" onclick="location.href='../../../../src/app/EduSync/NoSesion/noSesionContacto.php'">
+                <!-- login-->
+                <input type="button" value="LOGIN" onclick="location.href='../../../../src/app/EduSync/NoSesion/noSesionRegistroLogin.php'">
             </ul>
         </nav>
-        <button class="boton-menu-movil">☰</button>
-    </header>
+</header>

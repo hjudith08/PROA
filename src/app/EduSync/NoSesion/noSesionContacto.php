@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - EduSync</title>
     <link rel="icon" href="../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
-    <link rel="stylesheet" href="../../css/estiloscontacto.css">
+    <link rel="stylesheet" href="../../../css/estiloscontacto.css">
 </head>
 <body>
     <!-- Cabecera -->
-    <?php include 'includes/edusyncNoSesionHeaderInclude.php'; ?>
+    <?php include '../../../../includes/edusyncNoSesionHeaderInclude.php'; ?>
 
     <!-- Contenido Principal -->
     <main class="contenedor-principal">
@@ -26,7 +26,7 @@
                     <div class="tarjeta-info">
                         <div class="contenido-tarjeta-info">
                             <div class="icono-info">
-                                <img src="../../../imagenes/letterb.png" alt="Email">
+                                <img src="../../../../imagenes/letterb.png" alt="Email">
                             </div>
                             <div class="texto-info">
                                 <p class="etiqueta-info">Correo:</p>
@@ -38,7 +38,7 @@
                     <div class="tarjeta-info">
                         <div class="contenido-tarjeta-info">
                             <div class="icono-info">
-                                <img src="../../../imagenes/telephoneb.png" alt="Teléfono">
+                                <img src="../../../../imagenes/telephoneb.png" alt="Teléfono">
                             </div>
                             <div class="texto-info">
                                 <p class="etiqueta-info">Teléfono:</p>
@@ -82,13 +82,8 @@
         </div>
     </main>
 
-    <!-- Pie de página -->
-    <footer class="pie-pagina">
-        <div class="contenedor-pie-pagina">
-            <p>Contactamos: eclusync@git.com</p>
-            <p>© 2025 - EduSync | Mairic de GTI</p>
-        </div>
-    </footer>
+    <!-- footer -->
+     <?php include '../../../../includes/edusyncFooterInclude.php'; ?>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

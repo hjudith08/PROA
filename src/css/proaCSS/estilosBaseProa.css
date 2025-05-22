@@ -325,6 +325,7 @@ footer .footer-imagen-proa {
     color: var(--color-texto);
     box-shadow: inset 4px 2px 4px rgba(0, 0, 0, 0.15), 
             inset 4px -2px 4px rgba(0, 0, 0, 0.15);
+    cursor:not-allowed;
 }
 
 .sidebar-btn:hover{

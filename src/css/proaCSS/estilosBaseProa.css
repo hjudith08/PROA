@@ -150,7 +150,7 @@ body > header button[popovertarget]:hover {
     margin-top: .5rem;
     width: 300px;
     background: var(--color-blanco);
-    border: 1px solid var(--color-principal);
+    border: none;
     box-shadow: var(--sombra-generica);
     border-radius: 10px 0 10px 10px;
 }
@@ -390,7 +390,7 @@ footer .footer-imagen-proa {
     margin-top: .5rem;
     width: 180px;
     background: var(--color-blanco);
-    border: 1px solid var(--color-principal);
+    border: none;
     box-shadow: var(--sombra-generica);
     border-radius: 10px 0 10px 10px;
 }
@@ -553,11 +553,11 @@ footer .footer-imagen-proa {
         height: 140px;
     }
     .boton-si, .boton-no {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .boton-si:hover, .boton-no:hover {
-        font-size: 12px;
+        font-size: 14px;
     }
     
       .menu-movil{

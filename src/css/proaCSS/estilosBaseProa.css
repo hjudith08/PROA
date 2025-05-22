@@ -348,6 +348,51 @@ footer .footer-imagen-proa {
 }
 /* endregion */
 
+
+/* region --- Menu Hamburguesa ---  */
+
+.menu-movil{
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    top: calc(var(--altura-header) + 1rem);
+    background-color: transparent;
+    display: none;
+    border-radius: 10px;
+}
+
+
+.menu-movil button[popovertarget] {
+    anchor-name: --menu-movil-navegacion;
+    background-color: transparent;
+    border: none;   
+    height: 40px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: var(--sombra-generica);
+}
+.menu-movil button[popovertarget]:hover {
+    background-color: var(--color-principal-muy-claro);
+    scale: 1.05;
+
+}
+
+#menu-hamburguesa {
+    inset: unset;
+    top: anchor(bottom);
+    right: anchor(right);
+    margin-top: .5rem;
+    width: 180px;
+    background: var(--color-blanco);
+    border: 1px solid var(--color-principal);
+    box-shadow: var(--sombra-generica);
+    border-radius: 10px 0 10px 10px;
+}
+
+/* endregion */
+
+
  /* --- ESTILOS BASE (DESKTOP mas pequeño 777px) --- */
 
 
@@ -508,6 +553,20 @@ footer .footer-imagen-proa {
 
     .boton-si:hover, .boton-no:hover {
         font-size: 12px;
+    }
+    
+      .menu-movil{
+        display: flex;
+    }
+
+    .seccion-activa{
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    box-shadow:none ;
+    }
+    .sidebar-btn:hover{
+        background-color: var(--color-principal-muy-claro);
+        scale: 1;
     }
 }
 

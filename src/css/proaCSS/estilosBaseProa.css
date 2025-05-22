@@ -455,7 +455,9 @@ footer .footer-imagen-proa {
         padding: 15px;
         font-size: 14px;
     }
-    
+    body > header button[popovertarget] {
+        margin-right: 1em;
+    }
     /* Sidebar */
     :root {
         --ancho-sidebar: 160px;

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio general - PROA</title>
+    <script src="../../../js/InicioAsignatura.js" defer></script>
+    <script src="../../../js/PopUpCerrarSesion.js" defer></script>
+    <script src="../../../js/Responsive.js" defer></script>
+
+
+
+    <link rel="stylesheet" href="../../../css/sergi.css" />
+</head>
+<body>
+
+<header>
+    <a href="inicioGeneralProfesor(sergi).html">
+        <img src="../../../../imagenes/LogosProaBlanco.png" alt="Logotipo">
+    </a>
+    <nav>
+        <h3 class="titulo-asignatura">Inicio Asignaturas</h3>
+        <p class="usuario-bienvenida">Bienvenido xexi mexi</p>
+    </nav>
+
+    <button popovertarget="menu-usuario" id="boton-usuario">
+        <img src="../../../../imagenes/user_1b.png" alt="Usuario">
+    </button>
+    <div id="menu-usuario" popover anchor="boton-usuario">
+        <p class="nombre-menu">Nombre Apellido</p>
+        <div class="separador"></div>
+        <div><button popovertarget="confirmar-cierre">Salir</button></div>
+    </div>
+</header>
+
+<aside class="sidebar">
+    <nav class="menu-container">
+        <button class="menu-btn" onclick="window.location.href='inicioGeneralProfesor(sergi).html';">
+            <img src="../../../../imagenes/homeb.png" class="icono-menu" />
+            <span>Inicio General</span>
+        </button>
+        <button class="menu-btn activo">
+            <img src="../../../../imagenes/libro-alt.png" class="icono-menu icono-activo" />
+            <span class="texto-activo">Asignaturas</span>
+        </button>
+    </nav>
+</aside>
+
+<main class="content">
+    <button class="hamburguesa" aria-label="Abrir menú">☰</button>
+    <nav class="menu-movil">
+        <ul>
+            <li>
+                <a href="inicioGeneralAlumno.html">
+                    <img src="../../../../imagenes/homeb.png" alt="Inicio" />
+                    Inicio General
+                </a>
+            </li>
+            <li>
+                <a href="Tareas.html">
+                    <img src="../../../../imagenes/bookb.png" alt="Tareas" />
+                    Tareas
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="inicioGeneralAlumno.html">Inicio General</a>
+    </div>
+    <div class="contenedor-flex-principal">
+        <div class="contenedor-tareas">
+            <div class="cabecera-tareas">
+                <h1>Asignaturas</h1>
+            </div>
+
+            <!-- Filtros -->
+            <div class="tabla-flex-container">
+                <div class="filtros-asignaturas">
+                    <div class="filtros-cuatrimestre">
+                        <label><input type="checkbox" checked> Primer cuatrimestre</label>
+                        <label><input type="checkbox" checked> Segundo cuatrimestre</label>
+                    </div>
+                    <div class="filtros-curso">
+                        <label><input type="radio" name="curso" checked> 1º</label>
+                        <label><input type="radio" name="curso"> 2º</label>
+                        <label><input type="radio" name="curso"> 3º</label>
+                        <label><input type="radio" name="curso"> 4º</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones tipo tarjeta -->
+            <div class="tabla-flex-container">
+                <ul class="asignaturas grid-botones">
+                    <li><a href="InicioAsignaturaProfesor.html">Programación 1 <span class="codigo-asignatura">101</span></a></li>
+                    <li><a href="InicioAsignaturaProfesor.html">Electrónica básica <span class="codigo-asignatura">102</span></a></li>
+                    <li><a href="InicioAsignaturaProfesor.html">Fundamentos físicos <span class="codigo-asignatura">103</span></a></li>
+                    <li><a href="InicioAsignaturaProfesor.html">Álgebra Matricial <span class="codigo-asignatura">104</span></a></li>
+                    <li><a href="InicioAsignaturaProfesor.html">Proyecto CDIO <span class="codigo-asignatura">105</span></a></li>
+                    <li><a href="InicioAsignaturaProfesor.html">Proyecto de Diseño <span class="codigo-asignatura">106</span></a></li>
+                    <li><a href="InicioAsignaturaProfesor.html">Redes y Comunicación <span class="codigo-asignatura">107</span></a></li>
+                    <li><a href="InicioAsignaturaProfesor.html">Diseño de Interfaces <span class="codigo-asignatura">108</span></a></li>
+                    <li><a href="InicioAsignaturaProfesor.html">Programación 2 <span class="codigo-asignatura">109</span></a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+
+
+<footer class="footer-anclado">
+    <div class="footer-contenido">
+        <div class="footer-poweredby">
+            <span class="footer-texto">Powered by</span>
+            <img src="images/LogoEduSyncBlanco.png" alt="Logo Edusync" class="footer-logo">
+        </div>
+    </div>
+</footer>
+<!-- Fondo oscuro -->
+<div id="fondoOscuro" class="fondo-oscuro oculto"></div>
+<!-- PopUp Cerrar Sesión -->
+<div id="popupCerrarSesion" class="popup oculto">
+    <div class="popup-contenido-C">
+        <p class="popup-texto">¿Estás seguro que quieres cerrar sesión?</p>
+        <div class="popup-botones">
+            <button id="btn-si" class="boton-si">Sí</button>
+            <button id="btn-no" class="boton-no">No</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

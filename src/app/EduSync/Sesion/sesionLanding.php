@@ -1,29 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduSync | Venta de Modulos Educativos</title>
-    <link rel="icon" href="../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
-    <link rel="stylesheet" href="../src/css/estilos.css">
+    <link rel="icon" href="../../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
+    <link rel="stylesheet" href="../../../css/estilos-landing-sesion.css">
 </head>
 
 <body>
 
 <!-- header -->
-<header>
-        <a href="./">
-            <img src="../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
-        </a>
-        <nav>
-            <ul>
-                <input type="button" value="CONTACTO" onclick="location.href='app/EduSync/NoSesion/contacto.html'">
-                <input type="button" value="LOGIN" onclick="location.href='app/EduSync/NoSesion/login.html'">
-            </ul>
-        </nav>
-</header>
-
+    <?php include 'includes/edusyncSesionHeaderInclude.php'; ?>
 <!-- sección principal -->
 <section class="hero">
     <div class="overlay">
@@ -32,10 +21,10 @@
                 <h2>Transforma tu institución con<br> módulos inteligentes y a tu medida</h2>
                 <p>Prueba nuestra primear herramienta educativa gratis!</p>
                 <!-- logo de PROA -->
-                <img src="../imagenes/LogosProaBlanco.png" alt="Logo PROA" class="logo-proa"><br>
+                <img src="../../../../imagenes/LogosProaBlanco.png" alt="Logo PROA" class="logo-proa"><br>
                 
                 <!-- botón que simula una llamada a la demo -->
-                <a href="app/EduSync/NoSesion/desc-herramienta.html" class="boton-demo">DEMO PROA</a>
+                <a href="desc-herramienta.html" class="boton-demo">DEMO PROA</a>
 
                 <p>Descubre cómo podemos ayudarte a modernizar tu institución<br> hoy mismo con nuestras herramientas educativas.</p>
             </div>
@@ -43,7 +32,7 @@
             <!-- flecha que baja a la siguiente sección -->
             <div class="flecha-bajar">
                 <a href="#sobre-nosotros" class="boton-flecha">
-                    <span class="flecha"><img src="../imagenes/down-arrow.png" alt="Boton bajar"></span>
+                    <span class="flecha"><img src="../../../../imagenes/down-arrow.png" alt="Boton bajar"></span>
                 </a>
             </div>
         </div>
@@ -57,7 +46,7 @@
         Somos una empresa proveniente de una matriz de GTI (Grado en Tecnologías Interactivas) dedicada a mejorar la experiencia educativa dentro de las instituciones, diseñamos módulos educativos que hacen que la interacción entre alumnos y profesores sea más simple, fluida y agradable. Queremos que las plataformas educativas no solo funcionen, sino que realmente conecten con quienes las usan.
     </p>
     <!-- icono -->
-    <img src="../imagenes/usuariosazul.png" alt="Icono personas" class="icono-ns">
+    <img src="../../../../imagenes/usuariosazul.png" alt="Icono personas" class="icono-ns">
 </section>
 
 <!-- footer -->
@@ -70,7 +59,7 @@
             <p>© 2025 - EduSync | Matriz de GTI</p>
         </div>
         <div class="footer-col">
-            <img src="../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
+            <img src="../../../../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
         </div>
     </div>
 </footer>
@@ -78,7 +67,7 @@
 
 <!-- botón para volver arriba -->
 <a href="#" class="scroll-to-top" aria-label="Subir al inicio">
-    <img src="../imagenes/high-arrowb.png" alt="Subir inicio pagina">
+    <img src="../../../../imagenes/high-arrowb.png" alt="Subir inicio pagina">
 </a>
 
 <!-- script para mostrar/ocultar el botón al hacer scroll -->
@@ -93,6 +82,7 @@
         }
     });
 </script>
+<script src="../../../js/misherramientas.js"></script>
 <!-- fin del script -->
 
 </body>

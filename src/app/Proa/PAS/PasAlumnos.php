@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Asignaturas</title>
+    <link rel="icon" href="../../../imagenes/LogosProaBlancoV3.png" type="image/png">
+    <link rel="stylesheet" href="../../../css/estilos-pas-ap.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="../../../../imagenes/LogosProaBlanco.png" alt="Logo Proa" class="logo">
+        </div>
+        <h1 class="titulo-header">Asignaturas</h1>
+        <div class="usuario">
+            <span>¡Bienvenido [Nombre del Usuario]!</span>
+            <a href="../loginProa.html"><img src="../../../../imagenes/user_1b.png" alt="Usuario" class="icono-usuario"></a>
+        </div>
+    </header>
+    
+    <!-- Contenedor principal -->
+    <div class="contenedor-principal">
+        <!-- Sidebar -->
+        <button id="toggle-filtro" class="boton-toggle-filtro">Mostrar filtro</button>
+        <aside class="sidebar scrollbar oculto">
+            <h2 class="titulo-filtro">FILTRAR POR</h2>
+            <button class="boton-limpiar">Borrar todo</button>
+            
+            <!-- Filtro por nombre -->
+            <div class="seccion-filtro">
+                <h3 class="subtitulo-filtro">Departamento</h3>
+                <div class="opcion-filtro">
+                    <input type="checkbox" id="nombre-ciencias">
+                    <label for="nombre-ciencias">Grado en Ciencias Ambientales</label>
+                </div>
+                <div class="opcion-filtro">
+                    <input type="checkbox" id="nombre-comunicacion">
+                    <label for="nombre-comunicacion">Grado en Comunicación Audiovisual</label>
+                </div>
+                <div class="opcion-filtro">
+                    <input type="checkbox" id="nombre-tecnologias">
+                    <label for="nombre-tecnologias">Grado en Tecnologías Interactivas</label>
+                </div>
+                <div class="opcion-filtro">
+                    <input type="checkbox" id="nombre-telecomunicacion">
+                    <label for="nombre-telecomunicacion">Grado en Ingeniería de Sistemas de Telecomunicación</label>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Contenido principal -->
+        <main class="contenido scrollbar">
+    
+        <div class="barra-titulo">
+            <h2 class="titulo-contenido">Alumnos</h2>
+        </div>
+        <div class="recuadro-asignaturas">
+        <!-- Aquí va el resto de tu contenido principal -->
+        <div class="barra-busqueda">
+    <input type="text" class="input-busqueda" placeholder="Nombre:">
+    <img src="../../../../imagenes/loupe.png" alt="Buscar" class="icono-busqueda">
+</div>
+<div class="bloque-asignaturas">
+    <div class="tarjeta">
+        <div class="contenido-tarjeta">
+            <div class="lista-asignaturas scrollbar" id="lista-asignaturas">
+                <!-- Las asignaturas se cargarán aquí con JavaScript -->
+            </div>
+        </div>
+    </div>
+    <div class="botones-accion">
+        <a href="inicioPAS.html" id="inicio PAS" class="boton-accion">Editar</a>
+    </div>
+</div>
+</main>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <span class="texto-footer">powered by</span>
+        <div class="logo-footer">
+            <img src="../../../../imagenes/LogoEduSyncBlanco.png" alt="Logo Proa" class="logofooter">
+        </div>
+    </footer>
+
+    <script src="../../../../js/profesPAS.js"></script>
+
+<script>
+    const boton = document.getElementById("toggle-filtro");
+    const sidebar = document.querySelector(".sidebar");
+
+    boton.addEventListener("click", () => {
+        sidebar.classList.toggle("oculto");
+        if(sidebar.classList.contains("oculto")) {
+            boton.textContent = "Mostrar filtro";
+        } else {
+            boton.textContent = "Ocultar filtro";
+        }
+    });
+
+</script>
+
+
+</body>
+</html>

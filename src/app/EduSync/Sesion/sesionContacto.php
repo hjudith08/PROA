@@ -4,23 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - EduSync</title>
-    <link rel="icon" href="../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
-    <link rel="stylesheet" href="../../css/estiloscontacto.css">
+    <link rel="icon" href="../../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
+    <link rel="stylesheet" href="../../../css/estilo-contacto-sesion.css">
 </head>
 <body>
-    <!-- Cabecera -->
-    <header>
-        <a href="#" class="logo">
-            <img src="imagenes/logo-edusync.png" alt="EduSync Logo">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="#" class="enlace-nav">Contacto</a></li>
-                <li><input type="button" class="boton-login" value="Login"></li>
-            </ul>
-        </nav>
-        <button class="boton-menu-movil">☰</button>
-    </header>
+    
+ <!-- header -->
+    <?php include 'includes/edusyncSesionHeaderInclude.php'; ?>
+
 
     <!-- Contenido Principal -->
     <main class="contenedor-principal">
@@ -37,7 +28,7 @@
                     <div class="tarjeta-info">
                         <div class="contenido-tarjeta-info">
                             <div class="icono-info">
-                                <img src="../../../imagenes/letterb.png" alt="Email">
+                                <img src="../../../../imagenes/letterb.png" alt="Email">
                             </div>
                             <div class="texto-info">
                                 <p class="etiqueta-info">Correo:</p>
@@ -49,7 +40,7 @@
                     <div class="tarjeta-info">
                         <div class="contenido-tarjeta-info">
                             <div class="icono-info">
-                                <img src="../../../imagenes/telephoneb.png" alt="Teléfono">
+                                <img src="../../../../imagenes/telephoneb.png" alt="Teléfono">
                             </div>
                             <div class="texto-info">
                                 <p class="etiqueta-info">Teléfono:</p>
@@ -89,53 +80,69 @@
                 </div>
             
                 <button type="submit" class="boton-enviar">Enviar</button>
+                <div id="mensaje-exito" class="mensaje-exito">
+                    ¡Formulario enviado correctamente!
+                </div>
             </form>
         </div>
+        
     </main>
 
     <!-- Pie de página -->
-    <footer class="pie-pagina">
-        <div class="contenedor-pie-pagina">
-            <p>Contactamos: eclusync@git.com</p>
-            <p>© 2025 - EduSync | Mairic de GTI</p>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <p>Contáctanos: edusync@gti.com</p>
+            </div>
+            <div class="footer-col">
+                <p>© 2025 - EduSync | Matriz de GTI</p>
+            </div>
+            <div class="footer-col">
+                <img src="../../../../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
+            </div>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    // Menú móvil
-    const botonMenu = document.querySelector('.boton-menu-movil');
-    const nav = document.querySelector('header nav ul');
-    
-    if (botonMenu && nav) {
-        botonMenu.addEventListener('click', function() {
-            nav.classList.toggle('mostrar');
-        });
-    }
-    
+<script>
+document.addEventListener('DOMContentLoaded', function() {
     // Validación del formulario
     const formularioContacto = document.querySelector('.formulario-contacto');
+    const mensajeExito = document.getElementById('mensaje-exito');
+
     if (formularioContacto) {
         formularioContacto.addEventListener('submit', function(e) {
+            e.preventDefault(); // Evitar recarga de página
             const camposRequeridos = this.querySelectorAll('[required]');
             let esValido = true;
-            
+
             camposRequeridos.forEach(campo => {
                 if (!campo.value.trim()) {
-                    campo.style.borderColor = 'var(--color-required)';
+                    campo.style.borderColor = 'red';
                     esValido = false;
                 } else {
                     campo.style.borderColor = '#e2e8f0';
                 }
             });
-            
+
             if (!esValido) {
-                e.preventDefault();
                 alert('Por favor complete todos los campos requeridos.');
+            } else {
+                // Mostrar mensaje de éxito
+                mensajeExito.style.display = 'block';
+
+                // Opcional: limpiar el formulario
+                this.reset();
+
+                // Opcional: ocultar mensaje después de unos segundos
+                setTimeout(() => {
+                    mensajeExito.style.display = 'none';
+                }, 5000);
             }
         });
     }
 });
-    </script>
+</script>
+<script src="../../../js/misherramientas.js"></script>
+
 </body>
 </html>

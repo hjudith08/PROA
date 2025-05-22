@@ -1,4 +1,4 @@
- document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const boton = document.querySelector(".hamburguesa");
     const menu = document.querySelector(".menu-movil");
 

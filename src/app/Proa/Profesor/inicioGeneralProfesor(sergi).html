@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio general - PROA</title>
+    <script src="js/PopUpCerrarSesion.js" defer></script>
+    <script src="js/Responsive.js" defer></script>
+
+    <link rel="stylesheet" href="css/sergi.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<header>
+    <a href="index.php">
+        <img src="images/LogosProaBlanco.png" alt="Logotipo">
+    </a>
+    <nav>
+        <h3 class="titulo-asignatura">Inicio General</h3>
+        <p class="usuario-bienvenida">Bienvenido xexi mexi</p>
+    </nav>
+
+    <button popovertarget="menu-usuario" id="boton-usuario">
+        <img src="images/user_1b.png" alt="Usuario">
+    </button>
+    <div id="menu-usuario" popover anchor="boton-usuario">
+        <p class="nombre-menu">Nombre Apellido</p>
+        <div class="separador"></div>
+        <div><button popovertarget="confirmar-cierre">Salir</button></div>
+    </div>
+</header>
+
+<aside class="sidebar">
+    <nav class="menu-container">
+        <button class="menu-btn" onclick="window.location.href='inicioGeneralAlumno.html';">
+            <img src="images/homeb.png" class="icono-menu" />
+            <span>Inicio General</span>
+        </button>
+        <button class="menu-btn activo">
+            <img src="images/libro-alt.png" class="icono-menu icono-activo" />
+            <span class="texto-activo">Tareas</span>
+        </button>
+    </nav>
+</aside>
+
+<main class="content">
+    <button class="hamburguesa" aria-label="Abrir menú">☰</button>
+    <nav class="menu-movil">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="images/homeb.png" alt="Inicio" />
+                    Inicio General
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/bookb.png" alt="Asignaturas" />
+                    Asignaturas
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Bloque de Asignaturas Recientes -->
+    <div class="contenedor-tareas">
+        <div class="cabecera-tareas">
+            <h1>Asignaturas Recientes</h1>
+        </div>
+        <div class="tabla-flex-container">
+            <ul class="asignaturas">
+                <li>
+                    <a href="InicioAsignaturas.html">
+                        <span class="nombre-asignatura">Programación 1</span>
+                        <span class="codigo-asignatura">101</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="InicioAsignaturas.html">
+                        <span class="nombre-asignatura">Electrónica básica</span>
+                        <span class="codigo-asignatura">102</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="InicioAsignaturas.html">
+                        <span class="nombre-asignatura">Fundamentos físicos</span>
+                        <span class="codigo-asignatura">103</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="InicioAsignaturas.html">
+                        <span class="nombre-asignatura">Álgebra Matricial y Geometría</span>
+                        <span class="codigo-asignatura">104</span>
+                    </a>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+
+    <!-- Bloque de Tareas -->
+    <div class="contenedor-tareas">
+        <div class="cabecera-tareas">
+            <h1>Tareas</h1>
+        </div>
+        <div class="tabla-flex-container">
+            <ul class="tareas">
+                <li>
+                    <a href="Tareas.html">
+                        <strong>15 MAYO</strong>
+                        <p>Implementar un programa con estructuras condicionales y bucles</p>
+                        <em>Programación 1</em>
+                    </a>
+                </li>
+                <li>
+                    <a href="Tareas.html">
+                        <strong>30 MAYO</strong>
+                        <p>Estudiar el funcionamiento de la memoria caché y tipos de buses</p>
+                        <em>Álgebra Matricial y Geometría</em>
+                    </a>
+                </li>
+                <li>
+                    <a href="Tareas.html">
+                        <strong>20 MAYO</strong>
+                        <p>Crear una lista enlazada en C++ con inserción y eliminación</p>
+                        <em>Programación 1</em>
+                    </a>
+                </li>
+                <li>
+                    <a href="Tareas.html">
+                        <strong>2 JUNIO</strong>
+                        <p>Estudiar el funcionamiento de la memoria caché y tipos de buses</p>
+                        <em>Fundamentos Físicos</em>
+                    </a>
+                </li>
+                <li>
+                    <a href="Tareas.html">
+                        <strong>22 MAYO</strong>
+                        <p>Analizar planificación de procesos: FIFO, RR y SJF</p>
+                        <em>Proyecto CDIO</em>
+                    </a>
+                </li>
+                <li>
+                    <a href="Tareas.html">
+                        <strong>3 JUNIO</strong>
+                        <p>Implementar un programa con estructuras condicionales y bucles</p>
+                        <em>Electrónica Básica</em>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+<footer class="footer-anclado">
+    <div class="footer-contenido">
+        <div class="footer-poweredby">
+            <span class="footer-texto">Powered by</span>
+            <img src="images/LogoEduSyncBlanco.png" alt="Logo Edusync" class="footer-logo">
+        </div>
+    </div>
+</footer>
+<!-- Fondo oscuro -->
+<div id="fondoOscuro" class="fondo-oscuro oculto"></div>
+<!-- PopUp Cerrar Sesión -->
+<div id="popupCerrarSesion" class="popup oculto">
+    <div class="popup-contenido-C">
+        <p class="popup-texto">¿Estás seguro que quieres cerrar sesión?</p>
+        <div class="popup-botones">
+            <button id="btn-si" class="boton-si">Sí</button>
+            <button id="btn-no" class="boton-no">No</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

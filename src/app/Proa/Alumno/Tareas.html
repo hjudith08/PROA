@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROA</title>
+    <!-- imagen de pestaña -->
+    <link rel="icon" href="imagenes/LogosProaBlancoV3.png" type="image/png">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="js/PopUpEntregas.js" defer></script>
+    <script src="js/FiltroTareas.js" defer></script>
+    <script src="js/PopUpCerrarSesion.js" defer></script>
+    <script src="js/Responsive.js" defer></script>
+    <script src="js/InicioAsignatura.js" defer></script>
+    <script src="js/EditarTextoDesplegable.js" defer></script>
+</head>
+<body>
+<header>
+    <a href="index.html">
+        <img src="imagenes/LogosProaBlanco.png" alt="Logotipo">
+    </a>
+    <nav>
+        <h3 class="titulo-asignatura">MATEMATICAS</h3>
+        <p class="usuario-bienvenida">Bienvenido Xexi Mexi</p>
+    </nav>
+    <button popovertarget="menu-usuario" id="boton-usuario">
+        <img src="imagenes/user_1b.png" alt="Usuario">
+    </button>
+    <div id="menu-usuario" popover anchor="boton-usuario">
+        <p class="nombre-menu">Xexi Mexi</p>
+        <div class="separador"></div>
+        <div><button popovertarget="confirmar-cierre">Salir</button></div>
+    </div>
+</header>
+<aside class="sidebar">
+    <nav class="menu-container">
+        <button class="menu-btn" onclick="window.location.href='InicioAsignaturaProfesor.html';">
+            <img src="imagenes/homeb.png" class="icono-menu"/>
+            <span>Inicio asignatura</span>
+        </button>
+        <button class="menu-btn activo">
+            <img src="imagenes/libro-alt.png" class="icono-menu icono-activo"/>
+            <span class="texto-activo">Tareas</span>
+        </button>
+    </nav>
+</aside>
+<main class="contenido-principal">
+    <div class="capa-fondo"></div>
+    <button class="hamburguesa" aria-label="Abrir menú">☰</button>
+    <nav class="menu-movil">
+        <ul>
+            <li>
+                <a href="InicioGeneral.html">
+                    <img src="imagenes/homeb.png" alt="Inicio" />
+                    Inicio General
+                </a>
+            </li>
+            <li>
+                <a href="InicioAsignaturas.html">
+                    <img src="imagenes/bookb.png" alt="Asignaturas" />
+                    Asignaturas
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="botones-container">
+        <div class="botonatras" onclick="window.location.href='InicioGeneral.html'">
+            <p>Inicio General</p>
+        </div>
+        <div class="botonatras" onclick="window.location.href='Asignaturas.html'">
+            <p>< Asignaturas</p>
+        </div>
+        <div class="botonatras" onclick="window.location.href='Asignaturas.html'">
+            <p>< Inicio Asignatura</p>
+        </div>
+    </div>
+    <div class="contenedor-tareas">
+        <div class="cabecera-tareas">
+            <h1>TAREAS</h1>
+            <div class="filtros-tareas">
+                <select id="filtro-tareas">
+                    <option value="todas">Todas las tareas</option>
+                    <option value="completado">Tareas completadas</option>
+                    <option value="pendiente">Tareas pendientes</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="tabla-flex-container">
+            <!-- Encabezados -->
+            <div class="fila-flex encabezado-flex">
+                <div class="columna-flex">Nombre tarea</div>
+                <div class="columna-flex">Estado</div>
+                <div class="columna-flex">Fecha apertura</div>
+                <div class="columna-flex">Fecha entrega</div>
+                <div class="columna-flex">Calificación</div>
+            </div>
+
+            <!-- Filas de datos -->
+            <div class="fila-flex" onclick="window.location.href='InformacionTarea.html'" style="cursor: pointer;">
+                <div class="columna-flex">Análisis de sucesiones y series de números reales</div>
+                <div class="columna-flex"><span class="estado-pendiente">Pendiente</span></div>
+                <div class="columna-flex">08/04/25</div>
+                <div class="columna-flex">10/04/25</div>
+                <div class="columna-flex">-</div>
+            </div>
+
+            <div class="fila-flex" onclick="window.location.href='InformacionTareaEntregada.html'" style="cursor: pointer;">
+                <div class="columna-flex">Resolución de sistemas de ecuaciones lineales</div>
+                <div class="columna-flex"><span class="estado-completado">Completado</span></div>
+                <div class="columna-flex">04/04/25</div>
+                <div class="columna-flex">15/04/25</div>
+                <div class="columna-flex">8</div>
+            </div>
+
+            <div class="fila-flex" onclick="window.location.href='InformacionTarea.html'" style="cursor: pointer;">
+                <div class="columna-flex">Análisis de funciones y estudio de sus gráficos</div>
+                <div class="columna-flex"><span class="estado-pendiente">Pendiente</span></div>
+                <div class="columna-flex">08/04/25</div>
+                <div class="columna-flex">20/04/25</div>
+                <div class="columna-flex">-</div>
+            </div>
+
+            <div class="fila-flex" onclick="window.location.href='InformacionTarea.html'" style="cursor: pointer;">
+                <div class="columna-flex">Estudio de espacios vectoriales y subespacios</div>
+                <div class="columna-flex"><span class="estado-pendiente">Pendiente</span></div>
+                <div class="columna-flex">08/04/25</div>
+                <div class="columna-flex">26/04/25</div>
+                <div class="columna-flex">-</div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer-anclado">
+    <div class="footer-contenido">
+        <div class="footer-poweredby">
+            <span class="footer-texto">Powered by</span>
+            <img src="imagenes/LogoEduSyncBlanco.png" alt="Logo Edusync" class="footer-logo">
+        </div>
+    </div>
+</footer>
+<!-- PopUp Cerrar Sesión -->
+<div id="popupCerrarSesion" class="popup oculto">
+    <div class="popup-contenido-C">
+        <p class="popup-texto">¿Estás seguro que quieres cerrar sesión?</p>
+        <div class="popup-botones">
+            <button id="btn-si" class="boton-si">Sí</button>
+            <button id="btn-no" class="boton-no">No</button>
+        </div>
+    </div>
+</div>
+<!--------------------------------------------------->
+</body>
+</html>

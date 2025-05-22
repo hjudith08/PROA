@@ -1,67 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head> 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EduSync | Mis herramientas</title>
-  <link rel="icon" href="../../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
-  <link rel="stylesheet" href="../../../css/estilo-mis-herramientas.css">
+  <link rel="icon" href="/PROA/src/css/imagenes/LogoEduSyncBlancoV3.png" type="image/png">
+  <link rel="stylesheet" href="/PROA/src/css/EduSync/estilo-mis-herramientas.css">
+  <link rel="stylesheet" href="/PROA/src/css/Includes/estilo-headerEdusyncSesion.css">
 </head>
 <body>
-    <?php include 'includes/edusyncSesionHeaderInclude.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/PROA/includes/edusyncSesionHeaderInclude.php'; ?>
 
-  <div class="contenedor-fondo">
-    <div class="contenedor-principal">
-      <main class="contenido-principal">
-        <h1 class="titulo-principal">Mis herramientas</h1>
-        <p class="descripcion-principal">Aquí encontrarás las herramientas que hayas probado anteriormente</p>
+  <div class="contenedorFondo_misHerramientas">
+    <div class="contenedorPrincipal_misHerramientas">
+      <main class="contenidoPrincipal_misHerramientas">
+        <!-- Cabecera de la página -->
+        <h1 class="tituloPrincipal_misHerramientas">Mis herramientas</h1>
+        <p class="descripcionPrincipal_misHerramientas">Aquí encontrarás las herramientas que hayas probado anteriormente</p>
 
-        <!-- Carrusel de herramientas -->
-        <div class="carrusel-herramientas">
-          <div class="slides-carrusel" id="carruselSlides">
-            <!-- Slide 1 -->
-            <div class="slide-carrusel" style="background-image: url('../../../../imagenes/foto-info.png')">
-              <div class="contenido-carrusel">
-                <div class="tarjeta-carrusel">
-                  <div class="contenido-tarjeta">
-                    <p class="texto-tarjeta">
-                      App con un diseño intuitivo y adaptable y una interfaz clara
-                      y moderna que facilita la navegación en cualquier
-                      dispositivo. Su experiencia visual es atractiva y optimizada
-                      para un uso cómodo y eficiente.
-                    </p>
-                    <a href="../../Proa/loginProa.html" class="boton-demo">Entrar demo PROA</a>
-                  </div>
-                </div>
-                <div class="lado-derecho-carrusel">
-                  <img class="logo-carrusel" src="../../../../imagenes/LogosProaBlanco.png" alt="Logo PROA">
-                  <button class="boton-siguiente" onclick="moverCarrusel(1)">
-                    <img src="../../../../imagenes/flecha-derecha.png" alt="Siguiente">
-                  </button>
-                </div>
+        <!-- Contenedor principal de las dos columnas -->
+        <div class="contenedorHerramientas_misHerramientas">
+          <div class="contenidoHerramientas_misHerramientas">
+            <!-- Sección izquierda - Texto y botón -->
+            <div class="seccionTexto_misHerramientas">
+              <p class="textoHerramienta_misHerramientas">
+                App con un diseño intuitivo y adaptable y una interfaz clara
+                y moderna que facilita la navegación en cualquier
+                dispositivo. Su experiencia visual es atractiva y optimizada
+                para un uso cómodo y eficiente.
+              </p>
+              <a href="../../Proa/loginProa.html" class="botonDemo_misHerramientas">Entrar demo PROA</a>
+            </div>
+            
+            <!-- Sección derecha - Imagen con logo -->
+            <div class="seccionImagen_misHerramientas">
+              <div class="contenedorImagen_misHerramientas" style="background-image: url('/PROA/src/css/imagenes/IMAGENMISHERRAMIENTAS.png');">
+                <img class="logoProa_misHerramientas" src="/PROA/src/css/imagenes/LogosProaBlanco.png" alt="Logo PROA">
               </div>
             </div>
-          <!-- Indicadores -->
+          </div>
         </div>
       </main>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-col">
+  <footer class="footer_misHerramientas">
+    <div class="footerContainer_misHerramientas">
+      <div class="footerCol_misHerramientas">
         <p>Contáctanos: edusync@gti.com</p>
       </div>
-      <div class="footer-col">
+      <div class="footerCol_misHerramientas">
         <p>© 2025 - EduSync | Matriz de GTI</p>
       </div>
-      <div class="footer-col">
-        <img src="../../../../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
+      <div class="footerCol_misHerramientas">
+        <img src="/PROA/src/css/imagenes/GTIBlancosdsds.png" alt="Logo GTI">
       </div>
     </div>
   </footer>
 
-  <script src="../../../js/misherramientas.js"></script>
 </body>
 </html>

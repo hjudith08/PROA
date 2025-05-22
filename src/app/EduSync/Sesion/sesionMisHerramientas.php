@@ -7,6 +7,7 @@
   <link rel="icon" href="/PROA/src/css/imagenes/LogoEduSyncBlancoV3.png" type="image/png">
   <link rel="stylesheet" href="/PROA/src/css/EduSync/estilo-mis-herramientas.css">
   <link rel="stylesheet" href="/PROA/src/css/Includes/estilo-headerEdusyncSesion.css">
+  <script src="PROA/src/js/sesionMisHerramientass.js"></script>
 </head>
 <body>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/PROA/includes/edusyncSesionHeaderInclude.php'; ?>

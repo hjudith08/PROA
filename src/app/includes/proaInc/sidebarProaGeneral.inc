@@ -1,4 +1,4 @@
-<!-- Pie de página de las páginas de proa-->
+<!-- Sidebar de las páginas de proa-->
  
 <?php
 $pagina_actual = basename($_SERVER['PHP_SELF']);

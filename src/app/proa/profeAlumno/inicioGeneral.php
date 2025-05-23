@@ -12,7 +12,6 @@
 </head>
 <!-- Cuerpo de la página web -->
 <body>
-
 <!-- Header de Proa (móvil y ordenador) -->  
 <?php include '../../includes/proaInc/menuProa.inc'; ?>
 <!-- Sidebar de Proa -->
@@ -30,7 +29,7 @@
     <div class="contenido-interior">
       
         <!--Rellenar-->
-        
+      
         <!-- lo haceis con lo siguiente<?php /* include '../../includes/proaInc/proa[pas-alumno-profesor]/[nombreDelArchivo].inc'; */ ?> -->
 
     </div>

@@ -1,3 +1,5 @@
+/* PopUp para cerrar Sesion*/
+
 document.addEventListener("DOMContentLoaded", () => {
     const botonSalir = document.getElementById("boton-cerrar-sesion");
     const popup = document.getElementById("popupCerrarSesion");
@@ -21,3 +23,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+/* selector de perfil*/ 
+function redirectToView(select) {
+    const value = select.value;
+    if (!value) return;
+    
+    switch(value) {
+        case 'alumno':
+            window.location.href = '../profeAlumno/inicioGeneral.php?rol=alumno';
+            break;
+        case 'profesor':
+            window.location.href = '../profeAlumno/inicioGeneral.php?rol=profesor';
+            break;
+        case 'pas':
+            window.location.href = '../pas/inicioPas.php';
+            break;
+    }
+}

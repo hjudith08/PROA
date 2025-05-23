@@ -33,7 +33,7 @@
             "sidebar contenido"
             "footer footer";
         grid-template-columns: var(--ancho-sidebar) 1fr;
-        grid-template-rows: var(--altura-header) 1fr var(--altura-footer);
+        grid-template-rows: var(--altura-header)  1fr var(--altura-footer);
         min-height: 100vh;
 }
     /* endregion */
@@ -60,6 +60,17 @@
     --altura-header: 60px;
     --altura-footer: 80px;
     --ancho-sidebar: 200px;
+
+    /*EduSync*/
+
+    --header-selector: 40px;
+    --color-primario-edusync: #0D273D;
+    --color-secundario-edusync: #2F4256;
+    --color-fondo-edusync: #F1F5FF;
+    --color-texto-edusync: #333333;
+    --color-texto-claro-edusync: #FFFFFF;
+    --color-boton-edusync: #2F4256;
+    --color-boton-hover-edusync: #3D5166;
 }
     /* endregion */
 
@@ -69,8 +80,8 @@
  .contenido {
     grid-area: contenido;
     padding: 2rem 2rem;
-    min-height: calc(100vh - var(--altura-header) - var(--altura-footer));
-    margin: 0; /* Eliminamos los márgenes anteriores */
+    margin-top: var(--header-selector);
+    min-height: calc(100vh - var(--altura-header) - var(--altura-footer) - var(--header-selector));
 }
 
 .contenido-interior{
@@ -93,8 +104,92 @@
     font-weight: 600;
 }
 /*region --- MENU --- */
+.header-selector-usuario{
+    display: flex;
+    position: fixed;
+    background-color: var(--color-fondo);
+    height: var(--header-selector);
+    align-items: center;
+    justify-content: left;
+    color: rgb(17, 14, 14);
+    width: 100%;
+    gap: 1rem;
+    box-shadow: var(--sombra-generica);
 
-body > header {
+}
+
+.logo-edusync{
+    height: 25px;
+    margin-left: 2rem;
+}
+.botones-selector-ordenador{
+ 
+    display: flex;
+    justify-content: center;
+}
+.botones-selector-ordenador button{
+    border: none;
+    background-color: var(--color-boton-edusync);
+    color: var(--color-texto-claro-edusync);
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    box-shadow: var(--sombra-generica);
+    scale: 0.9;
+}
+
+.botones-selector-ordenador button:hover{
+    background-color: var(--color-boton-hover-edusync);
+    color: var(--color-texto-claro-edusync);
+    scale: 0.95;
+}
+
+button.vista-seleccionada{
+    background-color: var(--color-fondo-edusync);
+    color: var(--color-texto-edusync);
+    cursor: not-allowed;
+}
+
+
+.botones-selector-movil{
+    display: none;
+}
+
+/*Botones de seleccion en movil*/
+.botones-selector-movil select {
+    content: "";
+    width: 100%;
+    padding: 0.3rem 0.2rem;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--color-boton-edusync);
+    color: var(--color-texto-claro-edusync);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 12px;
+}
+
+.botones-selector-movil select:hover {
+    border: none;
+    background-color: var(--color-boton-hover-edusync);
+}
+
+.botones-selector-movil select:active {
+    border: none;
+    background-color: var(--color-primario-edusync);
+}
+
+/* Opciones del select */
+.botones-selector-movil select option {
+    background-color: var(--color-secundario-edusync);
+    color: var(--color-texto-claro-edusync);
+    padding: 0.5rem;
+}
+
+/*endregion*/
+/*region --- MENU --- */
+
+body > .header-proa {
     grid-area: header;
     padding: .5rem; /* en pixeles es 8px */
     height: var(--altura-header);
@@ -108,8 +203,7 @@ body > header {
     text-align: center;
     gap: 1em;
     position: fixed;
-    top: 0;
-    z-index: 50;
+    top: var(--header-selector);
 }
 
 .logo-header  {
@@ -127,7 +221,7 @@ body > header {
     gap: 2em;
 }
 
-body > header button[popovertarget] {
+body > .header-proa button[popovertarget] {
     anchor-name: --menu-usuario;
     background-color: transparent;
     border: none;   
@@ -137,7 +231,7 @@ body > header button[popovertarget] {
     cursor: pointer;
     border-radius: 10px;
 }
-body > header button[popovertarget]:hover {
+body > .header-proa button[popovertarget]:hover {
     background-color: var(--color-principal-claro);
     scale: 1.1;
 
@@ -300,15 +394,14 @@ footer .footer-imagen-proa {
 .sidebar {
     grid-area: sidebar;
     width: 100%;
-    height: 100%;
+    height: calc(100% - var(--header-selector));
     background-color: var(--color-principal-claro);
     display: flex;
     flex-direction: column;
     align-self: start;
-    top: var(--altura-header);
-    bottom: 0;
-    min-height: calc(100vh - var(--altura-header) - var(--altura-footer));
+    min-height: calc(100vh - var(--altura-header) - var(--altura-footer) - var(--header-selector));
     max-height: 100%;
+    margin-top: var(--header-selector);
 }
 
 .sidebar-btn {
@@ -360,11 +453,12 @@ footer .footer-imagen-proa {
     display: flex;
     position: absolute;
     right: 1rem;
-    top: calc(var(--altura-header) + 1rem);
+    top: calc(var(--altura-header) + var(--header-selector) + 1rem);
     background-color: transparent;
     display: none;
     border-radius: 10px;
 }
+
 
 
 .menu-movil button[popovertarget] {
@@ -428,10 +522,10 @@ footer .footer-imagen-proa {
         font-size: 0.9rem;
 
     }
-        
+    
     /* Header */
-    body > header {
-        padding: 0.5    rem;
+    body > .header-proa {
+        padding: 0.5rem;
         height: 50px;
     }
     
@@ -455,13 +549,16 @@ footer .footer-imagen-proa {
         padding: 15px;
         font-size: 14px;
     }
-    body > header button[popovertarget] {
+
+    body > .header-proa button[popovertarget] {
         margin-right: 1em;
+        height: 35px;
     }
     /* Sidebar */
     :root {
         --ancho-sidebar: 160px;
         --altura-header: 50px;
+        --header-selector:35px
     }
     
     .sidebar-btn {
@@ -505,6 +602,24 @@ footer .footer-imagen-proa {
     footer .footer-imagen-proa {
         height: 25px;
         margin-right: 1em;
+    }
+
+    /* header selector*/
+    .header-selector-usuario{
+          gap: .5rem;
+    }
+    .header-selector-usuario span{
+        font-size: 11px;
+    }
+
+    .botones-selector-ordenador button{
+        padding: .5rem .6rem;
+        border-radius: 8px;
+        font-size: 12px;
+    }
+    .logo-edusync {
+        height: 20px;
+        margin-left: 1rem;
     }
 }
 
@@ -574,6 +689,17 @@ footer .footer-imagen-proa {
     .sidebar-btn:hover{
         background-color: var(--color-principal-muy-claro);
         scale: 1;
+    }
+
+    /*header de seleccion de vista*/
+    .botones-selector-ordenador{
+        display: none;
+    }
+    .botones-selector-movil{
+        display: flex;
+    }
+    .header-selector-usuario span, .header-selector-usuario button{
+        font-size: 11px;
     }
 }
 

@@ -83,7 +83,7 @@ header {
     overflow-y: auto;
 }
 
-.sidebar.oculto {
+.boton-filtros-mobile {
     display: none;
 }
 
@@ -116,7 +116,6 @@ header {
     margin-bottom: 30px;
     cursor: pointer;
 }
-
 .seccion-filtro {
     margin-bottom: 25px;
 }
@@ -152,17 +151,29 @@ header {
     overflow-y: auto;
 }
 
-
+/*
 .barra-titulo {
     height: 45px;
-    background-color: var(--color-blanco);
-    border: 1px solid var(--color-borde);
-    border-radius: 10px;
-    box-shadow: var(--sombra-generica);
     display: flex;
     align-items: center;
     padding: 0 30px;
     margin-bottom: 20px;
+}*/
+
+.cabecera-tareas {
+    border: 1px solid var(--color-columnamorada);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    background-color: #F8F5FF;
+}
+
+.cabecera-tareas h1 {
+    font-size: 1.5rem;
+    color: var(--color-columnamorada);
+    padding-left: 2rem;
 }
 
 .titulo-contenido {
@@ -269,7 +280,7 @@ header {
 
 .item-asignatura > div:first-child {
     width: 30px;
-    display: flex;
+    display: none;
     justify-content: center;
 }
 
@@ -392,13 +403,28 @@ footer {
         margin-top: 10px;
     }
 
-    .contenedor-principal {
+   .contenedor-principal {
         flex-direction: column;
+        height: auto;
+        min-height: calc(100vh - var(--altura-header) - var(--altura-footer));
     }
 
     .sidebar {
         width: 100%;
-        order: 1;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        padding: 0 20px;
+        position: relative;
+        z-index: 10;
+        background-color: var(--color-blanco);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .sidebar.activo {
+        max-height: 500px;
+        padding: 20px;
+        overflow-y: auto;
     }
 
     .titulo-contenido {
@@ -440,6 +466,27 @@ footer {
         height: 30px;
     }
 
+    .boton-filtros-mobile {
+        display: flex;
+        height: 50px;
+        background-color: var(--color-principal);
+        color: var(--color-blanco);
+        border: none;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 20px;
+        margin: 10px;
+    }
+    
+    .boton-filtros-mobile .icono-filtro {
+        width: 20px;
+        height: 20px;
+    }
+
     .boton-toggle-filtro {
         display: inline-block;
     }
@@ -450,6 +497,10 @@ footer {
 }
 
 @media (min-width: 769px) {
+    .boton-filtros-mobile {
+        display: none;
+    }
+
     .sidebar {
         display: block !important; /* para que ignore el display:none */
     }

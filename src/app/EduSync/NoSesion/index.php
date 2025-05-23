@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
 <!-- header -->
 <?php include '../../../../includes/edusyncNoSesionHeaderInclude.php'; ?>
 <!-- sección principal -->

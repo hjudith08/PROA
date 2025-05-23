@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROA | Inicio PAS</title>
     <link rel="icon" href="../../../imagenes/LogosProaBlancoV3.png" type="image/png">
-    <link rel="stylesheet" href="../../../css/estilo-inicio-pas.css">
+     <link rel="stylesheet" href="../../../css/estilos-pas-ap.css">
 </head>
 <body>
     <!-- Header -->
-    <header>
+   <header>
         <div class="logo">
             <img src="../../../../imagenes/LogosProaBlanco.png" alt="Logo Proa" class="logo">
         </div>
-        <h1 class="titulo-header">Asignaturas</h1>
         <div class="usuario">
             <span>¡Bienvenido [Nombre del Usuario]!</span>
             <a href="../loginProa.html"><img src="../../../../imagenes/user_1b.png" alt="Usuario" class="icono-usuario"></a>
@@ -83,8 +82,8 @@
         
         <!-- Contenido principal -->
         <main class="contenido scrollbar">
-            <div class="barra-titulo">
-                <h2 class="titulo-contenido">Asignaturas</h2>
+            <div class="cabecera-tareas">
+                <h1>Asignaturas</h1>
             </div>
             <div class="recuadro-asignaturas">
                 <div class="barra-busqueda">
@@ -100,8 +99,8 @@
                         </div>
                     </div>
                     <div class="botones-accion">
-                        <a href="pas-profesores.html" class="boton-accion">Asociar profesores</a>
-                        <a href="pas-alumnos.html" class="boton-accion">Asociar alumnos matriculados</a>
+                        <a href="PasProfesor.php" class="boton-accion">Asociar profesores</a>
+                        <a href="PasAlumnos.php" class="boton-accion">Asociar alumnos matriculados</a>
                     </div>
                 </div>
             </div>

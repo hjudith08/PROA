@@ -7,7 +7,8 @@
     <!-- imagen de pestaña -->
     <link rel="icon" href="../../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
     <link rel="stylesheet" href="../../../css/login.css">
-     <script src="../../../js/login.js" defer></script>
+    <link rel="stylesheet" href="../../../css/Includes/estilo-headerEduSyncSesion.css">
+    <script src="../../../js/login.js" defer></script>
 </head>
 <body>
     <!-- contenedor para el general-->
@@ -15,7 +16,17 @@
     <!-- contenedor para el formulario de registro-->
     <div class="formulario-contenedor registro">
         <!-- cabecera del registro-->
-    <?php include '../../../../includes/edusyncNoSesionHeaderInclude.php'; ?>
+        <header class="header header-registro">
+            <a href="../../../../src/app/EduSync/NoSesion/index.php" class="logo">
+                    <img src="../../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
+                </a>
+                  <!-- Boton para ir a la pagina de contacto-->
+                <nav>
+                     <ul>
+                     <input type="button" value="CONTACTO" onclick="location.href='noSesionContacto.php'">
+                    </ul>
+                </nav>
+        </header>
         <!-- formulario de registro-->
         <form id="registro-form" action="#" method="post">
             <h1>Registro</h1>

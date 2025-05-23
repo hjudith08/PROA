@@ -6,6 +6,7 @@
     <title>Contacto - EduSync</title>
     <link rel="icon" href="../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
     <link rel="stylesheet" href="../../../css/estiloscontacto.css">
+        <link rel="stylesheet" href="../../../css/Includes/estilo-headerEduSyncSesion.css">
 </head>
 <body>
     <!-- Cabecera -->

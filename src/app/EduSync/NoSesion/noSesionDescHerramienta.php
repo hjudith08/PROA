@@ -7,12 +7,13 @@
     <title>EduSync | Venta de Modulos Educativos</title>
     <link rel="icon" href="../../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
     <link rel="stylesheet" href="../../../css/estilos.css">
+    <link rel="stylesheet" href="../../../css/Includes/estilo-headerEduSyncSesion.css">
 </head>
 
 <body>
 
 <!-- header -->
-    <?php include 'includes/edusyncNoSesionHeaderInclude.php'; ?>
+<?php include '../../../../includes/edusyncNoSesionHeaderInclude.php'; ?>
 
 <!-- primera sección información PROA -->
 <section class="desc-section1">
@@ -23,14 +24,13 @@
             <p>Ayudamos a las instituciones a tener una mejor interacción entre alumnos 
                 y profesores mediante módulos educativos con una interfaz más intuitiva, moderna y agradable, 
                 formando parte de EduSync podrás acceder a pruebas exclusivas.</p>
-            <a href="login.html" class="boton-probar">¡Prueba PROA Gratis!</a>
         </div>
         <!-- imagen proa ordenador -->
         <div class="informacion-sec2">
             <img src="../../../../imagenes/ordenador-proa.png" alt="Ordenador PROA" class="ordenador-proa">
         </div>
         <!-- flecha para bajar a la sección de como funciona la demo -->
-        <div class="flecha-bajar-h">
+        <div class="flecha-bajar">
         <a href="#desc-section2" class="boton-flecha">
             <span class="flecha"><img src="../../../../imagenes/down-arrow.png" alt="Boton bajar"></span>
         </a>
@@ -87,54 +87,48 @@
 </section>
 <!-- fin de la tercera sección -->
 
-<!-- seccion en blanco, solo espacio en blanco -->
-<section class="desc-white">
-</section>
-<!-- fin de la sección -->
-
 <!-- cuarta sección información funcionalidad multiplataforma -->
 <section class="desc-section4">
     <div class="contenedor-flex">
         <!-- imagen movil -->
-        <div class="img-movil">
-            <img src="../../../../imagenes/movil-proa.png" alt="Vista móvil">
-        </div>
+        
         <!-- titulo y texto -->
         <div class="texto-multiplataforma">
             <h2><strong>Funcionalidad multiplataforma</strong></h2>
             <p>
                 App educativa multiplataforma accesible desde móvil, tablet y ordenador.<br>
                 Sincronización en tiempo real y experiencia fluida para alumnos, docentes y familias.
+            </p><br><br>
+            <p>
+                La app tiene un diseño intuitivo y adaptable, con una interfaz clara y moderna que facilita la navegación en cualquier dispositivo.<br>
+                Su experiencia visual es atractiva y optimizada para un uso cómodo y eficiente.
             </p>
         </div>
+        <!-- imagenes -->
+         <div class="imagenes-mt">
+            <div class="img-tablet">
+                <img src="../../../../imagenes/tablet-proa.png" alt="Vista tablet/ordenador">
+            </div>
+            <div class="img-movil">
+                <img src="../../../../imagenes/movil-proa.png" alt="Vista móvil">
+            </div>
+         </div>
+        
+        <a href="login.html" class="boton-demo">¡Prueba PROA Gratis!</a>
     </div>
+    
 </section>
 <!-- fin de la cuarta sección -->
 
 <!-- quinta sección información funcionalidad multiplataforma -->
 <section class="desc-section5">
     <div class="contenedor-flex">
-        <!-- texto información -->
-        <div class="texto-inferior">
-            <p>
-                La app tiene un diseño intuitivo y adaptable, con una interfaz clara y moderna que facilita la navegación en cualquier dispositivo.
-                Su experiencia visual es atractiva y optimizada para un uso cómodo y eficiente.
-            </p>
-        </div>
-        <!-- imagen tablet -->
-        <div class="img-tablet">
-            <img src="../../../../imagenes/tablet-proa.png" alt="Vista tablet/ordenador">
-        </div>
+        
     </div>
 </section>
 <!-- fin de la quinta sección -->
-
-<!-- seccion en blanco, solo espacio en blanco -->
-<section class="desc-white">
-</section>
-<!-- fin de la sección -->
-
-<!-- footer -->
+<!-- f
+ ooter -->
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-col">

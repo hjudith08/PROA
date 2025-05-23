@@ -1,28 +1,32 @@
-    <header>
-        <a href="./">
-            <img src="../../../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
-        </a>
-        <nav>
-            <ul>
-                <input type="button" value="CONTACTO" onclick="location.href='contacto.html'">
-                <img class="logo-user" src="../../../../imagenes/user_1.png" alt="user">
-                <!-- Dentro del <nav> antes de cerrar el </ul> -->
-                <div class="dropdown-usuario" id="dropdownUsuario">
-                    <button><a href="mis-herramientas.html" class="nombre-usuario">Mis herramientas</a></button>
-                    <button class="boton-cerrar-sesion" onclick="mostrarPopupCerrarSesion()">Cerrar sesión</button>
-                </div>
+<header class="header_edusync">
+    <a href="./">
+        <img class="logoHeader_edusync" src="/PROA/src/css/imagenes/LogoEduSyncAzul.png" alt="Logotipo">
+    </a>
+    <nav class="navPrincipal_edusync">
+        <ul class="listaNav_edusync">
+            <li class="itemNav_edusync">
+                <a href="contacto.html" class="enlaceContacto_edusync">CONTACTO</a>
+            </li>
+            <li class="itemNav_edusync">
+                <img class="imagenBotonHeader_edusync logo-user" src="/PROA/src/css/imagenes/user_1.png" alt="user">
+            </li>
+            
+            <!-- Menú desplegable usuario -->
+            <div class="dropdownUsuario_edusync" id="dropdownUsuario">
+                <button class="botonDropdown_edusync"><a href="mis-herramientas.html" class="textoDropdown_edusync">Mis herramientas</a></button>
+                <button class="botonDropdown_edusync boton-cerrar-sesion" onclick="mostrarPopupCerrarSesion()">Cerrar sesión</button>
+            </div>
 
             <!-- Popup de confirmación -->
-                <div class="popup" id="popupCerrarSesion">
-                <div class="popup-contenido">
-                    <p class="popup-texto">¿Estás seguro que quieres cerrar sesión?</p>
-                    <div class="popup-botones">
-                    <button onclick="cerrarSesion()">Sí</button>
-                    <button onclick="ocultarPopupCerrarSesion()">No</button>
+            <div class="popupFondo_edusync" id="popupCerrarSesion">
+                <div class="popupContenido_edusync">
+                    <p class="popupTexto_edusync">¿Estás seguro que quieres cerrar sesión?</p>
+                    <div class="popupBotones_edusync">
+                        <button class="botonPopup_edusync" onclick="cerrarSesion()">Sí</button>
+                        <button class="botonPopup_edusync" onclick="ocultarPopupCerrarSesion()">No</button>
                     </div>
                 </div>
-                </div>
-
-            </ul>
-        </nav>
-    </header>
+            </div>
+        </ul>
+    </nav>
+</header>

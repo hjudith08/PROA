@@ -7,6 +7,7 @@
     <title>EduSync | Venta de Modulos Educativos</title>
     <link rel="icon" href="../../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
     <link rel="stylesheet" href="../../../css/estilos.css">
+    <link rel="stylesheet" href="../../../css/Includes/estilo-headerEduSyncSesion.css">
 </head>
 
 <body>
@@ -21,7 +22,7 @@
                 <h2>Transforma tu institución con<br> módulos inteligentes y a tu medida</h2>
                 
                 <!-- botón que simula una llamada a la demo -->
-                <a href="desc-herramienta.html" class="boton-demo">Demo PROA</a>
+                <a href="noSesionDescHerramienta.php" class="boton-demo">Demo PROA</a>
                 <p>Prueba nuestra primear herramienta educativa gratis!</p>
             </div>
 
@@ -53,7 +54,7 @@
 <section class="registrarse-landing">
     <h2>¿Listo para unirte a nuestra comunidad?</h2>
     <p>Registrate en EduSync para acceder a todas nuestras demos de las mejores herramientas a tu disposicion.</p>
-    <a href="noSesionRegistroLogin.php" class="boton-demo-w">Registrate</a>
+    <a href="noSesionRegistroLogin.php" class="boton-demo">Registrate</a>
 </section>
 
 <!-- footer -->

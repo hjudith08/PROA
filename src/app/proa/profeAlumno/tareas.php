@@ -32,7 +32,7 @@
     <div class="contenido-interior">
         
         <!--Rellenar-->
-
+            
         <!-- lo haceis con lo siguiente<?php /* include '../../includes/proaInc/proa[pas-alumno-profesor]/[nombreDelArchivo].inc'; */ ?> -->
 
     </div>

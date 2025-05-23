@@ -14,7 +14,7 @@
 <!-- Header de Proa (móvil y ordenador) -->  
 <?php include '../includes/proaInc/menuProa.inc'; ?>
 
-    <main>
+    <div class="contenido">
         <div class="panel">
             <img src="../../imagenes/LogosProaBlanco.png" alt="">
             <div class="textos"> 
@@ -31,7 +31,7 @@
                 <input id="iniciar-sesion" type="submit" value="INICIAR SESIÓN">
             </form>
         </div>
-    </main>
+</div>
 
     <!-- Footer de Proa -->
 <?php include '../includes/proaInc/footerProa.inc'; ?>

@@ -103,7 +103,7 @@
 .ubicacion-actual{
     font-weight: 600;
 }
-/*region --- MENU --- */
+/*region --- MENU del Selector usuario --*/
 .header-selector-usuario{
     display: flex;
     position: fixed;
@@ -129,8 +129,8 @@
 }
 .botones-selector-ordenador button{
     border: none;
-    background-color: var(--color-boton-edusync);
-    color: var(--color-texto-claro-edusync);
+    background-color: var(--color-fondo-edusync);
+    color: var(--color-texto-edusync);
     border-radius: 10px;
     padding: 0.5rem 1rem;
     cursor: pointer;
@@ -145,8 +145,8 @@
 }
 
 button.vista-seleccionada{
-    background-color: var(--color-fondo-edusync);
-    color: var(--color-texto-edusync);
+    background-color: var(--color-boton-edusync);
+    color: var(--color-texto-claro-edusync);
     cursor: not-allowed;
 }
 
@@ -202,7 +202,7 @@ body > .header-proa {
     color: var(--color-blanco);
     text-align: center;
     gap: 1em;
-    position: fixed;
+    position: fixed;    
     top: var(--header-selector);
 }
 
@@ -237,6 +237,9 @@ body > .header-proa button[popovertarget]:hover {
 
 }
 
+/*endregion*/
+
+/* -- region Menu de Usuario + Popup --*/
 #menu-usuario {
     inset: unset;
     top: anchor(bottom);
@@ -302,6 +305,7 @@ body > .header-proa button[popovertarget]:hover {
     justify-content:  space-between;
     filter: drop-shadow(var(--sombra-generica));
     overflow: hidden;
+    z-index: 101;
 }
 
 .popup-contenido-C{
@@ -359,6 +363,7 @@ body > .header-proa button[popovertarget]:hover {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    z-index: 100;
 }
 
 /* endregion */

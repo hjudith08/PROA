@@ -25,11 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-/* selector de perfil*/ 
+/* selector de perfil web*/ 
 function redirectToView(select) {
     const value = select.value;
     if (!value) return;
-    
+
     switch(value) {
         case 'alumno':
             window.location.href = '../profeAlumno/inicioGeneral.php?rol=alumno';
@@ -39,6 +39,24 @@ function redirectToView(select) {
             break;
         case 'pas':
             window.location.href = '../pas/inicioPas.php';
+            break;
+    }
+}
+
+/* selector de perfil login*/ 
+function seleccionDeVista(select) {
+    const value = select.value;
+    if (!value) return;
+    
+    switch(value) {
+        case 'alumno':
+            window.location.href = 'profeAlumno/inicioGeneral.php?rol=alumno';
+            break;
+        case 'profesor':
+            window.location.href = 'profeAlumno/inicioGeneral.php?rol=profesor';
+            break;
+        case 'pas':
+            window.location.href = 'pas/inicioPas.php';
             break;
     }
 }

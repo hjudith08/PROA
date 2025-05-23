@@ -1,29 +1,5 @@
-/* region --- RESET --- */
-* { margin: 0; padding: 0; }
-*, *::before, *::after { box-sizing: border-box; }
-
-body { min-height: 100dvh; }
-input, button, textarea, select { font: inherit; }
-
-p { text-wrap: pretty; }
-h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
-
-img, video, svg { height: auto; max-width: 100%; }
-
-@media (prefers-reduced-motion: reduce)  {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-        transition: none;
-    }
-}
-
-a { color: inherit; }
-/* endregion */
-
-:root {
+    /* region --- VARIABLES --- */
+    :root {
     /* Colores */
     --color-principal: #3f2a52;
     --color-principal-claro: #75619e;
@@ -35,24 +11,47 @@ a { color: inherit; }
     --color-borde: #75619e;
     --color-texto: #333333;
     --color-texto-claro: #6b6b6b;
+    
     /* Sombras */
     --sombra-generica: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
     --sombra-interior: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     
     /* Tamaños */
-    --altura-header: 80px;
+    --altura-header: 60px;
     --altura-footer: 80px;
-}
+    --ancho-sidebar: 200px;
 
+    /*EduSync*/
+
+    --header-selector: 40px;
+    --color-primario-edusync: #0D273D;
+    --color-secundario-edusync: #2F4256;
+    --color-fondo-edusync: #F1F5FF;
+    --color-texto-edusync: #333333;
+    --color-texto-claro-edusync: #FFFFFF;
+    --color-boton-edusync: #2F4256;
+    --color-boton-hover-edusync: #3D5166;
+}
+    /* endregion */
+
+    
 body {
     font-family: 'Segoe UI', sans-serif;
     color: var(--color-blanco);
-    height: 100vh;
     background-image: url(../../imagenes/fondoProaLogin.png);
     background-size: cover;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+ .contenido {
+    grid-area: contenido;
+    padding:0;
+    min-height: calc(100vh - var(--altura-footer) - var(--header-selector));
+    display: flex;
     align-items: center;
 }
 
@@ -137,24 +136,20 @@ label:has(+ input[required])::after{
 }
 
 .panel {
+    transition: all .3s ease-in-out;
     height: 561px;
     width: 541px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-width: 400px;
+    min-width: 300px;
     background-color: var(--color-principal);
     border-radius: 25px;
     box-shadow: var(--sombra-generica);
     padding: .5rem;
 }
 
-main {
-    display: grid;
-    place-content: center;
-    height: calc(100dvh - var(--altura-footer));
-}
 
 .panel > h1 {
     font-size: 1.5em;
@@ -195,7 +190,7 @@ main {
     animation: fadeIn 0.3s ease-in-out;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 777px) {
     main {
         padding: 10px;
         display: flex;
@@ -205,7 +200,7 @@ main {
     }
 
     .panel {
-        width: 365px;
+        width: 400px;
         padding: 20px;
         box-shadow: none;
         border-radius: 25px;
@@ -232,3 +227,44 @@ main {
     }
 }
 
+@media screen and (max-width: 440px) {
+     main {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;    
+    }
+
+    .panel {
+        width: 300px;
+        height: 500px;
+    }
+
+    .panel img{
+        width: 125px;
+    }
+
+    input{
+        width: 250px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .error-mensaje,
+    .exito-mensaje {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+
+    a {
+        font-size: 0.9rem;
+    }
+
+    .textos{
+        margin-top: 1rem;
+    }
+}

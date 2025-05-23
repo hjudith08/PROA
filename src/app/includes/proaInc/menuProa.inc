@@ -1,5 +1,8 @@
 
 <?php
+
+$pagina_actual = basename($_SERVER['PHP_SELF']);
+
 // apaño temporal para evitar el login
 
 $dataEdu = [
@@ -9,7 +12,7 @@ $dataEdu = [
   ];
 
 $userdata = [
-    'rol' => 'profesor',
+    'rol' => 'alumno',
     'nombre' => 'Xexi',
     'apellidos' => 'Mexi',
     'id' => 3,
@@ -21,6 +24,41 @@ $asignatura = [
   ];
 
 ?>
+
+<?php
+if ($pagina_actual == 'loginProa.php') {
+?>
+
+<!-- Cabecera de seleccion de usuario -->
+<header class="header-selector-usuario">
+    <a class="logo-edusync" href="../../"><img src="../../imagenes/LogoEduSyncAzulV3.png" alt="logo de EduSync"></a>
+    <span> Hola <strong><?php echo $dataEdu['nombre'] . " " . $dataEdu['apellidos']; ?></strong>, selecciona la vista que desees.</span>
+    
+    <!-- Versión para ordenador -->
+    <div class="botones-selector-ordenador">
+        <button <?php echo ($userdata['rol'] == 'alumno') ? 'class="vista-seleccionada" disabled' : ''; ?> id="vista-alumno" onclick="location.href='profeAlumno/inicioGeneral.php'">Alumno</button>
+        <button <?php echo ($userdata['rol'] == 'profesor') ? 'class="vista-seleccionada" disabled' : ''; ?>  id="vista-profesor" onclick="location.href='profeAlumno/inicioGeneral.php'">Profesor</button>
+        <button <?php echo ($userdata['rol'] == 'pas') ? 'class="vista-seleccionada" disabled' : ''; ?> id="vista-pas" onclick="location.href='pas/inicioPas.php'">Pas</button>
+    </div>
+    
+    <!-- Versión para móvil -->
+    <div class="botones-selector-movil">
+        <select name="selector-vista" id="selector-vista" onchange="seleccionDeVista(this)">
+            <option value="" <?php echo ($userdata['rol'] == 'alumno' || $userdata['rol'] == 'profesor' || $userdata['rol'] == 'pas') ? 'disabled' : ''; ?>>
+            Vistas</option>
+            <option value="alumno" <?php echo ($userdata['rol'] == 'alumno') ? 'selected' : ''; ?>>Alumno</option>
+            <option value="profesor"<?php echo ($userdata['rol'] == 'profesor') ? 'selected' : ''; ?>>Profesor</option>
+            <option value="pas" <?php echo ($userdata['rol'] == 'pas') ? 'selected' : ''; ?>>Pas</option>
+        </select>        
+    </div>
+</header>
+
+
+<?php
+}
+elseif ($pagina_actual != 'loginProa.php') {
+?>
+
 <!-- Cabecera de seleccion de usuario -->
 <header class="header-selector-usuario">
     <a class="logo-edusync" href="../../../"><img src="../../../imagenes/LogoEduSyncAzulV3.png" alt="logo de EduSync"></a>
@@ -45,11 +83,6 @@ $asignatura = [
     </div>
 </header>
 
-<?php
-$pagina_actual = basename($_SERVER['PHP_SELF']);
-
-if ($pagina_actual != 'loginProa.php') {
-?>
 <!-- Cabecera de las páginas de proa-->
 <header class="header-proa">   
     <!-- Elementos a la izquierda del header -->

@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EduSync | Mis herramientas</title>
   <link rel="icon" href="/PROA/src/css/imagenes/LogoEduSyncBlancoV3.png" type="image/png">
-  <link rel="stylesheet" href="/PROA/src/css/EduSync/estilo-mis-herramientas.css">
+  <link rel="stylesheet" href="/PROA/src/css/Edusync/estilo-mis-herramientas.css">
   <link rel="stylesheet" href="/PROA/src/css/Includes/estilo-headerEdusyncSesion.css">
   <script src="PROA/src/js/sesionMisHerramientass.js"></script>
 </head>
+
 <body>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/PROA/includes/edusyncSesionHeaderInclude.php'; ?>
 
@@ -21,25 +22,23 @@
 
         <!-- Contenedor principal de las dos columnas -->
         <div class="contenedorHerramientas_misHerramientas">
-          <div class="contenidoHerramientas_misHerramientas">
-            <!-- Sección izquierda - Texto y botón -->
-            <div class="seccionTexto_misHerramientas">
-              <p class="textoHerramienta_misHerramientas">
-                App con un diseño intuitivo y adaptable y una interfaz clara
-                y moderna que facilita la navegación en cualquier
-                dispositivo. Su experiencia visual es atractiva y optimizada
-                para un uso cómodo y eficiente.
-              </p>
-              <a href="../../Proa/loginProa.html" class="botonDemo_misHerramientas">Entrar demo PROA</a>
-            </div>
-            
-            <!-- Sección derecha - Imagen con logo -->
-            <div class="seccionImagen_misHerramientas">
-              <div class="contenedorImagen_misHerramientas" style="background-image: url('/PROA/src/css/imagenes/IMAGENMISHERRAMIENTAS.png');">
-                <img class="logoProa_misHerramientas" src="/PROA/src/css/imagenes/LogosProaBlanco.png" alt="Logo PROA">
-              </div>
-            </div>
-          </div>
+<div class="contenedorImagenTexto_misHerramientas">
+  <div class="overlayImagen_misHerramientas">
+    <div class="contenidoOverlay_misHerramientas">
+      <div class="textoBoton_misHerramientas">
+        <p class="textoHerramienta_misHerramientas">
+          App con un diseño intuitivo y adaptable y una interfaz clara
+          y moderna que facilita la navegación en cualquier
+          dispositivo. Su experiencia visual es atractiva y optimizada
+          para un uso cómodo y eficiente.
+        </p>
+        <a href="../../Proa/loginProa.html" class="botonDemo_misHerramientas">Entrar demo PROA</a>
+      </div>
+      <img class="logoProaOverlay_misHerramientas" src="/PROA/src/css/imagenes/LogosProaBlanco.png" alt="Logo PROA">
+    </div>
+  </div>
+</div>
+
         </div>
       </main>
     </div>

@@ -1,0 +1,186 @@
+
+/*Aquí empezamos con los filtros*/
+.contenedor-filtros{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    
+    margin-left: auto;
+        margin-top: 0;
+        width: 200px;
+        height: 26px;
+        background: #F8F5FF;
+        border: 1px solid #75619E;
+        border-radius: 10px;
+
+    }
+
+    .contenedor-filtros select {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: transparent;
+        font-family: 'Segoe UI', sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        color: #3F2A52;
+        padding: 0 5px;
+        outline: none;
+        cursor: pointer;
+}
+
+/*Eliminamos los estilos predeterminados de la tabla*/
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    table-layout: fixed;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+table, th, td {
+    background: none;
+    color: inherit;
+    text-align: inherit;
+}
+
+/*Empezamos a añadir estilos*/
+
+/*Arreglamos los bordes de la tabla*/
+thead tr:first-child th:first-child {
+    border-top-left-radius: 4px;
+}
+thead tr:first-child th:last-child {
+    border-top-right-radius: 4px;
+}
+tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 4px;
+}
+tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 4px;
+}
+
+/*Estilos encabezado tabla*/
+thead th {   
+    font-weight: bold;
+    padding: 1.25rem 4.35rem;
+    background-color: #e1e1e1;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+}
+
+thead{
+    border: 1px solid #ccc;
+}
+
+/*Estilos contenido tabla*/
+tbody>tr:nth-of-type(odd) {
+    background-color: #f8f5ff;
+}
+
+tbody tr:hover{
+    background: #EDE7F6;
+    border-radius: 2rem;
+    box-shadow: white;
+}
+
+tbody td{
+    align-items: center;
+    padding: 1.25rem 4.35rem;
+}
+
+tbody{
+    border: 1px solid #ccc;
+}
+
+th{
+    align-items: center;
+}
+
+td{
+    align-items: center;
+}
+
+@media screen and (max-width: 777px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+    width: 100%;
+    border: none;
+  }
+
+  thead {
+    display: none; /* Oculta encabezado en móvil */
+  }
+
+  table{
+    border: none;
+  }
+
+  tbody tr {
+    margin-bottom: 1rem;
+    background: #f8f5ff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  tbody td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  tbody td::before {
+    position: absolute;
+    left: 1rem;
+    width: 45%;
+    white-space: nowrap;
+    font-weight: bold;
+    color: #3F2A52;
+  }
+  
+  tbody tr:hover{
+    background: #EDE7F6;
+    border-radius: 8px;
+    box-shadow: white;
+  }
+
+  /* Etiquetas antes de cada dato, como "Nombre Tarea", etc. */
+  .estado-tarea::before       { content: "Estado:"; }
+  .fecha-apertura::before     { content: "Apertura:"; }
+  .fecha-entrega::before      { content: "Entrega:"; }
+  .calificacion::before       { content: "Calificación:"; }
+
+
+.nombre-tarea {
+  display: flex;
+  align-items: center;
+  justify-content: center;      /* Centra horizontalmente */
+  text-align: center;           /* Asegura centrado del texto */
+  background-color: #3F2A52;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+    
+  /* Filtro responsive */
+  .contenedor-filtros {
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+  }
+
+}

@@ -20,25 +20,22 @@
         <h1 class="tituloPrincipal_misHerramientas">Mis herramientas</h1>
         <p class="descripcionPrincipal_misHerramientas">Aquí encontrarás las herramientas que hayas probado anteriormente</p>
 
-        <!-- Contenedor principal de las dos columnas -->
+        <!-- Contenedor principal con el nuevo diseño -->
         <div class="contenedorHerramientas_misHerramientas">
-<div class="contenedorImagenTexto_misHerramientas">
-  <div class="overlayImagen_misHerramientas">
-    <div class="contenidoOverlay_misHerramientas">
-      <div class="textoBoton_misHerramientas">
-        <p class="textoHerramienta_misHerramientas">
-          App con un diseño intuitivo y adaptable y una interfaz clara
-          y moderna que facilita la navegación en cualquier
-          dispositivo. Su experiencia visual es atractiva y optimizada
-          para un uso cómodo y eficiente.
-        </p>
-        <a href="../../Proa/loginProa.html" class="botonDemo_misHerramientas">Entrar demo PROA</a>
-      </div>
-      <img class="logoProaOverlay_misHerramientas" src="/PROA/src/css/imagenes/LogosProaBlanco.png" alt="Logo PROA">
-    </div>
-  </div>
-</div>
-
+          <div class="contenedorDegradado_misHerramientas">
+            <div class="contenidoDegradado_misHerramientas">
+              <div class="textoBoton_misHerramientas">
+                <p class="textoHerramienta_misHerramientas">
+                  App con un diseño intuitivo y adaptable y una interfaz clara
+                  y moderna que facilita la navegación en cualquier
+                  dispositivo. Su experiencia visual es atractiva y optimizada
+                  para un uso cómodo y eficiente.
+                </p>
+                <a href="../../Proa/loginProa.html" class="botonDemo_misHerramientas">Entrar demo PROA</a>
+              </div>
+              <img class="logoProaDegradado_misHerramientas" src="/PROA/src/css/imagenes/LogosProaBlanco.png" alt="Logo PROA">
+            </div>
+          </div>
         </div>
       </main>
     </div>

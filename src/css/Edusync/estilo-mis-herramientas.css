@@ -76,15 +76,36 @@ body {
     padding: 0 20px;
 }
 
-.contenidoHerramientas_misHerramientas {
+/* Nuevo diseño con degradado */
+.contenedorDegradado_misHerramientas {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(90deg, 
+                rgba(255,255,255,1) 0%, 
+                rgba(0,0,0,1) 40%, 
+                rgba(0,0,0,1) 60%, 
+                rgba(255,255,255,1) 100%);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
     display: flex;
-    gap: 40px;
     align-items: center;
+    justify-content: center;
 }
 
-/* Sección de texto */
-.seccionTexto_misHerramientas {
-    flex: 1;
+.contenidoDegradado_misHerramientas {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.textoBoton_misHerramientas {
+    width: 45%;
     padding: 20px;
 }
 
@@ -95,57 +116,32 @@ body {
     margin-bottom: 30px;
 }
 
+.logoProaDegradado_misHerramientas {
+    width: 40%;
+    max-width: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
 /* Estilos del botón */
 .botonDemo_misHerramientas {
     display: inline-block;
-    padding: 10px 53px;
+    padding: 12px 40px;
     background-color: #2c3e50;
     color: white;
     text-decoration: none;
     font-weight: bold;
     border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 16px;
 }
 
 .botonDemo_misHerramientas:hover {
     background-color: #1f3041;
     transform: scale(1.05);
-}
-
-/* Sección de imagen */
-.seccionImagen_misHerramientas {
-    flex: 1;
-}
-
-.contenedorImagen_misHerramientas {
-    height: 300px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Overlay para mejorar contraste del logo */
-.contenedorImagen_misHerramientas::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-}
-
-.logoProa_misHerramientas {
-    width: 70%;
-    max-width: 340px;
-    position: relative;
-    z-index: 2;
 }
 
 /* ====================== */
@@ -177,109 +173,78 @@ body {
     margin-top: -20px;
     margin-bottom: -20px;
 }
-/* Imagen full-width con degradado y contenido encima */
-.contenedorImagenTexto_misHerramientas {
-  width: 100%;
-  margin: 40px 0;
-  position: relative;
-  background-image: url('/PROA/src/css/imagenes/IMAGENMISHERRAMIENTAS.png');
-  background-size: cover;
-  background-position: center;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.overlayImagen_misHerramientas {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, rgba(255,255,255,0.85), rgba(255,255,255,0.2));
-  padding: 60px 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.contenidoOverlay_misHerramientas {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.textoBoton_misHerramientas {
-  flex: 1;
-  min-width: 280px;
-}
-
-.textoBoton_misHerramientas p {
-  color: #000;
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 30px;
-}
-
-.logoProaOverlay_misHerramientas {
-  flex: 1;
-  max-width: 340px;
-  width: 70%;
-  z-index: 2;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .contenidoOverlay_misHerramientas {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-  }
-
-  .logoProaOverlay_misHerramientas {
-    width: 50%;
-  }
-
-  .overlayImagen_misHerramientas {
-    padding: 40px 20px;
-  }
-
-  .textoBoton_misHerramientas p {
-    font-size: 16px;
-  }
-}
 
 /* ====================== */
 /* RESPONSIVE */
 /* ====================== */
+@media (max-width: 1024px) {
+    .contenedorDegradado_misHerramientas {
+        height: 350px;
+    }
+    
+    .logoProaDegradado_misHerramientas {
+        width: 35%;
+    }
+}
+
 @media (max-width: 768px) {
-    .contenidoHerramientas_misHerramientas {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .seccionTexto_misHerramientas, 
-    .seccionImagen_misHerramientas {
-        width: 100%;
-    }
-    
-    .contenedorImagen_misHerramientas {
-        height: 200px;
-    }
-    
-    .logoProa_misHerramientas {
-        width: 50%;
-    }
-    
     .tituloPrincipal_misHerramientas {
         font-size: 36px;
     }
     
     .descripcionPrincipal_misHerramientas {
         font-size: 18px;
+    }
+    
+    .contenedorDegradado_misHerramientas {
+        height: 500px;
+        background: linear-gradient(180deg, 
+                    rgba(255,255,255,1) 0%, 
+                    rgba(0,0,0,1) 40%, 
+                    rgba(0,0,0,1) 60%, 
+                    rgba(255,255,255,1) 100%);
+    }
+    
+    .contenidoDegradado_misHerramientas {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .textoBoton_misHerramientas {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .logoProaDegradado_misHerramientas {
+        width: 60%;
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tituloPrincipal_misHerramientas {
+        font-size: 28px;
+    }
+    
+    .contenedorDegradado_misHerramientas {
+        height: 450px;
+    }
+    
+    .textoHerramienta_misHerramientas {
+        font-size: 16px;
+    }
+    
+    .botonDemo_misHerramientas {
+        padding: 10px 30px;
+        font-size: 14px;
+    }
+    
+    .logoProaDegradado_misHerramientas {
+        width: 80%;
     }
 }

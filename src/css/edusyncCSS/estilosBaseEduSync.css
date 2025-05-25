@@ -1,0 +1,272 @@
+/* -------------- CSS ORDENADOR ------------------ */
+html {
+    scroll-behavior: smooth;
+}
+
+/* region --- RESET --- */
+* { margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; }
+
+body { min-height: 100dvh; }
+input, button, textarea, select { font: inherit; }
+
+p { text-wrap: pretty; }
+h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
+
+img, video, svg { height: auto; max-width: 100%; }
+
+@media (prefers-reduced-motion: reduce)  {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
+    }
+}
+
+a { color: inherit; }
+/* endregion */
+
+    /* region --- VARIABLES --- */
+    :root {
+
+    /* Sombras */
+    --sombra-generica: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+    --sombra-interior: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+    /* Tamaños */
+    --altura-header: 60px;
+    --altura-footer: 80px;
+
+    /*Colores*/
+    --color-primario-edusync: #0D273D;
+    --color-secundario-edusync: #2F4256;
+    --color-fondo-edusync: #F1F5FF;
+    --color-texto-edusync: #333333;
+    --color-texto-claro-edusync: #FFFFFF;
+    --color-boton-edusync: #2F4256;
+    --color-boton-hover-edusync: #3D5166;
+}
+    /* endregion */
+
+
+/*region --- MENU --- */
+
+body > .header-eduSync {
+    padding: .5rem; /* en pixeles es 8px */
+    height: var(--altura-header);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-fondo-edusync);
+    box-shadow: var(--sombra-generica);
+    color: var(--color-texto-edusync);
+    text-align: center;
+    gap: 1em;
+    position: fixed;    
+}
+
+.logo-header  {
+    height: 30px;
+    margin-left: 2em;
+    cursor: pointer;
+    display: flex;
+}
+.logo-header img{
+    width: 100%;
+}
+
+/* disposicion de los elementos del header */
+
+.elementos-derecha, .elementos-izquierda{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+}
+
+body > .header-eduSync button[popovertarget] {
+    transition: all .3s ;
+    anchor-name: --menu-usuario;
+    background-color: transparent;
+    border: none;   
+    height: 40px;
+    margin-right: 2em;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    border-radius: .7em;
+    display: flex;
+    border: 0;    
+}
+body > .header-eduSync button[popovertarget]:hover {
+    background-color: var(--color-boton-hover-edusync);
+    scale: 1.1;
+
+}
+
+/*endregion*/
+
+/* -- region Menu de Usuario + Popup --*/
+
+
+#menu-usuario {
+    inset: unset;
+    top: anchor(bottom);
+    right: anchor(right);
+    margin-top: .5rem;
+    width: 300px;
+    background: var(--color-blanco);
+    border: none;
+    box-shadow: var(--sombra-generica);
+    border-radius: 10px 0 10px 10px;
+}
+
+#menu-usuario .bienvenido {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: var(--color-principal);
+}
+
+
+#menu-usuario button {
+    background-color: transparent;
+    height: 60px;
+    padding: 20px;
+    width: 100%;
+    border: none;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-texto);
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#menu-usuario button:hover {
+    background-color: var(--color-principal-claro);
+    color: var(--color-blanco);
+
+}
+#menu-usuario button:active {
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+}
+
+
+.oculto {
+    display: none !important;
+}
+
+.popup {
+    transition: all 0.5s ease-in-out;
+    position: fixed;
+    width: 400px;
+    height: 200px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content:  space-between;
+    filter: drop-shadow(var(--sombra-generica));
+    overflow: hidden;
+    z-index: 101;
+}
+
+.popup-contenido-C{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    background: var(--color-blanco);
+    box-shadow: var(--sombra-generica);
+    border-radius: 15px;
+    max-width: 100%;
+}
+
+.popup-botones {
+    display: flex;
+    width: 100%;
+    height: 60px;
+}
+
+.popup-texto {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--color-principal);
+    text-align: center;
+    margin: auto 0;
+    padding: 1rem;
+}
+
+.boton-si, .boton-no {
+    width: 50%;
+    background: var(--color-principal-claro);
+    border: 1px solid var(--color-principal);
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--color-blanco);
+    cursor: pointer;
+}
+
+.boton-si:hover, .boton-no:hover {
+    width: 50%;
+    background: var(--color-principal-muy-claro);
+    border: 1px solid var(--color-principal);
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--color-blanco);
+    cursor: pointer;
+}
+
+/* fondo para el popup */
+.fondo-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    z-index: 100;
+}
+
+/* endregion */
+
+
+
+/* -------------- ESTILO FOOTER ------------------ */
+body > footer {
+    background-color: #0D273D;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+body > footer .footer-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+body > footer .footer-col {
+    flex: 1 1 250px;
+    max-width: 300px;
+    padding: 1rem;
+}
+
+body > footer .footer-col img {
+    max-height: 50px;
+    margin-top: -20px;
+    margin-bottom: -20px;
+}

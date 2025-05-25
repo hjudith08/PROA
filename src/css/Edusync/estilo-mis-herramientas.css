@@ -2,249 +2,316 @@
 /* ESTILOS GENERALES */
 /* ====================== */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-/* Reset básico para eliminar márgenes y paddings predeterminados */
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    min-height: 100dvh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100dvh;
+  background-color: #F2F5FF;
 }
 
 /* ====================== */
 /* ESTRUCTURA PRINCIPAL */
 /* ====================== */
 .contenedorFondo_misHerramientas {
-    background-color: #F2F5FF;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: 89vh;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente */
+  align-items: center;     /* Centra horizontalmente */
+  min-height: calc(100vh - 120px); /* Ajusta según tu header/footer */
 }
 
 .contenedorPrincipal_misHerramientas {
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1700px;
+  margin: 0 auto;
 }
 
 .contenidoPrincipal_misHerramientas {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-top: 30px;
 }
 
 /* ====================== */
 /* TÍTULOS Y TEXTO */
 /* ====================== */
 .tituloPrincipal_misHerramientas {
-    font-weight: 700;
-    font-size: 48px;
-    color: #2c3e50;
-    text-align: center;
-    margin-top: 60px;
-    margin-bottom: 0;
-    padding: 0 20px;
+  font-weight: 700;
+  font-size: 48px;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .descripcionPrincipal_misHerramientas {
-    font-weight: 400;
-    font-size: 20px;
-    color: #2c3e50;
-    text-align: center;
-    margin-top: 24px;
-    max-width: 610px;
-    margin-bottom: 40px;
-    padding: 0 20px;
+  font-weight: 400;
+  font-size: 20px;
+  color: #2c3e50;
+  text-align: center;
+  max-width: 610px;
+  margin-bottom: 20px;
 }
 
 /* ====================== */
-/* CONTENEDOR HERRAMIENTAS */
+/* CONTENEDOR DEGRADADO - DESKTOP */
 /* ====================== */
 .contenedorHerramientas_misHerramientas {
-    width: 100%;
-    max-width: 1440px;
-    margin: 40px auto;
-    padding: 0 20px;
+  width: 100%;
+  margin: 20px 0;
 }
 
-/* Nuevo diseño con degradado */
 .contenedorDegradado_misHerramientas {
-    width: 100%;
-    height: 400px;
-    background: linear-gradient(90deg, 
-                rgba(255,255,255,1) 0%, 
-                rgba(0,0,0,1) 40%, 
-                rgba(0,0,0,1) 60%, 
-                rgba(255,255,255,1) 100%);
-    border-radius: 12px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  height: 390px;
+  background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(0, 0, 0, 0.5) 40%,
+      rgba(0, 0, 0, 0.5) 60%,
+      rgba(255, 255, 255, 0.6) 100%
+    ),
+    url("/PROA/src/css/imagenes/IMAGENMISHERRAMIENTAS.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 8px 32px 0 rgba(44,62,80,0.18); /* Sombra elegante */
 }
 
 .contenidoDegradado_misHerramientas {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-    position: relative;
-    z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
 
 .textoBoton_misHerramientas {
-    width: 45%;
-    padding: 20px;
+  width: 30%;
+  padding-left: 5%;
+  z-index: 2;
+  margin-right: auto;
 }
 
 .textoHerramienta_misHerramientas {
-    color: #000;
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 30px;
+  color: #000000;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
 }
 
 .logoProaDegradado_misHerramientas {
-    width: 40%;
-    max-width: 400px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
+  width: 30%;
+  max-width: 400px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
-/* Estilos del botón */
+/* ====================== */
+/* BOTÓN */
+/* ====================== */
 .botonDemo_misHerramientas {
-    display: inline-block;
-    padding: 12px 40px;
-    background-color: #2c3e50;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: 16px;
+  display: inline-block;
+  padding: 12px 40px;
+  background-color: #2c3e50;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }
 
 .botonDemo_misHerramientas:hover {
-    background-color: #1f3041;
-    transform: scale(1.05);
+  background-color: #1f3041;
+}
+
+/* ====================== */
+/* NUEVO BLOQUE: Texto + botón para responsive */
+/* ====================== */
+.contenedorTextoBoton_misHerramientas {
+  display: none;
 }
 
 /* ====================== */
 /* FOOTER */
 /* ====================== */
 .footer_misHerramientas {
-    background-color: #0D273D;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
+  background-color: #0D273D;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+  margin-top: auto;
 }
 
 .footerContainer_misHerramientas {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footerCol_misHerramientas {
-    flex: 1 1 250px;
-    max-width: 300px;
-    padding: 1rem;
+  flex: 1 1 250px;
+  max-width: 300px;
+  padding: 1rem;
 }
 
 .footerCol_misHerramientas img {
-    max-height: 50px;
-    margin-top: -20px;
-    margin-bottom: -20px;
+  max-height: 50px;
+  margin-top: -20px;
+  margin-bottom: -20px;
 }
 
 /* ====================== */
-/* RESPONSIVE */
+/* VISIBILIDAD POR TAMAÑO */
 /* ====================== */
-@media (max-width: 1024px) {
-    .contenedorDegradado_misHerramientas {
-        height: 350px;
-    }
-    
-    .logoProaDegradado_misHerramientas {
-        width: 35%;
-    }
+.soloDesktop {
+  display: block;
 }
 
+.soloResponsive {
+  display: none;
+}
+html, body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedorFondo_misHerramientas {
+  flex: 1 0 auto;
+
+}
+
+.footer_misHerramientas {
+  flex-shrink: 0;
+  margin-top: 0; /* Elimina el auto si lo tienes */
+}
+/* ====================== */
+/* RESPONSIVE DESIGN */
+/* ====================== */
+
+/* === PC PEQUEÑO === */
+@media (max-width: 1000px) {
+  .contenedorDegradado_misHerramientas {
+    height: auto;
+    padding: 30px 15px;
+  }
+
+  .contenidoDegradado_misHerramientas {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .logoProaDegradado_misHerramientas {
+    position: static;
+    transform: none;
+    width: 200px;
+    max-width: 80%;
+    margin-bottom: 20px;
+    z-index: 2;
+  }
+
+  .textoBoton_misHerramientas {
+    display: none;
+  }
+
+  .contenedorTextoBoton_misHerramientas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 15px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .contenedorTextoBoton_misHerramientas .textoHerramienta_misHerramientas {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .contenedorTextoBoton_misHerramientas .botonDemo_misHerramientas {
+    font-size: 15px;
+    padding: 10px 30px;
+  }
+
+  .soloDesktop {
+    display: none;
+  }
+
+  .soloResponsive {
+    display: block;
+  }
+}
+
+/* === MÓVIL === */
 @media (max-width: 768px) {
-    .tituloPrincipal_misHerramientas {
-        font-size: 36px;
-    }
-    
-    .descripcionPrincipal_misHerramientas {
-        font-size: 18px;
-    }
-    
-    .contenedorDegradado_misHerramientas {
-        height: 500px;
-        background: linear-gradient(180deg, 
-                    rgba(255,255,255,1) 0%, 
-                    rgba(0,0,0,1) 40%, 
-                    rgba(0,0,0,1) 60%, 
-                    rgba(255,255,255,1) 100%);
-    }
-    
-    .contenidoDegradado_misHerramientas {
-        flex-direction: column;
-        padding: 20px;
-    }
-    
-    .textoBoton_misHerramientas {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    
-    .logoProaDegradado_misHerramientas {
-        width: 60%;
-        position: relative;
-        left: auto;
-        top: auto;
-        transform: none;
-        margin-top: 20px;
-    }
+  .logoProaDegradado_misHerramientas {
+    width: 180px;
+  }
+
+  .contenedorTextoBoton_misHerramientas .textoHerramienta_misHerramientas {
+    font-size: 15px;
+    max-width: 90%;
+  }
+
+  .contenedorTextoBoton_misHerramientas .botonDemo_misHerramientas {
+    padding: 10px 25px;
+  }
 }
 
-@media (max-width: 480px) {
-    .tituloPrincipal_misHerramientas {
-        font-size: 28px;
-    }
-    
-    .contenedorDegradado_misHerramientas {
-        height: 450px;
-    }
-    
-    .textoHerramienta_misHerramientas {
-        font-size: 16px;
-    }
-    
-    .botonDemo_misHerramientas {
-        padding: 10px 30px;
-        font-size: 14px;
-    }
-    
-    .logoProaDegradado_misHerramientas {
-        width: 80%;
-    }
+/* === MÓVIL PEQUEÑO === */
+@media (max-width: 599px) {
+  .tituloPrincipal_misHerramientas {
+    font-size: 32px;
+  }
+
+  .descripcionPrincipal_misHerramientas {
+    font-size: 16px;
+    max-width: 90%;
+  }
+
+  .logoProaDegradado_misHerramientas {
+    width: 140px;
+  }
+
+  .contenedorTextoBoton_misHerramientas .textoHerramienta_misHerramientas {
+    font-size: 14px;
+  }
+
+  .contenedorTextoBoton_misHerramientas .botonDemo_misHerramientas {
+    font-size: 14px;
+    padding: 8px 20px;
+  }
 }

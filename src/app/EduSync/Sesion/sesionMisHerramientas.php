@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
-<head> 
+
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EduSync | Mis herramientas</title>
@@ -11,20 +12,23 @@
 </head>
 
 <body>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/PROA/includes/edusyncSesionHeaderInclude.php'; ?>
+  <?php include $_SERVER['DOCUMENT_ROOT'] . '/PROA/includes/edusyncSesionHeaderInclude.php'; ?>
 
   <div class="contenedorFondo_misHerramientas">
     <div class="contenedorPrincipal_misHerramientas">
       <main class="contenidoPrincipal_misHerramientas">
         <!-- Cabecera de la página -->
         <h1 class="tituloPrincipal_misHerramientas">Mis herramientas</h1>
-        <p class="descripcionPrincipal_misHerramientas">Aquí encontrarás las herramientas que hayas probado anteriormente</p>
+        <p class="descripcionPrincipal_misHerramientas">Aquí encontrarás las herramientas que hayas probado
+          anteriormente</p>
 
-        <!-- Contenedor principal con el nuevo diseño -->
+        <!-- Contenedor principal -->
         <div class="contenedorHerramientas_misHerramientas">
+          <!-- Imagen de fondo con logo y contenido -->
           <div class="contenedorDegradado_misHerramientas">
             <div class="contenidoDegradado_misHerramientas">
-              <div class="textoBoton_misHerramientas">
+              <!-- Texto y botón solo visibles en desktop -->
+              <div class="textoBoton_misHerramientas soloDesktop">
                 <p class="textoHerramienta_misHerramientas">
                   App con un diseño intuitivo y adaptable y una interfaz clara
                   y moderna que facilita la navegación en cualquier
@@ -33,11 +37,25 @@
                 </p>
                 <a href="../../Proa/loginProa.html" class="botonDemo_misHerramientas">Entrar demo PROA</a>
               </div>
-              <img class="logoProaDegradado_misHerramientas" src="/PROA/src/css/imagenes/LogosProaBlanco.png" alt="Logo PROA">
+
+              <!-- Logo centrado -->
+              <img class="logoProaDegradado_misHerramientas" src="/PROA/src/css/imagenes/LogosProaBlanco.png"
+                alt="Logo PROA">
             </div>
+          </div>
+
+          <!-- Texto y botón fuera del fondo para responsive -->
+          <div class="contenedorTextoBoton_misHerramientas soloResponsive">
+            <p class="textoHerramienta_misHerramientas">
+              App con un diseño intuitivo y adaptable y una interfaz clara y moderna que facilita la navegación en
+              cualquier
+              dispositivo. Su experiencia visual es atractiva y optimizada para un uso cómodo y eficiente.
+            </p>
+            <a href="../../Proa/loginProa.html" class="botonDemo_misHerramientas">Entrar demo PROA</a>
           </div>
         </div>
       </main>
+
     </div>
   </div>
 
@@ -57,4 +75,5 @@
   </footer>
 
 </body>
+
 </html>

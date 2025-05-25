@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - EduSync</title>
     <link rel="icon" href="../../../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
-    <link rel="stylesheet" href="../../../css/estilo-contacto-sesion.css">
+    <link rel="stylesheet" href="/PROA/src/css/Edusync/estilo-contacto-sesion.css">
 </head>
 <body>
     
- <!-- header -->
-    <?php include 'includes/edusyncSesionHeaderInclude.php'; ?>
+    <!-- Cabecera -->
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/PROA/includes/edusyncSesionHeaderInclude.php'; ?>
 
 
     <!-- Contenido Principal -->
@@ -53,32 +53,10 @@
 
             <!-- Formulario de Contacto -->
             <form class="formulario-contacto">
-                <!-- Agrupar los campos Nombre y Apellido -->
-                <div class="grupo-filas-formulario">
-                    <div class="grupo-formulario">
-                        <label for="name" class="etiqueta-formulario">Nombre</label>
-                        <input type="text" id="name" class="entrada-formulario" placeholder="Nombre" required>
-                    </div>
-                    <div class="grupo-formulario">
-                        <label for="surname" class="etiqueta-formulario">Apellidos</label>
-                        <input type="text" id="surname" class="entrada-formulario" placeholder="Apellidos" required>
-                    </div>
-                </div>
-            
-                <!-- Otros campos -->
-                <div class="grupo-formulario">
-                    <label for="email" class="etiqueta-formulario">Institución</label>
-                    <input type="email" id="email" class="entrada-formulario"  placeholder="Nombre de la Institución" required>
-                </div>
-                <div class="grupo-formulario">
-                    <label for="email" class="etiqueta-formulario">Correo Electrónico</label>
-                    <input type="email" id="email" class="entrada-formulario" placeholder="Ejemplo@ejemplo.com" required>
-                </div>
                 <div class="grupo-formulario">
                     <label for="message" class="etiqueta-formulario">Mensaje</label>
                     <textarea id="message" class="area-texto-formulario" placeholder="Escribe aquí tu consulta"></textarea>
                 </div>
-            
                 <button type="submit" class="boton-enviar">Enviar</button>
                 <div id="mensaje-exito" class="mensaje-exito">
                     ¡Formulario enviado correctamente!

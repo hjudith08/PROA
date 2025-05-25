@@ -24,7 +24,7 @@ img, video, svg { height: auto; max-width: 100%; }
         transition: none;
     }
 }
-
+ 
 a { color: inherit; }
 /* endregion */
 
@@ -416,8 +416,8 @@ header input {
     width: 80%; 
     max-height: 700px;
     height: auto;
+    background-image: url("/PROA/src/css/imagenes/descarga (1).png");
     background-color: #0D273D;
-    background-image: url("../../imagenes/fondocontactob.png");
     border-radius: 15px;
     overflow: hidden;
     display: flex;
@@ -608,6 +608,12 @@ header input {
 .contenedor-pie-pagina p {
     margin: 0.3rem 0;
     color: #64748b;
+}
+
+@media(max-width: 1500px) {
+   .tarjeta-info-contacto {
+    margin-left: auto;
+   }
 }
 
 /* --------------- RESPONSIVE --------------- */

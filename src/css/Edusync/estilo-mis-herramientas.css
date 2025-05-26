@@ -77,10 +77,10 @@ body {
   height: 390px;
   background: linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.8) 0%,
-      rgba(0, 0, 0, 0.5) 40%,
-      rgba(0, 0, 0, 0.5) 60%,
-      rgba(255, 255, 255, 0.8) 100%
+      rgba(255, 255, 255, 0.90) 10%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.5) 80%,
+      rgba(0, 0, 0, 0.5) 100%
     ),
     url("/PROA/src/css/imagenes/IMAGENMISHERRAMIENTAS.png");
   background-size: cover;
@@ -120,7 +120,7 @@ body {
   width: 30%;
   max-width: 400px;
   position: absolute;
-  left: 50%;
+  left: 80%;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -277,6 +277,19 @@ body {
 
 /* === MÓVIL === */
 @media (max-width: 768px) {
+  .contenedorDegradado_misHerramientas {
+  background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.5) 10%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.5) 80%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url("/PROA/src/css/imagenes/IMAGENMISHERRAMIENTAS.png");
+
+  background-size: cover;
+  box-shadow: 0 8px 32px 0 rgba(44,62,80,0.18); /* Sombra elegante */
+}
   .logoProaDegradado_misHerramientas {
     width: 180px;
   }

@@ -12,7 +12,7 @@ $dataEdu = [
   ];
 
 $userdata = [
-    'rol' => 'profesor',
+    'rol' => 'pas',
     'nombre' => 'Xexi',
     'apellidos' => 'Mexi',
     'id' => 3,
@@ -36,9 +36,9 @@ if ($pagina_actual == 'loginProa.php') {
     
     <!-- Versión para ordenador -->
     <div class="botones-selector-ordenador">
-        <button <?php echo ($userdata['rol'] == 'alumno') ? 'class="vista-seleccionada" disabled' : ''; ?> id="vista-alumno" onclick="location.href='profeAlumno/inicioGeneral.php'">Alumno</button>
-        <button <?php echo ($userdata['rol'] == 'profesor') ? 'class="vista-seleccionada" disabled' : ''; ?>  id="vista-profesor" onclick="location.href='profeAlumno/inicioGeneral.php'">Profesor</button>
-        <button <?php echo ($userdata['rol'] == 'pas') ? 'class="vista-seleccionada" disabled' : ''; ?> id="vista-pas" onclick="location.href='pas/inicioPas.php'">Pas</button>
+        <button id="vista-alumno" onclick="location.href='profeAlumno/inicioGeneral.php'">Alumno</button>
+<button id="vista-profesor" onclick="location.href='profeAlumno/inicioGeneral.php'">Profesor</button>
+<button id="vista-pas" onclick="location.href='pas/inicioPas.php'">Pas</button>
     </div>
     
     <!-- Versión para móvil -->

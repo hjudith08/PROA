@@ -1,4 +1,3 @@
-
 /* --------------- VARIABLES --------------- */
 :root {
     --header-height: 90px;
@@ -16,14 +15,11 @@
     --transition: all 0.3s ease;
     --footer-height: 80px;
 }
+
 body {
+    min-height: 100vh;
     background-color: var(--color-fondo);
-     display: grid;
-    grid-template-areas:
-        "contenido"
-        "footer";
-    grid-template-columns:  1fr;
-    grid-template-rows: 1fr var(--footer-height);
+    display: flex;
     font-family: 'Segoe UI', system-ui;
     margin: 0;
     height: auto;
@@ -32,22 +28,21 @@ body {
 }
 
 /* Para agregar un asterisco para mostrar que el campo es obligatorio*/
-label:has(+ input[required])::after{
+label:has(+ input[required])::after {
     content: '*';
     color: var(--color-required);
     margin-left: .6ch;
-} 
+}
 
 /* Estilos para el contenedor principal */
 .contenedor {
-    grid: contenido;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 105vh;
-  background-color: var(--color-texto-claro);
-  transition: var(--transition); 
-  position: relative;   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--color-texto-claro);
+    transition: var(--transition);
+    position: relative;
 }
 
 /* Estilos para la animación del formulario */
@@ -58,7 +53,7 @@ label:has(+ input[required])::after{
     position: absolute;
     top: 0;
     width: calc(50% - 40px);
-    height: auto;   
+    height: auto;
     transition: all .6s ease-in-out;
 }
 
@@ -72,7 +67,7 @@ form {
     flex-direction: column;
     background-color: var(--color-texto-claro);
     text-align: center;
-}	
+}
 
 /* Estilos para el header*/
 img {
@@ -105,13 +100,13 @@ header nav ul {
     gap: 1em;
 }
 
-header p{
+header p {
     display: flex;
     align-items: center;
     color: var(--color-texto-claro);
 }
 
-header input{
+header input {
     margin: .5em;
     height: 2em;
     display: flex;
@@ -122,72 +117,76 @@ header input{
     color: var(--color-primario);
 }
 
-header input:hover{
+header input:hover {
     transform: scale(1.05);
     transition: transform var(--transition);
 }
 
-header input:focus{
+header input:focus {
     border: 0;
 }
 
+.registro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 2;
+    opacity: 1;
+    transition: all 0.6s ease-in-out;
+}
+
+.contenedor.panel-derecho-activo .registro {
+    transform: translateX(100%);
+    opacity: 0;
+    z-index: 1;
+}
+
+/* Estilos para el formulario de login */
 .login {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     left: 0;
     width: 50%;
-    height: 100vh;
-    z-index: 2;
-    opacity: 1;
+    z-index: 1;
+    opacity: 0;
+    height: 100%;
     transition: all 0.6s ease-in-out;
 }
 
 .contenedor.panel-derecho-activo .login {
-    transform: translateX(100%);
-    opacity: 0;
-    z-index: 1;
-}
-
-/* Estilos para el formulario de registro */
-.registro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    left: 0;
-    width: 50%;
-    height: auto;
-    z-index: 1;
-    opacity: 0;
-    transition: all 0.6s ease-in-out;
-}
-
-.contenedor.panel-derecho-activo .registro {
     transform: translateX(100%);
     opacity: 1;
     z-index: 2;
 }
 
 .btn-volver {
-    bottom: 0;
+    margin-bottom: 40px;
     margin-left: 40px;
 
 }
 
 /* aca se le da el efecto de que el formulario de registro se vea */
 @keyframes show {
-    0%, 49.99% {
+
+    0%,
+    49.99% {
         opacity: 0;
         z-index: 1;
     }
-    50%, 100% {
+
+    50%,
+    100% {
         opacity: 1;
         z-index: 5;
     }
 }
 
 /* ahora el overlay lo que hace es que se vea el formulario de registro */
-.overlay-contenedor{
+.overlay-contenedor {
     position: relative;
     top: 0;
     left: 50%;
@@ -224,7 +223,7 @@ header input:focus{
 .contenedor.panel-derecho-activo .overlay {
     transform: translateX(50%);
 }
- 
+
 .overlay-panel {
     position: absolute;
     top: 0;
@@ -256,7 +255,7 @@ header input:focus{
 a.link,
 a.login-link,
 a.btn-volver {
-    color: var(--color-texto); 
+    color: var(--color-texto);
     text-decoration: none;
 }
 
@@ -286,7 +285,7 @@ a.btn-volver:hover {
 .inputs button {
     width: 433px;
     max-width: 433px;
-    height:44px;
+    height: 44px;
     outline: none;
     border-radius: var(--border-radius);
     border: 1px solid var(--color-secundario);
@@ -296,7 +295,7 @@ a.btn-volver:hover {
 }
 
 .inputs input::placeholder {
-    font-style: italic; 
+    font-style: italic;
     opacity: 0.5;
     color: var(--color-primario);
 }
@@ -307,11 +306,11 @@ input:focus {
     transform: scale(1.03);
 }
 
-.btn-registro, 
+.btn-registro,
 .btn-login {
     width: 100%;
     max-width: 252px;
-    height: 46px; 
+    height: 46px;
     color: var(--color-texto-claro);
     background-color: var(--color-primario);
     border: none;
@@ -382,17 +381,44 @@ input:focus {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-footer{
-    grid: footer;
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: var(--footer-height);
+    background-color: var(--color-primario);
+    color: var(--color-texto-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.footer-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
 
+.footer-logo {
+    height: 50px;
+}
 
 @media (max-width: 882px) {
+
     /* Desactivar todas las animaciones */
     .contenedor,
     .formulario-contenedor,
@@ -404,7 +430,7 @@ footer{
         transition: none !important;
         animation: none !important;
     }
-    
+
     /* Ajustar contenedor principal */
     .contenedor {
         flex-direction: column;
@@ -412,26 +438,26 @@ footer{
         min-height: 100vh;
         padding: 0;
     }
-    
+
     /* Mostrar ambos formularios en columna */
     .formulario-contenedor {
-       /* position: relative !important;*/
+        /* position: relative !important;*/
         width: 100% !important;
         height: auto !important;
         opacity: 1 !important;
         transform: none !important;
         display: none;
     }
-    
+
     .formulario-contenedor.activo {
         display: flex;
         position: relative;
     }
- 
-    
+
+
     .overlay {
         width: 100% !important;
-         height: 100% !important;
+        height: 100% !important;
         left: 0 !important;
         top: 0 !important;
         min-height: auto !important;
@@ -439,7 +465,7 @@ footer{
         background-size: cover;
         background-position: center;
     }
-    
+
     /* Botones del overlay */
     .trigger {
         width: 200px;
@@ -449,14 +475,14 @@ footer{
     .inputs label {
         margin-top: 0;
     }
-    
+
     /* Ajustes para formularios */
     .inputs input,
     .inputs button {
         width: 100% !important;
         max-width: 100% !important;
     }
-    
+
     .overlay-panel {
         width: 100% !important;
         height: 100% !important;
@@ -464,27 +490,28 @@ footer{
         left: 0 !important;
         padding: 1rem;
     }
-    
-    
+
+
     /* Ajustar elementos del formulario */
     .inputs input,
     .inputs button {
         width: 300px !important;
         max-width: 100% !important;
     }
-    
+
     .overlay-panel h1 {
         font-size: 1.7rem !important;
         margin-bottom: 0 !important;
     }
+
     /* Footer ajustado */
     .footer {
         bottom: 0 !important;
         height: 100px;
         position: relative;
-        
+
     }
-    
+
     /* Overlay en la parte superior */
     .overlay-contenedor {
         position: relative !important;
@@ -497,7 +524,7 @@ footer{
         border-radius: 0;
         order: 1;
     }
-    
+
     /* aca se le da el efecto de que el formulario de registro se vea */
     .contenedor.panel-derecho-activo .registro,
     .contenedor .login {
@@ -513,17 +540,18 @@ footer{
         justify-content: space-between;
         align-content: space-between;
     }
-    
+
     .formulario-contenedor p {
         margin-bottom: 16px;
     }
+
     /* para  que el formulario de registro y el de login se vean uno al lado del otro */
-    .login, 
+    .login,
     .registro {
         width: 100%;
         display: none;
     }
-    
+
     /* Overlay buttons */
     .trigger {
         width: 180px;
@@ -531,23 +559,23 @@ footer{
         padding: 0.7rem;
         font-size: 0.9rem;
     }
-    
+
     /* Adjusted footer */
-    
+
     .footer-content {
         flex-direction: column;
         gap: 0.5rem;
     }
-    
+
     .footer p {
         font-size: 0.8rem;
         margin: 0;
     }
-    
+
     .footer-logo {
         height: 35px;
     }
-    
+
     /* Form adjustments */
     .inputs input,
     .inputs button {
@@ -555,51 +583,51 @@ footer{
         max-width: 100%;
         font-size: 0.9rem;
     }
-    
-    .btn-registro, 
+
+    .btn-registro,
     .btn-login {
         height: 42px;
         font-size: 0.95rem;
     }
-    
+
     /* Overlay text */
     .overlay-panel h1 {
         font-size: 1.8rem;
         margin-bottom: 0.8rem;
     }
-    
+
     .overlay-panel p {
         font-size: 0.95rem;
     }
-    
-    .login {
+
+    .registro {
         z-index: 2;
         opacity: 1;
         transition: all 0.6s ease-in-out;
     }
 
-    .contenedor.panel-derecho-activo .login {
+    .contenedor.panel-derecho-activo .registro {
         display: none;
         opacity: 0;
         z-index: 1;
     }
 
-    /* Estilos para el formulario de registro */
-    .registro {
+    /* Estilos para el formulario de login */
+    .login {
         z-index: 1;
         opacity: 0;
         transition: all 0.6s ease-in-out;
-       
+
     }
 
-    
-    .contenedor.panel-derecho-activo .registro {
+
+    .contenedor.panel-derecho-activo .login {
         opacity: 1;
         z-index: 2;
     }
 
     .overlay-right {
-    
+
         z-index: 2;
         opacity: 1;
         transition: all 0.6s ease-in-out;
@@ -621,6 +649,7 @@ footer{
         opacity: 1;
         z-index: 2;
     }
+
     .btn-volver {
         margin-left: 40px;
         margin-bottom: 20px;

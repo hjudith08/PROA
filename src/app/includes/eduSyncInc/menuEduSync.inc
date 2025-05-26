@@ -4,12 +4,12 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
 
 // apaño temporal para evitar el login
 
-$dataEdu = [
+/*$dataEdu = [
     'nombre' => 'Jose Luis',
     'apellidos' => 'Gimenez Lopez',
     'id' => 2,
-  ];
-
+];
+*/
 ?>
 
 

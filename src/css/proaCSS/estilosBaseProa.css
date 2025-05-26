@@ -1,22 +1,54 @@
 /*================================================*/
 /* ESTILOS BASE DE PROA (HEADER, FOOTER, SIDEBAR) */
 /*================================================*/
-   html {
+html {
     scroll-behavior: smooth;
 }
 
 /* region --- RESET --- */
-* { margin: 0; padding: 0; }
-*, *::before, *::after { box-sizing: border-box; }
-input, button, textarea, select { font: inherit; }
+* {
+    margin: 0;
+    padding: 0;
+}
 
-p {text-wrap: pretty;}
-h1, h2, h3, h4, h5, h6 { text-wrap: balance;}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
-img, video, svg { height: 100%; max-width: auto; }
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
 
-@media (prefers-reduced-motion: reduce)  {
-    *, *::before, *::after {
+p {
+    text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+img,
+video,
+svg {
+    height: 100%;
+    max-width: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
@@ -25,11 +57,13 @@ img, video, svg { height: 100%; max-width: auto; }
     }
 }
 
-a { color: inherit; }
+a {
+    color: inherit;
+}
 
 
 body {
-        transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--color-fondo);
     display: grid;
@@ -38,13 +72,14 @@ body {
         "sidebar contenido"
         "footer footer";
     grid-template-columns: var(--ancho-sidebar) 1fr;
-    grid-template-rows: var(--altura-header)  1fr var(--altura-footer);
+    grid-template-rows: var(--altura-header) 1fr var(--altura-footer);
     min-height: 100vh;
 }
-    /* endregion */
 
-    /* region --- VARIABLES --- */
-    :root {
+/* endregion */
+
+/* region --- VARIABLES --- */
+:root {
     /* Colores */
     --color-principal: #3f2a52;
     --color-principal-claro: #75619e;
@@ -56,11 +91,11 @@ body {
     --color-borde: #75619e;
     --color-texto: #333333;
     --color-texto-claro: #6b6b6b;
-    
+
     /* Sombras */
     --sombra-generica: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
     --sombra-interior: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
+
     /* Tamaños */
     --altura-header: 60px;
     --altura-footer: 80px;
@@ -77,19 +112,20 @@ body {
     --color-boton-edusync: #2F4256;
     --color-boton-hover-edusync: #3D5166;
 }
-    /* endregion */
+
+/* endregion */
 
 
- /* --- ESTILOS BASE (DESKTOP O GENERAL) --- */
+/* --- ESTILOS BASE (DESKTOP O GENERAL) --- */
 
- .contenido {
+.contenido {
     grid-area: contenido;
     padding: 2rem 2rem;
     margin-top: var(--header-selector);
     min-height: calc(100vh - var(--altura-header) - var(--altura-footer) - var(--header-selector));
 }
 
-.contenido-interior{
+.contenido-interior {
     margin-top: 1em;
     border-radius: 15px;
     background-color: var(--color-blanco);
@@ -98,18 +134,19 @@ body {
     min-height: calc(100% - var(--altura-footer) + 0.5rem);
 }
 
-.migas a{    
+.migas a {
     font-size: 12px;
     margin-top: 0.5rem;
     color: var(--color-texto-claro);
     text-decoration: none;
 }
 
-.ubicacion-actual{
+.ubicacion-actual {
     font-weight: 600;
 }
+
 /*region --- MENU del Selector usuario --*/
-.header-selector-usuario{
+.header-selector-usuario {
     display: flex;
     position: fixed;
     background-color: var(--color-fondo-edusync);
@@ -123,16 +160,18 @@ body {
 
 }
 
-.logo-edusync{
+.logo-edusync {
     height: 25px;
     margin-left: 2rem;
 }
-.botones-selector-ordenador{
- 
+
+.botones-selector-ordenador {
+
     display: flex;
     justify-content: center;
 }
-.botones-selector-ordenador button{
+
+.botones-selector-ordenador button {
     border: none;
     background-color: var(--color-fondo-edusync);
     color: var(--color-texto-edusync);
@@ -144,20 +183,20 @@ body {
     transition: all .3s ease-in-out;
 }
 
-.botones-selector-ordenador button:hover{
+.botones-selector-ordenador button:hover {
     background-color: var(--color-boton-hover-edusync);
     color: var(--color-texto-claro-edusync);
     scale: 0.95;
 }
 
-button.vista-seleccionada{
+button.vista-seleccionada {
     background-color: var(--color-boton-edusync);
     color: var(--color-texto-claro-edusync);
     cursor: not-allowed;
 }
 
 
-.botones-selector-movil{
+.botones-selector-movil {
     display: none;
 }
 
@@ -195,9 +234,10 @@ button.vista-seleccionada{
 /*endregion*/
 /*region --- MENU --- */
 
-body > .header-proa {
+body>.header-proa {
     grid-area: header;
-    padding: .5rem; /* en pixeles es 8px */
+    padding: .5rem;
+    /* en pixeles es 8px */
     height: var(--altura-header);
     width: 100%;
     display: flex;
@@ -208,11 +248,11 @@ body > .header-proa {
     color: var(--color-blanco);
     text-align: center;
     gap: 1em;
-    position: fixed;    
+    position: fixed;
     top: var(--header-selector);
 }
 
-.logo-header  {
+.logo-header {
     height: 30px;
     margin-left: 2em;
     cursor: pointer;
@@ -220,17 +260,18 @@ body > .header-proa {
 
 /* disposicion de los elementos del header */
 
-.elementos-derecha, .elementos-izquierda{
+.elementos-derecha,
+.elementos-izquierda {
     align-items: center;
     display: flex;
     justify-content: space-between;
     gap: 2em;
 }
 
-body > .header-proa button[popovertarget] {
+body>.header-proa button[popovertarget] {
     anchor-name: --menu-usuario;
     background-color: transparent;
-    border: none;   
+    border: none;
     height: 40px;
     margin-right: 2em;
     padding: 5px;
@@ -238,7 +279,8 @@ body > .header-proa button[popovertarget] {
     border-radius: 10px;
     transition: all 0.3s ease-in-out;
 }
-body > .header-proa button[popovertarget]:hover {
+
+body>.header-proa button[popovertarget]:hover {
     background-color: var(--color-principal-claro);
     scale: 1.1;
 
@@ -288,6 +330,7 @@ body > .header-proa button[popovertarget]:hover {
     color: var(--color-blanco);
 
 }
+
 #menu-usuario button:active {
     background-color: var(--color-principal);
     color: var(--color-blanco);
@@ -309,13 +352,13 @@ body > .header-proa button[popovertarget]:hover {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content:  space-between;
+    justify-content: space-between;
     filter: drop-shadow(var(--sombra-generica));
     overflow: hidden;
     z-index: 101;
 }
 
-.popup-contenido-C{
+.popup-contenido-C {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -342,7 +385,8 @@ body > .header-proa button[popovertarget]:hover {
     padding: 1rem;
 }
 
-.boton-si, .boton-no {
+.boton-si,
+.boton-no {
     width: 50%;
     background: var(--color-principal-claro);
     border: 1px solid var(--color-principal);
@@ -352,7 +396,8 @@ body > .header-proa button[popovertarget]:hover {
     cursor: pointer;
 }
 
-.boton-si:hover, .boton-no:hover {
+.boton-si:hover,
+.boton-no:hover {
     width: 50%;
     background: var(--color-principal-muy-claro);
     border: 1px solid var(--color-principal);
@@ -369,7 +414,8 @@ body > .header-proa button[popovertarget]:hover {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro semitransparente */
     z-index: 100;
 }
 
@@ -377,10 +423,11 @@ body > .header-proa button[popovertarget]:hover {
 
 /* region --- FOOTER --- */
 
-body > footer {
+body>footer {
     grid-area: footer;
     height: var(--altura-footer);
-    padding: .5rem; /* en pixeles es 8px */
+    padding: .5rem;
+    /* en pixeles es 8px */
     width: 100%;
     display: flex;
     align-items: center;
@@ -391,14 +438,14 @@ body > footer {
     text-align: center;
     bottom: 0;
     gap: 1em;
-   
+
 }
 
 footer .footer-imagen-proa {
     height: 30px;
     cursor: pointer;
     margin-right: 2em;
-}   
+}
 
 /* endregion */
 
@@ -428,39 +475,40 @@ footer .footer-imagen-proa {
 }
 
 
-.seccion-activa{
+.seccion-activa {
     background-color: var(--color-fondo);
     color: var(--color-texto);
-    box-shadow: inset 4px 2px 4px rgba(0, 0, 0, 0.15), 
-            inset 4px -2px 4px rgba(0, 0, 0, 0.15);
-    cursor:not-allowed;
+    box-shadow: inset 4px 2px 4px rgba(0, 0, 0, 0.15),
+        inset 4px -2px 4px rgba(0, 0, 0, 0.15);
+    cursor: not-allowed;
 }
 
-.sidebar-btn:hover{
+.sidebar-btn:hover {
     background-color: var(--color-principal-muy-claro);
     scale: 1.03;
 }
 
-.seccion-activa:hover{
+.seccion-activa:hover {
     background-color: var(--color-fondo);
 }
 
 .sidebar nav {
     transition: all 0.3s ease-in-out;
-    position:fixed;
+    position: fixed;
     width: var(--ancho-sidebar);
 }
 
-.sidebar-btn img{
+.sidebar-btn img {
     width: 25px;
     height: 25px;
 }
+
 /* endregion */
 
 
 /* region --- Menu Hamburguesa ---  */
 
-.menu-movil{
+.menu-movil {
     display: flex;
     position: absolute;
     right: 1rem;
@@ -475,13 +523,14 @@ footer .footer-imagen-proa {
 .menu-movil button[popovertarget] {
     anchor-name: --menu-movil-navegacion;
     background-color: transparent;
-    border: none;   
+    border: none;
     height: 40px;
     padding: 5px;
     cursor: pointer;
     border-radius: 10px;
     box-shadow: var(--sombra-generica);
 }
+
 .menu-movil button[popovertarget]:hover {
     background-color: var(--color-principal-muy-claro);
     scale: 1.05;
@@ -503,28 +552,32 @@ footer .footer-imagen-proa {
 /* endregion */
 
 
- /* --- ESTILOS BASE (DESKTOP mas pequeño 777px) --- */
+/* --- ESTILOS BASE (DESKTOP mas pequeño 777px) --- */
 
 
 @media screen and (max-width: 777px) {
+
     /* Ajustes generales de texto */
     body {
         transition: all 0.3s ease-in-out;
         font-size: 14px;
     }
-    
+
     h1 {
-    font-size: 1.5rem; /* Tamaño fijo para h1 como solicitaste */
-  
+        font-size: 1.5rem;
+        /* Tamaño fijo para h1 como solicitaste */
+
     }
 
     h2 {
-        font-size: 1.3rem; /* Un 8% más pequeño que h1 */
+        font-size: 1.3rem;
+        /* Un 8% más pequeño que h1 */
 
     }
 
     h3 {
-        font-size: 1.1rem; /* Un 17% más pequeño que h1 */
+        font-size: 1.1rem;
+        /* Un 17% más pequeño que h1 */
 
     }
 
@@ -533,101 +586,107 @@ footer .footer-imagen-proa {
         font-size: 0.9rem;
 
     }
-    
+
     /* Header */
-    body > .header-proa {
+    body>.header-proa {
         padding: 0.5rem;
         height: 50px;
     }
-    
+
     .logo-header {
         height: 25px;
         margin-left: 1em;
     }
-    
-    .elementos-derecha, .elementos-izquierda {
+
+    .elementos-derecha,
+    .elementos-izquierda {
         gap: 1em;
     }
-    
- 
+
+
     /* Menú usuario */
     #menu-usuario {
         width: 250px;
     }
-    
+
     #menu-usuario button {
         height: 50px;
         padding: 15px;
         font-size: 14px;
     }
 
-    body > .header-proa button[popovertarget] {
+    body>.header-proa button[popovertarget] {
         margin-right: 1em;
         height: 35px;
     }
+
     /* Sidebar */
     :root {
         --ancho-sidebar: 160px;
         --altura-header: 50px;
-        --header-selector:35px
+        --header-selector: 35px
     }
-    
+
     .sidebar-btn {
         transition: all 0.3s ease-in-out;
         padding: 15px;
         font-size: 12px;
     }
-    
+
     .sidebar-btn img {
         width: 20px;
         height: 20px;
     }
-    
+
     /* Contenido */
     .contenido {
         padding: 1rem;
     }
-    .migas a{
+
+    .migas a {
         font-size: 10px;
     }
-    
+
     /* Popups */
     .popup {
         transition: all 0.5s ease-in-out;
         width: 350px;
         height: 180px;
     }
-    
+
     .popup-botones {
-    height: 50px;
+        height: 50px;
     }
 
     .popup-texto {
         font-size: 16px;
     }
-    
-    .boton-si, .boton-no {
+
+    .boton-si,
+    .boton-no {
         font-size: 16px;
     }
-    
+
     footer .footer-imagen-proa {
         height: 25px;
         margin-right: 1em;
     }
 
     /* header selector*/
-    .header-selector-usuario{
-          gap: .5rem;
+    .header-selector-usuario {
+        gap: .5rem;
     }
-    .header-selector-usuario span{
+
+    .header-selector-usuario span {
         font-size: 11px;
     }
 
-    .botones-selector-ordenador button{
+    .botones-selector-ordenador button {
         padding: .5rem .6rem;
         border-radius: 8px;
         font-size: 12px;
     }
+
     .logo-edusync {
         height: 20px;
         margin-left: 1rem;
@@ -636,81 +695,87 @@ footer .footer-imagen-proa {
 
 
 @media screen and (max-width: 440px) {
-    body{
+    body {
         transition: all 0.5s ease-in-out;
         display: grid;
         grid-template-areas:
             "header header"
             "contenido contenido"
-            "footer footer";   
+            "footer footer";
     }
 
 
     .elementos-derecha .bnv-exterior {
-       display: none;
+        display: none;
     }
 
-    .elementos-izquierda{
+    .elementos-izquierda {
         gap: 35px;
     }
-    
-    .sidebar-ordenador{
+
+    .sidebar-ordenador {
         display: none;
     }
 
     .contenido {
         margin-left: 0;
     }
-    
-   
-     /* Menú usuario */
+
+
+    /* Menú usuario */
     #menu-usuario {
         width: 250px;
     }
-    
+
     #menu-usuario button {
         height: 50px;
         padding: 15px;
         font-size: 12px;
     }
-      
+
     /* Popups */
     .popup {
         transition: all 0.5s ease-in-out;
         width: 250px;
         height: 140px;
     }
-    .boton-si, .boton-no {
+
+    .boton-si,
+    .boton-no {
         font-size: 12px;
     }
 
-    .boton-si:hover, .boton-no:hover {
+    .boton-si:hover,
+    .boton-no:hover {
         font-size: 14px;
     }
-    
-      .menu-movil{
+
+    .menu-movil {
         display: flex;
     }
 
-    .seccion-activa{
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-    box-shadow:none ;
+    .seccion-activa {
+        background-color: var(--color-fondo);
+        color: var(--color-texto);
+        box-shadow: none;
     }
-    .sidebar-btn:hover{
+
+    .sidebar-btn:hover {
         background-color: var(--color-principal-muy-claro);
         scale: 1;
     }
 
     /*header de seleccion de vista*/
-    .botones-selector-ordenador{
+    .botones-selector-ordenador {
         display: none;
     }
-    .botones-selector-movil{
+
+    .botones-selector-movil {
         display: flex;
     }
-    .header-selector-usuario span, .header-selector-usuario button{
+
+    .header-selector-usuario span,
+    .header-selector-usuario button {
         font-size: 11px;
     }
 }
-

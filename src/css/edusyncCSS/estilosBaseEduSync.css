@@ -4,19 +4,53 @@ html {
 }
 
 /* region --- RESET --- */
-* { margin: 0; padding: 0; }
-*, *::before, *::after { box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+}
 
-body { min-height: 100dvh; }
-input, button, textarea, select { font: inherit; }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
-p { text-wrap: pretty; }
-h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
+body {
+    min-height: 100dvh;
+}
 
-img, video, svg { height: auto; max-width: 100%; }
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
 
-@media (prefers-reduced-motion: reduce)  {
-    *, *::before, *::after {
+p {
+    text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+img,
+video,
+svg {
+    height: auto;
+    max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
@@ -25,16 +59,19 @@ img, video, svg { height: auto; max-width: 100%; }
     }
 }
 
-a { color: inherit; }
+a {
+    color: inherit;
+}
+
 /* endregion */
 
-    /* region --- VARIABLES --- */
-    :root {
+/* region --- VARIABLES --- */
+:root {
 
     /* Sombras */
     --sombra-generica: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
     --sombra-interior: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
+
     /* Tamaños */
     --altura-header: 60px;
     --altura-footer: 80px;
@@ -48,13 +85,16 @@ a { color: inherit; }
     --color-boton-edusync: #2F4256;
     --color-boton-hover-edusync: #3D5166;
 }
-    /* endregion */
+
+/* endregion */
 
 
 /*region --- MENU --- */
 
-body > .header-eduSync {
-    padding: .5rem; /* en pixeles es 8px */
+body>.header-eduSync {
+    position: fixed;
+    padding: .5rem;
+    /* en pixeles es 8px */
     height: var(--altura-header);
     width: 100%;
     display: flex;
@@ -65,30 +105,29 @@ body > .header-eduSync {
     color: var(--color-texto-edusync);
     text-align: center;
     gap: 1em;
-    position: fixed; 
-    z-index: 2; /* Asegura que esté por encima del resto */   
+    z-index: 1000;
+    /* Asegura que esté por encima del resto */
 }
 
-.logo-header  {
+.logo-header {
     height: 30px;
     margin-left: 2em;
     cursor: pointer;
     display: flex;
 }
-.logo-header img{
-    width: auto;
-}
 
 /* disposicion de los elementos del header */
 
-.elementos-derecha, .elementos-izquierda{
+.elementos-derecha,
+.elementos-izquierda {
     align-items: center;
     display: flex;
     justify-content: space-between;
     gap: 2em;
 }
 
-#contacto, #boton-login {
+#contacto,
+#boton-login {
     border: none;
     background: transparent;
     color: var(--color-primario-edusync);
@@ -97,19 +136,22 @@ body > .header-eduSync {
     border-radius: .5rem;
     transition: all .3s ease-in-out;
 }
-#contacto:hover , #boton-login:hover  {
+
+#contacto:hover,
+#boton-login:hover {
     scale: 1.1;
     background-color: var(--color-texto-claro-edusync);
 }
-#boton-login{
+
+#boton-login {
     margin-right: 2rem;
 }
 
-body > .header-eduSync button[popovertarget] {
-    transition: all .3s ;
+body>.header-eduSync button[popovertarget] {
+    transition: all .3s;
     anchor-name: --menu-usuario;
     background-color: transparent;
-    border: none;   
+    border: none;
     height: 40px;
     margin-right: 2em;
     padding: 5px;
@@ -117,11 +159,11 @@ body > .header-eduSync button[popovertarget] {
     border-radius: 10px;
     border-radius: .7em;
     display: flex;
-    border: 0; 
-    width: auto;   
+    border: 0;
+    width: auto;
 }
 
-body > .header-eduSync button[popovertarget]:hover {
+body>.header-eduSync button[popovertarget]:hover {
     background-color: var(--color-texto-claro-edusync);
     scale: 1.1;
 
@@ -173,6 +215,7 @@ body > .header-eduSync button[popovertarget]:hover {
     color: var(--color-texto-claro-edusync);
 
 }
+
 #menu-usuario button:active {
     background-color: var(--color-primario-edusync);
     color: var(--color-texto-claro-edusync);
@@ -194,13 +237,12 @@ body > .header-eduSync button[popovertarget]:hover {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content:  space-between;
+    justify-content: space-between;
     filter: drop-shadow(var(--sombra-generica));
-    overflow: hidden;
     z-index: 101;
 }
 
-.popup-contenido-C{
+.popup-contenido-C {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -208,6 +250,7 @@ body > .header-eduSync button[popovertarget]:hover {
     background: var(--color-fondo-edusync);
     box-shadow: var(--sombra-generica);
     border-radius: 15px;
+    overflow: hidden;
     max-width: 100%;
 }
 
@@ -227,7 +270,8 @@ body > .header-eduSync button[popovertarget]:hover {
     padding: 1rem;
 }
 
-.boton-si, .boton-no {
+.boton-si,
+.boton-no {
     width: 50%;
     background: var(--color-primario-edusync);
     border: 1px solid var(--color-boton-hover-edusync);
@@ -237,7 +281,8 @@ body > .header-eduSync button[popovertarget]:hover {
     cursor: pointer;
 }
 
-.boton-si:hover, .boton-no:hover {
+.boton-si:hover,
+.boton-no:hover {
     width: 50%;
     background: var(--color-secundario-edusync);
     font-weight: bold;
@@ -253,61 +298,63 @@ body > .header-eduSync button[popovertarget]:hover {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro semitransparente */
     z-index: 100;
 }
 
 /* endregion */
 
 /* -------------- ESTILO FOOTER ------------------ */
-body > footer {
-    background-color: #0D273D;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
-}
 
-body > footer .footer-container {
+body>footer .footer-container {
     display: flex;
     justify-content: space-evenly;
+    background-color: #0D273D;
+    color: white;
+    text-align: center;
     flex-wrap: wrap;
-    max-width: 1200px;
+    min-width: 100%;
     margin: 0 auto;
     align-items: center;
 }
 
 
-body > footer .footer-col {
+body>footer .footer-col {
     flex: 1 1 250px;
     max-width: 300px;
     padding: 1rem;
 }
 
-body > footer .footer-col img {
+body>footer .footer-col img {
     max-height: 50px;
 
 }
 
 
 @media screen and (max-width: 777px) {
+
     /* Ajustes generales de texto */
     body {
         transition: all 0.3s ease-in-out;
         font-size: 14px;
     }
-    
+
     h1 {
-    font-size: 1.5rem; /* Tamaño fijo para h1 como solicitaste */
-  
+        font-size: 1.5rem;
+        /* Tamaño fijo para h1 como solicitaste */
+
     }
 
     h2 {
-        font-size: 1.3rem; /* Un 8% más pequeño que h1 */
+        font-size: 1.3rem;
+        /* Un 8% más pequeño que h1 */
 
     }
 
     h3 {
-        font-size: 1.1rem; /* Un 17% más pequeño que h1 */
+        font-size: 1.1rem;
+        /* Un 17% más pequeño que h1 */
 
     }
 
@@ -316,13 +363,14 @@ body > footer .footer-col img {
         font-size: 0.9rem;
 
     }
-    
+
     /* Header */
-    body > .header-eduSync {
+    body>.header-eduSync {
         padding: 0.5rem;
         height: 50px;
     }
-        #boton-login{
+
+    #boton-login {
         margin-right: 1em;
     }
 
@@ -330,46 +378,49 @@ body > footer .footer-col img {
         height: 25px;
         margin-left: 1em;
     }
-    
-    .elementos-derecha, .elementos-izquierda {
+
+    .elementos-derecha,
+    .elementos-izquierda {
         gap: 1em;
     }
-    
- 
+
+
     /* Menú usuario */
     #menu-usuario {
         width: 250px;
     }
-    
+
     #menu-usuario button {
         height: 50px;
         padding: 15px;
         font-size: 14px;
     }
 
-    body > .header-eduSync button[popovertarget] {
+    body>.header-eduSync button[popovertarget] {
         margin-right: 1em;
         height: 35px;
     }
+
     /* Popups */
     .popup {
         transition: all 0.5s ease-in-out;
         width: 350px;
         height: 180px;
     }
-    
+
     .popup-botones {
-    height: 50px;
+        height: 50px;
     }
 
     .popup-texto {
         font-size: 16px;
     }
-    
-    .boton-si, .boton-no {
+
+    .boton-si,
+    .boton-no {
         font-size: 16px;
     }
-    
+
     .footer-col img {
         height: 40px;
     }
@@ -378,36 +429,36 @@ body > footer .footer-col img {
 
 @media screen and (max-width: 440px) {
 
-    .elementos-izquierda{
+    .elementos-izquierda {
         gap: 35px;
     }
-   
-     /* Menú usuario */
+
+    /* Menú usuario */
     #menu-usuario {
         width: 250px;
     }
-    
+
     #menu-usuario button {
         height: 50px;
         padding: 15px;
         font-size: 12px;
     }
-      
+
     /* Popups */
     .popup {
         transition: all 0.5s ease-in-out;
         width: 250px;
         height: 140px;
     }
-    .boton-si, .boton-no {
+
+    .boton-si,
+    .boton-no {
         font-size: 12px;
     }
 
-    .boton-si:hover, .boton-no:hover {
+    .boton-si:hover,
+    .boton-no:hover {
         font-size: 14px;
     }
 
 }
-
-
-

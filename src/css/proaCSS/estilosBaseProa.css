@@ -1,40 +1,45 @@
 /*================================================*/
 /* ESTILOS BASE DE PROA (HEADER, FOOTER, SIDEBAR) */
 /*================================================*/
-   /* region --- RESET --- */
-    * { margin: 0; padding: 0; }
-    *, *::before, *::after { box-sizing: border-box; }
-    input, button, textarea, select { font: inherit; }
+   html {
+    scroll-behavior: smooth;
+}
 
-    p {text-wrap: pretty;}
-    h1, h2, h3, h4, h5, h6 { text-wrap: balance;}
+/* region --- RESET --- */
+* { margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; }
+input, button, textarea, select { font: inherit; }
 
-    img, video, svg { height: 100%; max-width: auto; }
+p {text-wrap: pretty;}
+h1, h2, h3, h4, h5, h6 { text-wrap: balance;}
 
-    @media (prefers-reduced-motion: reduce)  {
-        *, *::before, *::after {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-            scroll-behavior: auto !important;
-            transition: none;
-        }
+img, video, svg { height: 100%; max-width: auto; }
+
+@media (prefers-reduced-motion: reduce)  {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
     }
+}
 
-    a { color: inherit; }
+a { color: inherit; }
 
-    body {
-         transition: all 0.3s ease-in-out;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: var(--color-fondo);
-        display: grid;
-        grid-template-areas:
-            "header header"
-            "sidebar contenido"
-            "footer footer";
-        grid-template-columns: var(--ancho-sidebar) 1fr;
-        grid-template-rows: var(--altura-header)  1fr var(--altura-footer);
-        min-height: 100vh;
+
+body {
+        transition: all 0.3s ease-in-out;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-fondo);
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar contenido"
+        "footer footer";
+    grid-template-columns: var(--ancho-sidebar) 1fr;
+    grid-template-rows: var(--altura-header)  1fr var(--altura-footer);
+    min-height: 100vh;
 }
     /* endregion */
 
@@ -107,7 +112,7 @@
 .header-selector-usuario{
     display: flex;
     position: fixed;
-    background-color: var(--color-fondo);
+    background-color: var(--color-fondo-edusync);
     height: var(--header-selector);
     align-items: center;
     justify-content: left;
@@ -136,6 +141,7 @@
     cursor: pointer;
     box-shadow: var(--sombra-generica);
     scale: 0.9;
+    transition: all .3s ease-in-out;
 }
 
 .botones-selector-ordenador button:hover{
@@ -230,6 +236,7 @@ body > .header-proa button[popovertarget] {
     padding: 5px;
     cursor: pointer;
     border-radius: 10px;
+    transition: all 0.3s ease-in-out;
 }
 body > .header-proa button[popovertarget]:hover {
     background-color: var(--color-principal-claro);
@@ -401,9 +408,6 @@ footer .footer-imagen-proa {
     width: 100%;
     height: calc(100% - var(--header-selector));
     background-color: var(--color-principal-claro);
-    display: flex;
-    flex-direction: column;
-    align-self: start;
     min-height: calc(100vh - var(--altura-header) - var(--altura-footer) - var(--header-selector));
     max-height: 100%;
     margin-top: var(--header-selector);
@@ -420,7 +424,9 @@ footer .footer-imagen-proa {
     padding: 20px;
     background-color: var(--color-principal-claro);
     color: var(--color-gris-claro);
+    transition: all .3s ease-in-out;
 }
+
 
 .seccion-activa{
     background-color: var(--color-fondo);

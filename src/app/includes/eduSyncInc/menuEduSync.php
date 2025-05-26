@@ -5,11 +5,10 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
 // apaño temporal para evitar el login
 
 $dataEdu = [
-    'nombre' => 'Jose',
-    'apellidos' => 'Luis',
+    'nombre' => 'Jose Luis',
+    'apellidos' => 'Gimenez Lopez',
     'id' => 2,
   ];
-
 
 ?>
 
@@ -40,26 +39,24 @@ if (isset($dataEdu['id'])) {
 ?>
 
     <!-- Elementos a la derecha del header -->
-    <div class="elementos-derecha">
-        <p class="bienvenido bnv-exterior">Bienvenido, <strong><?php echo $dataEdu['nombre'] . " " . $dataEdu['apellidos'];?></strong></p>
-        
+    <div class="elementos-derecha">    
         <!-- botón del menu de usuario y de contacto -->
         <?php
          /* En la landing page el link es distinto*/ 
         if ($pagina_actual == 'index.php') {
         ?>
         <!-- Contacto -->
-        <button id="contacto" onclick="location.href='app/eduSync/contacto.php'">Contacto</button>
+        <button id="contacto" onclick="location.href='app/eduSync/contacto.php'">CONTACTO</button>
         <!-- menu de usuario -->
-        <button popovertarget="menu-usuario"><img src="imagenes/user_1b.png" alt="Icono de Perfil"></button>
+        <button popovertarget="menu-usuario"><img src="imagenes/user_1azul.png" alt="Icono de Perfil"></button>
          <?php
          } /* direccion de la landing web de todas las demas paginas*/ 
         else{
         ?>
         <!-- Contacto -->
-        <button id="contacto" onclick="location.href='contacto.php'">Contacto</button>
+        <button id="contacto" onclick="location.href='contacto.php'">CONTACTO</button>
         <!-- menu de usuario -->
-        <button popovertarget="menu-usuario"><img src="../../imagenes/user_1b.png" alt="Icono de Perfil"></button>
+        <button popovertarget="menu-usuario"><img src="../../imagenes/user_1azul.png" alt="Icono de Perfil"></button>
          <?php
          }
         ?>
@@ -124,9 +121,9 @@ else {
         else{
         ?>
         <!-- Contacto -->
-        <button id="contacto" onclick="location.href='contacto.php'">Contacto</button>
+        <button id="contacto" onclick="location.href='contacto.php'">CONTACTO</button>
           <!-- Boton para ir al login -->
-        <button id="boton-login" onclick="location.href='loginRegistro.php'">Login</button>
+        <button id="boton-login" onclick="location.href='loginRegistro.php'">LOGIN</button>
          <?php
          }
         ?>    
@@ -137,3 +134,6 @@ else {
 <?php
 }
 ?>
+
+
+

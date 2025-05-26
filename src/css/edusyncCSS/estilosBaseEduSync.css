@@ -65,7 +65,8 @@ body > .header-eduSync {
     color: var(--color-texto-edusync);
     text-align: center;
     gap: 1em;
-    position: fixed;    
+    position: fixed; 
+    z-index: 2; /* Asegura que esté por encima del resto */   
 }
 
 .logo-header  {
@@ -75,7 +76,7 @@ body > .header-eduSync {
     display: flex;
 }
 .logo-header img{
-    width: 100%;
+    width: auto;
 }
 
 /* disposicion de los elementos del header */
@@ -85,6 +86,23 @@ body > .header-eduSync {
     display: flex;
     justify-content: space-between;
     gap: 2em;
+}
+
+#contacto, #boton-login {
+    border: none;
+    background: transparent;
+    color: var(--color-primario-edusync);
+    font-weight: bold;
+    padding: .5rem;
+    border-radius: .5rem;
+    transition: all .3s ease-in-out;
+}
+#contacto:hover , #boton-login:hover  {
+    scale: 1.1;
+    background-color: var(--color-texto-claro-edusync);
+}
+#boton-login{
+    margin-right: 2rem;
 }
 
 body > .header-eduSync button[popovertarget] {
@@ -99,10 +117,12 @@ body > .header-eduSync button[popovertarget] {
     border-radius: 10px;
     border-radius: .7em;
     display: flex;
-    border: 0;    
+    border: 0; 
+    width: auto;   
 }
+
 body > .header-eduSync button[popovertarget]:hover {
-    background-color: var(--color-boton-hover-edusync);
+    background-color: var(--color-texto-claro-edusync);
     scale: 1.1;
 
 }
@@ -118,7 +138,7 @@ body > .header-eduSync button[popovertarget]:hover {
     right: anchor(right);
     margin-top: .5rem;
     width: 300px;
-    background: var(--color-blanco);
+    background: var(--color-boton-hover-edusync);
     border: none;
     box-shadow: var(--sombra-generica);
     border-radius: 10px 0 10px 10px;
@@ -127,12 +147,12 @@ body > .header-eduSync button[popovertarget]:hover {
 #menu-usuario .bienvenido {
     margin-bottom: 20px;
     margin-top: 20px;
-    color: var(--color-principal);
+    color: var(--color-texto-claro-edusync);
 }
 
 
 #menu-usuario button {
-    background-color: transparent;
+    background-color: var(--color-boton-edusync);
     height: 60px;
     padding: 20px;
     width: 100%;
@@ -141,7 +161,7 @@ body > .header-eduSync button[popovertarget]:hover {
     text-align: center;
     align-items: center;
     justify-content: center;
-    color: var(--color-texto);
+    color: var(--color-texto-claro-edusync);
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
@@ -149,13 +169,13 @@ body > .header-eduSync button[popovertarget]:hover {
 }
 
 #menu-usuario button:hover {
-    background-color: var(--color-principal-claro);
-    color: var(--color-blanco);
+    background-color: var(--color-boton-hover-edusync);
+    color: var(--color-texto-claro-edusync);
 
 }
 #menu-usuario button:active {
-    background-color: var(--color-principal);
-    color: var(--color-blanco);
+    background-color: var(--color-primario-edusync);
+    color: var(--color-texto-claro-edusync);
 }
 
 
@@ -185,7 +205,7 @@ body > .header-eduSync button[popovertarget]:hover {
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
-    background: var(--color-blanco);
+    background: var(--color-fondo-edusync);
     box-shadow: var(--sombra-generica);
     border-radius: 15px;
     max-width: 100%;
@@ -201,7 +221,7 @@ body > .header-eduSync button[popovertarget]:hover {
     font-style: normal;
     font-weight: 700;
     font-size: 22px;
-    color: var(--color-principal);
+    color: var(--color-texto-edusync);
     text-align: center;
     margin: auto 0;
     padding: 1rem;
@@ -209,21 +229,20 @@ body > .header-eduSync button[popovertarget]:hover {
 
 .boton-si, .boton-no {
     width: 50%;
-    background: var(--color-principal-claro);
-    border: 1px solid var(--color-principal);
+    background: var(--color-primario-edusync);
+    border: 1px solid var(--color-boton-hover-edusync);
     font-weight: bold;
     font-size: 20px;
-    color: var(--color-blanco);
+    color: var(--color-texto-claro-edusync);
     cursor: pointer;
 }
 
 .boton-si:hover, .boton-no:hover {
     width: 50%;
-    background: var(--color-principal-muy-claro);
-    border: 1px solid var(--color-principal);
+    background: var(--color-secundario-edusync);
     font-weight: bold;
     font-size: 20px;
-    color: var(--color-blanco);
+    color: var(--color-texto-claro-edusync);
     cursor: pointer;
 }
 
@@ -240,8 +259,6 @@ body > .header-eduSync button[popovertarget]:hover {
 
 /* endregion */
 
-
-
 /* -------------- ESTILO FOOTER ------------------ */
 body > footer {
     background-color: #0D273D;
@@ -256,8 +273,9 @@ body > footer .footer-container {
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
+    align-items: center;
 }
+
 
 body > footer .footer-col {
     flex: 1 1 250px;
@@ -267,6 +285,129 @@ body > footer .footer-col {
 
 body > footer .footer-col img {
     max-height: 50px;
-    margin-top: -20px;
-    margin-bottom: -20px;
+
 }
+
+
+@media screen and (max-width: 777px) {
+    /* Ajustes generales de texto */
+    body {
+        transition: all 0.3s ease-in-out;
+        font-size: 14px;
+    }
+    
+    h1 {
+    font-size: 1.5rem; /* Tamaño fijo para h1 como solicitaste */
+  
+    }
+
+    h2 {
+        font-size: 1.3rem; /* Un 8% más pequeño que h1 */
+
+    }
+
+    h3 {
+        font-size: 1.1rem; /* Un 17% más pequeño que h1 */
+
+    }
+
+    /* Opcional: jerarquía para h4-h6 si los usas */
+    h4 {
+        font-size: 0.9rem;
+
+    }
+    
+    /* Header */
+    body > .header-eduSync {
+        padding: 0.5rem;
+        height: 50px;
+    }
+        #boton-login{
+        margin-right: 1em;
+    }
+
+    .logo-header {
+        height: 25px;
+        margin-left: 1em;
+    }
+    
+    .elementos-derecha, .elementos-izquierda {
+        gap: 1em;
+    }
+    
+ 
+    /* Menú usuario */
+    #menu-usuario {
+        width: 250px;
+    }
+    
+    #menu-usuario button {
+        height: 50px;
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    body > .header-eduSync button[popovertarget] {
+        margin-right: 1em;
+        height: 35px;
+    }
+    /* Popups */
+    .popup {
+        transition: all 0.5s ease-in-out;
+        width: 350px;
+        height: 180px;
+    }
+    
+    .popup-botones {
+    height: 50px;
+    }
+
+    .popup-texto {
+        font-size: 16px;
+    }
+    
+    .boton-si, .boton-no {
+        font-size: 16px;
+    }
+    
+    .footer-col img {
+        height: 40px;
+    }
+}
+
+
+@media screen and (max-width: 440px) {
+
+    .elementos-izquierda{
+        gap: 35px;
+    }
+   
+     /* Menú usuario */
+    #menu-usuario {
+        width: 250px;
+    }
+    
+    #menu-usuario button {
+        height: 50px;
+        padding: 15px;
+        font-size: 12px;
+    }
+      
+    /* Popups */
+    .popup {
+        transition: all 0.5s ease-in-out;
+        width: 250px;
+        height: 140px;
+    }
+    .boton-si, .boton-no {
+        font-size: 12px;
+    }
+
+    .boton-si:hover, .boton-no:hover {
+        font-size: 14px;
+    }
+
+}
+
+
+

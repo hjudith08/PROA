@@ -22,7 +22,7 @@
                 <h2>Transforma tu institución con<br> módulos inteligentes y a tu medida</h2>
                 
                 <!-- botón que simula una llamada a la demo -->
-                <a href="noSesionDescHerramienta.php" class="boton-demo">Demo PROA</a>
+                <a href="app/eduSync/descripcionHerramienta.php" class="boton-demo">Demo PROA</a>
                 <p>Prueba nuestra primear herramienta educativa gratis!</p>
             </div>
 
@@ -51,12 +51,17 @@
     </div>
 </section>
 
+<?php
+if (! isset($dataEdu['id'])) {
+?>
 <section class="registrarse-landing">
     <h2>¿Listo para unirte a nuestra comunidad?</h2>
     <p>Registrate en EduSync para acceder a todas nuestras demos de las mejores herramientas a tu disposicion.</p>
     <a href="app/eduSync/loginRegistro.php" class="boton-demo">Registrate</a>
 </section>
-
+<?php
+}
+?>
 <!-- footer -->
 <?php include 'app/includes/eduSyncInc/footerEduSync.php'; ?>
 
@@ -77,6 +82,34 @@
             scrollBtn.classList.remove('visible'); // oculta el botón
         }
     });
+
+
+    /* PopUp para cerrar Sesion*/
+
+document.addEventListener("DOMContentLoaded", () => {
+    const botonSalir = document.getElementById("boton-cerrar-sesion");
+    const popup = document.getElementById("popupCerrarSesion");
+    const overlay = document.getElementById("fondo-popup");
+    const botonSi = document.getElementById("btn-si");
+    const botonNo = document.getElementById("btn-no");
+
+    if (botonSalir && popup && overlay && botonSi && botonNo) {
+        botonSalir.addEventListener("click", () => {
+            popup.classList.remove("oculto");
+            overlay.classList.remove("oculto");
+        });
+
+        botonNo.addEventListener("click", () => {
+            popup.classList.add("oculto");
+            overlay.classList.add("oculto");
+        });
+
+        botonSi.addEventListener("click", () => {
+            window.location.href = "index.php";
+        });
+    }
+});
+
 </script>
 <!-- fin del script -->
 

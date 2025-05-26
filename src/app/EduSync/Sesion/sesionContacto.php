@@ -28,7 +28,7 @@
                     <div class="tarjeta-info">
                         <div class="contenido-tarjeta-info">
                             <div class="icono-info">
-                                <img src="../../../../imagenes/letterb.png" alt="Email">
+                                <img src="/PROA/src/css/imagenes/letterb.png" alt="Email">
                             </div>
                             <div class="texto-info">
                                 <p class="etiqueta-info">Correo:</p>
@@ -40,7 +40,7 @@
                     <div class="tarjeta-info">
                         <div class="contenido-tarjeta-info">
                             <div class="icono-info">
-                                <img src="../../../../imagenes/telephoneb.png" alt="Teléfono">
+                                <img src="/PROA/src/css/imagenes/telephoneb.png" alt="Teléfono">
                             </div>
                             <div class="texto-info">
                                 <p class="etiqueta-info">Teléfono:</p>
@@ -53,6 +53,26 @@
 
             <!-- Formulario de Contacto -->
             <form class="formulario-contacto">
+                <div class="grupo-filas-formulario">
+                    <div class="grupo-formulario">
+                        <label for="name" class="etiqueta-formulario">Nombre</label>
+                        <input type="text" id="name" class="entrada-formulario" placeholder="Nombre" required>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label for="surname" class="etiqueta-formulario">Apellidos</label>
+                        <input type="text" id="surname" class="entrada-formulario" placeholder="Apellidos" required>
+                    </div>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="institution" class="etiqueta-formulario">Institución</label>
+                    <input type="text" id="institution" class="entrada-formulario" placeholder="Nombre de la Institución" required>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="email" class="etiqueta-formulario">Correo Electrónico</label>
+                    <input type="email" id="email" class="entrada-formulario" placeholder="ejemplo@ejemplo.com" required>
+                </div>
                 <div class="grupo-formulario">
                     <label for="message" class="etiqueta-formulario">Mensaje</label>
                     <textarea id="message" class="area-texto-formulario" placeholder="Escribe aquí tu consulta"></textarea>
@@ -76,7 +96,7 @@
                 <p>© 2025 - EduSync | Matriz de GTI</p>
             </div>
             <div class="footer-col">
-                <img src="../../../../imagenes/GTIBlancosdsds.png" alt="Logo GTI">
+                <img src="/PROA/src/css/imagenes/GTIBlancosdsds.png" alt="Logo GTI">
             </div>
         </div>
     </footer>

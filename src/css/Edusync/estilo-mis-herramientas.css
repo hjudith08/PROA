@@ -77,10 +77,10 @@ body {
   height: 390px;
   background: linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.8) 0%,
       rgba(0, 0, 0, 0.5) 40%,
       rgba(0, 0, 0, 0.5) 60%,
-      rgba(255, 255, 255, 0.6) 100%
+      rgba(255, 255, 255, 0.8) 100%
     ),
     url("/PROA/src/css/imagenes/IMAGENMISHERRAMIENTAS.png");
   background-size: cover;

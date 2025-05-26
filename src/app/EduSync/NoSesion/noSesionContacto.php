@@ -51,26 +51,7 @@
 
             <!-- Formulario de Contacto -->
             <form class="formulario-contacto">
-                <div class="grupo-filas-formulario">
-                    <div class="grupo-formulario">
-                        <label for="name" class="etiqueta-formulario">Nombre</label>
-                        <input type="text" id="name" class="entrada-formulario" placeholder="Nombre" required>
-                    </div>
-                    <div class="grupo-formulario">
-                        <label for="surname" class="etiqueta-formulario">Apellidos</label>
-                        <input type="text" id="surname" class="entrada-formulario" placeholder="Apellidos" required>
-                    </div>
-                </div>
 
-                <div class="grupo-formulario">
-                    <label for="institution" class="etiqueta-formulario">Institución</label>
-                    <input type="text" id="institution" class="entrada-formulario" placeholder="Nombre de la Institución" required>
-                </div>
-
-                <div class="grupo-formulario">
-                    <label for="email" class="etiqueta-formulario">Correo Electrónico</label>
-                    <input type="email" id="email" class="entrada-formulario" placeholder="ejemplo@ejemplo.com" required>
-                </div>
 
                 <div class="grupo-formulario">
                     <label for="message" class="etiqueta-formulario">Mensaje</label>

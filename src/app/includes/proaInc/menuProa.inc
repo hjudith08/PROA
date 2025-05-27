@@ -2,7 +2,7 @@
 <?php
 // apaño temporal para evitar el login
 $userdata = [
-    'rol' => 'alumno',
+    'rol' => 'profesor',
     'nombre' => 'Xexi',
     'apellidos' => 'Mexi',
     'id' => 3,

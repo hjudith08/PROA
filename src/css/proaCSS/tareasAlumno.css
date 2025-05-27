@@ -1,4 +1,3 @@
-
 /*Aquí empezamos con los filtros*/
 .contenedor-filtros{
     display: flex;
@@ -30,9 +29,10 @@
 }
 
 /*Eliminamos los estilos predeterminados de la tabla*/
-table {
+.contenedor-tareasAlumno table {
     border-collapse: separate;
     border-spacing: 0;
+    border: 2rem;
     border-radius: 5px;
     border: 1px solid #ccc;
     width: 100%;
@@ -42,7 +42,7 @@ table {
     vertical-align: baseline;
 }
 
-table, th, td {
+.contenedor-tareasAlumno table, th, td {
     background: none;
     color: inherit;
     text-align: inherit;
@@ -51,62 +51,63 @@ table, th, td {
 /*Empezamos a añadir estilos*/
 
 /*Arreglamos los bordes de la tabla*/
-thead tr:first-child th:first-child {
+.contenedor-tareasAlumno thead tr:first-child th:first-child {
     border-top-left-radius: 4px;
 }
-thead tr:first-child th:last-child {
+.contenedor-tareasAlumno thead tr:first-child th:last-child {
     border-top-right-radius: 4px;
 }
-tbody tr:last-child td:first-child {
+.contenedor-tareasAlumno tbody tr:last-child td:first-child {
     border-bottom-left-radius: 4px;
 }
-tbody tr:last-child td:last-child {
+.contenedor-tareasAlumno tbody tr:last-child td:last-child {
     border-bottom-right-radius: 4px;
 }
 
 /*Estilos encabezado tabla*/
-thead th {   
+.contenedor-tareasAlumno thead th {   
     font-weight: bold;
     padding: 1.25rem 4.35rem;
+    padding-right: fill;
     background-color: #e1e1e1;
     border-bottom: 1px solid #ccc;
     align-items: center;
 }
 
-thead{
+.contenedor-tareasAlumno thead{
     border: 1px solid #ccc;
 }
 
 /*Estilos contenido tabla*/
-tbody>tr:nth-of-type(odd) {
+.contenedor-tareasAlumno tbody>tr:nth-of-type(odd) {
     background-color: #f8f5ff;
 }
 
-tbody tr:hover{
+.contenedor-tareasAlumno tbody tr:hover{
     background: #EDE7F6;
     border-radius: 2rem;
     box-shadow: white;
 }
 
-tbody td{
+.contenedor-tareasAlumno tbody td{
     align-items: center;
     padding: 1.25rem 4.35rem;
 }
 
-tbody{
+.contenedor-tareasAlumno tbody{
     border: 1px solid #ccc;
 }
 
-th{
+.contenedor-tareasAlumno th{
     align-items: center;
 }
 
-td{
+.contenedor-tareasAlumno td{
     align-items: center;
 }
 
 @media screen and (max-width: 777px) {
-  table,
+  .contenedor-tareasAlumno table,
   thead,
   tbody,
   th,
@@ -117,15 +118,15 @@ td{
     border: none;
   }
 
-  thead {
+  .contenedor-tareasAlumno thead {
     display: none; /* Oculta encabezado en móvil */
   }
 
-  table{
+  .contenedor-tareasAlumno table{
     border: none;
   }
 
-  tbody tr {
+  .contenedor-tareasAlumno tbody tr {
     margin-bottom: 1rem;
     background: #f8f5ff;
     border: 1px solid #ccc;
@@ -133,7 +134,7 @@ td{
     padding: 1rem;
   }
 
-  tbody td {
+  .contenedor-tareasAlumno tbody td {
     position: relative;
     padding-left: 50%;
     text-align: left;
@@ -141,7 +142,7 @@ td{
     padding-bottom: 0.5rem;
   }
 
-  tbody td::before {
+  .contenedor-tareasAlumno tbody td::before {
     position: absolute;
     left: 1rem;
     width: 45%;
@@ -150,7 +151,7 @@ td{
     color: #3F2A52;
   }
   
-  tbody tr:hover{
+  .contenedor-tareasAlumno tbody tr:hover{
     background: #EDE7F6;
     border-radius: 8px;
     box-shadow: white;
@@ -175,7 +176,14 @@ td{
   padding: 0.5rem;
 }
 
-    
+     /* botones responsive */
+    .boton-revisar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
   /* Filtro responsive */
   .contenedor-filtros {
     width: 100%;

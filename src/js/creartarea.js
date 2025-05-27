@@ -1,4 +1,6 @@
+
 document.addEventListener('DOMContentLoaded', function() {
+  
   // Manejo del input de archivo
   const fileInput = document.getElementById('taskFile');
   const fileButton = fileInput.nextElementSibling;
@@ -7,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   fileInput.addEventListener('change', function(e) {
     if (this.files && this.files.length > 0) {
       fileButtonText.textContent = this.files[0].name;
+      
       // Cambiar estilo cuando hay archivo seleccionado
       fileButton.style.backgroundColor = '#f0f0f0';
     } else {

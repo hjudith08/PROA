@@ -1,4 +1,5 @@
     <!--Aquí empiezan los filtros-->
+    <div class="contenedor-tareasAlumno">
     <div class="contenedor-filtros">
             <select id="filtro-tareas-estado">
                 <option value="todas">Todas las tareas</option>
@@ -47,3 +48,4 @@
             </tr>
         </tbody>
     </table>
+    </div>

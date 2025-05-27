@@ -1,0 +1,184 @@
+/*Eliminamos los estilos predeterminados de la tabla*/
+.contenedor-tareasProfesor table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 2rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    table-layout: fixed;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/*Estilos encabezado tabla*/
+.contenedor-tareasProfesor thead th {   
+    font-weight: bold;
+    padding: 1.25rem;
+    padding-right: fill;
+    background-color: #e1e1e1;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+}
+
+.contenedor-tareasProfesor thead{
+    border: 1px solid #ccc;
+}
+.contenedor-tareasProfesor table, th, td {
+    background: none;
+    color: inherit;
+    text-align: inherit;
+}
+
+.contenedor-tareasProfesor .fila-tabla-profesorTareas{
+    font-weight: bold;
+    padding: 1.25rem 4.35rem;
+    padding-right: fill;
+    background-color: #e1e1e1;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+}
+
+/*Estilos contenido tabla*/
+.contenedor-tareasProfesor tbody>tr:nth-of-type(odd) {
+    background-color: #f8f5ff;
+}
+
+.contenedor-tareasProfesor tbody tr:hover{
+    background: #EDE7F6;
+    border-radius: 2rem;
+    box-shadow: white;
+}
+/*Editamos los estilos de los botones*/
+.boton-revisar-profesor {
+        margin: 2px;
+        display: flex;
+        justify-content: center;
+        padding: 6px 12px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        width: 135px;
+        height: 38px;
+        background: #FEFEFF;
+        border: 1px solid #75619E;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        color: #3F2A52;
+    }
+
+    .boton-revisar-profesor:hover {
+        background-color: rgba(99, 45, 200, 0.2);
+    }
+    .contenedor-botones{
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+        border: 0.5 rem;
+        border-spacing: 2rem;
+    }
+
+.contenedor-tareasProfesor tbody td{
+    align-items: center;
+    padding: 1.25rem;
+}
+    
+@media screen and (max-width: 777px) {
+  .contenedor-tareasProfesor table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: none;
+  }
+
+  .contenedor-tareasProfesor thead {
+    display: none; /* Oculta encabezado en móvil */
+  }
+
+  .contenedor-tareasProfesor table{
+    border: none;
+  }
+
+  .contenedor-tareasProfesor tbody tr {
+    margin-bottom: 1rem;
+    background: #f8f5ff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+
+  .contenedor-tareasProfesor tbody td {
+    position: relative;
+    text-align: center;
+    padding: 0.5rem auto;
+
+  }
+
+  .contenedor-tareasProfesor tbody td::before {
+    position: absolute;
+    display: flex;
+    left: 1rem;
+    width: 45%;
+    white-space: nowrap;
+    font-weight: bold;
+    color: #3F2A52;
+  }
+  
+  .contenedor-tareasProfesor tbody tr:hover{
+    background: #EDE7F6;
+    border-radius: 8px;
+    box-shadow: white;
+  }
+
+  /* Etiquetas antes de cada dato, como "Nombre Tarea", etc. */
+  .fecha-apertura-vProfesor::before {
+  content: "Apertura: ";
+  font-weight: bold;
+  color: #3F2A52;
+  margin-right: 0.5rem;
+  display: inline;
+}
+
+.fecha-entrega-vProfesor::before {
+  content: "Entrega: ";
+  font-weight: bold;
+  color: #3F2A52;
+  margin-right: 0.5rem;
+  display: inline;
+}
+
+
+
+.nombre-tarea-vProfesor {
+  display: flex;
+  align-items: center;
+  justify-content: center;      /* Centra horizontalmente */
+  text-align: center;           /* Asegura centrado del texto */
+  background-color: #3F2A52;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+
+/* botones responsive */
+.acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.boton-revisar-profesor{
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 0.5rem;
+    }
+}

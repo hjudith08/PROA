@@ -71,9 +71,10 @@ form {
 
 /* Estilos para el header*/
 img {
-    width: auto;
-    height: 37.17px;
-    max-width: 100%;
+    height: 30px;
+    margin-left: 2em;
+    cursor: pointer;
+    display: flex;
 }
 
 header {
@@ -84,7 +85,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    top: 0;
+}
+
+.header-registro {
+    margin-top: 20px;
 }
 
 header nav {
@@ -415,6 +419,32 @@ input:focus {
 
 .footer-logo {
     height: 50px;
+}
+
+/* Estilos para los botones */
+.inputs {
+    margin-bottom: 1.3rem;
+    position: relative;
+}
+
+.inputs label {
+    display: block;
+    text-align: left;
+    margin-top: 1rem;
+    margin-bottom: 0.1rem;
+    color: var(--color-texto);
+}
+
+.nombre-apellidos .inputs input {
+    width: px;
+    max-width: 433px;
+    height: 44px;
+    outline: none;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-secundario);
+    padding: 0 1.1rem;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
 }
 
 @media (max-width: 882px) {

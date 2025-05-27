@@ -113,9 +113,9 @@ else {
         if ($pagina_actual == 'index.php') {
         ?>
         <!-- Contacto -->
-        <button id="contacto" onclick="location.href='app/eduSync/contacto.php'">Contacto</button>
+        <button id="contacto" onclick="location.href='app/eduSync/contacto.php'">CONTACTO</button>
         <!-- Boton para ir al login -->
-        <button id="boton-login" onclick="location.href='app/eduSync/loginRegistro.php'">Login</button>
+        <button id="boton-login" onclick="location.href='app/eduSync/loginRegistro.php'">LOGIN</button>
          <?php
          } /* direccion de la landing web de todas las demas paginas*/ 
         else{

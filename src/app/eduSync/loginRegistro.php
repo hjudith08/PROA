@@ -22,12 +22,6 @@
                 <a href="../../" class="logo">
                     <img src="../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
                 </a>
-                <!-- Boton para ir a la pagina de contacto-->
-                <nav>
-                    <ul>
-                        <input type="button" value="CONTACTO" onclick="location.href='contacto.php'">
-                    </ul>
-                </nav>
             </header>
             <!-- formulario de inicio de sesión-->
             <form id="login-form" action="index.php" method="get">
@@ -65,11 +59,6 @@
                     <img src="../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
                 </a>
                 <!-- Boton para ir a la pagina de contacto-->
-                <nav>
-                    <ul>
-                        <input type="button" value="CONTACTO" onclick="location.href='contacto.php'">
-                    </ul>
-                </nav>
             </header>
             <!-- formulario de registro-->
             <form id="registro-form" action="#" method="post">
@@ -85,7 +74,7 @@
                     <label for="apellidos">Apellidos</label>
                     <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required
                         pattern="[^0-9]+" title="No puede contener numeros">
-
+                
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="ejemplo@ejemplo.com" required>
 

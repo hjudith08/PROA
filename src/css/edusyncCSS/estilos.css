@@ -184,7 +184,6 @@ footer {
     background-color: var(--color-fondo-edusync);
     color: var(--color-texto-edusync);
     width: 100%;
-    height: 100%;
     padding: 50px;
     display: flex;
     flex-direction: column;

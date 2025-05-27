@@ -10,7 +10,7 @@
 <body>
     <div class="fondo-recuperacion">
         <header class="encabezado-recuperacion">
-            <a href="index.html">
+            <a class="logo-header" href="../../"><img src="../../imagenes/LogoEduSyncAzul.png" alt="Logotipo"></a>
                 <img src="../../imagenes/LogoEduSyncAzul.png" alt="Logo EduSync" class="logo">
             </a>
         </header>

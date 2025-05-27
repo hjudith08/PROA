@@ -1,3 +1,22 @@
+<?php
+$conexion = new mysqli("localhost:3306", "jcivapo_proa", "proa1234!", "jcivapo_proa");
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
+}
+
+// Obtener ID de asignatura
+$idAsignatura = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+// Consulta para obtener profesores asociados a la asignatura
+$sql = "
+    SELECT u.dni, u.nombre, u.apellido1, u.apellido2
+    FROM profesores_asignaturas pa
+    INNER JOIN usuarios u ON pa.dni_profesor = u.dni
+    WHERE pa.id_asignatura = $idAsignatura AND u.rol_id = 2
+";
+$resultado = $conexion->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -29,7 +48,8 @@
         
         <aside class="sidebar scrollbar">
             <h2 class="titulo-filtro">FILTRAR POR</h2>
-            <button class="boton-limpiar">Borrar todo</button>
+            <button type="button" class="boton-limpiar" id="boton-borrar">Borrar todo</button>
+
             
             <!-- Filtro por tipo -->
             <div class="seccion-filtro">
@@ -95,7 +115,19 @@
     <div class="tarjeta">
         <div class="contenido-tarjeta">
             <div class="lista-asignaturas scrollbar" id="lista-asignaturas">
-                <!-- Las asignaturas se cargarán aquí con JavaScript -->
+                <?php
+                        if ($resultado && $resultado->num_rows > 0) {
+                            while ($fila = $resultado->fetch_assoc()) {
+                                echo "<div class='asignatura-item'>";
+                                echo "<strong>Nombre:</strong> " . htmlspecialchars($fila['nombre']) . " " . htmlspecialchars($fila['apellido1']) . " " . htmlspecialchars($fila['apellido2']) . "<br>";
+                                echo "<strong>DNI:</strong> " . htmlspecialchars($fila['dni']);
+                                echo "</div><hr>";
+                            }
+                        } else {
+                            echo "<p>No hay profesores asociados a esta asignatura.</p>";
+                        }
+                        $conexion->close();
+                        ?>
             </div>
         </div>
     </div>
@@ -113,8 +145,6 @@
             <img src="../../../../imagenes/LogoEduSyncBlanco.png" alt="Logo Proa" class="logofooter">
         </div>
     </footer>
-
-    <script src="/PROA/src/js/profesPAS.js"></script>
 
 <script>
     const boton = document.getElementById("toggle-filtro");
@@ -148,6 +178,10 @@
     }
 }
 
+    //boton borrar los filtros que basicamente recarga la pagina
+    document.getElementById("boton-borrar").addEventListener("click", function () {
+        window.location.href = window.location.pathname;
+    });
 </script>
 
 </body>

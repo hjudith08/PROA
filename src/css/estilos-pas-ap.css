@@ -115,7 +115,14 @@ header {
     font-size: 12px;
     margin-bottom: 30px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+.boton-limpiar:hover {
+    background-color: #75619e;
+    color: white;
+}
+
 .seccion-filtro {
     margin-bottom: 25px;
 }
@@ -206,6 +213,16 @@ header {
     margin: 0 auto;
     height: auto;
 }
+
+.asignatura-item {
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.asignatura-item:hover{
+    background-color: #d8cceb;
+}
+
 
 .bloque-asignaturas {
     display: flex;
@@ -312,6 +329,12 @@ header {
     font-weight: bold;
     cursor: pointer;
     text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.boton-accion:hover{
+    background-color: #75619e;
+    color: white;
 }
 
 

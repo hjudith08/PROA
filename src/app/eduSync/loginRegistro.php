@@ -48,7 +48,7 @@
                 </div>
 
                 <!-- link para recuperar la contraseña-->
-                <a href="#" class="link">¿Has olvidado tu contraseña?</a>
+                <a href="recuperarContra.php" class="link">¿Has olvidado tu contraseña?</a>
                 <!-- boton de inicio de sesión-->
                 <button type="submit" class="btn-login">INICIAR SESIÓN</button>
             </form>
@@ -115,14 +115,14 @@
             <div class="overlay">
                 <!-- overlay del formulario de inicio de sesión-->
                 <div class="overlay-panel overlay-left">
-                    <h1>¡Bienvenido de vuelta a EduSync!</h1>
-                    <p>¿Aún no tienes tu cuenta?</p>
+                    <h1>¡Bienvenido a EduSync!</h1>
+                    <p>¿Aún no tienes tu cuenta? ¡Crea una ahora y forma parte de EduSync!</p>
                     <button class="trigger" id="registrarse">CREAR CUENTA</button>
                 </div>
                 <!-- overlay del formulario de registro-->
                 <div class="overlay-panel overlay-right">
-                    <h1>¡Te damos la bienvenida a EduSync!</h1>
-                    <p>¿Ya tienes cuenta?</p>
+                    <h1>¡Bienvenido a EduSync!</h1>
+                    <p>¿Ya tienes cuenta? ¡Ingresa a tu cuenta para acceder a una variedad de herramientas!</p>
                     <button class="trigger" id="iniciar-sesion">INICIAR SESIÓN</button>
                 </div>
             </div>

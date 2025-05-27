@@ -441,7 +441,6 @@ input:focus {
 
     /* Mostrar ambos formularios en columna */
     .formulario-contenedor {
-        /* position: relative !important;*/
         width: 100% !important;
         height: auto !important;
         opacity: 1 !important;
@@ -526,8 +525,8 @@ input:focus {
     }
 
     /* aca se le da el efecto de que el formulario de registro se vea */
-    .contenedor.panel-derecho-activo .registro,
-    .contenedor .login {
+    .contenedor.panel-derecho-activo .login,
+    .contenedor .registro {
         display: flex;
     }
 
@@ -652,7 +651,7 @@ input:focus {
 
     .btn-volver {
         margin-left: 40px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
 
 }

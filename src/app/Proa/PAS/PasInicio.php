@@ -28,18 +28,16 @@ if (!empty($condiciones)) {
 
 $resultado = $conexion->query($sql);
 ?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>PROA | Inicio PAS</title>
-    <link rel="icon" href="../../../imagenes/LogosProaBlancoV3.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Asignaturas</title>
+    <link rel="icon" href="../../../../imagenes/LogosProaBlancoV3.png" type="image/png">
     <link rel="stylesheet" href="../../../css/estilos-pas-ap.css">
-    <style>
-        input[type="radio"] {
-            margin-right: 10px;
-        }
-    </style>
     <script>
         // Cuando se cambie un checkbox, se envía el formulario automáticamente
         document.addEventListener("DOMContentLoaded", function() {
@@ -53,17 +51,19 @@ $resultado = $conexion->query($sql);
     </script>
 </head>
 <body>
-<header>
-    <div class="logo">
-        <img src="../../../../imagenes/LogosProaBlanco.png" alt="Logo Proa" class="logo">
-    </div>
-    <div class="usuario">
-        <span>¡Bienvenido [Nombre del Usuario]!</span>
-        <a href="../loginProa.html"><img src="../../../../imagenes/user_1b.png" alt="Usuario" class="icono-usuario"></a>
-    </div>
-</header>
-
-<div class="contenedor-principal">
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="PasInicio.php"><img src="../../../../imagenes/LogosProaBlanco.png" alt="Logo Proa" class="logo"></a>
+        </div>
+        <div class="usuario">
+            <span>¡Bienvenido [Nombre del Usuario]!</span>
+            <a href="../loginProa.html"><img src="../../../../imagenes/user_1b.png" alt="Usuario" class="icono-usuario"></a>
+        </div>
+    </header>
+    
+    <!-- Contenedor principal -->
+ <div class="contenedor-principal">
     <button class="boton-filtros-mobile" onclick="toggleFiltros()">
         <span>Filtros</span>
         <img src="../../../../imagenes/pngwing.com.png" alt="Filtros" class="icono-filtros">
@@ -72,7 +72,7 @@ $resultado = $conexion->query($sql);
     <!-- Sidebar con filtros -->
     <aside class="sidebar scrollbar">
         <h2 class="titulo-filtro">FILTRAR POR</h2>
-        <button class="boton-limpiar">Borrar todo</button>
+        <button type="button" class="boton-limpiar" id="boton-borrar">Borrar todo</button>
         <form method="GET" action="" id="form-filtros">
             <div class="seccion-filtro">
                 <h3 class="subtitulo-filtro">Tipo</h3>
@@ -139,13 +139,13 @@ $resultado = $conexion->query($sql);
                                     while ($fila = $resultado->fetch_assoc()) {
                                         echo "<div class='asignatura-item'>";
                                         echo "<label>";
-                                        echo "<input type='radio' name='asignatura_seleccionada' value='" . htmlspecialchars($fila['codigo']) . "'>";
+                                        echo "<input type='radio' name='asignatura_seleccionada' value='" . htmlspecialchars($fila['id_asignatura']) . "'>";
                                         echo "<strong>Nombre:</strong> " . htmlspecialchars($fila['nombre']) . "<br>";
                                         echo "<strong>Código:</strong> " . htmlspecialchars($fila['codigo']) . "<br>";
                                         echo "<strong>Titulación:</strong> " . htmlspecialchars($fila['tipo_titulacion']) . "<br>";
                                         echo "<strong>Curso:</strong> " . htmlspecialchars($fila['curso']) . "<br>";
                                         echo "<strong>Cuatrimestre:</strong> " . htmlspecialchars($fila['cuatrimestre']);
-                                        echo "</label></div><hr>";
+                                        echo "</label></div>";
                                     }
                                 } else {
                                     echo "<p>No se encontraron asignaturas.</p>";
@@ -166,34 +166,74 @@ $resultado = $conexion->query($sql);
     </main>
 </div>
 
+<!-- Footer -->
 <footer>
     <span class="texto-footer">powered by</span>
     <div class="logo-footer">
         <img src="../../../../imagenes/LogoEduSyncBlanco.png" alt="Logo Proa" class="logofooter">
     </div>
 </footer>
-<script>
-     document.getElementById("input-busqueda").addEventListener("input", function () {
-        const filtro = normalizarTexto(this.value);
-        const asignaturas = document.querySelectorAll(".asignatura-item");
 
-        asignaturas.forEach(asignatura => {
-            const textoAsignatura = normalizarTexto(asignatura.textContent);
-            if (textoAsignatura.includes(filtro)) {
-                asignatura.style.display = "";
-            } else {
-                asignatura.style.display = "none";
-            }
+<script>
+    //buscador
+       document.addEventListener("DOMContentLoaded", function () {
+        const input = document.getElementById("input-busqueda");
+        const lista = document.getElementById("lista-asignaturas");
+
+        function normalizarTexto(texto) {
+            return texto
+                .normalize("NFD")               // separar acentos
+                .replace(/[\u0300-\u036f]/g, "") // eliminar acentos
+                .toLowerCase();                 // convertir a minúsculas
+        }
+
+        input.addEventListener("input", function () {
+            const filtro = normalizarTexto(input.value);
+            const items = lista.querySelectorAll(".asignatura-item");
+
+            items.forEach(function (item) {
+                const texto = normalizarTexto(item.textContent || "");
+                item.style.display = texto.includes(filtro) ? "block" : "none";
+            });
         });
     });
 
-    function normalizarTexto(texto) {
-        return texto
-            .toLowerCase()
-            .normalize("NFD")                       // separa acentos de letras
-            .replace(/[\u0300-\u036f]/g, "")        // elimina los acentos
-            .replace(/[^\w\s]/gi, "")               // elimina caracteres especiales opcionalmente
-            .trim();
+    //sidebar
+    const boton = document.getElementById("toggle-filtro");
+    const sidebar = document.querySelector(".sidebar");
+
+    boton.addEventListener("click", () => {
+        sidebar.classList.toggle("oculto");
+        if(sidebar.classList.contains("oculto")) {
+            boton.textContent = "Mostrar filtro";
+        } else {
+            boton.textContent = "Ocultar filtro";
+        }
+    });
+
+    // Botón borrar filtros que recarga la página sin parámetros GET excepto id asignatura
+    document.getElementById("boton-borrar").addEventListener("click", function () {
+        window.location.href = window.location.pathname;
+    });
+
+    function toggleFiltros() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('activo');
+        
+        
+        // Ajustar el botón cuando los filtros están visibles
+        const botonFiltros = document.querySelector('.boton-filtros-mobile');
+        if (sidebar.classList.contains('activo')) {
+            botonFiltros.innerHTML = '<span>Ocultar filtros</span>' + 
+                '<svg class="icono-filtro" viewBox="0 0 24 24" fill="none" stroke="currentColor">' +
+                '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />' +
+                '</svg>';
+        } else {
+            botonFiltros.innerHTML = '<span>Filtros</span>' + 
+                '<svg class="icono-filtro" viewBox="0 0 24 24" fill="none" stroke="currentColor">' +
+                '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />' +
+                '</svg>';
+        }
     }
 
     //por si se selecciona uno de los botones sin haber seleccionado una asignatura
@@ -206,6 +246,8 @@ $resultado = $conexion->query($sql);
         const id = seleccionada.value;
         window.location.href = `${destino}?id=${encodeURIComponent(id)}`;
     }
+
 </script>
+
 </body>
 </html>

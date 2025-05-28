@@ -7,12 +7,12 @@ if ($conexion->connect_error) {
 $idAsignatura = intval($_POST['id_asignatura']);
 $alumnosSeleccionados = $_POST['alumnos'] ?? [];
 
-// Eliminar todas las asociaciones anteriores de esta asignatura
+// eliminar los profesores de esta asignatura
 $stmtDelete = $conexion->prepare("DELETE FROM alumnos_asignaturas WHERE id_asignatura = ?");
 $stmtDelete->bind_param("i", $idAsignatura);
 $stmtDelete->execute();
 
-// Insertar nuevas asociaciones
+// insertar profesores a una asignatura
 if (!empty($alumnosSeleccionados)) {
     $stmtInsert = $conexion->prepare("INSERT INTO alumnos_asignaturas (dni_alumno, id_asignatura) VALUES (?, ?)");
     foreach ($alumnosSeleccionados as $dni) {

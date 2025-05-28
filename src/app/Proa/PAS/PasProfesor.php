@@ -2,13 +2,16 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// conexion al servidor
 $conexion = new mysqli("localhost:3306", "jcivapo_proa", "proa1234!", "jcivapo_proa");
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
 
+// id guardado de la pagina de inicio para mostrar los alumnos de la asignatura que tenga ese id
 $idAsignatura = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
+// consulta base de datos para profesores con filtro
 $sqlProfesores = "SELECT * FROM usuarios WHERE rol_id = 'profesor'";
 
 if (!empty($_GET['departamento_profesor'])) {
@@ -18,8 +21,10 @@ if (!empty($_GET['departamento_profesor'])) {
     }
 }
 
+// ejecutar la consulta final
 $resultadoProfesores = $conexion->query($sqlProfesores);
 
+// obtener profesores ya asociados a esta asignatura
 $sqlAsociados = "SELECT dni_profesor FROM profesores_asignaturas WHERE id_asignatura = ?";
 $stmt = $conexion->prepare($sqlAsociados);
 $stmt->bind_param("i", $idAsignatura);
@@ -43,30 +48,41 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
     <link rel="stylesheet" href="../../../css/estilos-pas-ap.css" />
 </head>
 <body>
+    <!-- header -->
     <header>
+        <!-- logo -->
         <div class="logo">
             <a href="PasInicio.php"><img src="../../../../imagenes/LogosProaBlanco.png" alt="Logo Proa" class="logo" /></a>
         </div>
+        <!-- mostrar el nombre del usuario que ha iniciado sesión -->
         <div class="usuario">
             <span>¡Bienvenido [Nombre del Usuario]!</span>
             <a href="../loginProa.html"><img src="../../../../imagenes/user_1b.png" alt="Usuario" class="icono-usuario" /></a>
         </div>
     </header>
 
+    <!-- contenedor principal donde va a ir toda el contenido -->
     <div class="contenedor-principal">
+        <!-- boton toggle que va a aparecer solo en version movil -->
         <button class="boton-filtros-mobile" onclick="toggleFiltros()">
             <span>Filtros</span>
             <img src="../../../../imagenes/pngwing.com.png" alt="Filtros" class="icono-filtros" />
         </button>
 
+        <!-- sidebar donde se encuentran los filtros -->
         <aside class="sidebar scrollbar">
             <h2 class="titulo-filtro">FILTRAR POR</h2>
+            <!-- botón borrar todo que sirve para borrar los checkbox seleccionados -->
             <button type="button" class="boton-limpiar" id="boton-borrar">Borrar todo</button>
+            
+            <!-- filtro con formulario para obtener los datos de la base de datos y poder usar los filtros -->
             <form method="GET" action="" id="form-filtros">
                 <input type="hidden" name="id" value="<?= htmlspecialchars($idAsignatura) ?>">
                 <div class="seccion-filtro">
+                    <!-- filtramos por carrera -->
                     <h3 class="subtitulo-filtro">Departamento</h3>
 
+                    <!-- checkboxs para el filtro obteniendo de la base de datos -->
                     <div class="opcion-filtro">
                         <input type="checkbox" name="departamento_profesor[]" value="Informática" id="informatica"
                             <?= in_array("Informática", $_GET['departamento_profesor'] ?? []) ? 'checked' : '' ?> />
@@ -85,27 +101,32 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
                         <label for="fisica">Física</label>
                     </div>
                 </div>
-                <!-- Quitamos botón aplicar filtro porque no será necesario -->
             </form>
         </aside>
+        <!-- fin del menu aside filtros -->
 
+        <!-- contenido de los profesores -->
         <main class="contenido scrollbar">
             <div class="cabecera-tareas">
                 <h1>Profesores</h1>
             </div>
             <div class="recuadro-asignaturas">
+                <!-- barra de busqueda -->
                 <div class="barra-busqueda">
                     <input type="text" class="input-busqueda" placeholder="Nombre:" id="input-busqueda">
                     <img src="../../../../imagenes/loupe.png" alt="Buscar" class="icono-busqueda">
                 </div>
 
+                <!-- aqui se muestran todos los profesores -->
                 <div class="bloque-asignaturas">
                     <div class="tarjeta">
                         <div class="contenido-tarjeta">
+                            <!-- el form hace que una vez editado los alumnos de la asignatura te lleva a otro documento
+                             php que es el que se encarga de añadir o eliminar un alumno de la asignatura -->
                             <form method="POST" action="asociarProfesores.php">
                                 <input type="hidden" name="id_asignatura" value="<?= htmlspecialchars($idAsignatura) ?>" />
-
                                 <div class="lista-asignaturas scrollbar" id="lista-asignaturas">
+                                    <!-- aqui es donde se muestra la lista de alumnos -->
                                     <?php
                                     if ($resultadoProfesores && $resultadoProfesores->num_rows > 0) {
                                         while ($profesor = $resultadoProfesores->fetch_assoc()) {
@@ -135,6 +156,7 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
         </main>
     </div>
 
+    <!-- footer -->
     <footer>
         <span class="texto-footer">powered by</span>
         <div class="logo-footer">
@@ -148,11 +170,12 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
             const input = document.getElementById("input-busqueda");
             const lista = document.getElementById("lista-asignaturas");
 
+            // hace que la busqueda no importe mayusculas, accentos etc
             function normalizarTexto(texto) {
                 return texto
-                    .normalize("NFD")               // separar acentos
-                    .replace(/[\u0300-\u036f]/g, "") // eliminar acentos
-                    .toLowerCase();                 // convertir a minúsculas
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "")
+                    .toLowerCase();
             }
 
             input.addEventListener("input", function () {
@@ -166,19 +189,19 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
             });
         });
 
-        // Función para enviar el formulario de filtros automáticamente al cambiar cualquier checkbox
+        // que al seleccionar un checkbox se actualize automaticamente
         document.querySelectorAll('#form-filtros input[type="checkbox"]').forEach(function(checkbox) {
             checkbox.addEventListener('change', function() {
                 document.getElementById('form-filtros').submit();
             });
         });
 
-        // Botón borrar filtros que recarga la página sin parámetros GET excepto id asignatura
+        // boton borrar filtros
         document.getElementById("boton-borrar").addEventListener("click", function () {
             window.location.href = window.location.pathname + "?id=<?= htmlspecialchars($idAsignatura) ?>";
         });
 
-        //sidebar
+        // toggle filtros móvil
         function toggleFiltros() {
             const sidebar = document.querySelector('.sidebar');
             sidebar.classList.toggle('activo');

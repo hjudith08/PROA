@@ -2,27 +2,29 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// conexion al servidor
 $conexion = new mysqli("localhost:3306", "jcivapo_proa", "proa1234!", "jcivapo_proa");
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
 
+// id guardado de la pagina de inicio para mostrar los alumnos de la asignatura que tenga ese id
 $idAsignatura = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-// Construir consulta base para alumnos con filtro carrera_alumno
+// consulta base de datos para alumnos con filtro
 $sqlAlumnos = "SELECT dni, nombre, apellido1, apellido2 FROM usuarios WHERE rol_id = 'alumno'";
 
 if (!empty($_GET['carrera_alumno'])) {
-    // Escapar valores y preparar IN para filtro
     $carreras = array_map([$conexion, 'real_escape_string'], $_GET['carrera_alumno']);
     if (count($carreras) > 0) {
         $sqlAlumnos .= " AND carrera_alumno IN ('" . implode("','", $carreras) . "')";
     }
 }
 
+// ejecutar la consulta final
 $resultadoAlumnos = $conexion->query($sqlAlumnos);
 
-// Obtener alumnos ya asociados a esta asignatura
+// obtener alumnos ya asociados a esta asignatura
 $sqlAsociados = "SELECT dni_alumno FROM alumnos_asignaturas WHERE id_asignatura = ?";
 $stmt = $conexion->prepare($sqlAsociados);
 $stmt->bind_param("i", $idAsignatura);
@@ -45,31 +47,41 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
     <link rel="stylesheet" href="../../../css/estilos-pas-ap.css" />
 </head>
 <body>
+    <!-- HEADER -->
     <header>
+        <!-- logo -->
         <div class="logo">
             <img src="../../../../imagenes/LogosProaBlanco.png" alt="Logo Proa" class="logo" />
         </div>
+        <!-- mostrar el nombre del usuario que ha iniciado sesión -->
         <div class="usuario">
             <span>¡Bienvenido [Nombre del Usuario]!</span>
             <a href="../loginProa.html"><img src="../../../../imagenes/user_1b.png" alt="Usuario" class="icono-usuario" /></a>
         </div>
     </header>
 
+    <!-- contenedor principal donde va a ir toda el contenido -->
     <div class="contenedor-principal">
+        <!-- boton toggle que va a aparecer solo en version movil -->
         <button class="boton-filtros-mobile" onclick="toggleFiltros()">
             <span>Filtros</span>
             <img src="../../../../imagenes/pngwing.com.png" alt="Filtros" class="icono-filtros" />
         </button>
 
+        <!-- sidebar donde se encuentran los filtros -->
         <aside class="sidebar scrollbar">
             <h2 class="titulo-filtro">FILTRAR POR</h2>
+            <!-- botón borrar todo que sirve para borrar los checkbox seleccionados -->
             <button class="boton-limpiar" id="boton-borrar">Borrar todo</button>
 
+            <!-- filtro con formulario para obtener los datos de la base de datos y poder usar los filtros -->
             <form method="GET" action="" id="form-filtros">
                 <input type="hidden" name="id" value="<?= htmlspecialchars($idAsignatura) ?>" />
                 <div class="seccion-filtro">
+                    <!-- filtramos por carrera -->
                     <h3 class="subtitulo-filtro">Carrera</h3>
 
+                    <!-- checkboxs para el filtro obteniendo de la base de datos -->
                     <div class="opcion-filtro">
                         <input type="checkbox" name="carrera_alumno[]" value="Informática" id="informática"
                             <?= in_array("Informática", $_GET['carrera_alumno'] ?? []) ? 'checked' : '' ?> />
@@ -90,24 +102,30 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
                 </div>
             </form>
         </aside>
+        <!-- fin del menu aside filtros -->
 
+        <!-- contenido de los alumnos -->
         <main class="contenido scrollbar">
             <div class="cabecera-tareas">
                 <h1>Alumnos</h1>
             </div>
             <div class="recuadro-asignaturas">
+                <!-- barra de busqueda -->
                 <div class="barra-busqueda">
                     <input type="text" class="input-busqueda" placeholder="Nombre:" id="input-busqueda" />
                     <img src="../../../../imagenes/loupe.png" alt="Buscar" class="icono-busqueda" />
                 </div>
 
+                <!-- aqui se muestran todos los alumnos -->
                 <div class="bloque-asignaturas">
                     <div class="tarjeta">
                         <div class="contenido-tarjeta">
+                            <!-- el form hace que una vez editado los alumnos de la asignatura te lleva a otro documento
+                             php que es el que se encarga de añadir o eliminar un alumno de la asignatura -->
                             <form method="POST" action="asociarAlumnos.php">
                                 <input type="hidden" name="id_asignatura" value="<?= htmlspecialchars($idAsignatura) ?>" />
-
                                 <div class="lista-asignaturas scrollbar" id="lista-asignaturas">
+                                    <!-- aqui es donde se muestra la lista de alumnos -->
                                     <?php
                                     if ($resultadoAlumnos && $resultadoAlumnos->num_rows > 0) {
                                         while ($alumno = $resultadoAlumnos->fetch_assoc()) {
@@ -141,6 +159,7 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
         </main>
     </div>
 
+    <!-- footer -->
     <footer>
         <span class="texto-footer">powered by</span>
         <div class="logo-footer">
@@ -154,7 +173,7 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
             const input = document.getElementById("input-busqueda");
             const lista = document.getElementById("lista-asignaturas");
 
-            // hace que la busqueda no importe mayusculas, accentos etx
+            // hace que la busqueda no importe mayusculas, accentos etc
             function normalizarTexto(texto) {
                 return texto
                     .normalize("NFD")

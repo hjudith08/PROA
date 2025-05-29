@@ -55,9 +55,11 @@
                 </p>
             </div>
         </section>
-
         <?php
-        if (!isset($dataEdu['id'])) {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        if (!isset($_SESSION['usuario_id'])) {
             ?>
             <section class="registrarse-landing">
                 <h2>¿Listo para unirte a nuestra comunidad?</h2>

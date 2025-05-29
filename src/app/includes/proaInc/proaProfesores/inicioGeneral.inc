@@ -30,7 +30,6 @@ if ($result_tareas) {
 ?>
 
 <main class="content">
-
     <!-- Sección de Asignaturas Recientes -->
     <section class="bloque-info">
         <div class="cabecera-tareas">

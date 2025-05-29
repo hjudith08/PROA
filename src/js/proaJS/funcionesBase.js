@@ -22,38 +22,20 @@
         });
     }
 
-/* selector de perfil web*/ 
+/* selector de perfil desde páginas internas como inicioGeneral o PasInicio */
 function redirectToView(select) {
-    const value = select.value;
-    if (!value) return;
+    const rol = select.value;
+    if (!rol) return;
 
-    switch(value) {
-        case 'alumno':
-            window.location.href = '../profeAlumno/inicioGeneral.php?rol=alumno';
-            break;
-        case 'profesor':
-            window.location.href = '../profeAlumno/inicioGeneral.php?rol=profesor';
-            break;
-        case 'pas':
-            window.location.href = '../pas/inicioPas.php';
-            break;
-    }
+    // Corregido: ir a autologin.php relativo a páginas internas (subir un nivel)
+    window.location.href = '../autologin.php?rol=' + rol;
 }
 
-/* selector de perfil login*/ 
+/* selector de perfil desde loginProa */
 function seleccionDeVista(select) {
-    const value = select.value;
-    if (!value) return;
-    
-    switch(value) {
-        case 'alumno':
-            window.location.href = 'profeAlumno/inicioGeneral.php?rol=alumno';
-            break;
-        case 'profesor':
-            window.location.href = 'profeAlumno/inicioGeneral.php?rol=profesor';
-            break;
-        case 'pas':
-            window.location.href = 'pas/inicioPas.php';
-            break;
-    }
+    const rol = select.value;
+    if (!rol) return;
+
+    // Corregido: ir a autologin.php relativo a loginProa
+    window.location.href = 'autologin.php?rol=' + rol;
 }

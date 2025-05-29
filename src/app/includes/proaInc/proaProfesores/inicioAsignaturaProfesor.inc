@@ -7,7 +7,7 @@
                 <h1>INFORMACIÓN ASIGNATURA</h1>
             </div>
             <div class="tabla-flex-container">
-                <ul class="asignaturas">
+                <ul class="asignaturas informacionAsig">
                     <li class="fila-objetivo">
                         <div class="encabezado-item">
                             <h3>Objetivo asignatura</h3>

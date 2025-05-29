@@ -1,12 +1,7 @@
 <?php
 include __DIR__ . '/../../conexion.inc';  
 
-// Por ahora usamos el id_tarea fijo para probar.
-// Cuando tengas la pantalla para seleccionar la tarea, cambia esta línea para obtenerlo vía GET, por ejemplo:
-// $id_tarea = $_GET['id_tarea'] ?? null;
-$id_tarea = 1;
-
-if ($id_tarea) {
+if ($id_tarea > 0) {
     $stmt = $conn->prepare("
         SELECT 
             e.id_entrega,
@@ -27,10 +22,10 @@ if ($id_tarea) {
     $stmt->execute();
     $result = $stmt->get_result();
 } else {
-    // Aquí podrías manejar el error o mostrar un mensaje si no hay id_tarea
     $result = null;
 }
 ?>
+
 <div class="contenedor-filtros">
     <select class="filtros-tareas" id="filtro-tareas">
         <option value="todos">Todas las entregas</option>

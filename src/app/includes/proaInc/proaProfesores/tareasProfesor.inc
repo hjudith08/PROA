@@ -17,7 +17,6 @@ $result = $stmt->get_result();
 <div class="contenedor-tareasProfesor">
     <!-- Aquí empiezan los filtros -->
     <div class="contenedor-botones">
-        <button class="boton-revisar-profesor">Eliminar Tarea</button>
         <button class="boton-revisar-profesor" onclick="window.location.href='../../Proa/profeAlumno/crearTarea.php?id=<?= $id_asignatura ?>'">
             <img class="imgMas" src="../../../../images/pluspurple.png" alt="">
             Nueva Tarea
@@ -44,6 +43,7 @@ $result = $stmt->get_result();
                     <td class="acciones">
                         <button class="boton-revisar-profesor" onclick="window.location.href='editarTarea.php?id=<?= urlencode($id_asignatura) ?>&id_tarea=<?= $row['id_tarea'] ?>'">Editar</button>
                         <button class="boton-revisar-profesor" onclick="window.location.href='verEntregas.php?id=<?= urlencode($id_asignatura) ?>&id_tarea=<?= $row['id_tarea'] ?>'">Ver Entregas</button>
+                        <button class="boton-revisar-profesor" onclick="if(confirm('¿Seguro que quieres eliminar esta tarea?')) { window.location.href='eliminarTarea.php?id_tarea=<?= $row['id_tarea'] ?>&id_asignatura=<?= $id_asignatura ?>'; }">Eliminar</button>
                     </td>
                 </tr>
                 <?php endwhile; ?>

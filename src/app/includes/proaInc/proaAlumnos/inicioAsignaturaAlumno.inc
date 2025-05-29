@@ -1,15 +1,15 @@
 <?php
 include __DIR__ . '/../../conexion.inc';  // Ajusta la ruta a tu conexión
 
-if (!isset($_GET['codigo'])) {
+if (!isset($_GET['id'])) {
     die('Asignatura no especificada.');
 }
 
-$codigo_asignatura = $_GET['codigo'];
+$id_asignatura = intval($_GET['id']);
 
 // Obtener datos asignatura
-$stmt = $conn->prepare("SELECT nombre, descripcion, tipo_titulacion, curso, cuatrimestre, objetivo_asignatura, informacion_extra, grupo_id FROM asignaturas WHERE codigo = ?");
-$stmt->bind_param("s", $codigo_asignatura);
+$stmt = $conn->prepare("SELECT nombre, descripcion, tipo_titulacion, curso, cuatrimestre, objetivo_asignatura, informacion_extra, grupo_id FROM asignaturas WHERE id_asignatura = ?");
+$stmt->bind_param("i", $id_asignatura);
 $stmt->execute();
 $result = $stmt->get_result();
 $asignatura = $result->fetch_assoc();
@@ -28,8 +28,8 @@ $profesor = $result_profesor->fetch_assoc();
 
 // Obtener tareas
 $tareas = [];
-$stmt_tareas = $conn->prepare("SELECT descripcion, fecha_entrega FROM tareas WHERE id_asignatura = (SELECT id_asignatura FROM asignaturas WHERE codigo = ?) ORDER BY fecha_entrega ASC");
-$stmt_tareas->bind_param("s", $codigo_asignatura);
+$stmt_tareas = $conn->prepare("SELECT descripcion, fecha_entrega FROM tareas WHERE id_asignatura = ? ORDER BY fecha_entrega ASC");
+$stmt_tareas->bind_param("i", $id_asignatura);
 $stmt_tareas->execute();
 $result_tareas = $stmt_tareas->get_result();
 while ($fila = $result_tareas->fetch_assoc()) {

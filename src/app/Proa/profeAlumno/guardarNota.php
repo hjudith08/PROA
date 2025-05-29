@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../../includes/conexion.php';
+include __DIR__ . '/../../includes/conexion.inc';
 
 
 header('Content-Type: application/json');

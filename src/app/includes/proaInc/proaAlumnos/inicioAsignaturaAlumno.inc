@@ -67,7 +67,7 @@ while ($fila = $result_tareas->fetch_assoc()) {
                 <h1>INFORMACIÓN ASIGNATURA</h1>
             </div>
             <div class="tabla-flex-container">
-                <ul class="asignaturas">
+                <ul class="asignaturas informacionAsig">
                     <li>
                         <h3>Objetivo asignatura</h3>
                         <p><?= htmlspecialchars($asignatura['objetivo_asignatura']) ?></p>

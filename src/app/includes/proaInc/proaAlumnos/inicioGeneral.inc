@@ -43,7 +43,7 @@ if ($result_tareas) {
             <h1>ASIGNATURAS RECIENTES VISITADAS</h1>
         </div>
         <div class="tabla-flex-container">
-            <ul class="asignaturas">
+            <ul class="asignaturas inicioGenAsig">
                 <?php foreach ($asignaturas as $asignatura): ?>
                     <li>
                         <a href="inicioAsignatura.php?codigo=<?= urlencode($asignatura['codigo']) ?>">

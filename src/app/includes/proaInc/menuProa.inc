@@ -38,7 +38,7 @@ if ($pagina_actual == 'loginProa.php') {
     <div class="botones-selector-ordenador">
         <button id="vista-alumno" onclick="location.href='profeAlumno/inicioGeneral.php'">Alumno</button>
 <button id="vista-profesor" onclick="location.href='profeAlumno/inicioGeneral.php'">Profesor</button>
-<button id="vista-pas" onclick="location.href='pas/inicioPas.php'">Pas</button>
+<button id="vista-pas" onclick="location.href='pas/PasInicio.php'">Pas</button>
     </div>
     
     <!-- Versión para móvil -->

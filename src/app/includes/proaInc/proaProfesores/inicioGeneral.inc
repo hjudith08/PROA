@@ -42,7 +42,7 @@ if ($result_tareas) {
         <div class="cabecera-tareas">
             <h1>ASIGNATURAS RECIENTES VISITADAS</h1>
         </div>
-        <div class="tabla-flex-container">
+        <div class="tabla-flex-container inicioGenAsig">
             <ul class="asignaturas">
                 <?php foreach ($asignaturas as $asignatura): ?>
                     <li>

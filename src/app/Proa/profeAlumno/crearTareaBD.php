@@ -4,23 +4,30 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include '../../includes/conexion.inc';
 
+    // Recogemos el id_asignatura de la URL (GET)
+    $id_asignatura = isset($_POST['id_asignatura']) ? intval($_POST['id_asignatura']) : 0;
+    if ($id_asignatura <= 0) {
+        die("ID de asignatura no válido.");
+    }
+
     $fecha_apertura = $_POST['fecha_apertura'] ?? null;
     $titulo = $_POST['titulo'] ?? null;
     $descripcion = $_POST['descripcion'] ?? null;
     $fecha_entrega = $_POST['fecha_entrega'] ?? null;
     $puntuacion_maxima = $_POST['puntuacion_maxima'] ?? null;
 
-    $creado_por = '9971924';
-    $id_asignatura = 101;
+    $creado_por = '9971924'; // Puedes cambiarlo si tienes sesión con usuario
+
+    // No veo que definas $grupo_id, si no lo tienes, déjalo en null o 0
+    $grupo_id = null;
 
 
     if (!$fecha_apertura || !$titulo || !$descripcion || !$fecha_entrega || !$puntuacion_maxima) {
         die("Faltan datos obligatorios para crear la tarea.");
     }
 
-    $archivo_nombre = null; // Por defecto null
+    $archivo_nombre = null;
 
-    // Solo procesar archivo si se subió uno
     if (isset($_FILES['archivo_adjunto']) && $_FILES['archivo_adjunto']['error'] === UPLOAD_ERR_OK) {
         $nombre_original = $_FILES['archivo_adjunto']['name'];
         $archivo_tmp = $_FILES['archivo_adjunto']['tmp_name'];
@@ -45,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()) {
         echo "<script>
             alert('¡Tarea creada con éxito!');
-            window.location.href = 'crearTarea.php';
+            window.location.href = 'crearTarea.php?id=$id_asignatura';
         </script>";
         exit;
     } else {
@@ -55,4 +62,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->close();
     $conn->close();
 }
+
 ?>

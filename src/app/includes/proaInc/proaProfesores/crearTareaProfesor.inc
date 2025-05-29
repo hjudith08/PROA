@@ -1,6 +1,7 @@
 <div class="tabla-flex-container">
     <div class="card-content">
         <form class="form" id="taskForm" action="crearTareaBD.php" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="id_asignatura" value="<?= htmlspecialchars($_GET['id']) ?>">
             <!-- Programar tarea para -->
             <label class="form-label" for="scheduleDate">Programar tarea para:</label>
             <div class="input-date-wrapper">

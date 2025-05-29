@@ -39,6 +39,9 @@
             include '../../includes/proaInc/proaAlumnos/informacionTarea.inc';
         ?>
     
+<<<<<<< Updated upstream:src/app/Proa/profeAlumno/tareas.php
+>>>>>>> Stashed changes:src/app/proa/profeAlumno/verTarea.php
+=======
 >>>>>>> Stashed changes:src/app/proa/profeAlumno/verTarea.php
     </div>
 </div>

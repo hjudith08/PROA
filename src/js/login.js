@@ -106,6 +106,7 @@ loginForm.addEventListener("submit", async function(e) {
 });
 
 <<<<<<< Updated upstream:src/js/login.js
+<<<<<<< Updated upstream:src/js/login.js
 // =============================================
 // SECCIÓN 5: MANEJADORES DE EVENTOS - REGISTRO
 // =============================================
@@ -136,6 +137,9 @@ registroForm.addEventListener("submit", async function(e) {
         contenedor.classList.remove("panel-derecho-activo");
     }, 1000);
 });
+=======
+*/
+>>>>>>> Stashed changes:src/js/eduSyncJS/login.js
 =======
 */
 >>>>>>> Stashed changes:src/js/eduSyncJS/login.js

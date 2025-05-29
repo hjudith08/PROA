@@ -14,6 +14,9 @@
     <link rel="icon" href="../../imagenes/LogosProaBlancoV3.png" type="image/png">
     <link rel="stylesheet" href="../../css/proaCSS/estilosBaseProa.css">
     <link rel="stylesheet" href="../../css/proaCSS/loginProa.css">
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 </head>
 <body>
@@ -36,6 +39,7 @@
                 <input id="iniciar-sesion" type="submit" value="INICIAR SESIÓN">
             </form>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
             <a href="../EduSync/Sesion/formulario-credenciales.html">Solicitar credenciales</a>
         </div>
@@ -49,6 +53,13 @@
     </footer>
 
     
+=======
+        </div>
+    </div>
+
+    <!-- Footer de Proa -->
+    <?php include '../includes/proaInc/footerProa.inc'; ?>
+>>>>>>> Stashed changes
 =======
         </div>
     </div>

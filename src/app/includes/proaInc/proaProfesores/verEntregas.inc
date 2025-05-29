@@ -107,4 +107,31 @@ if ($id_tarea > 0) {
         // Luego cuando tengas el id_tarea dinámico, añade parámetro id_tarea a la url si lo necesitas
         window.location.href = `revisarEntrega.php?alumno=${encodeURIComponent(dniAlumno)}`;
     }
+
+    document.addEventListener('DOMContentLoaded', function () {
+    // Abrir popup al hacer clic en "Revisar"
+    document.querySelectorAll('.boton-revisar').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            // Rellenar datos del popup
+            document.getElementById('popup-titulo').textContent = btn.dataset.titulo;
+            document.getElementById('popup-estudiante').textContent = btn.dataset.estudiante;
+            document.getElementById('nota').value = btn.dataset.nota || '';
+            document.getElementById('entrega-id').value = btn.dataset.id;
+
+            // Archivo adjunto
+            var archivo = btn.dataset.archivo;
+            var archivoSpan = document.getElementById('popup-archivo');
+            archivoSpan.textContent = archivo ? archivo : 'Sin archivo';
+            // Si quieres que el botón descargar funcione, añade aquí el enlace
+
+            // Mostrar popup
+            document.getElementById('popup').classList.remove('oculto');
+        });
+    });
+
+    // Cerrar popup
+    window.cerrarPopup = function() {
+        document.getElementById('popup').classList.add('oculto');
+    }
+});
 </script>

@@ -4,18 +4,18 @@
 include __DIR__ . '/../../conexion.inc'; 
 
 $asignaturas = [];
-$result_asignaturas = $conn->query("SELECT nombre, codigo FROM asignaturas ORDER BY codigo DESC LIMIT 5");
+$result_asignaturas = $conn_proa->query("SELECT nombre, codigo FROM asignaturas ORDER BY codigo DESC LIMIT 5");
 if ($result_asignaturas) {
     while ($fila = $result_asignaturas->fetch_assoc()) {
         $asignaturas[] = $fila;
     }
 } else {
-    echo "Error en asignaturas: " . $conn->error;
+    echo "Error en asignaturas: " . $conn_proa->error;
 }
 
 // Obtener tareas con JOIN correcto
 $tareas = [];
-$result_tareas = $conn->query("SELECT t.fecha_entrega, t.descripcion, a.nombre AS nombre_asignatura, a.codigo
+$result_tareas = $conn_proa->query("SELECT t.fecha_entrega, t.descripcion, a.nombre AS nombre_asignatura, a.codigo
 FROM tareas t
 JOIN asignaturas a ON t.id_asignatura = a.id_asignatura
 ORDER BY t.fecha_entrega ASC
@@ -27,7 +27,7 @@ if ($result_tareas) {
         $tareas[] = $fila;
     }
 } else {
-    echo "Error en tareas: " . $conn->error;
+    echo "Error en tareas: " . $conn_proa->error;
 }
 
 ?>

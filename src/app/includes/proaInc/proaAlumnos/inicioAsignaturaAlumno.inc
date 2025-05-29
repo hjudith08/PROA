@@ -8,7 +8,7 @@ if (!isset($_GET['codigo'])) {
 $codigo_asignatura = $_GET['codigo'];
 
 // Obtener datos asignatura
-$stmt = $conn->prepare("SELECT nombre, descripcion, tipo_titulacion, curso, cuatrimestre, objetivo_asignatura, informacion_extra, grupo_id FROM asignaturas WHERE codigo = ?");
+$stmt = $conn_proa->prepare("SELECT nombre, descripcion, tipo_titulacion, curso, cuatrimestre, objetivo_asignatura, informacion_extra, grupo_id FROM asignaturas WHERE codigo = ?");
 $stmt->bind_param("s", $codigo_asignatura);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -20,7 +20,7 @@ if (!$asignatura) {
 
 // Obtener profesor que corresponde a ese grupo y es profesor
 $rol_profesor = 'profesor';  // Cambia si el rol tiene otro id
-$stmt_profesor = $conn->prepare("SELECT nombre, apellido1, apellido2, email, despacho FROM usuarios WHERE grupo_id = ? AND rol_id = ? LIMIT 1");
+$stmt_profesor = $conn_proa->prepare("SELECT nombre, apellido1, apellido2, email, despacho FROM usuarios WHERE grupo_id = ? AND rol_id = ? LIMIT 1");
 $stmt_profesor->bind_param("ss", $asignatura['grupo_id'], $rol_profesor);
 $stmt_profesor->execute();
 $result_profesor = $stmt_profesor->get_result();
@@ -28,7 +28,7 @@ $profesor = $result_profesor->fetch_assoc();
 
 // Obtener tareas
 $tareas = [];
-$stmt_tareas = $conn->prepare("SELECT descripcion, fecha_entrega FROM tareas WHERE id_asignatura = (SELECT id_asignatura FROM asignaturas WHERE codigo = ?) ORDER BY fecha_entrega ASC");
+$stmt_tareas = $conn_proa->prepare("SELECT descripcion, fecha_entrega FROM tareas WHERE id_asignatura = (SELECT id_asignatura FROM asignaturas WHERE codigo = ?) ORDER BY fecha_entrega ASC");
 $stmt_tareas->bind_param("s", $codigo_asignatura);
 $stmt_tareas->execute();
 $result_tareas = $stmt_tareas->get_result();

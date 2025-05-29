@@ -3,21 +3,21 @@
 use PHPMailer\PHPMailer\PHPMailer;
 require '../includes/eduSyncInc/PHPMailer.php';
 require '../includes/eduSyncInc/SMTP.php';
-require_once '../includes/eduSyncInc/MySQL.inc';
+require_once '../includes/conexion.inc';
 
 // Verificar conexión
-if (!isset($conn)) die("Error de conexión");
+if (!isset($conn_edusync)) die("Error de conexión");
 
 // Generar token
 $token = uniqid();
 
 // Preparar inserción en base de datos
-$stmt = $conn->prepare("INSERT INTO usuarios (nombre, apellidos, email, password, token, validez_token) 
+$stmt = $conn_edusync->prepare("INSERT INTO usuarios (nombre, apellidos, email, password, token, validez_token) 
 VALUES (?, ?, ?, SHA2(?, 256), ?, DATE_ADD(NOW(), INTERVAL 1 HOUR))");
 $stmt->bind_param("sssss", $_POST['nombre'], $_POST['apellidos'], $_POST['email'], $_POST['password'], $token);
 $stmt->execute();
 $stmt->close();
-$conn->close();
+$conn_edusync->close();
 // Enviar correo
 $mail = new PHPMailer(true);
 $mail->isSMTP();

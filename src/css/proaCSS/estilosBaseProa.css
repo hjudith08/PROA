@@ -160,6 +160,10 @@ body {
     z-index: 1000;
 }
 
+span {
+    font-size: .9rem;
+}
+
 .logo-edusync {
     height: 25px;
     margin-left: 2rem;

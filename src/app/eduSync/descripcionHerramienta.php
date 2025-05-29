@@ -122,14 +122,15 @@
                     </div>
                 </div>
                 <?php
-                if (!isset($dataEdu['id'])) {
-                    ?>
-                    <a href="loginRegistro.php" class="boton-demo">¡Prueba PROA Gratis!</a>
-
-                    <?php
-                } else {
+                if (isset($_SESSION['usuario_id'])) {
+                    // Usuario logueado: lleva a la demo de PROA
                     ?>
                     <a href="../proa/loginProa.php" class="boton-demo">¡Prueba PROA Gratis!</a>
+                    <?php
+                } else {
+                    // Usuario NO logueado: lleva al registro/login de EduSync
+                    ?>
+                    <a href="loginRegistro.php" class="boton-demo">¡Prueba PROA Gratis!</a>
                     <?php
                 }
                 ?>

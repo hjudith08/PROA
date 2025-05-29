@@ -8,6 +8,7 @@
     <link rel="icon" href="imagenes/LogoEduSyncBlancoV3.png" type="image/png">
     <link rel="stylesheet" href="css/eduSyncCSS/estilosBaseEduSync.css">
     <link rel="stylesheet" href="css/eduSyncCSS/estilos.css">
+    <script src="js/eduSyncJS/funcionesBaseEduSync.js" defer></script>
 </head>
 
 <body>
@@ -80,45 +81,6 @@
     </a>
 
     <!-- script para mostrar/ocultar el botón al hacer scroll -->
-    <script>
-        const scrollBtn = document.querySelector('.scroll-to-top');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollBtn.classList.add('visible'); // muestra el botón
-            } else {
-                scrollBtn.classList.remove('visible'); // oculta el botón
-            }
-        });
-
-
-        /* PopUp para cerrar Sesion*/
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const botonSalir = document.getElementById("boton-cerrar-sesion");
-            const popup = document.getElementById("popupCerrarSesion");
-            const overlay = document.getElementById("fondo-popup");
-            const botonSi = document.getElementById("btn-si");
-            const botonNo = document.getElementById("btn-no");
-
-            if (botonSalir && popup && overlay && botonSi && botonNo) {
-                botonSalir.addEventListener("click", () => {
-                    popup.classList.remove("oculto");
-                    overlay.classList.remove("oculto");
-                });
-
-                botonNo.addEventListener("click", () => {
-                    popup.classList.add("oculto");
-                    overlay.classList.add("oculto");
-                });
-
-                botonSi.addEventListener("click", () => {
-                    window.location.href = "index.php";
-                });
-            }
-        });
-
-    </script>
     <!-- fin del script -->
 
 </body>

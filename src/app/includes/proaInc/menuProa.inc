@@ -23,13 +23,14 @@ session_start(); // asegurarse de tener acceso a $_SESSION
 $pagina_actual = basename($_SERVER['PHP_SELF']);
 
 $userdata = $_SESSION ?? null;
-// Cleinte simulado
+// Cliente de edusync, sustituir por la lectura de la base de datos del que inicio sesion desde un inicio
 $cliente = [
     'nombre' => 'Jose Luis',
     'apellido1' => 'Gimenez Lopez',
     'id' => 1,
 ];
 
+// Asignatura seleccionada, sustituir por la lectura de la base de datos de la asignatura para que salga en el header
 // Asignatura simulada
 $asignatura = [
     'nombre' => 'Matemáticas Avanzadas',
@@ -77,20 +78,23 @@ $asignatura = [
     <span> Hola <strong><?php echo $cliente['nombre'] . " " . $cliente['apellido1']; ?></strong>, selecciona la vista que desees.</span>
 
     <!-- Versión ordenador -->
-    <div class="botones-selector-ordenador">
-        <button <?php echo ($userdata['rol'] == 'alumno') ? 'class="vista-seleccionada" disabled' : ''; ?> onclick="location.href='../../../autologin.php?rol=alumno'">Alumno</button>
-        <button <?php echo ($userdata['rol'] == 'profesor') ? 'class="vista-seleccionada" disabled' : ''; ?> onclick="location.href='../../../autologin.php?rol=profesor'">Profesor</button>
-        <button <?php echo ($userdata['rol'] == 'pas') ? 'class="vista-seleccionada" disabled' : ''; ?> onclick="location.href='../../../autologin.php?rol=pas'">Pas</button>
+     <div class="botones-selector-ordenador">
+        <button  <?php echo ($userdata['rol'] == 'alumno') ? 'class="vista-seleccionada" disabled' : ''; ?>onclick="location.href='../autologin.php?rol=alumno'">Alumno</button>
+        <button <?php echo ($userdata['rol'] == 'profesor') ? 'class="vista-seleccionada" disabled' : ''; ?> onclick="location.href='../autologin.php?rol=profesor'">Profesor</button>
+        <button <?php echo ($userdata['rol'] == 'pas') ? 'class="vista-seleccionada" disabled' : ''; ?> onclick="location.href='../autologin.php?rol=pas'">Pas</button>
     </div>
+
 
     <!-- Versión móvil -->
     <div class="botones-selector-movil">
-        <select name="selector-vista" id="selector-vista" onchange="redirectToView(this)">
+        <select name="selector-vista" id="selector-vista" onchange="seleccionDeVista(this)">
             <option value="">Vistas</option>
-            <option value="alumno" <?php echo ($userdata['rol'] == 'alumno') ? 'selected disabled' : ''; ?>>Alumno</option>
-            <option value="profesor" <?php echo ($userdata['rol'] == 'profesor') ? 'selected disabled' : ''; ?>>Profesor</option>
-            <option value="pas" <?php echo ($userdata['rol'] == 'pas') ? 'selected disabled' : ''; ?>>Pas</option>
+            <option value="alumno">Alumno</option>
+            <option value="profesor">Profesor</option>
+            <option value="pas">Pas</option>
         </select>
+
+
 
         <script>
         function redirectToView(select) {

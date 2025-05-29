@@ -1,14 +1,14 @@
 <?php
-require_once 'includes/eduSync/MySQL.inc';
+require_once 'includes/conexion.inc';
 
-if (!isset($conn)) {
+if (!isset($conn_edusync)) {
     die("Error de conexión");
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET['token'])) {
     $token = $_GET['token'];
 
-    $stmt = $conn->prepare("SELECT id, validez_token FROM usuarios WHERE token = ?");
+    $stmt = $conn_edusync->prepare("SELECT id, validez_token FROM usuarios WHERE token = ?");
     $stmt->bind_param("s", $token);
     $stmt->execute();
     $stmt->store_result();
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET['token'])) {
         $stmt->fetch();
 
         if (strtotime($validez_token) >= time()) {
-            $update = $conn->prepare("UPDATE usuarios SET estado = 1, token = NULL, validez_token = NULL WHERE id = ?");
+            $update = $conn_edusync->prepare("UPDATE usuarios SET estado = 1, token = NULL, validez_token = NULL WHERE id = ?");
             $update->bind_param("i", $id);
             $update->execute();
             $update->close();
@@ -40,5 +40,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET['token'])) {
     exit;
 }
 
-$conn->close();
+$conn_edusync->close();
 ?>

@@ -81,30 +81,6 @@ function eliminarMensajesAnteriores() {
 
 // =============================================
 // SECCIÓN 4: MANEJADORES DE EVENTOS - LOGIN
-// =============================================
-loginForm.addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const email = loginForm.querySelector("#email").value;
-    const password = loginForm.querySelector("#password").value;
-
-    await cargarUsuarios();
-
-    const usuario = usuarios.find(u => u.email === email && u.password === password);
-
-    if (usuario) {
-        mostrarMensaje("Inicio de sesión exitoso. Redirigiendo...");
-
-        // Guardar email en localStorage (opcional)
-        localStorage.setItem("usuarioActivo", usuario.email);
-
-        setTimeout(() => {
-            window.location.href = "../Sesion/index.html";
-        }, 500);
-    } else {
-        mostrarError("Email o contraseña incorrectos");
-    }
-});
 
 
 

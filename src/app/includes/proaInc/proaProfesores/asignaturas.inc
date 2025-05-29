@@ -4,7 +4,7 @@ include __DIR__ . '/../../conexion.inc';
 $dni_usuario = '9971924'; // Cambiar esto por el DNI  (por ejemplo, desde sesión)
 
 // Primero obtenemos el rol del usuario
-$stmt = $conn->prepare("SELECT rol_id FROM usuarios WHERE dni = ?");
+$stmt = $conn_proa->prepare("SELECT rol_id FROM usuarios WHERE dni = ?");
 $stmt->bind_param("s", $dni_usuario);
 $stmt->execute();
 $res = $stmt->get_result();
@@ -36,7 +36,7 @@ if ($rol === 'profesor') {
     die("Rol no válido para consultar asignaturas");
 }
 
-$stmt = $conn->prepare($query);
+$stmt = $conn_proa->prepare($query);
 $stmt->bind_param("s", $dni_usuario);
 $stmt->execute();
 $result = $stmt->get_result();

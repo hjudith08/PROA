@@ -24,7 +24,7 @@
                 </a>
             </header>
             <!-- formulario de inicio de sesión-->
-            <form id="login-form" action="index.php" method="get">
+            <form id="login-form" action="procesar-login.php" method="post">
                 <h1>Iniciar sesión</h1>
                 <p>Por favor introduce tus datos para iniciar sesión</p>
 

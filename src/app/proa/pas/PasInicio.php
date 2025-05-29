@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // conexion al servidor
-$conexion = new mysqli("localhost:3306", "jcivapo_proa", "proa1234!", "jcivapo_proa");
+$conexion = new mysqli("localhost", "root", "", "proa");
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
@@ -52,8 +52,8 @@ $resultado = $conexion->query($sql);
     <title>Editar Asignaturas</title>
     <!-- imagen de pestaña -->
     <link rel="icon" href="../../../imagenes/LogosProaBlancoV3.png" type="image/png">
-    <link rel="stylesheet" href="../../../css/proaCSS/estilosBaseProa.css">
-    <link rel="stylesheet" href="../../../css/estilos-pas-ap.css" />
+    <link rel="stylesheet" href="../../../css/proaCSS/basePas.css" />
+    <link rel="stylesheet" href="../../../css/proaCSS/estilos-pas-ap.css" />
     <script src="../../../js/proaJS/funcionesBase.js" defer></script>
     <script>
         // Cuando se cambie un checkbox, se envía el formulario automáticamente
@@ -76,11 +76,11 @@ $resultado = $conexion->query($sql);
         <!-- boton toggle que va a aparecer solo en version movil -->
         <button class="boton-filtros-mobile" onclick="toggleFiltros()">
             <span>Filtros</span>
-            <img src="../../../../imagenes/pngwing.com.png" alt="Filtros" class="icono-filtros">
+            <img src="../../../imagenes/filtroBlanco.png" alt="Filtros" class="icono-filtros">
         </button>
 
     <!-- sidebar donde se encuentran los filtros -->
-    <aside class="sidebar-pas scrollbar">
+    <aside class="sidebar scrollbar">
         <h2 class="titulo-filtro">FILTRAR POR</h2>
         <!-- botón borrar todo que sirve para borrar los checkbox seleccionados -->
         <button type="button" class="boton-limpiar" id="boton-borrar">Borrar todo</button>
@@ -143,7 +143,7 @@ $resultado = $conexion->query($sql);
             <!-- barra de busqueda -->
             <div class="barra-busqueda">
                 <input type="text" class="input-busqueda" placeholder="Nombre:" id="input-busqueda">
-                <img src="../../../../imagenes/loupe.png" alt="Buscar" class="icono-busqueda">
+                <img src="../../../imagenes/loupe.png" alt="Buscar" class="icono-busqueda">
             </div>
 
             <!-- aqui se muestran todas las asignaturas -->
@@ -239,14 +239,10 @@ $resultado = $conexion->query($sql);
         const botonFiltros = document.querySelector('.boton-filtros-mobile');
         if (sidebar.classList.contains('activo')) {
             botonFiltros.innerHTML = '<span>Ocultar filtros</span>' + 
-                '<svg class="icono-filtro" viewBox="0 0 24 24" fill="none" stroke="currentColor">' +
-                '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />' +
-                '</svg>';
+                '<img src="../../../imagenes/filtroBlanco.png" alt="Filtros" class="icono-filtros">';
         } else {
             botonFiltros.innerHTML = '<span>Filtros</span>' + 
-                '<svg class="icono-filtro" viewBox="0 0 24 24" fill="none" stroke="currentColor">' +
-                '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />' +
-                '</svg>';
+                '<img src="../../../imagenes/filtroBlanco.png" alt="Filtros" class="icono-filtros">';
         }
     }
 

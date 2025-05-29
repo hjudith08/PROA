@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/conexion.inc';
+require_once 'app/includes/conexion.inc';
 
 if (!isset($conn_edusync)) {
     die("Error de conexión");

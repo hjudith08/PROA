@@ -1,6 +1,5 @@
 /* PopUp para cerrar Sesion*/
 
-document.addEventListener("DOMContentLoaded", () => {
     const botonSalir = document.getElementById("boton-cerrar-sesion");
     const popup = document.getElementById("popupCerrarSesion");
     const overlay = document.getElementById("fondo-popup");
@@ -22,8 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "../loginProa.php";
         });
     }
-});
-
 
 /* selector de perfil web*/ 
 function redirectToView(select) {

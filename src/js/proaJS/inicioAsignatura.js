@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
     const botonesEditar = document.querySelectorAll(".fila-objetivo .editar");
 
     botonesEditar.forEach((boton) => {
@@ -43,4 +42,3 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-});

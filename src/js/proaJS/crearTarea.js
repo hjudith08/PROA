@@ -1,6 +1,3 @@
-
-document.addEventListener('DOMContentLoaded', function() {
-  
   // Manejo del input de archivo
   const fileInput = document.getElementById('taskFile');
   const fileButton = fileInput.nextElementSibling;
@@ -9,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   fileInput.addEventListener('change', function(e) {
     if (this.files && this.files.length > 0) {
       fileButtonText.textContent = this.files[0].name;
-      
+
       // Cambiar estilo cuando hay archivo seleccionado
       fileButton.style.backgroundColor = '#f0f0f0';
     } else {
@@ -20,10 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Manejo del formulario
   const taskForm = document.getElementById('taskForm');
-  
+
   taskForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    
+
     // Obtener valores del formulario
     const taskData = {
       scheduleDate: document.getElementById('scheduleDate').value,
@@ -33,23 +30,23 @@ document.addEventListener('DOMContentLoaded', function() {
       score: document.getElementById('taskScore').value,
       file: fileInput.files[0] ? fileInput.files[0].name : null
     };
-    
+
     // Validación básica
     if (!taskData.title || !taskData.description || !taskData.dueDate) {
       alert('Por favor complete los campos obligatorios: Título, Descripción y Fecha de entrega');
       return;
     }
-    
+
     // Validar puntuación
     if (taskData.score && (isNaN(taskData.score) || taskData.score <= 0)) {
       alert('La puntuación debe ser un número mayor a 0');
       return;
     }
-    
+
     // Aquí iría la lógica para enviar los datos al servidor
     console.log('Datos de la tarea:', taskData);
     alert('Tarea creada exitosamente!');
-    
+
     // Resetear formulario
     taskForm.reset();
     fileButtonText.textContent = 'Subir archivo';
@@ -81,4 +78,3 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
-});

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+
     const formulario = document.getElementById('formularioRecuperacion');
     const campoCorreo = document.getElementById('correo');
     
@@ -30,4 +30,3 @@ document.addEventListener('DOMContentLoaded', function() {
         const expresion = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return expresion.test(correo);
     }
-});

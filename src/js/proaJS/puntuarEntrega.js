@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+
     const botones = document.querySelectorAll('.boton-revisar');
     const popup = document.getElementById('popup');
     const tituloEl = document.getElementById('popup-titulo');
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cerrarPopup();
         }
     });
-});
+
 
 function cerrarPopup() {
     const popup = document.getElementById('popup');

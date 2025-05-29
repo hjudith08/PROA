@@ -6,6 +6,9 @@ session_start();
 
 require_once '../includes/conexion.inc'; // Ajusta ruta según tu estructura
 
+if (!$conn_proa) {
+    die("Error de conexión con la base de datos.");
+}
 // Recoger parámetros
 $rol = $_GET['rol'] ?? '';
 $usuario = $_GET['usuario'] ?? '';
@@ -16,9 +19,6 @@ if (!in_array($rol, $roles_validos)) {
     die("Rol inválido.");
 }
 
-// Definir la conexión correcta según dónde esté la tabla usuarios
-// Ajusta aquí según dónde esté la tabla usuarios: en $conn_proa o en $conn_edusync
-// Supongo que está en PROA
 $conn = $conn_proa; 
 
 // Preparar consulta según si usuario es enviado o no

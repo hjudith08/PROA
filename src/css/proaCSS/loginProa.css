@@ -175,6 +175,7 @@
         border: 1px solid #f5c6cb;
         border-radius: 4px;
         padding: 8px 15px;
+        order: 3;
         animation: fadeIn 0.3s ease-in-out;
     }
 

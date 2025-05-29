@@ -8,6 +8,7 @@
     <link rel="icon" href="../../imagenes/LogosProaBlancoV3.png" type="image/png">
     <link rel="stylesheet" href="../../css/proaCSS/estilosBaseProa.css">
     <link rel="stylesheet" href="../../css/proaCSS/loginProa.css">
+    <script src="../../js/proaJS/loginProa.js"></script>
 </head>
 <body>
 <?php include '../includes/proaInc/menuProa.inc'; ?>

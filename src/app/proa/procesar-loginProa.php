@@ -1,9 +1,13 @@
-<?php
+ <?php
 session_start();
 require_once '../includes/conexion.inc';
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+
+if (!$conn_proa) {
+    die("Error de conexión a la base de datos.");
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
@@ -18,10 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_result($dni, $nombre, $apellido1, $apellido2, $emailDB, $hash, $rol_id);
         $stmt->fetch();
 
-        if (hash('sha256', $password) === $hash) {
-            session_unset();
-            session_destroy();
-            session_start();
+        if (password_verify($password, hash: $hash)) {
+    // Reiniciar sesión para evitar conflictos de sesión
+    session_regenerate_id(true); // Mejor que session_unset() y session_destroy()
+
 
             $_SESSION['dni'] = $dni;
             $_SESSION['nombre'] = $nombre;
@@ -54,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     $error = "Acceso no permitido";
 }
-
-header("Location: ../loginProa.php?error=" . urlencode($error));
+header("Location: ../proa/loginProa.php?error=" . urlencode($error));
 exit;
 ?>

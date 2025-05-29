@@ -312,6 +312,7 @@ input:focus {
 
 .btn-registro,
 .btn-login {
+    text-decoration: none;
     width: 100%;
     max-width: 252px;
     height: 46px;
@@ -323,6 +324,10 @@ input:focus {
     transition: var(--transition);
     font-weight: bold;
     margin-top: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-registro:hover,

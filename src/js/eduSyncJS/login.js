@@ -31,6 +31,7 @@ async function cargarUsuarios() {
 // SECCIÓN 3: FUNCIONES DE MANEJO DE MENSAJES
 // =============================================
 /**
+
  * Muestra un mensaje de error en el formulario activo
  * @param {string} mensaje - Mensaje de error a mostrar
  */
@@ -105,36 +106,7 @@ loginForm.addEventListener("submit", async function(e) {
     }
 });
 
-// =============================================
-// SECCIÓN 5: MANEJADORES DE EVENTOS - REGISTRO
-// =============================================
-registroForm.addEventListener("submit", async function(e) {
-    e.preventDefault();
 
-    const email = registroForm.querySelector("#email").value;
-    const password = registroForm.querySelector("#password").value;
-
-    await cargarUsuarios();
-
-    if (usuarios.some(u => u.email === email)) {
-        mostrarError("Este email ya está registrado");
-        return;
-    }
-
-    if (password.length < 4) {
-        mostrarError("La contraseña debe tener al menos 4 caracteres");
-        return;
-    }
-
-    // Mostrar confirmación de registro exitoso
-    mostrarMensaje("Registro exitoso");
-
-    registroForm.reset();
-
-    setTimeout(() => {
-        contenedor.classList.remove("panel-derecho-activo");
-    }, 1000);
-});
 
 // =============================================
 // SECCIÓN 6: MANEJADORES DE INTERFAZ - CAMBIO ENTRE FORMULARIOS

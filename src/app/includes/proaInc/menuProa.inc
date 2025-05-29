@@ -12,7 +12,7 @@ $dataEdu = [
   ];
 
 $userdata = [
-    'rol' => 'profesor',
+    'rol' => 'alumno',
     'nombre' => 'Xexi',
     'apellidos' => 'Mexi',
     'id' => 3,

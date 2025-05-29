@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // conexion al servidor
-$conexion = new mysqli("localhost:3306", "jcivapo_proa", "proa1234!", "jcivapo_proa");
+$conexion = new mysqli("localhost", "root", "", "proa");
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
@@ -44,29 +44,23 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Editar Asignaturas</title>
-    <link rel="icon" href="../../../../imagenes/LogosProaBlancoV3.png" type="image/png" />
-    <link rel="stylesheet" href="../../../css/estilos-pas-ap.css" />
+    <!-- imagen de pestaña -->
+    <link rel="icon" href="../../../imagenes/LogosProaBlancoV3.png" type="image/png">
+    <link rel="stylesheet" href="../../../css/proaCSS/basePas.css">
+    <link rel="stylesheet" href="../../../css/proaCSS/estilos-pas-ap.css" />
+    <script src="../../../js/proaJS/funcionesBase.js" defer></script>
 </head>
 <body>
     <!-- header -->
-    <header>
-        <!-- logo -->
-        <div class="logo">
-            <a href="PasInicio.php"><img src="../../../../imagenes/LogosProaBlanco.png" alt="Logo Proa" class="logo" /></a>
-        </div>
-        <!-- mostrar el nombre del usuario que ha iniciado sesión -->
-        <div class="usuario">
-            <span>¡Bienvenido [Nombre del Usuario]!</span>
-            <a href="../loginProa.html"><img src="../../../../imagenes/user_1b.png" alt="Usuario" class="icono-usuario" /></a>
-        </div>
-    </header>
+        <!-- Header de Proa (móvil y ordenador) -->
+    <?php include '../../includes/proaInc/menuProa.inc'; ?>
 
     <!-- contenedor principal donde va a ir toda el contenido -->
     <div class="contenedor-principal">
         <!-- boton toggle que va a aparecer solo en version movil -->
         <button class="boton-filtros-mobile" onclick="toggleFiltros()">
             <span>Filtros</span>
-            <img src="../../../../imagenes/pngwing.com.png" alt="Filtros" class="icono-filtros" />
+            <img src="../../../imagenes/filtroBlanco.png" alt="Filtros" class="icono-filtros" />
         </button>
 
         <!-- sidebar donde se encuentran los filtros -->
@@ -114,7 +108,7 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
                 <!-- barra de busqueda -->
                 <div class="barra-busqueda">
                     <input type="text" class="input-busqueda" placeholder="Nombre:" id="input-busqueda">
-                    <img src="../../../../imagenes/loupe.png" alt="Buscar" class="icono-busqueda">
+                    <img src="../../../imagenes/loupe.png" alt="Buscar" class="icono-busqueda">
                 </div>
 
                 <!-- aqui se muestran todos los profesores -->
@@ -156,13 +150,8 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
         </main>
     </div>
 
-    <!-- footer -->
-    <footer>
-        <span class="texto-footer">powered by</span>
-        <div class="logo-footer">
-            <img src="../../../../imagenes/LogoEduSyncBlanco.png" alt="Logo Proa" class="logofooter" />
-        </div>
-    </footer>
+<!-- Footer de Proa -->
+<?php include '../../includes/proaInc/footerProa.inc'; ?>
 
     <script>
         //buscador
@@ -209,14 +198,10 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
             const botonFiltros = document.querySelector('.boton-filtros-mobile');
             if (sidebar.classList.contains('activo')) {
                 botonFiltros.innerHTML = '<span>Ocultar filtros</span>' +
-                    '<svg class="icono-filtro" viewBox="0 0 24 24" fill="none" stroke="currentColor">' +
-                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />' +
-                    '</svg>';
+                    '<img src="../../../imagenes/filtroBlanco.png" alt="Filtros" class="icono-filtros">';
             } else {
                 botonFiltros.innerHTML = '<span>Filtros</span>' +
-                    '<svg class="icono-filtro" viewBox="0 0 24 24" fill="none" stroke="currentColor">' +
-                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />' +
-                    '</svg>';
+                    '<img src="../../../imagenes/filtroBlanco.png" alt="Filtros" class="icono-filtros">';
             }
         }
     </script>

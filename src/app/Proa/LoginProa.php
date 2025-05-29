@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROA | Inicio de Sesión</title>
+    <title> PROA | Inicio de Sesión</title>
     <!-- imagen de pestaña -->
-    <link rel="icon" href="../../../imagenes/LogosProaBlancoV3.png" type="image/png">
-    <link rel="stylesheet" href="../../css/loginProa.css">
-    <script src="../../js/loginProa.js" defer></script>
+    <link rel="icon" href="../../imagenes/LogosProaBlancoV3.png" type="image/png">
+    <link rel="stylesheet" href="../../css/proaCSS/estilosBaseProa.css">
+    <link rel="stylesheet" href="../../css/proaCSS/loginProa.css">
+    <script src="../../js/proaJS/loginProa.js" defer></script>
 </head>
 <body>
+<!-- Header de Proa (móvil y ordenador) -->  
+<?php include '../includes/proaInc/menuProa.inc'; ?>
 
-    <main>
+    <div class="contenido">
         <div class="panel">
-            <img src="../../../imagenes/LogosProaBlanco.png" alt="">
+            <img src="../../imagenes/LogosProaBlanco.png" alt="">
             <div class="textos"> 
                 <h1>INICIO DE SESIÓN</h1>
                 <p>Por favor introduce tus datos para iniciar sesión</p>
@@ -27,17 +30,11 @@
 
                 <input id="iniciar-sesion" type="submit" value="INICIAR SESIÓN">
             </form>
+        </div>
+</div>
 
-            <a href="../EduSync/Sesion/formulario-credenciales.html">Solicitar credenciales</a>
-        </div>
-    </main>
-   <!-- Footer -->
-    <footer>
-        <span class="texto-footer">powered by</span>
-        <div class="logo-footer">
-            <img src="../../../imagenes/LogoEduSyncBlanco.png" alt="Logo Proa" class="logofooter">
-        </div>
-    </footer>
+    <!-- Footer de Proa -->
+<?php include '../includes/proaInc/footerProa.inc'; ?>
 
     
 </body>

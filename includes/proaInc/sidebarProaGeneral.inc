@@ -1,4 +1,4 @@
-<!-- Pie de página de las páginas de proa-->
+<!-- Sidebar de las páginas de proa-->
  
 <?php
 $pagina_actual = basename($_SERVER['PHP_SELF']);
@@ -19,7 +19,27 @@ if ($pagina_actual == 'inicioGeneral.php' || $pagina_actual == 'asignaturas.php'
                     <span>Asignaturas</span>
                 </button>
             </nav>
-        </aside>';
+        </aside>
+        
+        <div class="menu-movil">
+              <!-- botón del menu de hamburguesa -->
+            <button popovertarget="menu-hamburguesa"><img src="../../../imagenes/menu-hamburguesa.png" class="icono-hamburguesa"/></button>
+            <div id="menu-hamburguesa" popover>
+                 <nav>
+                    <button class="sidebar-btn seccion-activa" onclick="window.location.href=\'#\';">
+                        <img src="../../../imagenes/home.png" class="icono-menu"/>
+                        <span>Inicio General</span>
+                    </button>
+                
+                    <button class="sidebar-btn" onclick="window.location.href=\'asignaturas.php\';">
+                        <img src="../../../imagenes/bookb.png" class="icono-menu"/>
+                        <span>Asignaturas</span>
+                    </button>
+                </nav>
+            </div>
+        </div>';
+
+        
     } 
 
     //-- SideBar en Asignaturas--
@@ -37,7 +57,25 @@ if ($pagina_actual == 'inicioGeneral.php' || $pagina_actual == 'asignaturas.php'
                     <span>Asignaturas</span>
                 </button>
             </nav>
-        </aside>';
+        </aside>
+        
+        <div class="menu-movil">
+              <!-- botón del menu de hamburguesa -->
+            <button popovertarget="menu-hamburguesa"><img src="../../../imagenes/menu-hamburguesa.png" class="icono-hamburguesa"/></button>
+            <div id="menu-hamburguesa" popover>
+                 <nav>
+                    <button class="sidebar-btn" onclick="window.location.href=\'inicioGeneral.php\';">
+                        <img src="../../../imagenes/homeb.png" class="icono-menu"/>
+                        <span>Inicio General</span>
+                    </button>
+                
+                    <button class="sidebar-btn seccion-activa" onclick="window.location.href=\'#\';">
+                        <img src="../../../imagenes/book.png" class="icono-menu"/>
+                        <span>Asignaturas</span>
+                    </button>
+                </nav>
+            </div>
+        </div>';
     };
 
 }
@@ -59,7 +97,25 @@ else{
                     <span>Tareas</span>
                 </button>
             </nav>
-        </aside>';
+        </aside>
+        
+        <div class="menu-movil">
+              <!-- botón del menu de hamburguesa -->
+            <button popovertarget="menu-hamburguesa"><img src="../../../imagenes/menu-hamburguesa.png" class="icono-hamburguesa"/></button>
+            <div id="menu-hamburguesa" popover>
+                 <nav>
+                    <button class="sidebar-btn seccion-activa" onclick="window.location.href=\'#\';">
+                        <img src="../../../imagenes/home.png" class="icono-menu"/>
+                        <span>Inicio Asignatura</span>
+                    </button>
+                
+                    <button class="sidebar-btn" onclick="window.location.href=\'tareas.php\';">
+                        <img src="../../../imagenes/bookb.png" class="icono-menu"/>
+                        <span>Tareas</span>
+                    </button>
+                </nav>
+            </div>
+        </div>';
     } 
 
     //-- SideBar en Tareas y todo lo demas--
@@ -77,7 +133,25 @@ else{
                     <span>Tareas</span>
                 </button>
             </nav>
-        </aside>';
+        </aside>
+        
+        <div class="menu-movil">
+              <!-- botón del menu de hamburguesa -->
+            <button popovertarget="menu-hamburguesa"><img src="../../../imagenes/menu-hamburguesa.png" class="icono-hamburguesa"/></button>
+            <div id="menu-hamburguesa" popover>
+                 <nav>
+                    <button class="sidebar-btn" onclick="window.location.href=\'inicioAsignatura.php\';">
+                        <img src="../../../imagenes/homeb.png" class="icono-menu"/>
+                        <span>Inicio Asignatura</span>
+                    </button>
+                
+                    <button class="sidebar-btn seccion-activa" onclick="window.location.href=\'#\';">
+                        <img src="../../../imagenes/book.png" class="icono-menu"/>
+                        <span>Tareas</span>
+                    </button>
+                </nav>
+            </div>
+        </div>';
     };
 }
     

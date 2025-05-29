@@ -61,12 +61,13 @@
                 <!-- Boton para ir a la pagina de contacto-->
             </header>
             <!-- formulario de registro-->
-            <form id="registro-form" action="#" method="post">
+
+            <form id="registro-form" action="registro-usuario.php" method="post">
                 <h1>Registro</h1>
                 <p>Por favor introduce tus datos </p>
                 <!-- Grupo de los inputs del formulario de registro-->
                 <div class="inputs grupo-inputs-registro">
-        
+
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre" placeholder="Nombre" required pattern="[^0-9]+"
                         title="No puede contener numeros">
@@ -74,7 +75,7 @@
                     <label for="apellidos">Apellidos</label>
                     <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required
                         pattern="[^0-9]+" title="No puede contener numeros">
-                
+
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="ejemplo@ejemplo.com" required>
 
@@ -92,7 +93,7 @@
                         placeholder="TuContraseña123" required pattern=".{4,}">
                 </div>
                 <!-- boton de registro-->
-                <button type="submit" class="btn-registro">CREAR CUENTA</button>
+                <button class="btn-registro">CREAR CUENTA</button>
             </form>
             <!-- link para volver a la landing-->
             <a href="../../" class="btn-volver"> <-- Volver</a>
@@ -108,6 +109,8 @@
                     <p>¿Aún no tienes tu cuenta? ¡Crea una ahora y forma parte de EduSync!</p>
                     <button class="trigger" id="registrarse">CREAR CUENTA</button>
                 </div>
+
+
                 <!-- overlay del formulario de registro-->
                 <div class="overlay-panel overlay-right">
                     <h1>¡Bienvenido a EduSync!</h1>

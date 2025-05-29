@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+
     // Filtro tareas (select)
     const filtroSelect = document.getElementById('filtro-tareas');
     const filasTabla = document.querySelectorAll('.tabla-entregas tbody tr');
@@ -59,4 +59,3 @@ document.addEventListener('DOMContentLoaded', function() {
         // Ejecutamos filtro al cargar la página
         filtrarAsignaturas();
     }
-});

@@ -38,25 +38,30 @@ switch ($tipo) {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($titulo) ?></title>
     <link rel="icon" href="../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
     <link rel="stylesheet" href="../../css/edusyncCSS/estilosToken.css">
 </head>
+
 <body class="fondo-recuperacion">
     <div class="encabezado-recuperacion">
-        <img src="../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
+        <a href="../../" class="logo">
+            <img src="../../imagenes/LogoEduSyncAzul.png" alt="Logotipo">
+        </a>
     </div>
-    
+
     <div class="contenido-principal">
         <div class="mensaje <?= htmlspecialchars($clase) ?>">
             <h1><?= htmlspecialchars($titulo) ?></h1>
             <p><?= $mensaje ?></p>
         </div>
     </div>
-    
+
     <div class="pie-recuperacion">
     </div>
 </body>
+
 </html>

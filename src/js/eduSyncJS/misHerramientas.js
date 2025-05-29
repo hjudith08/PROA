@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+
     // Efecto de scroll suave para todos los enlaces
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -21,4 +21,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
 
-});

@@ -1,7 +1,7 @@
 <?php
 // Ajusta esta ruta según la ubicación real de include.php
 
-include '../../includes/proaInc/conexionProa.inc';
+include __DIR__ . '/../../conexion.inc';  
 
 $asignaturas = [];
 $result_asignaturas = $conn->query("SELECT nombre, codigo FROM asignaturas ORDER BY codigo DESC LIMIT 5");
@@ -42,7 +42,7 @@ if ($result_tareas) {
         <div class="cabecera-tareas">
             <h1>ASIGNATURAS RECIENTES VISITADAS</h1>
         </div>
-        <div class="tabla-flex-container">
+        <div class="tabla-flex-container inicioGenAsig">
             <ul class="asignaturas">
                 <?php foreach ($asignaturas as $asignatura): ?>
                     <li>

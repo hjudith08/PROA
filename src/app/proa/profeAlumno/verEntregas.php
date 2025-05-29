@@ -8,34 +8,39 @@
     <!-- imagen de pestaña -->
     <link rel="icon" href="../../../imagenes/LogosProaBlancoV3.png" type="image/png">
     <link rel="stylesheet" href="../../../css/proaCSS/estilosBaseProa.css">
-    <link rel="stylesheet" href="../../../css/proaCSS/iniciosProa.css">
+    <link rel="stylesheet" href="../../../css/proaCSS/verEntregas.css">
     <script src="../../../js/proaJS/funcionesBase.js" defer></script>
+    <script src="../../../js/proaJS/puntuarEntrega.js" defer></script>
+    <script src="../../../js/proaJS/filtrosAsignatura.js" defer></script>
 </head>
 <!-- Cuerpo de la página web -->
 
 <body>
+
     <!-- Header de Proa (móvil y ordenador) -->
     <?php include '../../includes/proaInc/menuProa.inc'; ?>
     <!-- Sidebar de Proa -->
     <?php include '../../includes/proaInc/sidebarProaGeneral.inc'; ?>
 
     <!-- Contenido de la página -->
-    <div class="contenido">
+   <div class="contenido">
         <!-- Titulo de la seccion-->
-        <h2>Inicio General</h2>
+        <h2>Inicio de Asignatura</h2>
         <!--  recorrido de donde te situas -->
         <div class="migas">
-            <a class="ubicacion-actual" href="#">Inicio General / </a>
+            <a href="inicioGeneral.php">Inicio General / </a>
+            <a href="asignaturas.php">Asignaturas / </a>
+            <a href="inicioAsignatura.php">Inicio Asignatura / </a>
+            <a href="tareas.php">Tareas / </a>
+            <a class="ubicacion-actual" href="#">Entregas / </a>
         </div>
         <!-- Contenido de la seccion-->
         <div class="contenido-interior">
+
             <?php
-            if ($userdata['rol'] == 'alumno') {
-                include '../../includes/proaInc/proaAlumnos/inicioGeneral.inc';
-            } elseif ($userdata['rol'] == 'profesor') {
-                include '../../includes/proaInc/proaProfesores/inicioGeneral.inc';
-            }
+                include '../../includes/proaInc/proaProfesores/verEntregas.inc';
             ?>
+        
         </div>
     </div>
     <!-- Footer de Proa -->

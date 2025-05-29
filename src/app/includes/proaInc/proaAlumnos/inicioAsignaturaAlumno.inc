@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . '/../../../../../env/conexion.php');
+include __DIR__ . '/../../conexion.inc';  // Ajusta la ruta a tu conexión
 
 if (!isset($_GET['codigo'])) {
     die('Asignatura no especificada.');
@@ -67,7 +67,7 @@ while ($fila = $result_tareas->fetch_assoc()) {
                 <h1>INFORMACIÓN ASIGNATURA</h1>
             </div>
             <div class="tabla-flex-container">
-                <ul class="asignaturas">
+                <ul class="asignaturas informacionAsig">
                     <li>
                         <h3>Objetivo asignatura</h3>
                         <p><?= htmlspecialchars($asignatura['objetivo_asignatura']) ?></p>

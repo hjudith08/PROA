@@ -12,7 +12,7 @@ $dataEdu = [
   ];
 
 $userdata = [
-    'rol' => 'alumno',
+    'rol' => 'pas',
     'nombre' => 'Xexi',
     'apellidos' => 'Mexi',
     'id' => 3,
@@ -38,7 +38,7 @@ if ($pagina_actual == 'loginProa.php') {
     <div class="botones-selector-ordenador">
         <button id="vista-alumno" onclick="location.href='profeAlumno/inicioGeneral.php'">Alumno</button>
 <button id="vista-profesor" onclick="location.href='profeAlumno/inicioGeneral.php'">Profesor</button>
-<button id="vista-pas" onclick="location.href='pas/inicioPas.php'">Pas</button>
+<button id="vista-pas" onclick="location.href='pas/PasInicio.php'">Pas</button>
     </div>
     
     <!-- Versión para móvil -->
@@ -88,7 +88,12 @@ elseif ($pagina_actual != 'loginProa.php') {
     <!-- Elementos a la izquierda del header -->
     <div class="elementos-izquierda">
         <!-- Logo de la herramienta educativa -->
-        <a class="logo-header" href="inicioGeneral.php"><img src="../../../imagenes/LogosProaBlanco.png" alt="Logotipo"></a>
+        <?php if($userdata['rol'] == 'pas'){ ?>
+            <a class="logo-header" href="PasInicio.php"><img src="../../../imagenes/LogosProaBlanco.png" alt="Logotipo"></a>
+        <?php }else{ ?>
+            <a class="logo-header" href="inicioGeneral.php"><img src="../../../imagenes/LogosProaBlanco.png" alt="Logotipo"></a>
+       <?php } ?>
+
         <!-- Nombre de la asignatura en la q se encuentra (en caso de q no este en ninguna no saldrá nada) -->
         <h3 class="titulo-asignatura"><?php echo $asignatura['nombre'] ?></h3>
     </div>

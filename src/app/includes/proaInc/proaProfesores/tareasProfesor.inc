@@ -8,7 +8,7 @@ if ($id_asignatura <= 0) {
 }
 
 // Consulta para obtener las tareas de esa asignatura
-$stmt = $conn->prepare("SELECT titulo, fecha_apertura, fecha_entrega FROM tareas WHERE id_asignatura = ? ORDER BY fecha_entrega DESC");
+$stmt = $conn->prepare("SELECT id_tarea, titulo, fecha_apertura, fecha_entrega FROM tareas WHERE id_asignatura = ? ORDER BY fecha_entrega DESC");
 $stmt->bind_param("i", $id_asignatura);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -42,8 +42,8 @@ $result = $stmt->get_result();
                     <td class="fecha-apertura-vProfesor"><?= date('d/m/Y', strtotime($row['fecha_apertura'])) ?></td>
                     <td class="fecha-entrega-vProfesor"><?= date('d/m/Y', strtotime($row['fecha_entrega'])) ?></td>
                     <td class="acciones">
-                        <button class="boton-revisar-profesor" onclick="window.location.href='editarTarea.php?id=<?= urlencode($id_asignatura) ?>&titulo=<?= urlencode($row['titulo']) ?>'">Editar</button>
-                        <button class="boton-revisar-profesor" onclick="window.location.href='verEntregas.php?id=<?= urlencode($id_asignatura) ?>&titulo=<?= urlencode($row['titulo']) ?>'">Ver Entregas</button>
+                        <button class="boton-revisar-profesor" onclick="window.location.href='editarTarea.php?id=<?= urlencode($id_asignatura) ?>&id_tarea=<?= $row['id_tarea'] ?>'">Editar</button>
+                        <button class="boton-revisar-profesor" onclick="window.location.href='verEntregas.php?id=<?= urlencode($id_asignatura) ?>&id_tarea=<?= $row['id_tarea'] ?>'">Ver Entregas</button>
                     </td>
                 </tr>
                 <?php endwhile; ?>

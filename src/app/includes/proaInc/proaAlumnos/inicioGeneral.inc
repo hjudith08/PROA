@@ -1,7 +1,7 @@
 <?php
 // Ajusta esta ruta según la ubicación real de include.php
 
-include '../../includes/proaInc/conexionProa.inc';
+include __DIR__ . '/../../conexion.inc'; 
 
 $asignaturas = [];
 $result_asignaturas = $conn->query("SELECT nombre, codigo FROM asignaturas ORDER BY codigo DESC LIMIT 5");

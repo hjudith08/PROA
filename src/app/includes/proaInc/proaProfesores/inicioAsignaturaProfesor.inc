@@ -1,21 +1,4 @@
-<main class="content">
-    <button class="hamburguesa" aria-label="Abrir menú">☰</button>
-    <nav class="menu-movil">
-        <ul>
-            <li>
-                <a href="#">
-                    <img src="images/homeb.png" alt="Inicio" />
-                    Inicio General
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="images/bookb.png" alt="Asignaturas" />
-                    Asignaturas
-                </a>
-            </li>
-        </ul>
-    </nav>
+
     <div class="contenedor-flex-principal">
 
         <!-- IZQUIERDA: Información Asignatura -->
@@ -106,4 +89,3 @@
         </div>
 
     </div>
-</main>

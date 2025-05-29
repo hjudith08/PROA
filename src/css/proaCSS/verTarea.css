@@ -1,0 +1,140 @@
+
+.div-verTarea > div {
+    display: flex;
+}
+
+.contenido-informacionTarea{
+    display: row;
+}
+
+.titulo{
+    font-weight: bold;
+    margin: 0.5rem;
+}
+
+.informacion{
+    margin: 0.5rem;
+}
+
+.adjunto-archivos-linea {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.descripcion-tarea{
+    display: felx;
+    flex-direction: column;
+}
+
+
+#descripcionTarea {
+  padding: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 1px solid #75619E;  border-radius: 8px;
+  resize: vertical; /* permite cambiar el tamaño solo verticalmente */
+  min-height: 120px; /* puedes ajustar la altura mínima */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.boton-revisar {
+    padding: 6px 12px;
+    margin: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 135px;
+    height: 38px;
+    background: #FEFEFF;
+    border: 1px solid #75619E;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    color: #3F2A52;
+    }
+
+.boton-centro{
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto;
+    font-weight: bold;
+}
+.boton-revisar:hover {
+    background-color: rgba(99, 45, 200, 0.2);
+}
+
+.file-input-button:hover {
+    background-color: rgba(99, 45, 200, 0.2);
+}
+
+.file-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.file-input {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-input-button {
+  padding: 6px 12px;
+  margin: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 135px;
+  height: 38px;
+  background-color: var(--color-blanco);
+  border: 1px solid var(--color-principal-claro);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #3F2A52;
+  font-size: 14px;
+}
+
+.file-input-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.form-label{
+    width: 170px;
+    display: flex;
+    align-self: center;
+}
+
+@media (max-width: 768px) {
+    .adjunto-archivos-linea {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+
+    }
+
+    .form-label{
+        display: flex;
+        margin-left: 0.5rem;
+        margin-right: auto;
+    }
+
+    .titulo{
+        display: flex;
+        text-align: left;
+    }
+
+    .file-input-button,
+  .boton-revisar {
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

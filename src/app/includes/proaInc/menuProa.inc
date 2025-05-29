@@ -12,7 +12,7 @@ $dataEdu = [
   ];
 
 $userdata = [
-    'rol' => 'alumno',
+    'rol' => 'pas',
     'nombre' => 'Xexi',
     'apellidos' => 'Mexi',
     'id' => 3,
@@ -88,7 +88,12 @@ elseif ($pagina_actual != 'loginProa.php') {
     <!-- Elementos a la izquierda del header -->
     <div class="elementos-izquierda">
         <!-- Logo de la herramienta educativa -->
-        <a class="logo-header" href="inicioGeneral.php"><img src="../../../imagenes/LogosProaBlanco.png" alt="Logotipo"></a>
+        <?php if($userdata['rol'] == 'pas'){ ?>
+            <a class="logo-header" href="PasInicio.php"><img src="../../../imagenes/LogosProaBlanco.png" alt="Logotipo"></a>
+        <?php }else{ ?>
+            <a class="logo-header" href="inicioGeneral.php"><img src="../../../imagenes/LogosProaBlanco.png" alt="Logotipo"></a>
+       <?php } ?>
+
         <!-- Nombre de la asignatura en la q se encuentra (en caso de q no este en ninguna no saldrá nada) -->
         <h3 class="titulo-asignatura"><?php echo $asignatura['nombre'] ?></h3>
     </div>

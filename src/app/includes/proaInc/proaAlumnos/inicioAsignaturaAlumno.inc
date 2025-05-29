@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . '/../../../../../env/conexion.php');
+include __DIR__ . '/../../conexion.inc';  // Ajusta la ruta a tu conexión
 
 if (!isset($_GET['codigo'])) {
     die('Asignatura no especificada.');

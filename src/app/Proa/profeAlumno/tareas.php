@@ -25,13 +25,21 @@
     <div class="migas">
         <a href="inicioGeneral.php">Inicio General / </a><a href="asignaturas.php">Asignaturas / </a><a href="inicioAsignatura.php">Inicio Asignatura / </a><a href="#">Tareas /</a>
     </div>
+
 <!-- Contenido de la seccion-->
     <div class="contenido-interior">
         
+<<<<<<< Updated upstream:src/app/Proa/profeAlumno/tareas.php
         <!--Rellenar-->
 
         <!-- lo haceis con lo siguiente<?php /* include '../../includes/proaInc/proa[pas-alumno-profesor]/[nombreDelArchivo].inc'; */ ?> -->
 
+=======
+        <?php 
+            include '../../includes/proaInc/proaAlumnos/informacionTarea.inc';
+        ?>
+    
+>>>>>>> Stashed changes:src/app/proa/profeAlumno/verTarea.php
     </div>
 </div>
 <!-- Footer de Proa -->

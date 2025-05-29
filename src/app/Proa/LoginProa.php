@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,9 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROA | Inicio de Sesión</title>
     <!-- imagen de pestaña -->
+<<<<<<< Updated upstream
     <link rel="icon" href="../../../imagenes/LogosProaBlancoV3.png" type="image/png">
     <link rel="stylesheet" href="../../css/loginProa.css">
     <script src="../../js/loginProa.js" defer></script>
+=======
+    <link rel="icon" href="../../imagenes/LogosProaBlancoV3.png" type="image/png">
+    <link rel="stylesheet" href="../../css/proaCSS/estilosBaseProa.css">
+    <link rel="stylesheet" href="../../css/proaCSS/loginProa.css">
+>>>>>>> Stashed changes
 </head>
 <body>
 
@@ -18,15 +25,17 @@
                 <h1>INICIO DE SESIÓN</h1>
                 <p>Por favor introduce tus datos para iniciar sesión</p>
             </div>
-            <div id="output"></div>
-            <form id="login" action="app/" method="get">
+            <?php if (isset($_GET['error'])): ?>
+                <div class="mensaje error-mensaje"><?= htmlspecialchars($_GET['error']) ?></div>
+            <?php endif; ?>
+            <form id="login" action="procesar-loginProa.php" method="post">
                 <label for="email">Correo</label>
                 <input id="email" type="email" name="email" required placeholder="Escribe tu correo">
-                <label for="password">Contraseña</label> <!---->
+                <label for="password">Contraseña</label>
                 <input id="password" type="password" name="password" required placeholder="Escribe tu contraseña" pattern=".{4,}">
-
                 <input id="iniciar-sesion" type="submit" value="INICIAR SESIÓN">
             </form>
+<<<<<<< Updated upstream
 
             <a href="../EduSync/Sesion/formulario-credenciales.html">Solicitar credenciales</a>
         </div>
@@ -40,5 +49,12 @@
     </footer>
 
     
+=======
+        </div>
+    </div>
+
+    <!-- Footer de Proa -->
+    <?php include '../includes/proaInc/footerProa.inc'; ?>
+>>>>>>> Stashed changes
 </body>
 </html>

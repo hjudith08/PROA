@@ -77,7 +77,7 @@ function eliminarMensajesAnteriores() {
     const mensajes = document.querySelectorAll('.error-mensaje, .exito-mensaje');
     mensajes.forEach(e => e.remove());
 }
-
+/*
 // =============================================
 // SECCIÓN 4: MANEJADORES DE EVENTOS - LOGIN
 // =============================================
@@ -105,6 +105,7 @@ loginForm.addEventListener("submit", async function(e) {
     }
 });
 
+<<<<<<< Updated upstream:src/js/login.js
 // =============================================
 // SECCIÓN 5: MANEJADORES DE EVENTOS - REGISTRO
 // =============================================
@@ -135,6 +136,9 @@ registroForm.addEventListener("submit", async function(e) {
         contenedor.classList.remove("panel-derecho-activo");
     }, 1000);
 });
+=======
+*/
+>>>>>>> Stashed changes:src/js/eduSyncJS/login.js
 
 // =============================================
 // SECCIÓN 6: MANEJADORES DE INTERFAZ - CAMBIO ENTRE FORMULARIOS

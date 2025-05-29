@@ -19,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->fetch();
 
         if (hash('sha256', $password) === $hash) {
-            // Reiniciar sesión limpia
             session_unset();
             session_destroy();
             session_start();
@@ -31,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['email'] = $emailDB;
             $_SESSION['rol'] = $rol_id;
 
-            // Redirección
+            // Redirección según rol
             switch ($rol_id) {
                 case 'alumno':
                 case 'profesor':
@@ -58,3 +57,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 header("Location: ../loginProa.php?error=" . urlencode($error));
 exit;
+?>

@@ -1,17 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> PROA | Inicio de Sesión</title>
-    <!-- imagen de pestaña -->
     <link rel="icon" href="../../imagenes/LogosProaBlancoV3.png" type="image/png">
     <link rel="stylesheet" href="../../css/proaCSS/estilosBaseProa.css">
     <link rel="stylesheet" href="../../css/proaCSS/loginProa.css">
-    <script src="../../js/proaJS/loginProa.js" defer></script>
 </head>
 <body>
-<!-- Header de Proa (móvil y ordenador) -->  
 <?php include '../includes/proaInc/menuProa.inc'; ?>
 
     <div class="contenido">
@@ -32,11 +30,7 @@
                 <input id="iniciar-sesion" type="submit" value="INICIAR SESIÓN">
             </form>
         </div>
-</div>
-
-    <!-- Footer de Proa -->
-<?php include '../includes/proaInc/footerProa.inc'; ?>
-
-    
+    </div>
+    <?php include '../includes/proaInc/footerProa.inc'; ?>
 </body>
 </html>

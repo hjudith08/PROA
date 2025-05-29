@@ -58,7 +58,7 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
         <!-- boton toggle que va a aparecer solo en version movil -->
         <button class="boton-filtros-mobile" onclick="toggleFiltros()">
             <span>Filtros</span>
-            <img src="../../../imagenes/pngwing.com.png" alt="Filtros" class="icono-filtros" />
+            <img src="../../../../imagenes/pngwing.com.png" alt="Filtros" class="icono-filtros" />
         </button>
 
         <!-- sidebar donde se encuentran los filtros -->
@@ -106,7 +106,7 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
                 <!-- barra de busqueda -->
                 <div class="barra-busqueda">
                     <input type="text" class="input-busqueda" placeholder="Nombre:" id="input-busqueda" />
-                    <img src="../../../imagenes/loupe.png" alt="Buscar" class="icono-busqueda" />
+                    <img src="../../../../imagenes/loupe.png" alt="Buscar" class="icono-busqueda" />
                 </div>
 
                 <!-- aqui se muestran todos los alumnos -->

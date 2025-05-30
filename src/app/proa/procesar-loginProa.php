@@ -2,11 +2,11 @@
 session_start();
 require_once '../includes/conexion.inc';
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+header('Content-Type: application/json');
 
 if (!$conn_proa) {
-    die("Error de conexión a la base de datos.");
+    echo json_encode(['success' => false, 'error' => 'Error de conexión a la base de datos.']);
+    exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -14,6 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
 
     $stmt = $conn_proa->prepare("SELECT dni, nombre, apellido1, apellido2, email, password, rol_id FROM usuarios WHERE email = ?");
+    if (!$stmt) {
+        echo json_encode(['success' => false, 'error' => 'Error en la consulta']);
+        exit;
+    }
+
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
@@ -22,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_result($dni, $nombre, $apellido1, $apellido2, $emailDB, $hash, $rol_id);
         $stmt->fetch();
 
-        // ✅ Comparar la contraseña en texto plano con el hash usando password_verify
-        if (password_verify($password, $hash)) {
+        // Validación usando SHA-256
+        if (hash('sha256', $password) === $hash) {
             session_regenerate_id(true);
 
             $_SESSION['dni'] = $dni;
@@ -33,31 +38,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['email'] = $emailDB;
             $_SESSION['rol'] = $rol_id;
 
+            $redirect = '';
             switch ($rol_id) {
                 case 'alumno':
                 case 'profesor':
-                    header("Location: ../profeAlumno/inicioGeneral.php");
+                    $redirect = '../Proa/profeAlumno/inicioGeneral.php';
                     break;
                 case 'pas':
-                    header("Location: ../pas/PasInicio.php");
+                    $redirect = '../Proa/pas/PasInicio.php';
                     break;
                 default:
-                    header("Location: ../loginProa.php");
+                    $redirect = '../Proa/loginProa.php';
             }
-            exit;
+
+            echo json_encode(['success' => true, 'redirect' => $redirect]);
         } else {
-            $error = "Contraseña incorrecta";
+            echo json_encode(['success' => false, 'error' => 'Contraseña incorrecta']);
         }
     } else {
-        $error = "Usuario no encontrado";
+        echo json_encode(['success' => false, 'error' => 'Usuario no encontrado']);
     }
 
     $stmt->close();
     $conn_proa->close();
 } else {
-    $error = "Acceso no permitido";
+    echo json_encode(['success' => false, 'error' => 'Acceso no permitido']);
 }
-
-header("Location: ../proa/loginProa.php?error=" . urlencode($error));
-exit;
-?>

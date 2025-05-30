@@ -189,6 +189,7 @@
         border: 1px solid #c3e6cb;
         border-radius: 4px;
         padding: 8px 15px;
+        order: 6;
         animation: fadeIn 0.3s ease-in-out;
     }
 

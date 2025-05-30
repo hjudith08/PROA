@@ -344,7 +344,7 @@
 
     .rectangulo-fecha {
         background-color: #ffffff;
-        color: rgba(161, 0, 255, 0.65);
+        color: var(--color-principal);
         padding: 10px 16px;
         border-radius: 8px;
         font-weight: bold;
@@ -371,8 +371,7 @@
     }
 
     .botonesEditaryVer button:hover {
-        background-color: #b784d8;
-        color: white;
+        background-color: rgba(99, 45, 200, 0.2);   
     }
 
 

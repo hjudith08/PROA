@@ -1,3 +1,28 @@
+const loginForm = document.getElementById('login');
+
+function eliminarMensajesAnteriores() {
+    const errores = document.querySelectorAll('.mensaje, .error-mensaje, .exito-mensaje');
+    errores.forEach(el => el.remove());
+}
+
+function mostrarError(msg) {
+    eliminarMensajesAnteriores();
+    const panel = document.querySelector('.panel');
+    const divError = document.createElement('div');
+    divError.className = 'mensaje error-mensaje';
+    divError.textContent = msg;
+    panel.insertBefore(divError, loginForm);
+}
+
+function mostrarMensaje(msg) {
+    eliminarMensajesAnteriores();
+    const panel = document.querySelector('.panel');
+    const divMsg = document.createElement('div');
+    divMsg.className = 'mensaje exito-mensaje';
+    divMsg.textContent = msg;
+    panel.insertBefore(divMsg, loginForm);
+}
+
 loginForm.addEventListener("submit", async function(e) {
     e.preventDefault();
 
@@ -5,6 +30,11 @@ loginForm.addEventListener("submit", async function(e) {
 
     const email = loginForm.querySelector("#email").value.trim();
     const password = loginForm.querySelector("#password").value.trim();
+
+    if (!email || !password) {
+        mostrarError("Por favor completa todos los campos.");
+        return;
+    }
 
     const formData = new FormData();
     formData.append('email', email);
@@ -16,11 +46,14 @@ loginForm.addEventListener("submit", async function(e) {
             body: formData
         });
 
+        if (!response.ok) {
+            throw new Error('Error en la respuesta del servidor');
+        }
+
         const data = await response.json();
 
         if (data.success) {
             mostrarMensaje("Inicio de sesión exitoso. Redirigiendo...");
-
             setTimeout(() => {
                 window.location.href = data.redirect;
             }, 1000);
@@ -29,20 +62,6 @@ loginForm.addEventListener("submit", async function(e) {
         }
     } catch (error) {
         mostrarError("Error en el servidor");
-    }
-});
-
-
-fetch('procesar-loginProa.php', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    body: new URLSearchParams(new FormData(loginForm))
-})
-.then(res => res.json())
-.then(data => {
-    if (data.success) {
-        window.location.href = data.redirect;
-    } else {
-        mostrarError(data.error);
+        console.error(error);
     }
 });

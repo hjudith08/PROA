@@ -1,44 +1,40 @@
-    const botonesEditar = document.querySelectorAll(".fila-objetivo .editar");
+document.querySelectorAll('.texto-visible').forEach(div => {
+    div.addEventListener('click', function () {
+        const container = this.parentElement;
+        const textarea = container.querySelector('.textarea-edicion');
+        const guardar = container.querySelector('.btn-guardar');
 
-    botonesEditar.forEach((boton) => {
-        boton.addEventListener("click", () => {
-            const fila = boton.closest(".fila-objetivo");
-            const divTexto = fila.querySelector(".texto-desplegable");
-
-            // Buscar si ya existe textarea
-            let textarea = fila.querySelector("textarea");
-
-            if (boton.textContent === "Editar") {
-                if (!textarea) {
-                    // Crear textarea solo si no existe
-                    textarea = document.createElement("textarea");
-                    textarea.className = "texto-desplegable";
-                    textarea.style.width = "100%";
-                    textarea.style.minHeight = "60px";
-                    textarea.style.fontFamily = "inherit";
-                    textarea.style.fontSize = "inherit";
-                    textarea.style.padding = "4px";
-                    fila.insertBefore(textarea, divTexto.nextSibling);
-                }
-                // Rellenar textarea con el texto actual
-                textarea.value = divTexto.textContent.trim();
-
-                // Ocultar el div y mostrar textarea
-                divTexto.style.display = "none";
-                textarea.style.display = "block";
-                textarea.focus();
-
-                boton.textContent = "Guardar";
-
-            } else {
-                // Guardar el texto en el div
-                divTexto.textContent = textarea.value;
-
-                // Ocultar textarea y mostrar div
-                textarea.style.display = "none";
-                divTexto.style.display = "block";
-
-                boton.textContent = "Editar";
-            }
-        });
+        textarea.value = this.textContent.trim();
+        this.style.display = 'none';
+        textarea.style.display = 'block';
+        guardar.style.display = 'inline-block';
     });
+});
+
+document.querySelectorAll('.btn-guardar').forEach(boton => {
+    boton.addEventListener('click', function () {
+        const container = this.parentElement;
+        const id = container.dataset.id;
+        const campo = container.dataset.campo;
+        const textarea = container.querySelector('.textarea-edicion');
+        const textoVisible = container.querySelector('.texto-visible');
+        const valor = textarea.value.trim();
+
+        fetch(location.href, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id, campo, valor })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    textoVisible.textContent = valor;
+                    textarea.style.display = 'none';
+                    boton.style.display = 'none';
+                    textoVisible.style.display = 'block';
+                } else {
+                    alert('Error al guardar');
+                }
+            });
+    });
+});

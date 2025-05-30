@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../../conexion.inc';
+include _DIR_ . '/../../conexion.inc';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && strpos($_SERVER["CONTENT_TYPE"], "application/json") !== false) {
     $input = file_get_contents("php://input");

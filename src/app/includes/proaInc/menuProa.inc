@@ -55,7 +55,7 @@ if (!in_array($pagina_actual, $noMostrar)) {
 <!-- Cabecera para login -->
 <header class="header-selector-usuario">
     <a class="logo-edusync" href="../../"><img src="../../imagenes/LogoEduSyncAzulV3.png" alt="logo de EduSync"></a>
-    <span> Hola <strong><?php echo $userdata['nombre'] ?? 'Usuario'; ?></strong>, selecciona la vista que desees.</span>
+    <span> Selecciona la vista que desees.</span>
     <div class="botones-selector-ordenador">
         <button onclick="location.href='autologin.php?rol=alumno'">Alumno</button>
         <button onclick="location.href='autologin.php?rol=profesor'">Profesor</button>
@@ -83,7 +83,7 @@ if (!in_array($pagina_actual, $noMostrar)) {
 <!-- Cabecera cuando ya estás en sesión -->
 <header class="header-selector-usuario">
     <a class="logo-edusync" href="../../../"><img src="../../../imagenes/LogoEduSyncAzulV3.png" alt="logo de EduSync"></a>
-    <span> Hola <strong><?php echo $userdata['nombre'] ?? 'Usuario'; ?></strong>, selecciona la vista que desees.</span>
+    <span> Selecciona la vista que desees.</span>
     <div class="botones-selector-ordenador">
         <button  <?php echo ($userdata['rol'] == 'alumno') ? 'class="vista-seleccionada" disabled' : ''; ?>onclick="location.href='../autologin.php?rol=alumno'">Alumno</button>
         <button <?php echo ($userdata['rol'] == 'profesor') ? 'class="vista-seleccionada" disabled' : ''; ?> onclick="location.href='../autologin.php?rol=profesor'">Profesor</button>

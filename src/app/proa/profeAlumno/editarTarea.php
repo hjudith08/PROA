@@ -14,7 +14,6 @@ if (isset($_GET['id_tarea'])) {
     $stmt->close();
 }
 
-$conn_proa->close();
 ?>
 
 <!DOCTYPE html>

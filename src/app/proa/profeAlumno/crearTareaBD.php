@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()) {
         echo "<script>
             alert('¡Tarea creada con éxito!');
-            window.location.href = 'crearTarea.php?id=$id_asignatura';
+            window.location.href = 'tareas.php?id=$id_asignatura';
         </script>";
         exit;
     } else {

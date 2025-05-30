@@ -502,6 +502,7 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
         z-index: 1000;
         overflow: hidden;
+        z-index: 3;
     }
     @media screen and (max-width: 777px) {
     :root {
@@ -524,6 +525,10 @@
             box-sizing: border-box;
         }
 
+        ul.asignaturas, ul.informacionAsig,
+    ul.tareas {
+        grid-template-columns: inherit;
+    }
         .content {
             padding-top: 1rem;;
         }
@@ -646,7 +651,7 @@
         .encabezado-item {
             flex-direction: column;
             gap: 0.5rem;
-            align-items: flex-start;
+            padding: 1rem;
         }
 
         /* Aquí lo más importante para que los botones no se corten */
@@ -698,9 +703,9 @@
             /* Más estrecho que 100% */
             max-width: 700px;
             /* O cualquier otro valor acorde al diseño */ 
-            font-size: .8rem;
-            /* Para centrarla horizontalmente */
+            font-size: .7rem;
             border-collapse: collapse;
+            table-layout: fixed;
         }
 
         .asignaturas li:hover {

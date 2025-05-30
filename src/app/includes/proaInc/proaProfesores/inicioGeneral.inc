@@ -1,10 +1,9 @@
 <?php
-// Ajusta esta ruta según la ubicación real de include.php
-
 include __DIR__ . '/../../conexion.inc';  
 
 $asignaturas = [];
-$result_asignaturas = $conn_proa->query("SELECT nombre, codigo FROM asignaturas ORDER BY codigo DESC LIMIT 5");
+// Ahora seleccionamos también id_asignatura
+$result_asignaturas = $conn_proa->query("SELECT id_asignatura, nombre, codigo FROM asignaturas ORDER BY codigo DESC LIMIT 5");
 if ($result_asignaturas) {
     while ($fila = $result_asignaturas->fetch_assoc()) {
         $asignaturas[] = $fila;
@@ -21,7 +20,6 @@ JOIN asignaturas a ON t.id_asignatura = a.id_asignatura
 ORDER BY t.fecha_entrega ASC
 ");
 
-
 if ($result_tareas) {
     while ($fila = $result_tareas->fetch_assoc()) {
         $tareas[] = $fila;
@@ -29,24 +27,19 @@ if ($result_tareas) {
 } else {
     echo "Error en tareas: " . $conn_proa->error;
 }
-
 ?>
 
-
-
-
 <main class="content">
-
     <!-- Sección de Asignaturas Recientes -->
     <section class="bloque-info">
         <div class="cabecera-tareas">
             <h1>ASIGNATURAS RECIENTES VISITADAS</h1>
         </div>
         <div class="tabla-flex-container inicioGenAsig">
-            <ul class="asignaturas a">
+            <ul class="asignaturas">
                 <?php foreach ($asignaturas as $asignatura): ?>
                     <li>
-                        <a href="inicioAsignatura.php?codigo=<?= urlencode($asignatura['codigo']) ?>">
+                        <a href="inicioAsignatura.php?id=<?= urlencode($asignatura['id_asignatura']) ?>">
                             <span class="nombre-asignatura"><?= htmlspecialchars($asignatura['nombre']) ?></span>
                             <span class="codigo-asignatura"><?= htmlspecialchars($asignatura['codigo']) ?></span>
                         </a>
@@ -79,15 +72,12 @@ if ($result_tareas) {
                             <a class="asignatura-link" href="tarea.php?codigo=<?= urlencode($tarea['codigo']) ?>">
                                 <?= htmlspecialchars($tarea['nombre_asignatura']) ?>
                             </a>
-
                         </td>
                     </tr>
                 <?php endforeach; ?>
-
                 </tbody>
             </table>
         </div>
     </section>
 </main>
-
-
+?>

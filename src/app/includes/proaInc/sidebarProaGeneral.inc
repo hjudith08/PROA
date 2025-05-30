@@ -92,10 +92,11 @@ else{
                     <span>Inicio Asignatura</span>
                 </button>
             
-                <button class="sidebar-btn" onclick="window.location.href=\'tareas.php\';">
-                    <img src="../../../imagenes/bookb.png" class="icono-menu"/>
-                    <span>Tareas</span>
-                </button>
+             <button class="sidebar-btn" id="btn-tareas">
+                <img src="../../../imagenes/bookb.png" class="icono-menu"/>
+                <span>Tareas</span>
+            </button>
+
             </nav>
         </aside>
         
@@ -156,5 +157,3 @@ else{
 }
     
 ?>
-
-

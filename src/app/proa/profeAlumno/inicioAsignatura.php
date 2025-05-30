@@ -47,4 +47,18 @@
 
 </body>
 
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const idAsignatura = params.get("id");
+
+    document.getElementById("btn-tareas").addEventListener("click", function() {
+        if (idAsignatura) {
+            window.location.href = `tareas.php?id=${encodeURIComponent(idAsignatura)}`;
+        } else {
+            alert("No se ha seleccionado ninguna asignatura.");
+        }
+    });
+</script>
+
+
 </html>

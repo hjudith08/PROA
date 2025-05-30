@@ -1,13 +1,8 @@
 <?php
 include __DIR__ . '/../../conexion.inc';  
 
-// Por ahora usamos el id_tarea fijo para probar.
-// Cuando tengas la pantalla para seleccionar la tarea, cambia esta línea para obtenerlo vía GET, por ejemplo:
-// $id_tarea = $_GET['id_tarea'] ?? null;
-$id_tarea = 1;
-
-if ($id_tarea) {
-    $stmt = $conn->prepare("
+if ($id_tarea > 0) {
+    $stmt = $conn_proa->prepare("
         SELECT 
             e.id_entrega,
             e.dni_alumno,
@@ -27,10 +22,10 @@ if ($id_tarea) {
     $stmt->execute();
     $result = $stmt->get_result();
 } else {
-    // Aquí podrías manejar el error o mostrar un mensaje si no hay id_tarea
     $result = null;
 }
 ?>
+
 <div class="contenedor-filtros">
     <select class="filtros-tareas" id="filtro-tareas">
         <option value="todos">Todas las entregas</option>
@@ -112,4 +107,31 @@ if ($id_tarea) {
         // Luego cuando tengas el id_tarea dinámico, añade parámetro id_tarea a la url si lo necesitas
         window.location.href = `revisarEntrega.php?alumno=${encodeURIComponent(dniAlumno)}`;
     }
+
+    document.addEventListener('DOMContentLoaded', function () {
+    // Abrir popup al hacer clic en "Revisar"
+    document.querySelectorAll('.boton-revisar').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            // Rellenar datos del popup
+            document.getElementById('popup-titulo').textContent = btn.dataset.titulo;
+            document.getElementById('popup-estudiante').textContent = btn.dataset.estudiante;
+            document.getElementById('nota').value = btn.dataset.nota || '';
+            document.getElementById('entrega-id').value = btn.dataset.id;
+
+            // Archivo adjunto
+            var archivo = btn.dataset.archivo;
+            var archivoSpan = document.getElementById('popup-archivo');
+            archivoSpan.textContent = archivo ? archivo : 'Sin archivo';
+            // Si quieres que el botón descargar funcione, añade aquí el enlace
+
+            // Mostrar popup
+            document.getElementById('popup').classList.remove('oculto');
+        });
+    });
+
+    // Cerrar popup
+    window.cerrarPopup = function() {
+        document.getElementById('popup').classList.add('oculto');
+    }
+});
 </script>

@@ -1,4 +1,4 @@
- <?php
+<?php
 session_start();
 require_once '../includes/conexion.inc';
 
@@ -22,10 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_result($dni, $nombre, $apellido1, $apellido2, $emailDB, $hash, $rol_id);
         $stmt->fetch();
 
-        if (password_verify($password, hash: $hash)) {
-    // Reiniciar sesión para evitar conflictos de sesión
-    session_regenerate_id(true); // Mejor que session_unset() y session_destroy()
-
+        // ✅ Comparar la contraseña en texto plano con el hash usando password_verify
+        if (password_verify($password, $hash)) {
+            session_regenerate_id(true);
 
             $_SESSION['dni'] = $dni;
             $_SESSION['nombre'] = $nombre;
@@ -34,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['email'] = $emailDB;
             $_SESSION['rol'] = $rol_id;
 
-            // Redirección según rol
             switch ($rol_id) {
                 case 'alumno':
                 case 'profesor':
@@ -53,11 +51,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $error = "Usuario no encontrado";
     }
+
     $stmt->close();
     $conn_proa->close();
 } else {
     $error = "Acceso no permitido";
 }
+
 header("Location: ../proa/loginProa.php?error=" . urlencode($error));
 exit;
 ?>

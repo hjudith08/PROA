@@ -1,13 +1,22 @@
-
 <?php
-$id_asignatura = $_GET['id'] ?? null;
+include '../../includes/conexion.inc';
 
-if (!$id_asignatura) {
-    die("No se ha seleccionado ninguna asignatura.");
+$tarea = null;
+if (isset($_GET['id_tarea'])) {
+    $id_tarea = intval($_GET['id_tarea']);
+    $stmt = $conn_proa->prepare("SELECT * FROM tareas WHERE id_tarea = ?");
+    $stmt->bind_param("i", $id_tarea);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    if ($resultado->num_rows > 0) {
+        $tarea = $resultado->fetch_assoc();
+    }
+    $stmt->close();
 }
 
-// Aquí puedes seguir con la lógica de mostrar tareas según $id_asignatura
+$conn_proa->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,10 +24,10 @@ if (!$id_asignatura) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROA | Herramienta Educativa</title>
     <!-- imagen de pestaña -->
-    <link rel="icon" href="imagenes/LogosProaBlancoV3.png" type="image/png">
+    <link rel="icon" href="../../../imagenes/LogosProaBlancoV3.png" type="image/png">
     <link rel="stylesheet" href="../../../css/proaCSS/estilosBaseProa.css">
-    <link rel="stylesheet" href="../../../css/proaCSS/tareasProfesor.css">
-    <link rel="stylesheet" href="../../../css/proaCSS/tareasAlumno.css">
+    <link rel="stylesheet" href="../../../css/proaCSS/crearEditarTarea.css">
+    <script src="../../../js/proaJS/funcionesBase.js" defer></script>
     <script src="../../../js/proaJS/funcionesBase.js" defer></script>
 </head>
 <!-- Cuerpo de la página web -->
@@ -32,23 +41,22 @@ if (!$id_asignatura) {
 <!-- Contenido de la página -->
 <div class="contenido">
 <!-- Titulo de la seccion-->
-    <h2>Tareas</h2>
+    <h2>Editar Tarea</h2>
 <!--  recorrido de donde te situas -->
     <div class="migas">
         <a href="inicioGeneral.php">Inicio General / </a>
         <a href="asignaturas.php">Asignaturas / </a>
         <a href="inicioAsignatura.php">Inicio Asignatura / </a>
-        <a href="#">Tareas /</a>
+        <a href="tareas.php">Tareas / </a>
+        <a href="#">Editar Tarea /</a>
     </div>
 <!-- Contenido de la seccion-->
     <div class="contenido-interior">
         
         <?php 
-        if($userdata['rol'] == 'alumno'){
-            include '../../includes/proaInc/proaAlumnos/tareasAlumno.inc';
-        }elseif($userdata['rol'] == 'profesor'){
-            include '../../includes/proaInc/proaProfesores/tareasProfesor.inc';
-        }
+       
+            include '../../includes/proaInc/proaProfesores/editarTareaProfesor.inc';
+           
         ?>
       
     </div>

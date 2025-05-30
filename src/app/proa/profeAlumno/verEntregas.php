@@ -38,6 +38,7 @@
         <div class="contenido-interior">
 
             <?php
+                $id_tarea = isset($_GET['id_tarea']) ? intval($_GET['id_tarea']) : 0;
                 include '../../includes/proaInc/proaProfesores/verEntregas.inc';
             ?>
         

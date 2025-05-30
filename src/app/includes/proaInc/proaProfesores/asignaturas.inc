@@ -68,12 +68,12 @@ $result = $stmt->get_result();
     <tbody>
     <?php if ($result->num_rows > 0): ?>
         <?php while ($row = $result->fetch_assoc()): ?>
-            <tr
-                    data-curso="<?= htmlspecialchars($row['curso']) ?>"
-                    data-cuatrimestre="<?= htmlspecialchars($row['cuatrimestre']) ?>"
-                    onclick="window.location.href='inicioAsignatura.php?id=<?= urlencode($row['id_asignatura']) ?>'"
-                    style="cursor:pointer;"
-            >
+        <tr
+            data-curso="<?= htmlspecialchars($row['curso']) ?>"
+            data-cuatrimestre="<?= htmlspecialchars($row['cuatrimestre']) ?>"
+            onclick="window.location.href='inicioAsignatura.php?id=<?= urlencode($row['id_asignatura']) ?>'"
+            style="cursor:pointer;"
+        >
                 <td><?= htmlspecialchars($row['nombre']) ?></td>
                 <td><?= htmlspecialchars($row['codigo']) ?></td>
                 <td><?= htmlspecialchars($row['descripcion']) ?></td>

@@ -1,8 +1,6 @@
 <?php
 include __DIR__ . '/../../conexion.inc'; 
 
-$dni_usuario = '9971924'; // Cambiar esto por el DNI  (por ejemplo, desde sesión)
-
 // Primero obtenemos el rol del usuario
 $stmt = $conn_proa->prepare("SELECT rol_id FROM usuarios WHERE dni = ?");
 $stmt->bind_param("s", $dni_usuario);

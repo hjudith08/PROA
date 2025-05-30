@@ -1,4 +1,4 @@
-
+document.addEventListener('DOMContentLoaded', () => {
     const botones = document.querySelectorAll('.boton-revisar');
     const popup = document.getElementById('popup');
     const tituloEl = document.getElementById('popup-titulo');
@@ -9,6 +9,7 @@
     const entregaIdInput = document.getElementById('entrega-id');
     const archivoEl = document.getElementById('popup-archivo');
 
+    // Abrir popup y rellenar datos
     botones.forEach(boton => {
         boton.addEventListener('click', () => {
             const titulo = boton.getAttribute('data-titulo') || 'Tarea';
@@ -17,7 +18,6 @@
             const nota = boton.getAttribute('data-nota') || '';
             const entregaId = boton.getAttribute('data-id');
 
-            // Actualizar elementos del popup
             tituloEl.textContent = titulo;
             estudianteEl.textContent = estudiante;
             entregaIdInput.value = entregaId;
@@ -40,62 +40,58 @@
         });
     });
 
+    // Guardar nota al pulsar PUNTUAR
     puntuarBtn.addEventListener('click', () => {
         const entregaId = entregaIdInput.value;
         const nota = notaInput.value.trim();
 
-        // Validación de nota
         if (nota === '' || isNaN(nota) || nota < 0 || nota > 10) {
             alert('Por favor, introduce una nota válida entre 0 y 10.');
             return;
         }
 
-        // Enviar nota vía fetch (AJAX)
         fetch('guardarNota.php', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: `id_entrega=${encodeURIComponent(entregaId)}&nota=${encodeURIComponent(nota)}`
         })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Nota guardada correctamente.');
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Nota guardada correctamente.');
 
-                    // Actualizar visualmente la nota en la tabla
-                    const boton = Array.from(botones).find(b => b.getAttribute('data-id') === entregaId);
-                    if (boton) {
-                        boton.setAttribute('data-nota', nota);
-
-                        const fila = boton.closest('tr');
-                        const celdaNota = fila.querySelector('td:nth-child(3)');
-                        if (celdaNota) {
-                            celdaNota.textContent = parseFloat(nota).toFixed(1) + ' / 10';
-                        }
+                // Actualizar visualmente la nota en la tabla
+                const boton = Array.from(botones).find(b => b.getAttribute('data-id') === entregaId);
+                if (boton) {
+                    boton.setAttribute('data-nota', nota);
+                    const fila = boton.closest('tr');
+                    const celdaNota = fila.querySelector('td:nth-child(3)');
+                    if (celdaNota) {
+                        celdaNota.textContent = parseFloat(nota).toFixed(1) + ' / 10';
                     }
-
-                    cerrarPopup();
-                } else {
-                    alert('Error al guardar la nota: ' + (data.message || 'Error desconocido.'));
                 }
-            })
-            .catch(() => {
-                alert('Error al comunicarse con el servidor.');
-            });
+
+                cerrarPopup();
+            } else {
+                alert('Error al guardar la nota: ' + (data.message || 'Error desconocido.'));
+            }
+        })
+        .catch(() => {
+            alert('Error al comunicarse con el servidor.');
+        });
     });
 
-    // Cerrar popup si el usuario hace clic fuera del contenido (opcional)
+    // Cerrar popup si el usuario hace clic fuera del contenido
     window.addEventListener('click', (e) => {
         if (e.target === popup) {
             cerrarPopup();
         }
     });
 
-
-function cerrarPopup() {
-    const popup = document.getElementById('popup');
-    if (popup) {
-        popup.classList.add('oculto');
-    }
-}
+    // Función para cerrar el popup
+    window.cerrarPopup = function() {
+        if (popup) {
+            popup.classList.add('oculto');
+        }
+    };
+});

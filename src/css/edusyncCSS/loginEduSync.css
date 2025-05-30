@@ -261,6 +261,7 @@ a.login-link,
 a.btn-volver {
     color: var(--color-texto);
     text-decoration: none;
+    order: 3;
 }
 
 a.link:hover,
@@ -374,6 +375,7 @@ input:focus {
     padding: 8px 15px;
     margin-top: 10px;
     animation: fadeIn 0.3s ease-in-out;
+    order: 2;
 }
 
 .exito-mensaje {
@@ -387,6 +389,7 @@ input:focus {
     border-radius: 4px;
     padding: 8px 15px;
     animation: fadeIn 0.3s ease-in-out;
+    order: 2;
 }
 
 @keyframes fadeIn {

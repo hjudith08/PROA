@@ -23,7 +23,7 @@ function mostrarMensaje(msg) {
     panel.insertBefore(divMsg, loginForm);
 }
 
-loginForm.addEventListener("submit", async function(e) {
+loginForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     eliminarMensajesAnteriores();

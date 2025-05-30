@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_result($id, $nombre, $apellidos, $hash);
         $stmt->fetch();
 
-        if (hash('sha256', $password) === $hash) {
+        if (password_verify($password, $hash)) {
             $_SESSION['usuario_id'] = $id;
             $_SESSION['usuario_nombre'] = $nombre;
             $_SESSION['usuario_apellidos'] = $apellidos;

@@ -376,6 +376,7 @@ input:focus {
     padding: 8px 15px;
     margin-top: 10px;
     animation: fadeIn 0.3s ease-in-out;
+    order: 2;
 }
 
 .exito-mensaje {
@@ -389,6 +390,7 @@ input:focus {
     border-radius: 4px;
     padding: 8px 15px;
     animation: fadeIn 0.3s ease-in-out;
+    order: 2;
     order: 2;
 }
 

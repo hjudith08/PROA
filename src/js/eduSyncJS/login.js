@@ -8,27 +8,8 @@ const loginBtn = document.getElementById("iniciar-sesion");
 const contenedor = document.getElementById("contenedor");
 
 // Array para almacenar los usuarios cargados
-let usuarios = [];
-
 // =============================================
-// SECCIÓN 2: FUNCIONES DE CARGA DE DATOS
-// =============================================
-/**
- * Carga los usuarios desde el archivo JSON
- * @async
- */
-async function cargarUsuarios() {
-    try {
-        const response = await fetch('../../../api/v0.0/data/usuariosEduSync.json');
-        usuarios = await response.json();
-    } catch (error) {
-        console.error("Error cargando usuarios:", error);
-        mostrarError("Error al cargar la base de datos");
-    }
-}
-
-// =============================================
-// SECCIÓN 3: FUNCIONES DE MANEJO DE MENSAJES
+// SECCIÓN 2: FUNCIONES DE MANEJO DE MENSAJES
 // =============================================
 /**
 
@@ -80,12 +61,7 @@ function eliminarMensajesAnteriores() {
 }
 
 // =============================================
-// SECCIÓN 4: MANEJADORES DE EVENTOS - LOGIN
-
-
-
-// =============================================
-// SECCIÓN 6: MANEJADORES DE INTERFAZ - CAMBIO ENTRE FORMULARIOS
+// SECCIÓN 3: MANEJADORES DE INTERFAZ - CAMBIO ENTRE FORMULARIOS
 // =============================================
 loginBtn.addEventListener("click", (e) => {
     e.preventDefault();

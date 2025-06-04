@@ -1,18 +1,32 @@
 /*Aquí empezamos con los filtros*/
-.contenedor-filtros{
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
-    
-    margin-left: auto;
-        margin-top: 0;
-        width: 200px;
-        height: 26px;
-        background: #F8F5FF;
-        border: 1px solid #75619E;
-        border-radius: 10px;
 
-    }
+
+#filtro-tareas {
+    border: 1px solid #75619E;
+}
+
+.filtros-tareas {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #75619E;
+    background-color: white;
+    font-size: 0.9rem;
+    margin-left: auto;
+    display: block;
+    width: fit-content;
+}
+
+
+.contenedor-filtros{
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #75619E;
+    background-color: white;
+    font-size: 0.9rem;
+    margin-left: auto;
+    display: block;
+    width: fit-content;
+}
 
     .contenedor-filtros select {
         width: 100%;

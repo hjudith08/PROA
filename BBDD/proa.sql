@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 04-06-2025 a las 19:53:56
+-- Tiempo de generación: 04-06-2025 a las 21:28:00
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -316,6 +316,20 @@ CREATE TABLE `profesores_asignaturas` (
 --
 
 INSERT INTO `profesores_asignaturas` (`dni_profesor`, `id_asignatura`) VALUES
+('1111111', 101),
+('1111111', 102),
+('1111111', 103),
+('1111111', 104),
+('1111111', 105),
+('1111111', 106),
+('1111111', 107),
+('1111111', 108),
+('1111111', 109),
+('2200221', 101),
+('2200222', 101),
+('2200223', 101),
+('2200224', 101),
+('2200225', 101),
 ('4525956', 101),
 ('4525956', 104),
 ('4525956', 105),
@@ -376,7 +390,7 @@ INSERT INTO `tareas` (`id_tarea`, `id_asignatura`, `titulo`, `descripcion`, `fec
 (2, 101, 'Práctica 2. Concurrencia y Hilos', 'Gestiona múltiples hilos y sincronización de datos en C++.', '2025-02-01', '2025-02-15', 10.00, NULL, '4525956', '001'),
 (3, 101, 'Práctica 1. Asíncronía y Filtros', 'Explora programación asíncrona y diseño de filtros en C++.', '2025-01-01', '2025-01-15', 10.00, NULL, '4525956', '001'),
 (4, 104, 'Práctica 3. Aplicaciones del Álgebra Lineal', 'Aplica álgebra matricial en problemas reales.', '2025-03-01', '2025-07-24', 10.00, NULL, '4525956', '001'),
-(5, 104, 'Práctica 2. Sistemas de Ecuaciones Lineales', 'Resuelve sistemas usando métodos matriciales.', '2025-02-01', '2025-02-15', 10.00, NULL, '4525956', '001'),
+(5, 104, 'Práctica 2. Sistemas de Ecuaciones Lineales', 'Resuelve sistemas usando métodos matriciales.', '2025-02-01', '2025-06-11', 10.00, NULL, '4525956', '001'),
 (6, 104, 'Práctica 1. Matrices y Operaciones', 'Realiza operaciones básicas con matrices y vectores.', '2025-01-01', '2025-01-15', 10.00, NULL, '4525956', '001'),
 (7, 105, 'Práctica 3. Presentación y Evaluación', 'Prepara presentaciones para evaluar el proyecto.', '2025-03-01', '2025-03-15', 10.00, NULL, '4525956', '001'),
 (8, 105, 'Práctica 2. Desarrollo de Prototipos', 'Construye prototipos funcionales para el proyecto.', '2025-02-01', '2025-02-15', 10.00, NULL, '4525956', '001'),
@@ -430,6 +444,7 @@ INSERT INTO `usuarios` (`dni`, `nombre`, `apellido1`, `apellido2`, `email`, `pas
 ('1100113', 'Lucía', 'Martínez', 'Rubio', 'l.marrub@epsg.upv.es', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'alumno', '600123466', '001', NULL, NULL, 'Matemáticas'),
 ('1100114', 'Sergio', 'Ortega', 'López', 's.ortlop@epsg.upv.es', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'alumno', '600123467', '001', NULL, NULL, 'Física'),
 ('1100115', 'Ana', 'Gil', 'Molina', 'a.gilmol@epsg.upv.es', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'alumno', '600123468', '001', NULL, NULL, 'Diseño'),
+('1111111', 'Joan', 'Martorell', NULL, 'joan@upv.es', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'profesor', '666666666', '001', 'DES131', 'Informática', NULL),
 ('1316390', 'Ondrea', 'Brezlaw', 'Sherwill', 'o.breshe@upv.es', 'bb851090dcc953ef26cae58f00c3c8aa50170e667ef57b076271a96851d7c598', 'pas', '600123462', '001', NULL, NULL, NULL),
 ('1320191', 'Merline', 'Kirdsch', 'Kampshell', 'm.kirkam@epsg.upv.es', '08536a0e845bc337e4eabe7f11cdc060db8762b72f6ea3759191e6acb4b0ac8d', 'alumno', '600123457', '001', NULL, NULL, 'Matemáticas'),
 ('1970980', 'Brooke', 'Malimoe', 'Thomerson', 'b.maltho@upv.es', '8ef036a12431278a81500e463d247a9712e798be4870848f21703c847bf1f0a8', 'pas', '600123463', '001', NULL, NULL, NULL),
@@ -534,7 +549,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `asignaturas`
@@ -546,7 +561,7 @@ ALTER TABLE `asignaturas`
 -- AUTO_INCREMENT de la tabla `entregas`
 --
 ALTER TABLE `entregas`
-  MODIFY `id_entrega` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_entrega` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `historial_visitas`

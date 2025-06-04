@@ -19,6 +19,7 @@ if (!$id_asignatura) {
     <link rel="stylesheet" href="../../../css/proaCSS/tareasProfesor.css">
     <link rel="stylesheet" href="../../../css/proaCSS/tareasAlumno.css">
     <script src="../../../js/proaJS/funcionesBase.js" defer></script>
+    <script src="../../../js/proaJS/filtroEstado.js" defer></script>
 </head>
 <!-- Cuerpo de la página web -->
 <body>

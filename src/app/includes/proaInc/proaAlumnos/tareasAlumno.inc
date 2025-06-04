@@ -3,6 +3,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
 require_once __DIR__ . '/../../conexion.inc';
 
 $id_asignatura = isset($_GET['id']) ? (int) $_GET['id'] : 0;
@@ -12,17 +13,13 @@ if ($id_asignatura <= 0 || empty($dni_alumno)) {
     exit('Datos inválidos.');
 }
 
-// ---------------------------------------------------------------------------------
-//  Consulta: tareas de la asignatura + última entrega (si existe) del alumno
-// ---------------------------------------------------------------------------------
-
 $sql = "
 SELECT
     t.id_tarea,
     t.titulo,
     t.fecha_apertura,
-    t.fecha_entrega  AS fecha_limite,
-    e.fecha_entrega  AS fecha_entrega_real,
+    t.fecha_entrega AS fecha_limite,
+    e.fecha_entrega AS fecha_entrega_real,
     e.nota
 FROM tareas t
 LEFT JOIN (
@@ -40,6 +37,7 @@ $stmt = $conn_proa->prepare($sql) or exit('Error en la consulta: ' . $conn_proa-
 $stmt->bind_param('si', $dni_alumno, $id_asignatura);
 $stmt->execute();
 $result = $stmt->get_result();
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -49,8 +47,8 @@ $result = $stmt->get_result();
     <title>Tareas asignatura</title>
     <link rel="stylesheet" href="../../../css/proaCSS/tareasAlumno.css">
     <style>
-        th.sortable{cursor:pointer;user-select:none}
-        .flecha{font-size:.75em;margin-left:.25em}
+        th.sortable { cursor: pointer; user-select: none; }
+        .flecha { font-size: 0.75em; margin-left: 0.25em; }
     </style>
 </head>
 <body>
@@ -60,6 +58,7 @@ $result = $stmt->get_result();
             <option value="todas">Todas las tareas</option>
             <option value="completado">Tareas completadas</option>
             <option value="pendiente">Tareas pendientes</option>
+            <option value="vencida">Tareas vencidas</option>
         </select>
     </div>
 
@@ -76,14 +75,22 @@ $result = $stmt->get_result();
         <tbody>
         <?php if ($result->num_rows):
             while ($row = $result->fetch_assoc()):
-                $estado = empty($row['fecha_entrega_real']) ? 'pendiente' : 'completado';
-                $nota   = (!empty($row['fecha_entrega_real']) && $row['nota'] !== null) ? $row['nota'] : '-';
+                $fecha_limite_ts = strtotime($row['fecha_limite']);
+                $fecha_actual_ts = time();
+
+                if (empty($row['fecha_entrega_real'])) {
+                    $estado = ($fecha_limite_ts < $fecha_actual_ts) ? 'vencida' : 'pendiente';
+                } else {
+                    $estado = 'completado';
+                }
+
+                $nota = (!empty($row['fecha_entrega_real']) && $row['nota'] !== null) ? $row['nota'] : '-';
                 ?>
-                <tr class="fila" data-estado="<?= $estado ?>" data-id="<?= $row['id_tarea'] ?>">
+                <tr class="fila" data-estado="<?= htmlspecialchars($estado) ?>" data-id="<?= (int) $row['id_tarea'] ?>">
                     <td><?= htmlspecialchars($row['titulo']) ?></td>
-                    <td><?= ucfirst($estado) ?></td>
+                    <td><?= ucfirst(htmlspecialchars($estado)) ?></td>
                     <td><?= date('d/m/Y', strtotime($row['fecha_apertura'])) ?></td>
-                    <td><?= date('d/m/Y', strtotime($row['fecha_limite'])) ?></td>
+                    <td><?= date('d/m/Y', $fecha_limite_ts) ?></td>
                     <td><?= htmlspecialchars($nota) ?></td>
                 </tr>
             <?php endwhile; else: ?>
@@ -92,32 +99,8 @@ $result = $stmt->get_result();
         </tbody>
     </table>
 </div>
-
 <script>
-    document.getElementById('filtro-tareas-estado').addEventListener('change', e=>{
-        const sel=e.target.value;
-        document.querySelectorAll('tbody .fila').forEach(f=>{
-            f.style.display = (sel==='todas'||f.dataset.estado===sel)?'':'none';
-        });
-    });
-
-    document.querySelectorAll('tbody .fila').forEach(f=>{
-        f.style.cursor='pointer';
-        f.onclick=()=>location.href=`verTarea.php?id_tarea=${f.dataset.id}&dni=<?php echo rawurlencode($dni_alumno); ?>`;
-    });
-
-    const dir={},ths=document.querySelectorAll('th.sortable');
-    ths.forEach(th=>{dir[th.dataset.sort]=1;th.onclick=()=>sort(th);});
-    function d(s){const[dd,mm,yy]=s.split('/');return new Date(`${yy}-${mm}-${dd}`).getTime();}
-    function sort(th){const key=th.dataset.sort,asc=dir[key];const idx=[...th.parentNode.children].indexOf(th);
-        const filas=[...document.querySelectorAll('tbody tr')].sort((a,b)=>{
-            let va=a.children[idx].innerText.trim();let vb=b.children[idx].innerText.trim();
-            if(key==='apertura'||key==='entrega'){va=d(va);vb=d(vb);} else {va=va.toLowerCase();vb=vb.toLowerCase();}
-            return (va>vb?1:-1)*asc;
-        });
-        dir[key]*=-1;const tb=document.querySelector('tbody');filas.forEach(r=>tb.appendChild(r));
-        ths.forEach(h=>h.querySelector('.flecha').textContent='');th.querySelector('.flecha').textContent=asc===1?'▲':'▼';
-    }
+    // Pasar dni_alumno desde PHP a JS global
+    const dniAlumno = <?= json_encode($dni_alumno) ?>;
 </script>
-</body>
-</html>
+

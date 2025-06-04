@@ -157,7 +157,7 @@ CREATE TABLE `grupos` (
   `grupo_id` varchar(10) NOT NULL,
   `nombre_grupo` varchar(100) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
-  `fecha_creacion` date DEFAULT curdate()
+  `fecha_creacion` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -217,7 +217,7 @@ CREATE TABLE `rol` (
   `rol_id` varchar(10) NOT NULL,
   `nombre_rol` varchar(100) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
-  `fecha_creacion` date DEFAULT curdate()
+  `fecha_creacion` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

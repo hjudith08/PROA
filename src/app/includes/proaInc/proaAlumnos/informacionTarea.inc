@@ -93,7 +93,7 @@ $plazo_vencido = $fecha_actual > $fecha_limite;
 
         <div class="descripcion-tarea">
             <p class="titulo">Descripción de la tarea:</p>
-            <textarea id="descripcionTarea" class="informacion" readonly><?= htmlspecialchars($tarea['descripcion']) ?></textarea>
+            <p class="informacion"><?= htmlspecialchars($tarea['descripcion']) ?></p>
         </div>
 
         <?php if (!empty($tarea['archivo_adjunto'])): ?>

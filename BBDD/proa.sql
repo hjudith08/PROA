@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 04-06-2025 a las 12:40:21
+-- Servidor: 127.0.0.1:3307
+-- Tiempo de generación: 04-06-2025 a las 19:53:56
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -37,6 +37,60 @@ CREATE TABLE `alumnos_asignaturas` (
 --
 
 INSERT INTO `alumnos_asignaturas` (`dni_alumno`, `id_asignatura`) VALUES
+('1100111', 101),
+('1100111', 102),
+('1100111', 103),
+('1100111', 104),
+('1100111', 105),
+('1100111', 106),
+('1100111', 107),
+('1100111', 108),
+('1100111', 109),
+('1100112', 101),
+('1100112', 102),
+('1100112', 103),
+('1100112', 104),
+('1100112', 105),
+('1100112', 106),
+('1100112', 107),
+('1100112', 108),
+('1100112', 109),
+('1100113', 101),
+('1100113', 102),
+('1100113', 103),
+('1100113', 104),
+('1100113', 105),
+('1100113', 106),
+('1100113', 107),
+('1100113', 108),
+('1100113', 109),
+('1100114', 101),
+('1100114', 102),
+('1100114', 103),
+('1100114', 104),
+('1100114', 105),
+('1100114', 106),
+('1100114', 107),
+('1100114', 108),
+('1100114', 109),
+('1100115', 101),
+('1100115', 102),
+('1100115', 103),
+('1100115', 104),
+('1100115', 105),
+('1100115', 106),
+('1100115', 107),
+('1100115', 108),
+('1100115', 109),
+('1316390', 101),
+('1316390', 102),
+('1316390', 103),
+('1316390', 104),
+('1316390', 105),
+('1316390', 106),
+('1316390', 107),
+('1316390', 108),
+('1316390', 109),
 ('1320191', 101),
 ('1320191', 102),
 ('1320191', 103),
@@ -46,6 +100,87 @@ INSERT INTO `alumnos_asignaturas` (`dni_alumno`, `id_asignatura`) VALUES
 ('1320191', 107),
 ('1320191', 108),
 ('1320191', 109),
+('1970980', 101),
+('1970980', 102),
+('1970980', 103),
+('1970980', 104),
+('1970980', 105),
+('1970980', 106),
+('1970980', 107),
+('1970980', 108),
+('1970980', 109),
+('2200221', 101),
+('2200221', 102),
+('2200221', 103),
+('2200221', 104),
+('2200221', 105),
+('2200221', 106),
+('2200221', 107),
+('2200221', 108),
+('2200221', 109),
+('2200222', 101),
+('2200222', 102),
+('2200222', 103),
+('2200222', 104),
+('2200222', 105),
+('2200222', 106),
+('2200222', 107),
+('2200222', 108),
+('2200222', 109),
+('2200223', 101),
+('2200223', 102),
+('2200223', 103),
+('2200223', 104),
+('2200223', 105),
+('2200223', 106),
+('2200223', 107),
+('2200223', 108),
+('2200223', 109),
+('2200224', 101),
+('2200224', 102),
+('2200224', 103),
+('2200224', 104),
+('2200224', 105),
+('2200224', 106),
+('2200224', 107),
+('2200224', 108),
+('2200224', 109),
+('2200225', 101),
+('2200225', 102),
+('2200225', 103),
+('2200225', 104),
+('2200225', 105),
+('2200225', 106),
+('2200225', 107),
+('2200225', 108),
+('2200225', 109),
+('4525956', 101),
+('4525956', 102),
+('4525956', 103),
+('4525956', 104),
+('4525956', 105),
+('4525956', 106),
+('4525956', 107),
+('4525956', 108),
+('4525956', 109),
+('6055365', 101),
+('6055365', 102),
+('6055365', 103),
+('6055365', 104),
+('6055365', 105),
+('6055365', 106),
+('6055365', 107),
+('6055365', 108),
+('6055365', 109),
+('6738133', 101),
+('6738133', 102),
+('6738133', 103),
+('6738133', 104),
+('6738133', 105),
+('6738133', 106),
+('6738133', 107),
+('6738133', 108),
+('6738133', 109),
 ('9218611', 101),
 ('9218611', 102),
 ('9218611', 103),
@@ -79,15 +214,6 @@ CREATE TABLE `archivos` (
   `dni_alumno` varchar(10) NOT NULL,
   `id_tarea` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `archivos`
---
-
-INSERT INTO `archivos` (`id`, `nombre_original`, `ruta`, `fecha_subida`, `dni_alumno`, `id_tarea`) VALUES
-(1, 'filtroBlanco.png', 'entrega_9218611_16_1748563922.png', '2025-05-30 02:12:02', '9218611', 16),
-(2, '1proa.sql', 'entrega_9218611_4_1748966974.sql', '2025-06-03 18:09:34', '9218611', 4),
-(3, '7añadirAsignaturasProfesor.sql', 'entrega_9218611_4_1748967467.sql', '2025-06-03 18:17:47', '9218611', 4);
 
 -- --------------------------------------------------------
 
@@ -140,13 +266,6 @@ CREATE TABLE `entregas` (
   `grupo_id` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `entregas`
---
-
-INSERT INTO `entregas` (`id_entrega`, `id_tarea`, `dni_alumno`, `archivo_entregado`, `fecha_entrega`, `nota`, `comentarios_profesor`, `grupo_id`) VALUES
-(9, 4, '9218611', 'entrega_9218611_4_1748967467.sql', '2025-06-03 18:17:47', 3.00, NULL, '001');
-
 -- --------------------------------------------------------
 
 --
@@ -165,7 +284,7 @@ CREATE TABLE `grupos` (
 --
 
 INSERT INTO `grupos` (`grupo_id`, `nombre_grupo`, `descripcion`, `fecha_creacion`) VALUES
-('001', 'Grupo para sprint', 'Grupo inicial de PROA para el sprint', '2025-05-29');
+('001', 'Grupo para sprint', 'Grupo inicial de PROA para el sprint', '2025-05-29 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -217,7 +336,7 @@ CREATE TABLE `rol` (
   `rol_id` varchar(10) NOT NULL,
   `nombre_rol` varchar(100) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
-  `fecha_creacion` datetime DEFAULT CURRENT_TIMESTAMP
+  `fecha_creacion` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -225,9 +344,9 @@ CREATE TABLE `rol` (
 --
 
 INSERT INTO `rol` (`rol_id`, `nombre_rol`, `descripcion`, `fecha_creacion`) VALUES
-('alumno', 'Alumno', 'Estudiante matriculado', '2025-05-29'),
-('pas', 'PAS', 'Personal de administración y servicios', '2025-05-29'),
-('profesor', 'Profesor', 'Personal docente', '2025-05-29');
+('alumno', 'Alumno', 'Estudiante matriculado', '2025-05-29 00:00:00'),
+('pas', 'PAS', 'Personal de administración y servicios', '2025-05-29 00:00:00'),
+('profesor', 'Profesor', 'Personal docente', '2025-05-29 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -256,7 +375,7 @@ INSERT INTO `tareas` (`id_tarea`, `id_asignatura`, `titulo`, `descripcion`, `fec
 (1, 101, 'Práctica 3. STL y Algoritmos', 'Utiliza la Standard Template Library para resolver problemas comunes.', '2025-03-01', '2025-03-15', 10.00, NULL, '4525956', '001'),
 (2, 101, 'Práctica 2. Concurrencia y Hilos', 'Gestiona múltiples hilos y sincronización de datos en C++.', '2025-02-01', '2025-02-15', 10.00, NULL, '4525956', '001'),
 (3, 101, 'Práctica 1. Asíncronía y Filtros', 'Explora programación asíncrona y diseño de filtros en C++.', '2025-01-01', '2025-01-15', 10.00, NULL, '4525956', '001'),
-(4, 104, 'Práctica 3. Aplicaciones del Álgebra Lineal', 'Aplica álgebra matricial en problemas reales.', '2025-03-01', '2025-07-03', 10.00, NULL, '4525956', '001'),
+(4, 104, 'Práctica 3. Aplicaciones del Álgebra Lineal', 'Aplica álgebra matricial en problemas reales.', '2025-03-01', '2025-07-24', 10.00, NULL, '4525956', '001'),
 (5, 104, 'Práctica 2. Sistemas de Ecuaciones Lineales', 'Resuelve sistemas usando métodos matriciales.', '2025-02-01', '2025-02-15', 10.00, NULL, '4525956', '001'),
 (6, 104, 'Práctica 1. Matrices y Operaciones', 'Realiza operaciones básicas con matrices y vectores.', '2025-01-01', '2025-01-15', 10.00, NULL, '4525956', '001'),
 (7, 105, 'Práctica 3. Presentación y Evaluación', 'Prepara presentaciones para evaluar el proyecto.', '2025-03-01', '2025-03-15', 10.00, NULL, '4525956', '001'),
@@ -415,7 +534,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `asignaturas`
@@ -427,7 +546,7 @@ ALTER TABLE `asignaturas`
 -- AUTO_INCREMENT de la tabla `entregas`
 --
 ALTER TABLE `entregas`
-  MODIFY `id_entrega` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_entrega` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `historial_visitas`

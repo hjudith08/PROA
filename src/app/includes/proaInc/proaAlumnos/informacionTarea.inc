@@ -1,7 +1,7 @@
 <?php
 include __DIR__ . '/../../conexion.inc';
 
-$dni_alumno = '9218611'; // Puedes cambiar esto si usas sesión
+$dni_alumno    = $_SESSION['dni'] ?? '';
 
 $id_tarea = isset($_GET['id_tarea']) ? intval($_GET['id_tarea']) : 0;
 if ($id_tarea <= 0) {

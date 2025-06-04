@@ -1,0 +1,166 @@
+/* Variables */
+:root {
+  --color-principal: #2c3e50;
+  --color-principal-oscuro: #1f3041;
+  --color-texto: #2a3b4c;
+  --color-titulo: #0D273D;
+  --color-fondo: rgba(217, 217, 217, 0.8);
+  --color-borde: #ddd;
+  --color-boton-volver: #000000;
+}
+
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Fondo con imagen */
+.fondo-recuperacion {
+    background-image: url('/PROA/src/css/imagenes/fondorecuperar.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.fondo-recuperacion::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-fondo);
+    z-index: 0;
+}
+
+/* Encabezado */
+.encabezado-recuperacion {
+    padding: 20px;
+    z-index: 1;
+}
+
+.encabezado-recuperacion .logo {
+    height: 40px;
+}
+
+/* Contenido principal */
+.contenido-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    z-index: 1;
+    padding: 20px;
+}
+
+.tarjeta-recuperacion {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: var(--color-texto);
+}
+
+.tarjeta-recuperacion h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--color-titulo);
+}
+
+.tarjeta-recuperacion h2 {
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin-bottom: 30px;
+    color: var(--color-texto);
+}
+
+/* Formulario */
+.formulario-recuperacion {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grupo-formulario {
+    text-align: left;
+}
+
+.grupo-formulario input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.grupo-formulario input:focus {
+    border-color: var(--color-principal);
+    outline: none;
+}
+
+.boton-recuperacion {
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.boton-recuperacion:hover {
+    background-color: var(--color-principal-oscuro);
+    transform: translateY(-2px);
+}
+
+/* Pie de página */
+.pie-recuperacion {
+    padding: 20px;
+    text-align: left;
+    z-index: 1;
+}
+
+.boton-volver {
+    color: var(--color-boton-volver);
+    text-decoration: none;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s;
+    font-weight: bold;
+}
+
+.boton-volver:hover {
+    color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tarjeta-recuperacion {
+        padding: 30px 20px;
+    }
+    
+    .tarjeta-recuperacion h1 {
+        font-size: 1.5rem;
+    }
+    
+    .tarjeta-recuperacion h2 {
+        font-size: 1rem;
+    }
+}

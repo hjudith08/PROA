@@ -23,20 +23,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET['token'])) {
             $update->execute();
             $update->close();
 
-            header("Location: /PROA_RUTAS/src/app/eduSync/mensaje.php?tipo=exito");
+            header("Location: /PROA/src/app/eduSync/mensaje.php?tipo=exito");
             exit;
         } else {
-            header("Location: /PROA_RUTAS/src/app/eduSync/mensaje.php?tipo=expirado");
+            header("Location: /PROA/src/app/eduSync/mensaje.php?tipo=expirado");
             exit;
         }
     } else {
-        header("Location: /PROA_RUTAS/src/app/eduSync/mensaje.php?tipo=invalido");
+        header("Location: /PROA/src/app/eduSync/mensaje.php?tipo=invalido");
         exit;
     }
 
     $stmt->close();
 } else {
-    header("Location: /PROA_RUTAS/src/app/eduSync/mensaje.php?tipo=sin_token");
+    header("Location: /PROA/src/app/eduSync/mensaje.php?tipo=sin_token");
     exit;
 }
 

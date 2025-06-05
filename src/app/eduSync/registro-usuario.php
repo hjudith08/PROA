@@ -44,7 +44,7 @@ $mail->Port = 587;
 $mail->setFrom('registro@gti.com', 'GTI');
 $mail->addAddress($_POST['email']);
 $mail->isHTML(true);
-$base_url = 'http://localhost/PROA_RUTAS/src/';
+$base_url = 'http://localhost/PROA/src/';
 $href = $base_url . 'validar-registro.php?token=' . $token;
 $mail->Subject = 'Registro de usuario';
 $mail->Body = '

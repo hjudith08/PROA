@@ -100,7 +100,7 @@ $plazo_vencido = $fecha_actual > $fecha_limite;
             <div>
                 <p class="titulo">Archivo adjunto:</p>
                 <p class="informacion">
-                    <a href="/uploads/<?= htmlspecialchars($tarea['archivo_adjunto']) ?>" target="_blank">
+                    <a href="../../../../docs/uploads/<?= htmlspecialchars($tarea['archivo_adjunto']) ?>" target="_blank">
                         <?= htmlspecialchars(basename($tarea['archivo_adjunto'])) ?>
                     </a>
                 </p>

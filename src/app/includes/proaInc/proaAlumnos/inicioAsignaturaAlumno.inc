@@ -1,6 +1,12 @@
 <?php
 include __DIR__ . '/../../conexion.inc';
 
+if (!isset($_SESSION['dni']) || empty($_SESSION['dni'])) {
+    die("Acceso denegado: no hay DNI de alumno en sesión");
+}
+
+$dniAlumno = $_SESSION['dni'];
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && strpos($_SERVER["CONTENT_TYPE"], "application/json") !== false) {
     $input = file_get_contents("php://input");
     $data = json_decode($input, true);
@@ -39,11 +45,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && strpos($_SERVER["CONTENT_TYPE"], "a
     exit;
 }
 
-// ----------- MODO VISTA HTML ------------
-$idAsignatura = $_GET['id'] ?? 0;
-if ($idAsignatura <= 0) die("ID inválido");
+$idAsignatura = intval($_GET['id'] ?? 0);
+if ($idAsignatura <= 0) {
+    die("ID inválido");
+}
 
-// Obtener info de la asignatura
 $sql = "
     SELECT objetivo_asignatura, informacion_extra
     FROM asignaturas
@@ -55,7 +61,6 @@ $stmt->execute();
 $asignatura = $stmt->get_result()->fetch_assoc() ?: [];
 $stmt->close();
 
-// Obtener datos del profesor
 $sqlProf = "
     SELECT u.nombre, u.apellido1, u.apellido2, u.email, u.despacho
     FROM profesores_asignaturas pa
@@ -69,13 +74,13 @@ $stmt->execute();
 $profesor = $stmt->get_result()->fetch_assoc() ?: [];
 $stmt->close();
 
-// Obtener tareas de la asignatura
 $tareas = [];
 $sqlTareas = "
-    SELECT fecha_entrega, descripcion
+    SELECT id_tarea, fecha_entrega, descripcion
     FROM tareas
     WHERE id_asignatura = ?
     ORDER BY fecha_entrega ASC
+    LIMIT 7
 ";
 $stmt = $conn_proa->prepare($sqlTareas);
 $stmt->bind_param("i", $idAsignatura);
@@ -107,7 +112,6 @@ $stmt->close();
     </nav>
 
     <div class="contenedor-flex-principal">
-        <!-- IZQUIERDA: Información Asignatura -->
         <div class="contenedor-tareas">
             <div class="cabecera-tareas">
                 <h1>INFORMACIÓN ASIGNATURA</h1>
@@ -120,7 +124,7 @@ $stmt->close();
                     </li>
                     <li>
                         <h3>Profesor</h3>
-                        <p><?= htmlspecialchars(($profesor['nombre'] ?? '') . ' ' . ($profesor['apellido1'] ?? '') . ' ' . ($profesor['apellido2'] ?? '')) ?></p>
+                        <p><?= htmlspecialchars(trim(($profesor['nombre'] ?? '') . ' ' . ($profesor['apellido1'] ?? '') . ' ' . ($profesor['apellido2'] ?? ''))) ?></p>
 
                         <h3>Email</h3>
                         <p><?= htmlspecialchars($profesor['email'] ?? 'No disponible') ?></p>
@@ -137,28 +141,31 @@ $stmt->close();
             </div>
         </div>
 
-        <!-- DERECHA: Lista de Tareas -->
         <div class="contenedor-tareas">
             <div class="cabecera-tareas">
                 <h1>TAREAS</h1>
             </div>
             <div class="tabla-flex-container">
-                <ul class="tareas">
-                    <?php if (count($tareas) > 0): ?>
+                <?php if (count($tareas) > 0): ?>
+                    <table class="tabla-tareas">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Fecha de Entrega</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         <?php foreach ($tareas as $tarea): ?>
-                            <li>
-                                <div>
-                                    <p class="texto-lista-tareas"><?= htmlspecialchars($tarea['descripcion']) ?></p>
-                                    <div class="encabezado-item">
-                                        <div class="rectangulo-fecha"><?= strtoupper(date('d M', strtotime($tarea['fecha_entrega']))) ?></div>
-                                    </div>
-                                </div>
-                            </li>
+                            <tr onclick="location.href='verTarea.php?id_tarea=<?= $tarea['id_tarea'] ?>&dni=<?= urlencode($dniAlumno) ?>';" style="cursor:pointer;">
+                                <td><?= htmlspecialchars($tarea['descripcion']) ?></td>
+                                <td><?= date('d/m/Y', strtotime($tarea['fecha_entrega'])) ?></td>
+                            </tr>
                         <?php endforeach; ?>
-                    <?php else: ?>
-                        <li><p>No hay tareas asignadas.</p></li>
-                    <?php endif; ?>
-                </ul>
+                        </tbody>
+                    </table>
+                <?php else: ?>
+                    <p>No hay tareas asignadas.</p>
+                <?php endif; ?>
             </div>
         </div>
     </div>

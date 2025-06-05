@@ -82,7 +82,7 @@
 /*Estilos encabezado tabla*/
 .contenedor-tareasAlumno thead th {   
     font-weight: bold;
-    padding: 1.25rem 4.35rem;
+    padding: 1.25rem 4rem;
     padding-right: fill;
     background-color: #e1e1e1;
     border-bottom: 1px solid #ccc;

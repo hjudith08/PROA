@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteBase /PROA/
+RewriteCond %{REQUEST_URI} ^/PROA/?$
+RewriteRule ^$ src/ [L,R=301]

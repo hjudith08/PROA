@@ -1,0 +1,181 @@
+/* Variables */
+:root {
+  --color-principal: #2c3e50;
+  --color-principal-oscuro: #1f3041;
+  --color-texto: #2a3b4c;
+  --color-titulo: #0D273D;
+  --color-fondo: rgba(217, 217, 217, 0.8);
+  --color-borde: #ddd;
+  --color-boton-volver: #000000;
+  --color-exito: #d4edda;
+  --color-texto-exito: #155724;
+  --color-error: #f8d7da;
+  --color-texto-error: #721c24;
+  --color-info: #d1ecf1;
+  --color-texto-info: #2c3e50;
+  --color-texto-edusync: #333333;
+  
+}
+
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Fondo con imagen */
+.fondo-recuperacion {
+    background-image: url('/PROA/src/css/imagenes/fondorecuperar.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.fondo-recuperacion::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-fondo);
+    z-index: 0;
+}
+
+/* Encabezado */
+.encabezado-recuperacion {
+    padding: 20px;
+    z-index: 1;
+    height: 40px;
+}
+
+.encabezado-recuperacion img {
+    width: auto;
+    height: 100%;
+}
+
+/* Contenido principal */
+.contenido-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    z-index: 1;
+    padding: 20px;
+}
+
+/* Estilos para el mensaje */
+.mensaje {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: rgba(49, 105, 190);
+}
+
+.mensaje h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--color-titulo);
+}
+
+.mensaje p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.mensaje a {
+    color: var(--color-principal);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.mensaje a:hover {
+    color: var(--color-principal-oscuro);
+    text-decoration: underline;
+}
+
+/* Clases de estado */
+.mensaje.exito {
+    background-color: rgba(212, 237, 218, 0.9);
+    color: var(--color-texto-exito);
+}
+
+.mensaje.exito h1 {
+    color: var(--color-texto-exito);
+}
+
+.mensaje.error {
+    background-color: rgba(248, 215, 218, 0.9);
+    color: var(--color-texto-error);
+}
+
+.mensaje.error h1 {
+    color: var(--color-texto-error);
+}
+
+.mensaje.info {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--color-texto-info);
+}
+
+.mensaje.info h1 {
+    color: var(--color-texto-info);
+}
+
+/* Pie de página */
+.pie-recuperacion {
+    padding: 20px;
+    text-align: left;
+    z-index: 1;
+}
+
+.btn-volver {
+  margin-bottom: 40px;
+  margin-left: 40px;
+}
+
+/* boton volver*/
+a.btn-volver {
+  color: var(--color-texto-edusync);
+  text-decoration: none;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s;
+  font-weight: bold;
+}
+
+a.btn-volver:hover {
+  color: var(--color-titulo);
+  text-decoration: underline;
+  transition: var(--transition);
+  order: 2;
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .mensaje {
+        padding: 30px 20px;
+    }
+    
+    .mensaje h1 {
+        font-size: 2rem;
+    }
+    
+    .mensaje p {
+        font-size: 1.5rem;
+    }
+}

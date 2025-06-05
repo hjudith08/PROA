@@ -1,0 +1,96 @@
+<!-- Contenido Principal -->
+<main class="contenido">
+    <div class="area-contenido">
+        <!-- Tarjeta de Información de Contacto -->
+        <div class="tarjeta-info-contacto">
+            <div class="contenido-info-contacto">
+                <h2>CONTACTA CON NOSOTROS</h2>
+                <h1>Mantente en contacto</h1>
+                <p class="descripcion-contacto">Si tienes alguna pregunta, estaremos encantados de ayudarte.</p>
+
+                <h3>Datos de contacto:</h3>
+
+                <div class="tarjeta-info">
+                    <div class="contenido-tarjeta-info">
+                        <div class="icono-info">
+                            <img src="../../imagenes/letterb.png" alt="Email">
+                        </div>
+                        <div class="texto-info">
+                            <p class="etiqueta-info">Correo:</p>
+                            <a href="mailto:correo@correo.com">edusync@gti.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tarjeta-info">
+                    <div class="contenido-tarjeta-info">
+                        <div class="icono-info">
+                            <img src="../../imagenes/telephoneb.png" alt="Teléfono">
+                        </div>
+                        <div class="texto-info">
+                            <p class="etiqueta-info">Teléfono:</p>
+                            <a href="tel:833271727">833271727</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="seccion-form-contacto">
+        <?php
+        /* Sesion no iniciada*/
+        if (!isset($_SESSION['usuario_nombre'])) {
+            ?>
+            <!-- Formulario de Contacto -->
+            <form class="formulario-contacto" id="formulario-contacto" method="post">
+                <div class="grupo-filas-formulario">
+                    <div class="grupo-formulario">
+                        <label for="name" class="etiqueta-formulario">Nombre</label>
+                        <input type="text" id="name" class="entrada-formulario" placeholder="Nombre" required>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label for="surname" class="etiqueta-formulario">Apellidos</label>
+                        <input type="text" id="surname" class="entrada-formulario" placeholder="Apellidos" required>
+                    </div>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="institution" class="etiqueta-formulario">Institución</label>
+                    <input type="text" id="institution" class="entrada-formulario" placeholder="Nombre de la Institución"
+                        required>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="email" class="etiqueta-formulario">Correo Electrónico</label>
+                    <input type="email" id="email" class="entrada-formulario" placeholder="ejemplo@ejemplo.com" required>
+                </div>
+                <div class="grupo-formulario">
+                    <label for="message" class="etiqueta-formulario">Mensaje</label>
+                    <textarea id="message" class="area-texto-formulario" placeholder="Escribe aquí tu consulta"></textarea>
+                </div>
+                <button type="submit" class="boton-enviar">ENVIAR</button>
+            </form>
+
+
+            <?php
+        /* Sesion iniciada*/
+        } elseif (isset($_SESSION['usuario_nombre'])) {
+            ?>
+            <!-- Formulario de Contacto -->
+            <form class="formulario-contacto" id="formulario-contacto" method="post">
+
+
+                <div class="grupo-formulario">
+                    <label for="message" class="etiqueta-formulario">Mensaje</label>
+                    <textarea id="message" class="area-texto-formulario" placeholder="Escribe aquí tu consulta"
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="boton-enviar">ENVIAR</button>
+            </form>
+            <?php
+        }
+        ?>
+        <a href="../../" class="btn-volver"> ← Volver</a>
+        </div>
+    </div>
+</main>

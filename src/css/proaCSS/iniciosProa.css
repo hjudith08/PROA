@@ -1,0 +1,735 @@
+    /* ---------- VARIABLES DE COLOR ---------- */
+    :root {
+        /* Colores */
+        --color-principal: #3f2a52;
+        --color-principal-claro: #75619e;
+        --color-principal-muy-claro: #beaed8;
+        --color-principal-oscuro: #3a2d34;
+        --color-fondo: #f8f5ff;
+        --color-blanco: #ffffff;
+        --color-gris-claro: #f5f5f5;
+        --color-borde: #75619e;
+        --color-texto: #333333;
+        --color-texto-claro: #6b6b6b;
+
+        /* Sombras */
+        --sombra-generica: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+        --sombra-interior: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        /* Tamaños */
+        --altura-header: 60px;
+        --altura-footer: 80px;
+        --ancho-sidebar: 200px;
+
+        /*EduSync*/
+
+        --header-selector: 40px;
+        --color-primario-edusync: #0D273D;
+        --color-secundario-edusync: #2F4256;
+        --color-fondo-edusync: #F1F5FF;
+        --color-texto-edusync: #333333;
+        --color-texto-claro-edusync: #FFFFFF;
+        --color-boton-edusync: #2F4256;
+        --color-boton-hover-edusync: #3D5166;
+    }
+
+    /* ---------- ESTILO GENERAL DEL CUERPO ---------- */
+    .menu-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .menu-btn {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        height: 92px;
+        padding: 0 20px;
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        background-color: var(--color-sidebar);
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset,
+            0 -1px 0 rgba(0, 0, 0, 0.2) inset;
+        transition: all 0.2s ease;
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 16px;
+    }
+
+    .menu-btn:hover {
+        background-color: #BEAED8;
+        color: black;
+    }
+
+    .icono-menu {
+        width: 29px;
+        height: 29px;
+        margin-right: 12px;
+        flex-shrink: 0;
+    }
+
+    .menu-btn span {
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .menu-btn.activo {
+        background-color: #f7f7fb;
+        box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.1) inset,
+            0 3px 5px rgba(0, 0, 0, 0.1) inset;
+        color: var(--color-header);
+    }
+
+
+
+    .mensaje-exito {
+        color: #28a745;
+        margin-top: 5px;
+        font-weight: bold;
+        font-size: 0.9rem;
+        text-align: center;
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+        border-radius: 4px;
+        padding: 8px 15px;
+        order: 6;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+          .error-mensaje {
+        color: #dc3545;
+        margin-top: 5px;
+        font-weight: bold;
+        font-size: 0.9rem;
+        text-align: center;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 4px;
+        padding: 8px 15px;
+        order: 3;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    .menu-btn.activo .icono-activo {
+        filter: brightness(0);
+    }
+
+    /* Estilo general para la tabla */
+    .tabla-flex-container1 {
+        width: 60%;
+        margin: 40px auto;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: var(--color-fondo);
+        box-shadow: var(--sombra);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--color-columnamorada);
+        padding: 1.5rem 2rem;
+    }
+
+    .editar {
+        padding: 6px 12px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        width: 135px;
+        height: 38px;
+        background: #FEFEFF;
+        border: 1px solid #75619E;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        color: #3F2A52;
+    }
+
+
+    .editar:hover {
+        background-color: rgba(99, 45, 200, 0.2);
+    }
+
+    .tabla-asignaturas {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 16px;
+    }
+
+    .tabla-asignaturas thead th {
+        background-color: white;
+        color: var(--color-principal-claro);
+        font-weight: bold;
+        padding: 12px;
+        border-bottom: 2px solid var(--color-principal-claro);
+        border-right: 1px solid var(--color-principal-oscuro);
+        text-align: center;
+    }
+
+    .tabla-asignaturas thead th:last-child {
+        border-right: none;
+    }
+
+    .tabla-asignaturas tbody td {
+        background-color: white;
+        padding: 14px;
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid var(--color-principal);
+        text-align: center;
+        color: #333;
+    }
+
+    .tabla-asignaturas tbody td:last-child {
+        border-right: none;
+    }
+
+    .tabla-asignaturas tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .tabla-asignaturas tbody tr:hover td {
+        background-color: #f2eaff;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Enlaces con solo quitar subrayado */
+    .asignatura-link {
+        text-decoration: none;
+    }
+
+
+    /* ---------- CONTENIDO PRINCIPAL ---------- */
+
+    /* Títulos de sección */
+    main.content h2 {
+        color: var(--color-header);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid var(--color-columnamorada);
+        padding-left: 0.5rem;
+    }
+
+    .fecha {
+        background-color: #d9d9d9;
+        padding: 0.3rem 0.6rem;
+        border-radius: 6px;
+        display: inline-block;
+        font-weight: 600;
+        color: #333;
+    }
+
+    span {
+        font-size: .9rem;
+    }
+
+    /* Estilos para listas de asignaturas y tareas */
+     ul.asignaturas, ul.informacionAsig,
+    ul.tareas {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        padding: 0;
+    }
+    ul.asignaturas{
+        display: grid;
+    }
+    ul.informacionAsig{
+        display: flex;
+    }
+    /* Tarjeta común para asignaturas y tareas */
+    ul.asignaturas li,
+    ul.tareas li {
+        background-color: white;
+        border-radius: 15px;
+        border: 1px solid #7865A0;
+        padding: 0.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    ul.asignaturas li:hover,
+    ul.tareas li:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Enlaces dentro de tarjetas */
+    ul.asignaturas li a,
+    ul.tareas li a {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Iconos de asignaturas */
+    ul.asignaturas i {
+        font-size: 2rem;
+        color: var(--color-header);
+    }
+
+    /* Título y materia de tareas */
+    ul.tareas li strong {
+        font-size: 1.1rem;
+        color: var(--color-columnamorada);
+    }
+
+    ul.tareas li em {
+        color: var(--color-sidebar);
+        font-size: 0.9rem;
+        font-style: normal;
+        margin-top: 0.2rem;
+    }
+
+    ul.tareas li p {
+        font-size: 1rem;
+        color: #444;
+    }
+
+    .inicioGenAsig ul.asignaturas {
+        display: grid;
+    }
+    
+
+    .contenedor-tareas {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }   
+    .cabecera-tareas {
+        margin-top: 0px;
+        position: static;
+        top: 0;
+        /* importante para sticky */
+        z-index: 100;
+        /* que quede arriba */
+        border: 1px solid black;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 2rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        /* fondo para que no se vea transparente */
+    }
+
+    .tareas {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+    }
+
+    .tareas li {
+        background: linear-gradient(145deg, #f5f0fa, #ffffff);
+        border-radius: 16px;
+        box-shadow: 0 6px 16px rgba(128, 0, 128, 0.1);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s ease;
+    }
+
+    .tareas li:hover {
+        transform: translateY(-4px);
+    }
+
+    .texto-lista-tareas {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #4b007d;
+        margin-bottom: 16px;
+    }
+
+    .encabezado-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .rectangulo-fecha {
+        background-color: #ffffff;
+        color: var(--color-principal);
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-weight: bold;
+        min-width: 100px;
+        text-align: center;
+        font-size: 0.95rem;
+    }
+
+    .botonesEditaryVer {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .botonesEditaryVer button {
+        background-color: #ffffff;
+        color: var(--color-principal);
+        border: 1px solid black;
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .botonesEditaryVer button:hover {
+        background-color: rgba(99, 45, 200, 0.2);   
+    }
+
+
+
+
+    .cabecera-tareas h1 {
+        position: static;
+        font-size: 1rem;
+        color: var(--color-principal);
+    }
+
+    .tabla-flex-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 1rem;
+    }
+
+    /* Contenedor principal para distribuir los bloques de asignaturas y tareas */
+    .contenedor-flex-principal {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        width: 100%;
+        flex-wrap: wrap;
+        padding-top: -100px;
+    }
+
+    /* Estilos individuales para cada bloque */
+    .contenedor-flex-principal .contenedor-tareas {
+        flex: 1 1 48%;
+    }
+
+    .asignaturas li {
+        background-color: var(--color-opcion);
+        border-radius: 12px;
+        text-align: center;
+        padding: 1.5rem;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 150px;
+    }
+
+    .asignaturas li:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        background-color: #ece7ff;
+    }
+
+    .asignaturas li i {
+        font-size: 2.5rem;
+        color: var(--color-header);
+        margin-bottom: 0.5rem;
+    }
+
+    .asignaturas li span {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .texto-desplegable {
+        display: none;
+        margin-top: 8px;
+        font-weight: normal;
+        font-size: 0.95rem;
+        color: #333;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .filtros-asignaturas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-bottom: 1.5rem;
+        justify-content: flex-start;
+    }
+
+    .filtros-cuatrimestre,
+    .filtros-curso {
+        background-color: #f4f4f4;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .filtros-asignaturas label {
+        font-weight: 500;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .hamburguesa {
+        display: none;
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        z-index: 1001;
+        background: none;
+        border: none;
+        font-size: 30px;
+        color: #3F2A52;
+        cursor: pointer;
+    }
+
+    /* Estilos del menú móvil */
+    .menu-movil {
+        position: absolute;
+        right: 10px;
+        background-color: #3F2A52;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+        z-index: 1000;
+        overflow: hidden;
+        z-index: 3;
+    }
+    @media screen and (max-width: 777px) {
+    :root {
+        --altura-header: 50px;
+    }
+}
+
+    /* Responsive para móviles (pantallas pequeñas) */
+    @media screen and (max-width: 450px) {
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        ul.asignaturas, ul.informacionAsig,
+    ul.tareas {
+        grid-template-columns: inherit;
+    }
+        .content {
+            padding-top: 1rem;;
+        }
+
+        .contenedor-flex-principal {
+            width: 120%;
+            /* un poco menos del 100%, para dar margen lateral */
+            max-width: none;
+            /* límite máximo igual */
+            margin-left: -5%;
+            /* centrarlo “compensando” el ancho extra */
+
+            /* centrarlo horizontalmente */
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 0 1rem;
+            box-sizing: border-box;
+            overflow-x: visible;
+            /* evitar que corte contenido */
+        }
+
+        .contenedor-tareas {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            padding: 1rem 0.5rem;
+            /* un poco de espacio a los lados */
+            overflow-x: hidden;
+        }
+
+        .contenedor-tareas>* {
+            max-width: 100%;
+            flex-shrink: 1;
+            box-sizing: border-box;
+        }
+
+        .contenido-interior {
+            padding: 0 0.5rem;
+        }
+
+        ul.tareas {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul.tareas li {
+            min-height: 100px;
+            /* Altura mínima igual para todos */
+            width: 300px;
+            /* Ancho fijo o puedes usar % */
+            margin: 0 auto 1rem auto;
+            background-color: white;
+            border-radius: 15px;
+            border: 1px solid #7865A0;
+            padding: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            word-break: break-word;
+            /* evita cortes raros */
+            overflow-wrap: break-word;
+            align-items: center;
+            /* no limitar la altura para que el contenido crezca */
+        }
+
+
+
+        .fila-objetivo {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .fila-objetivo h3 {
+            margin: 0 auto;
+        }
+
+        .contenedor-flex-principal {
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 0 1rem;
+        }
+
+        .hamburguesa {
+            display: block;
+            font-size: 2rem;
+            margin: 35px 10px 1rem auto;
+            cursor: pointer;
+        }
+
+        .menu-movil {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .menu-movil.visible {
+            display: block;
+        }
+
+        .menu-movil a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.5rem 0;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .cabecera-tareas {
+            position: static;
+            padding: 0.75rem;
+            background: #f0f0f0;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+
+        .encabezado-item {
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 1rem;
+        }
+
+        /* Aquí lo más importante para que los botones no se corten */
+        .botonesEditaryVer {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .botonesEditaryVer button {
+            background-color: rgb(255, 255, 255);
+            color: var(--color-principal);
+            border: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .botonesEditaryVer button:hover {
+            background-color: #b784d8;
+            color: white;
+        }
+
+        .rectangulo-fecha {
+            position: static;
+            margin: 0 auto;
+            margin-bottom: 0.5rem;
+            width: auto;
+            padding: 0.2rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border-radius: 6px;
+            background-color: #f3f1f6;
+            border: 1px solid #bbb;
+        }
+
+        .texto-lista-tareas {
+            font-size: 1rem;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .tabla-asignaturas {
+            width: 100%;
+            /* Más estrecho que 100% */
+            max-width: 700px;
+            /* O cualquier otro valor acorde al diseño */ 
+            font-size: .7rem;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        .asignaturas li:hover {
+            position: static;
+            z-index: 0;
+            /* mantener bajo */
+        }
+
+    }

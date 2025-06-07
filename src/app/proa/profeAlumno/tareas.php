@@ -4,8 +4,6 @@ $id_asignatura = $_GET['id'] ?? null;
 if (!$id_asignatura) {
     die("No se ha seleccionado ninguna asignatura.");
 }
-
-// Aquí puedes seguir con la lógica de mostrar tareas según $id_asignatura
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -37,7 +35,7 @@ if (!$id_asignatura) {
     <div class="migas">
         <a href="inicioGeneral.php">Inicio General / </a>
         <a href="asignaturas.php">Asignaturas / </a>
-        <a href="inicioAsignatura.php">Inicio Asignatura / </a>
+        <a class="ubicacion-actual" href="inicioAsignatura.php?id=<?= urlencode($_GET['id'] ?? '') ?>">Inicio Asignatura / </a>
         <a href="#">Tareas /</a>
     </div>
 <!-- Contenido de la seccion-->

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,6 +18,7 @@
 <!-- Sidebar de Proa -->
 <?php include '../../includes/proaInc/sidebarProaGeneral.inc'; ?>
 
+
 <!-- Contenido de la página -->
 <div class="contenido">
 <!-- Titulo de la seccion-->
@@ -25,7 +27,7 @@
     <div class="migas">
         <a href="inicioGeneral.php">Inicio General / </a>
         <a href="asignaturas.php">Asignaturas / </a>
-        <a href="inicioAsignatura.php">Inicio Asignatura / </a>
+        <a class="ubicacion-actual" href="inicioAsignatura.php?id=<?= urlencode($_GET['id'] ?? '') ?>">Inicio Asignatura / </a>
         <a href="#">Tareas / </a>
         <a href="#">Tarea X /</a>
     </div>

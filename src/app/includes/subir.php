@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/conexion.inc';
+include __DIR__ . '/conexion.inc'; // Incluye la conexión desde includes/
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validar datos recibidos
@@ -25,16 +25,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtener la extensión del archivo subido
     $extension = pathinfo($archivo['name'], PATHINFO_EXTENSION);
 
-    $ruta_subida = __DIR__ . '/../../../docs/uploads';
+    // Ruta absoluta para subir archivos
+    // Desde src/app/includes/subir.php a /docs/uploads es subir 3 niveles y luego /docs/uploads
+    $ruta_subida = realpath(__DIR__ . '/../../../docs/uploads');
 
-    if (!file_exists($ruta_subida)) {
-        mkdir($ruta_subida, 0777, true);
+    if (!$ruta_subida) {
+        // Si no existe la carpeta, crearla
+        $ruta_subida = __DIR__ . '/../../../docs/uploads';
+        if (!file_exists($ruta_subida)) {
+            mkdir($ruta_subida, 0777, true);
+        }
+        $ruta_subida = realpath($ruta_subida);
     }
 
-    $ruta_subida = realpath($ruta_subida) . DIRECTORY_SEPARATOR;
+    $ruta_subida .= DIRECTORY_SEPARATOR;
 
-
-// Generar nombre único para el archivo
+    // Generar nombre único para el archivo
     $nombre_archivo = 'entrega_' . $dni_alumno . '_' . $id_tarea . '_' . time();
     if (!empty($extension)) {
         $nombre_archivo .= '.' . $extension;

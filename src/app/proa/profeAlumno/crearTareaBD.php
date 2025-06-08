@@ -16,10 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fecha_entrega = $_POST['fecha_entrega'] ?? null;
     $puntuacion_maxima = $_POST['puntuacion_maxima'] ?? null;
 
-    $creado_por = '9971924'; // Puedes cambiarlo si tienes sesión con usuario
-
-    // No veo que definas $grupo_id, si no lo tienes, déjalo en null o 0
-    $grupo_id = null;
+    $creado_por = $_SESSION['dni'] ?? null;
+    if (!$creado_por) {
+        die("No se ha identificado al creador de la tarea.");
+    }
+    $grupo_id = 001;
 
 
     if (!$fecha_apertura || !$titulo || !$descripcion || !$fecha_entrega || !$puntuacion_maxima) {
@@ -33,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $archivo_tmp = $_FILES['archivo_adjunto']['tmp_name'];
         $archivo_nombre = uniqid() . "_" . basename($nombre_original);
 
-        $ruta_destino = __DIR__ . "/../../uploads/tareas/" . $archivo_nombre;
+        $ruta_destino = __DIR__ . "/../../../../docs/uploads/" . $archivo_nombre;
 
         if (!is_dir(dirname($ruta_destino))) {
             mkdir(dirname($ruta_destino), 0777, true);

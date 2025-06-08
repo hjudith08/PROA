@@ -54,8 +54,8 @@
             <div class="seccion-edusync">
                 <div class="overlay-sn">
                     <p>
-                        En EduSync nos dedicamos a mejorar la experiencia educativa dentro 
-                         de las instituciones, diseñando módulos educativos para 
+                        En EduSync nos dedicamos a mejorar la experiencia educativa dentro
+                        de las instituciones, diseñando módulos educativos para
                         que la interacción entre alumnos y profesores sea más simple y fluida.
                     </p>
                     <img src="imagenes/LogoEduSyncBlanco.png" alt="logo edusync" class="logo-edusync">
@@ -67,14 +67,13 @@
         if (!isset($_SESSION['usuario_nombre'])) {
             ?>
             <section class="registrarse-landing">
-                
-                <p> Ayudanos a que las plataformas educativas no solo funcionen, 
-                    sino que realmente conecten con quienes las usan.
-        </p>    
-        <div class="titulos-registrarse">
-                <h3>Ahora que ya sabes algo sobre nosotros</h3>
-                <h2>¿Estas listo para unirte a nuestra comunidad?</h2>
+                <div class="titulos-registrarse">
+                    <h3>¿Estas listo para unirte a nuestra comunidad?</h3>
                 </div>
+                <p> Ayudanos a que las plataformas educativas no solo funcionen,
+                    sino que realmente conecten con quienes las usan.
+                </p>
+
                 <a href="app/eduSync/loginRegistro.php" class="boton-demo">Registrate</a>
             </section>
             <?php

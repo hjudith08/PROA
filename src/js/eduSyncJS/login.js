@@ -73,41 +73,40 @@ registerBtn.addEventListener("click", (e) => {
 });
 
 // Detectar si hay un error en la URL y forzar vista de login
-window.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('error')) {
-        contenedor.classList.add("panel-derecho-activo");
+
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has('error')) {
+    contenedor.classList.add("panel-derecho-activo");
+}
+
+
+/* validacion del registro*/
+
+registroForm.addEventListener("submit", function (e) {
+    const password = document.getElementById("passwordRegistro").value;
+    const confirmPassword = document.getElementById("confirmar-password").value;
+
+    console.log("Validando contraseñas...");
+    console.log(`Password: "${password}"`);
+    console.log(`Confirm: "${confirmPassword}"`);
+
+    if (password !== confirmPassword) {
+        console.log("Error: Las contraseñas no coinciden");
+        e.preventDefault();
+        mostrarError("Las contraseñas no coinciden. Por favor, inténtalo de nuevo.");
+
+        // Resaltar campos
+        const passwordFields = document.querySelectorAll("#passwordRegistro, #confirmar-password");
+        passwordFields.forEach(field => {
+            field.style.borderColor = "#dc3545";
+            field.addEventListener('input', function () {
+                this.style.borderColor = "";
+            }, { once: true });
+        });
+
+        document.getElementById("password").focus();
+    } else {
+        console.log("Contraseñas coinciden - formulario puede enviarse");
     }
 });
-
-
-/* validacion del registro*/     
-
-        registroForm.addEventListener("submit", function(e) {
-            const password = document.getElementById("passwordRegistro").value;
-            const confirmPassword = document.getElementById("confirmar-password").value;
-            
-            console.log("Validando contraseñas...");
-            console.log(`Password: "${password}"`);
-            console.log(`Confirm: "${confirmPassword}"`);
-            
-            if (password !== confirmPassword) {
-                console.log("Error: Las contraseñas no coinciden");
-                e.preventDefault();
-                mostrarError("Las contraseñas no coinciden. Por favor, inténtalo de nuevo.");
-                
-                // Resaltar campos
-                const passwordFields = document.querySelectorAll("#passwordRegistro, #confirmar-password");
-                passwordFields.forEach(field => {
-                    field.style.borderColor = "#dc3545";
-                    field.addEventListener('input', function() {
-                        this.style.borderColor = "";
-                    }, { once: true });
-                });
-                
-                document.getElementById("password").focus();
-            } else {
-                console.log("Contraseñas coinciden - formulario puede enviarse");
-            }
-        });
 

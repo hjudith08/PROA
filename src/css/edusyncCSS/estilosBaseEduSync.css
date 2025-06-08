@@ -322,15 +322,17 @@ body>footer .footer-container {
 
 
 body>footer .footer-col {
+    flex: 1 1 250px;
     max-width: 300px;
     padding: 1rem;
 }
 
 body>footer .footer-col img {
     height: 45px;
+    justify-self: center;
 }
 
-body>footer .footer-col p a{
+body>footer .footer-col p a {
     text-decoration: none;
 }
 

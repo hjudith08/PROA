@@ -6,7 +6,8 @@ require '../includes/eduSyncInc/SMTP.php';
 require_once '../includes/conexion.inc';
 
 // Verificar conexión
-if (!isset($conn_edusync)) die("Error de conexión");
+if (!isset($conn_edusync))
+    die("Error de conexión");
 
 // Verificar si el correo ya existe
 $email = $_POST['email'] ?? '';

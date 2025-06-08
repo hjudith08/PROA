@@ -23,9 +23,13 @@
                 <div class="informacion-sec1">
                     <!-- logo, informacion y boton PROA -->
                     <img src="../../imagenes/LogosProaBlanco.png" alt="Logo PROA" class="logo-proa"><br>
-                    <p>Ayudamos a las instituciones a tener una mejor interacción entre alumnos
-                        y profesores mediante módulos educativos con una interfaz más intuitiva, moderna y agradable,
-                        formando parte de EduSync podrás acceder a pruebas exclusivas.</p>
+                    <p><strong>PROA </strong> es una aplicación educativa que ayuda a las instituciones a
+                        mejorar la interacción entre alumnos y profesores a través de módulos con una interfaz moderna,
+                        intuitiva y agradable.
+                        Al formar parte de EduSync, tendrás acceso a pruebas exclusivas y herramientas
+                        diseñadas para transformar la enseñanza.
+
+                    </p>
                 </div>
                 <!-- imagen proa ordenador -->
                 <div class="informacion-sec2">
@@ -52,15 +56,15 @@
                             <img src="../../imagenes/keyb.png" alt="Icono Credenciales">
                         </div>
                         <h3>Solicita las credenciales</h3>
-                        <p>Te facilitaremos unas credenciales temporales para probar nuestro módulo con diferentes
-                            vistas</p>
+                        <p>Te facilitaremos credenciales temporales para que puedas 
+                            explorar nuestro módulo con diferentes vistas.</p>
                     </div>
                     <div class="paso">
                         <div class="icono">
                             <img src="../../imagenes/demob.png" alt="Icono Demo">
                         </div>
                         <h3>Prueba la DEMO</h3>
-                        <p>Puedes ver todas las funcionalidades que podría tener tu web.</p>
+                        <p>Explora todas las funcionalidades que tu plataforma educativa podría integrar.</p>
                     </div>
                     <div class="paso">
                         <div class="icono">

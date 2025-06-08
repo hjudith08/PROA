@@ -431,7 +431,6 @@ input:focus {
     background-color: var(--color-primario);
     color: var(--color-texto-claro);
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
@@ -570,7 +569,7 @@ input:focus {
     /* Footer ajustado */
     .footer {
         bottom: 0 !important;
-        height: 100px;
+        height: 100%;
         position: relative;
 
     }

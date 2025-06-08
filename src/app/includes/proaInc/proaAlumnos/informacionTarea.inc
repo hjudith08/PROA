@@ -1,14 +1,22 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 include __DIR__ . '/../../conexion.inc';
 
-$dni_alumno    = $_SESSION['dni'] ?? '';
+$dni_alumno = $_SESSION['dni'] ?? '';
 
 $id_tarea = isset($_GET['id_tarea']) ? intval($_GET['id_tarea']) : 0;
 if ($id_tarea <= 0) {
-    die("Error: ID de tarea no válido");
+    die("Error: ID de tarea no válido.");
 }
 
-// Obtener información de la tarea
+if (empty($dni_alumno)) {
+    die("Error: Usuario no autenticado.");
+}
+
+// Obtener información de la tarea y asignatura
 $sqlTarea = "SELECT 
                 t.id_tarea, t.titulo, t.descripcion, 
                 t.fecha_apertura, t.fecha_entrega, 
@@ -20,47 +28,61 @@ $sqlTarea = "SELECT
             WHERE t.id_tarea = ?";
 
 $stmtTarea = $conn_proa->prepare($sqlTarea);
+if (!$stmtTarea) {
+    die("Error en la consulta: " . $conn_proa->error);
+}
 $stmtTarea->bind_param("i", $id_tarea);
 $stmtTarea->execute();
 $resultTarea = $stmtTarea->get_result();
 
 if ($resultTarea->num_rows === 0) {
-    die("Error: Tarea no encontrada");
+    die("Error: Tarea no encontrada.");
 }
 
 $tarea = $resultTarea->fetch_assoc();
+$GLOBALS['titulo_tarea'] = $tarea['titulo'];
 
 // Obtener grupo del alumno
 $sqlGrupo = "SELECT grupo_id FROM usuarios WHERE dni = ?";
 $stmtGrupo = $conn_proa->prepare($sqlGrupo);
+if (!$stmtGrupo) {
+    die("Error en la consulta: " . $conn_proa->error);
+}
 $stmtGrupo->bind_param("s", $dni_alumno);
 $stmtGrupo->execute();
-$grupo = $stmtGrupo->get_result()->fetch_assoc();
+$resultGrupo = $stmtGrupo->get_result();
+$grupo = $resultGrupo->fetch_assoc();
 $grupo_id = $grupo['grupo_id'] ?? null;
 
 // Verificar que el alumno está matriculado en la asignatura
-$sqlMatricula = "SELECT 1 FROM alumnos_asignaturas 
-                 WHERE dni_alumno = ? AND id_asignatura = ?";
+$sqlMatricula = "SELECT 1 FROM alumnos_asignaturas WHERE dni_alumno = ? AND id_asignatura = ?";
 $stmtMatricula = $conn_proa->prepare($sqlMatricula);
+if (!$stmtMatricula) {
+    die("Error en la consulta: " . $conn_proa->error);
+}
 $stmtMatricula->bind_param("si", $dni_alumno, $tarea['id_asignatura']);
 $stmtMatricula->execute();
-$matriculado = $stmtMatricula->get_result()->num_rows > 0;
+$resultMatricula = $stmtMatricula->get_result();
+$matriculado = $resultMatricula->num_rows > 0;
 
 if (!$matriculado) {
-    die("Error: No estás matriculado en esta asignatura");
+    die("Error: No estás matriculado en esta asignatura.");
 }
 
 // Obtener entrega del alumno
-$sqlEntrega = "SELECT 
-                archivo_entregado, fecha_entrega, nota, comentarios_profesor
-               FROM entregas 
+$sqlEntrega = "SELECT archivo_entregado, fecha_entrega, nota, comentarios_profesor
+               FROM entregas
                WHERE id_tarea = ? AND dni_alumno = ?";
 $stmtEntrega = $conn_proa->prepare($sqlEntrega);
+if (!$stmtEntrega) {
+    die("Error en la consulta: " . $conn_proa->error);
+}
 $stmtEntrega->bind_param("is", $id_tarea, $dni_alumno);
 $stmtEntrega->execute();
-$entrega = $stmtEntrega->get_result()->fetch_assoc();
+$resultEntrega = $stmtEntrega->get_result();
+$entrega = $resultEntrega->fetch_assoc();
 
-// Verificar si ya venció el plazo
+// Comprobar si ya venció el plazo
 $fecha_actual = new DateTime();
 $fecha_limite = new DateTime($tarea['fecha_entrega']);
 $plazo_vencido = $fecha_actual > $fecha_limite;
@@ -77,7 +99,7 @@ $plazo_vencido = $fecha_actual > $fecha_limite;
             <p class="titulo">Calificación:</p>
             <p class="informacion">
                 <?php if ($entrega): ?>
-                    <?= isset($entrega['nota']) ? htmlspecialchars($entrega['nota']) . '/' . htmlspecialchars($tarea['puntuacion_maxima']) : 'Pendiente de corrección' ?>
+                    <?= isset($entrega['nota']) && $entrega['nota'] !== null ? htmlspecialchars($entrega['nota']) . ' / ' . htmlspecialchars($tarea['puntuacion_maxima']) : 'Pendiente de corrección' ?>
                 <?php else: ?>
                     Sin entregar
                 <?php endif; ?>
@@ -87,20 +109,20 @@ $plazo_vencido = $fecha_actual > $fecha_limite;
         <?php if (!empty($entrega['comentarios_profesor'])): ?>
             <div>
                 <p class="titulo">Comentarios del profesor:</p>
-                <p class="informacion"><?= htmlspecialchars($entrega['comentarios_profesor']) ?></p>
+                <p class="informacion"><?= nl2br(htmlspecialchars($entrega['comentarios_profesor'])) ?></p>
             </div>
         <?php endif; ?>
 
         <div class="descripcion-tarea">
             <p class="titulo">Descripción de la tarea:</p>
-            <p class="informacion"><?= htmlspecialchars($tarea['descripcion']) ?></p>
+            <p class="informacion"><?= nl2br(htmlspecialchars($tarea['descripcion'])) ?></p>
         </div>
 
         <?php if (!empty($tarea['archivo_adjunto'])): ?>
             <div>
                 <p class="titulo">Archivo adjunto:</p>
                 <p class="informacion">
-                    <a href="/uploads/<?= htmlspecialchars($tarea['archivo_adjunto']) ?>" target="_blank">
+                    <a href="../../../../docs/uploads/<?= rawurlencode(basename($tarea['archivo_adjunto'])) ?>" target="_blank" rel="noopener noreferrer">
                         <?= htmlspecialchars(basename($tarea['archivo_adjunto'])) ?>
                     </a>
                 </p>
@@ -111,7 +133,7 @@ $plazo_vencido = $fecha_actual > $fecha_limite;
             <div>
                 <p class="titulo">Archivo entregado:</p>
                 <p class="informacion">
-                    <a href="../../../../docs/uploads/<?= htmlspecialchars($entrega['archivo_entregado']) ?>" target="_blank">
+                    <a href="../../../../docs/uploads/<?= rawurlencode(basename($entrega['archivo_entregado'])) ?>" target="_blank" rel="noopener noreferrer">
                         <?= htmlspecialchars(basename($entrega['archivo_entregado'])) ?>
                     </a>
                 </p>
@@ -122,9 +144,9 @@ $plazo_vencido = $fecha_actual > $fecha_limite;
             </div>
         <?php elseif (!$plazo_vencido): ?>
             <!-- Formulario para entregar archivo solo si NO se venció el plazo -->
-            <form action="../../includes/subir.php" method="post" enctype="multipart/form-data">
-                <label class="form-label titulo" for="taskFile">Adjuntar archivos:</label>
-                <input type="file" name="archivo" required>
+            <form action="../../includes/subir.php" method="post" enctype="multipart/form-data" novalidate>
+                <label class="form-label titulo" for="taskFile">Adjuntar archivo:</label>
+                <input type="file" name="archivo" id="taskFile" accept=".pdf,.doc,.docx,.zip" required>
                 <input type="hidden" name="dni_alumno" value="<?= htmlspecialchars($dni_alumno) ?>">
                 <input type="hidden" name="id_tarea" value="<?= htmlspecialchars($id_tarea) ?>">
                 <input type="hidden" name="grupo_id" value="<?= htmlspecialchars($grupo_id) ?>">

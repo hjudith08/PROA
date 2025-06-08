@@ -29,7 +29,7 @@
         <div class="migas">
             <a href="inicioGeneral.php">Inicio General / </a>
             <a href="asignaturas.php">Asignaturas / </a>
-            <a class="ubicacion-actual" href="#">Inicio Asignatura / </a>
+            <a class="ubicacion-actual" href="inicioAsignatura.php?id=<?= urlencode($_GET['id'] ?? '') ?>">Inicio Asignatura / </a>
         </div>
         <!-- Contenido de la seccion-->
         <div class="contenido-interior">

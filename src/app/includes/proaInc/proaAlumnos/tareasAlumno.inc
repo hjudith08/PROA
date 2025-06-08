@@ -49,6 +49,7 @@ $result = $stmt->get_result();
     <style>
         th.sortable { cursor: pointer; user-select: none; }
         .flecha { font-size: 0.75em; margin-left: 0.25em; }
+        tr.fila { cursor: pointer; }
     </style>
 </head>
 <body>
@@ -99,8 +100,17 @@ $result = $stmt->get_result();
         </tbody>
     </table>
 </div>
-<script>
-    // Pasar dni_alumno desde PHP a JS global
-    const dniAlumno = <?= json_encode($dni_alumno) ?>;
-</script>
 
+<script>
+    const dniAlumno = <?= json_encode($dni_alumno) ?>;
+    const idAsignatura = <?= json_encode($id_asignatura) ?>;
+
+    document.querySelectorAll('tr.fila').forEach(fila => {
+        fila.addEventListener('click', () => {
+            const idTarea = fila.getAttribute('data-id');
+            if (idTarea) {
+                window.location.href = `ver_tarea.php?id_tarea=${idTarea}&id=${idAsignatura}`;
+            }
+        });
+    });
+</script>

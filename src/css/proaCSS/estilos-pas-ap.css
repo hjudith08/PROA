@@ -953,7 +953,40 @@ span {
   color: #333;
   font-size: 0.98rem;
 }
-
+.popup-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.popup-overlay.mostrar {
+    display: flex;
+}
+.popup-contenido {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 28px 24px 28px;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.18);
+    text-align: center;
+    min-width: 280px;
+}
+.boton-cerrar-popup {
+    margin-top: 18px;
+    background: #75619e;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.boton-cerrar-popup:hover {
+    background: #5a4a7c;
+}
 @media (max-width: 900px) {
   .profesores-layout {
     flex-direction: column;

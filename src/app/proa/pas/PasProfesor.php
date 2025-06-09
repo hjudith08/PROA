@@ -48,16 +48,20 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
     <link rel="stylesheet" href="../../../css/proaCSS/basePas.css">
     <link rel="stylesheet" href="../../../css/proaCSS/estilos-pas-ap.css" />
     <script src="../../../js/proaJS/funcionesBase.js" defer></script>
+
 </head>
 
 <body>
     <?php include '../../includes/proaInc/menuProa.inc'; ?>
 
-    <?php if (isset($_GET['msg'])): ?>
-        <div class="mensaje-accion <?= $_GET['msg'] === 'ok' ? 'exito' : 'error' ?>">
-            <?= $_GET['msg'] === 'ok' ? '¡Cambios guardados correctamente!' : 'Ha ocurrido un error al guardar los cambios.' ?>
+    <!-- POPUP GUARDADO/ERROR -->
+    <div class="popup-overlay" id="popup-msg">
+        <div class="popup-contenido">
+            <h2 id="popup-titulo"></h2>
+            <p id="popup-texto"></p>
+            <button class="boton-cerrar-popup" onclick="cerrarPopup()">Cerrar</button>
         </div>
-    <?php endif; ?>
+    </div>
 
     <div class="contenedor-principal">
         <button class="boton-filtros-mobile" onclick="toggleFiltros()">
@@ -114,7 +118,7 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
                                                 $asociadosDni[] = $asociado['dni'];
                                             }
                                             $asociadosDni = $asociadosDni ?? [];
-                                            $resultadoProfesores->data_seek(0); // Reinicia el puntero por si acaso
+                                            $resultadoProfesores->data_seek(0);
                                             while ($profesor = $resultadoProfesores->fetch_assoc()) {
                                                 $dni = $profesor['dni'];
                                                 $checked = in_array($dni, $asociadosDni) ? 'checked' : '';
@@ -134,8 +138,7 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
                             <div class="botones-accion">
                                 <button type="submit" class="boton-accion" form="form-profesores">Guardar
                                     cambios</button>
-                                <a href="PasInicio.php" class="boton-accion"
-                                    style="text-decoration:none;line-height:38px;">Volver</a>
+                                <a href="PasInicio.php" class="boton-accion">Volver</a>
                             </div>
                         </div>
                         <div class="col-derecha">
@@ -155,15 +158,27 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
     <?php include '../../includes/proaInc/footerProa.inc'; ?>
 
     <script>
-        // Buscador
         document.addEventListener("DOMContentLoaded", function () {
+            // Mostrar popup si msg=ok o msg=error
+            <?php if (isset($_GET['msg'])): ?>
+                var popup = document.getElementById('popup-msg');
+                var titulo = document.getElementById('popup-titulo');
+                var texto = document.getElementById('popup-texto');
+                <?php if ($_GET['msg'] === 'ok'): ?>
+                    titulo.textContent = "¡Guardado correctamente!";
+                    texto.textContent = "Se ha guardado correctamente tu selección de profesores.";
+                <?php else: ?>
+                    titulo.textContent = "Error";
+                    texto.textContent = "Ha ocurrido un error al guardar los cambios.";
+                <?php endif; ?>
+                popup.classList.add('mostrar');
+            <?php endif; ?>
+
+            // Buscador
             const input = document.getElementById("input-busqueda");
             const lista = document.getElementById("lista-asignaturas");
             function normalizarTexto(texto) {
-                return texto
-                    .normalize("NFD")
-                    .replace(/[\u0300-\u036f]/g, "")
-                    .toLowerCase();
+                return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
             }
             input.addEventListener("input", function () {
                 const filtro = normalizarTexto(input.value);
@@ -212,7 +227,10 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
             actualizarSeleccionados();
         });
 
-        // toggle filtros móvil
+        function cerrarPopup() {
+            document.getElementById('popup-msg').classList.remove('mostrar');
+        }
+
         function toggleFiltros() {
             const sidebar = document.querySelector('.sidebar');
             sidebar.classList.toggle('activo');

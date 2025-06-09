@@ -48,6 +48,21 @@ $resultado = $conn_proa->query($sql);
     <link rel="stylesheet" href="../../../css/proaCSS/estilos-pas-ap.css" />
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // POPUP GUARDADO/ERROR
+            <?php if (isset($_GET['msg'])): ?>
+                var popup = document.getElementById('popup-msg');
+                var titulo = document.getElementById('popup-titulo');
+                var texto = document.getElementById('popup-texto');
+                <?php if ($_GET['msg'] === 'ok'): ?>
+                    titulo.textContent = "¡Guardado correctamente!";
+                    texto.textContent = "Se ha guardado correctamente tu selección.";
+                <?php else: ?>
+                    titulo.textContent = "Error";
+                    texto.textContent = "Ha ocurrido un error al guardar los cambios.";
+                <?php endif; ?>
+                popup.classList.add('mostrar');
+            <?php endif; ?>
+
             const filtrosForm = document.getElementById("form-filtros");
             if (filtrosForm) {
                 filtrosForm.querySelectorAll("input[type=checkbox]").forEach(function (input) {
@@ -97,6 +112,10 @@ $resultado = $conn_proa->query($sql);
             document.getElementById('popup-seleccion').style.display = 'none';
         }
 
+        function cerrarPopup() {
+            document.getElementById('popup-msg').classList.remove('mostrar');
+        }
+
         function toggleFiltros() {
             const sidebar = document.querySelector('.sidebar');
             sidebar.classList.toggle('activo');
@@ -110,6 +129,15 @@ $resultado = $conn_proa->query($sql);
 
 <body>
     <?php include '../../includes/proaInc/menuProa.inc'; ?>
+
+    <!-- POPUP GUARDADO/ERROR -->
+    <div class="popup-overlay" id="popup-msg">
+        <div class="popup-contenido">
+            <h2 id="popup-titulo"></h2>
+            <p id="popup-texto"></p>
+            <button class="boton-cerrar-popup" onclick="cerrarPopup()">Cerrar</button>
+        </div>
+    </div>
 
     <div class="contenedor-principal">
         <button class="boton-filtros-mobile" onclick="toggleFiltros()">

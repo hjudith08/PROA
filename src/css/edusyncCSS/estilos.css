@@ -505,11 +505,13 @@ footer {
         align-items: center;
         text-align: center;
     }
-.logo-texto-gti {
+
+    .logo-texto-gti {
         flex-direction: column;
         justify-content: center;
         text-align: center;
     }
+
     .hero-content {
         margin: 0;
         padding: 40px 20px 20px;
@@ -532,6 +534,7 @@ footer {
         margin: 15px 0;
         margin-bottom: 40px;
     }
+
     .boton-flecha {
         width: 40px;
         height: 40px;
@@ -560,6 +563,7 @@ footer {
 
     .sobre-nosotros .logo-edusync {
         margin: 10px;
+        width: 150px;
     }
 
     .sobre-nosotros .logo-gti {

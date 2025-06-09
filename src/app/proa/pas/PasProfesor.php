@@ -39,6 +39,7 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -48,6 +49,7 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
     <link rel="stylesheet" href="../../../css/proaCSS/estilos-pas-ap.css" />
     <script src="../../../js/proaJS/funcionesBase.js" defer></script>
 </head>
+
 <body>
     <?php include '../../includes/proaInc/menuProa.inc'; ?>
 
@@ -103,21 +105,21 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
                         <div class="col-izquierda">
                             <div class="contenido-tarjeta">
                                 <form method="POST" action="asociarProfesores.php" id="form-profesores">
-                                    <input type="hidden" name="id_asignatura" value="<?= htmlspecialchars($idAsignatura) ?>" />
+                                    <input type="hidden" name="id_asignatura"
+                                        value="<?= htmlspecialchars($idAsignatura) ?>" />
                                     <div class="lista-asignaturas scrollbar" id="lista-asignaturas">
                                         <?php
                                         if ($resultadoProfesores && $resultadoProfesores->num_rows > 0) {
+                                            foreach ($profesoresAsociados as $asociado) {
+                                                $asociadosDni[] = $asociado['dni'];
+                                            }
+                                            $asociadosDni = $asociadosDni ?? [];
+                                            $resultadoProfesores->data_seek(0); // Reinicia el puntero por si acaso
                                             while ($profesor = $resultadoProfesores->fetch_assoc()) {
                                                 $dni = $profesor['dni'];
-                                                $checked = false;
-                                                foreach ($profesoresAsociados as $asociado) {
-                                                    if ($asociado['dni'] === $dni) {
-                                                        $checked = true;
-                                                        break;
-                                                    }
-                                                }
+                                                $checked = in_array($dni, $asociadosDni) ? 'checked' : '';
                                                 echo "<div class='tarjeta-profesor'>";
-                                                echo "<input type='checkbox' name='profesores[]' value='" . htmlspecialchars($dni) . "' " . ($checked ? 'checked' : '') . " />";
+                                                echo "<input type='radio' name='profesor' value='" . htmlspecialchars($dni) . "' $checked />";
                                                 echo "<span class='nombre-profesor'>" . htmlspecialchars($profesor['nombre']) . " " . htmlspecialchars($profesor['apellido1']) . " " . htmlspecialchars($profesor['apellido2']) . "</span>";
                                                 echo "<span class='dni-profesor'>(" . htmlspecialchars($dni) . ")</span>";
                                                 echo "</div>";
@@ -130,8 +132,10 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
                                 </form>
                             </div>
                             <div class="botones-accion">
-                                <button type="submit" class="boton-accion" form="form-profesores">Guardar cambios</button>
-                                <a href="PasInicio.php" class="boton-accion" style="text-decoration:none;line-height:38px;">Volver</a>
+                                <button type="submit" class="boton-accion" form="form-profesores">Guardar
+                                    cambios</button>
+                                <a href="PasInicio.php" class="boton-accion"
+                                    style="text-decoration:none;line-height:38px;">Volver</a>
                             </div>
                         </div>
                         <div class="col-derecha">
@@ -184,26 +188,26 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
 
             // Lista seleccionados en tiempo real
             function actualizarSeleccionados() {
-                const checkboxes = document.querySelectorAll('input[name="profesores[]"]');
+                const radios = document.querySelectorAll('input[name="profesor"]');
                 const lista = document.getElementById('lista-seleccionados');
                 lista.innerHTML = '';
-                let haySeleccionados = false;
-                checkboxes.forEach(function (cb) {
-                    if (cb.checked) {
-                        haySeleccionados = true;
-                        const nombre = cb.parentElement.querySelector('.nombre-profesor').textContent.trim();
-                        const dni = cb.parentElement.querySelector('.dni-profesor').textContent.trim();
+                let seleccionado = false;
+                radios.forEach(function (rb) {
+                    if (rb.checked) {
+                        seleccionado = true;
+                        const nombre = rb.parentElement.querySelector('.nombre-profesor').textContent.trim();
+                        const dni = rb.parentElement.querySelector('.dni-profesor').textContent.trim();
                         const li = document.createElement('li');
                         li.textContent = nombre + ' ' + dni;
                         lista.appendChild(li);
                     }
                 });
-                if (!haySeleccionados) {
+                if (!seleccionado) {
                     lista.innerHTML = '<span style="color:#888;">Ningún profesor seleccionado.</span>';
                 }
             }
-            document.querySelectorAll('input[name="profesores[]"]').forEach(function (cb) {
-                cb.addEventListener('change', actualizarSeleccionados);
+            document.querySelectorAll('input[name="profesor"]').forEach(function (rb) {
+                rb.addEventListener('change', actualizarSeleccionados);
             });
             actualizarSeleccionados();
         });
@@ -223,4 +227,5 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
         }
     </script>
 </body>
+
 </html>

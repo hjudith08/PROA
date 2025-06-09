@@ -28,16 +28,13 @@ $sqlTarea = "SELECT
             WHERE t.id_tarea = ?";
 
 $stmtTarea = $conn_proa->prepare($sqlTarea);
-if (!$stmtTarea) {
-    die("Error en la consulta: " . $conn_proa->error);
-}
+if (!$stmtTarea) die("Error en la consulta: " . $conn_proa->error);
+
 $stmtTarea->bind_param("i", $id_tarea);
 $stmtTarea->execute();
 $resultTarea = $stmtTarea->get_result();
 
-if ($resultTarea->num_rows === 0) {
-    die("Error: Tarea no encontrada.");
-}
+if ($resultTarea->num_rows === 0) die("Error: Tarea no encontrada.");
 
 $tarea = $resultTarea->fetch_assoc();
 $GLOBALS['titulo_tarea'] = $tarea['titulo'];
@@ -45,44 +42,38 @@ $GLOBALS['titulo_tarea'] = $tarea['titulo'];
 // Obtener grupo del alumno
 $sqlGrupo = "SELECT grupo_id FROM usuarios WHERE dni = ?";
 $stmtGrupo = $conn_proa->prepare($sqlGrupo);
-if (!$stmtGrupo) {
-    die("Error en la consulta: " . $conn_proa->error);
-}
+if (!$stmtGrupo) die("Error en la consulta: " . $conn_proa->error);
+
 $stmtGrupo->bind_param("s", $dni_alumno);
 $stmtGrupo->execute();
 $resultGrupo = $stmtGrupo->get_result();
 $grupo = $resultGrupo->fetch_assoc();
 $grupo_id = $grupo['grupo_id'] ?? null;
 
-// Verificar que el alumno está matriculado en la asignatura
+// Verificar matrícula
 $sqlMatricula = "SELECT 1 FROM alumnos_asignaturas WHERE dni_alumno = ? AND id_asignatura = ?";
 $stmtMatricula = $conn_proa->prepare($sqlMatricula);
-if (!$stmtMatricula) {
-    die("Error en la consulta: " . $conn_proa->error);
-}
+if (!$stmtMatricula) die("Error en la consulta: " . $conn_proa->error);
+
 $stmtMatricula->bind_param("si", $dni_alumno, $tarea['id_asignatura']);
 $stmtMatricula->execute();
 $resultMatricula = $stmtMatricula->get_result();
-$matriculado = $resultMatricula->num_rows > 0;
 
-if (!$matriculado) {
-    die("Error: No estás matriculado en esta asignatura.");
-}
+if ($resultMatricula->num_rows === 0) die("Error: No estás matriculado en esta asignatura.");
 
-// Obtener entrega del alumno
+// Obtener entrega
 $sqlEntrega = "SELECT archivo_entregado, fecha_entrega, nota, comentarios_profesor
                FROM entregas
                WHERE id_tarea = ? AND dni_alumno = ?";
 $stmtEntrega = $conn_proa->prepare($sqlEntrega);
-if (!$stmtEntrega) {
-    die("Error en la consulta: " . $conn_proa->error);
-}
+if (!$stmtEntrega) die("Error en la consulta: " . $conn_proa->error);
+
 $stmtEntrega->bind_param("is", $id_tarea, $dni_alumno);
 $stmtEntrega->execute();
 $resultEntrega = $stmtEntrega->get_result();
 $entrega = $resultEntrega->fetch_assoc();
 
-// Comprobar si ya venció el plazo
+// Comprobar fecha límite
 $fecha_actual = new DateTime();
 $fecha_limite = new DateTime($tarea['fecha_entrega']);
 $plazo_vencido = $fecha_actual > $fecha_limite;
@@ -130,12 +121,26 @@ $plazo_vencido = $fecha_actual > $fecha_limite;
         <?php endif; ?>
 
         <?php if (!empty($entrega['archivo_entregado'])): ?>
+            <?php
+            $ruta_archivo = __DIR__ . '/../../../../docs/uploads/' . basename($entrega['archivo_entregado']);
+            $tamano_legible = "Tamaño no disponible";
+            if (file_exists($ruta_archivo)) {
+                $tamano_archivo = filesize($ruta_archivo);
+                if ($tamano_archivo >= 1048576) {
+                    $tamano_legible = number_format($tamano_archivo / 1048576, 2) . ' MB';
+                } elseif ($tamano_archivo >= 1024) {
+                    $tamano_legible = number_format($tamano_archivo / 1024, 2) . ' KB';
+                } else {
+                    $tamano_legible = $tamano_archivo . ' B';
+                }
+            }
+            ?>
             <div>
                 <p class="titulo">Archivo entregado:</p>
                 <p class="informacion">
                     <a href="../../../../docs/uploads/<?= rawurlencode(basename($entrega['archivo_entregado'])) ?>" target="_blank" rel="noopener noreferrer">
                         <?= htmlspecialchars(basename($entrega['archivo_entregado'])) ?>
-                    </a>
+                    </a> (<?= $tamano_legible ?>)
                 </p>
             </div>
             <div>
@@ -143,7 +148,6 @@ $plazo_vencido = $fecha_actual > $fecha_limite;
                 <p class="informacion"><?= date('d/m/Y H:i', strtotime($entrega['fecha_entrega'])) ?></p>
             </div>
         <?php elseif (!$plazo_vencido): ?>
-            <!-- Formulario para entregar archivo solo si NO se venció el plazo -->
             <form action="../../includes/subir.php" method="post" enctype="multipart/form-data" novalidate>
                 <label class="form-label titulo" for="taskFile">Adjuntar archivo:</label>
                 <input type="file" name="archivo" id="taskFile" accept=".pdf,.doc,.docx,.zip" required>
@@ -156,7 +160,9 @@ $plazo_vencido = $fecha_actual > $fecha_limite;
         <?php else: ?>
             <div>
                 <p class="titulo">Entrega deshabilitada:</p>
-                <p class="informacion" style="color: red;">La fecha límite para entregar esta tarea ya ha pasado (<?= date('d/m/Y', strtotime($tarea['fecha_entrega'])) ?>).</p>
+                <p class="informacion" style="color: red;">
+                    La fecha límite para entregar esta tarea ya ha pasado (<?= date('d/m/Y', strtotime($tarea['fecha_entrega'])) ?>).
+                </p>
             </div>
         <?php endif; ?>
     </div>

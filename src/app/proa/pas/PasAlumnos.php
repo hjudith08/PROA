@@ -99,8 +99,8 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
                     <img src="../../../imagenes/loupe.png" alt="Buscar" class="icono-busqueda" />
                 </div>
                 <div class="bloque-asignaturas">
-                    <div class="alumnos-layout">
-                        <div class="tarjeta" style="flex:2;">
+                    <div class="asignacion-layout">
+                        <div class="col-izquierda">
                             <div class="contenido-tarjeta">
                                 <form method="POST" action="asociarAlumnos.php" id="form-alumnos">
                                     <input type="hidden" name="id_asignatura" value="<?= htmlspecialchars($idAsignatura) ?>" />
@@ -132,17 +132,19 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
                                         ?>
                                     </div>
                                 </form>
-                                <div class="botones-accion">
-                                    <button type="submit" class="boton-accion" form="form-alumnos">Guardar cambios</button>
-                                    <a href="PasInicio.php" class="boton-accion" style="text-decoration:none;line-height:38px;">Volver</a>
-                                </div>
+                            </div>
+                            <div class="botones-accion">
+                                <button type="submit" class="boton-accion" form="form-alumnos">Guardar cambios</button>
+                                <a href="PasInicio.php" class="boton-accion">Volver</a>
                             </div>
                         </div>
-                        <div class="seleccionados-lista" style="flex:1;">
-                            <h3>Alumnos seleccionados</h3>
-                            <ul id="lista-seleccionados">
-                                <!-- Se rellena por JS -->
-                            </ul>
+                        <div class="col-derecha">
+                            <div class="seleccionados-lista">
+                                <h3>Alumnos seleccionados</h3>
+                                <ul id="lista-seleccionados">
+                                    <!-- Se rellena por JS -->
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

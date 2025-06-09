@@ -8,22 +8,22 @@ if ($id_asignatura <= 0) {
 }
 
 // Consulta para obtener las tareas de esa asignatura
-$stmt = $conn->prepare("SELECT id_tarea, titulo, fecha_apertura, fecha_entrega FROM tareas WHERE id_asignatura = ? ORDER BY fecha_entrega DESC");
+$stmt = $conn_proa->prepare("SELECT id_tarea, titulo, fecha_apertura, fecha_entrega FROM tareas WHERE id_asignatura = ? ORDER BY fecha_entrega DESC");
 $stmt->bind_param("i", $id_asignatura);
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
 
 <div class="contenedor-tareasProfesor">
-    <!-- Aquí empiezan los filtros -->
+    <!-- Botón crear nueva tarea -->
     <div class="contenedor-botones">
         <button class="boton-revisar-profesor" onclick="window.location.href='../../Proa/profeAlumno/crearTarea.php?id=<?= $id_asignatura ?>'">
             <img class="imgMas" src="../../../../images/pluspurple.png" alt="">
             Nueva Tarea
         </button>
     </div>
-    <!-- Aquí terminan los filtros -->
 
+    <!-- Tabla de tareas -->
     <table>
         <thead class="encabezado-tabla-tareasProfesor">
             <tr class="fila-tabla-profesorTareas">
@@ -41,9 +41,11 @@ $result = $stmt->get_result();
                     <td class="fecha-apertura-vProfesor"><?= date('d/m/Y', strtotime($row['fecha_apertura'])) ?></td>
                     <td class="fecha-entrega-vProfesor"><?= date('d/m/Y', strtotime($row['fecha_entrega'])) ?></td>
                     <td class="acciones">
-                        <button class="boton-revisar-profesor" onclick="window.location.href='editarTarea.php?id=<?= urlencode($id_asignatura) ?>&id_tarea=<?= $row['id_tarea'] ?>'">Editar</button>
-                        <button class="boton-revisar-profesor" onclick="window.location.href='verEntregas.php?id=<?= urlencode($id_asignatura) ?>&id_tarea=<?= $row['id_tarea'] ?>'">Ver Entregas</button>
-                        <button class="boton-revisar-profesor" onclick="if(confirm('¿Seguro que quieres eliminar esta tarea?')) { window.location.href='eliminarTarea.php?id_tarea=<?= $row['id_tarea'] ?>&id_asignatura=<?= $id_asignatura ?>'; }">Eliminar</button>
+                        <div class="acciones-div">
+                            <button class="boton-revisar-profesor" onclick="window.location.href='editarTarea.php?id=<?= urlencode($id_asignatura) ?>&id_tarea=<?= $row['id_tarea'] ?>'">Editar</button>
+                            <button class="boton-revisar-profesor" onclick="window.location.href='verEntregas.php?id=<?= urlencode($id_asignatura) ?>&id_tarea=<?= $row['id_tarea'] ?>'">Ver Entregas</button>
+                            <button class="boton-revisar-profesor eliminar-btn" onclick="mostrarPopupEliminar(<?= $row['id_tarea'] ?>)">Eliminar</button>
+                        </div>
                     </td>
                 </tr>
                 <?php endwhile; ?>
@@ -52,4 +54,15 @@ $result = $stmt->get_result();
             <?php endif; ?>
         </tbody>
     </table>
+</div>
+
+<!-- MODAL de confirmación de eliminación -->
+<div id="modalEliminar" class="modal-eliminar oculto">
+  <div class="modal-contenido">
+    <p>¿Seguro que quieres eliminar esta tarea?</p>
+    <div class="modal-botones">
+      <button id="confirmarEliminar" class="confirmar">Sí, eliminar</button>
+      <button id="cancelarEliminar" class="cancelar">Cancelar</button>
+    </div>
+  </div>
 </div>

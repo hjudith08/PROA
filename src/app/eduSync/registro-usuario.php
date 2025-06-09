@@ -3,21 +3,21 @@
 use PHPMailer\PHPMailer\PHPMailer;
 require '../includes/eduSyncInc/PHPMailer.php';
 require '../includes/eduSyncInc/SMTP.php';
-require_once '../includes/eduSyncInc/MySQL.inc';
+require_once '../includes/conexion.inc';
 
 // Verificar conexión
-if (!isset($conn)) die("Error de conexión");
+if (!isset($conn_edusync)) die("Error de conexión");
 
 // Generar token
 $token = uniqid();
 
 // Preparar inserción en base de datos
-$stmt = $conn->prepare("INSERT INTO usuarios (nombre, apellidos, email, password, token, validez_token) 
+$stmt = $conn_edusync->prepare("INSERT INTO usuarios (nombre, apellidos, email, password, token, validez_token) 
 VALUES (?, ?, ?, SHA2(?, 256), ?, DATE_ADD(NOW(), INTERVAL 1 HOUR))");
 $stmt->bind_param("sssss", $_POST['nombre'], $_POST['apellidos'], $_POST['email'], $_POST['password'], $token);
 $stmt->execute();
 $stmt->close();
-$conn->close();
+$conn_edusync->close();
 // Enviar correo
 $mail = new PHPMailer(true);
 $mail->isSMTP();
@@ -30,7 +30,8 @@ $mail->Port = 587;
 $mail->setFrom('registro@gti.com', 'GTI');
 $mail->addAddress($_POST['email']);
 $mail->isHTML(true);
-$href = 'http://localhost/PROA/src/validar-registro.php?token=' . $token;
+$base_url = 'PROA/src/';
+$href = $base_url . 'validar-registro.php?token=' . $token;
 $mail->Subject = 'Registro de usuario';
 $mail->Body = '
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 10px;">

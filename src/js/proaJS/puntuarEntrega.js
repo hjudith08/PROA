@@ -23,13 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
             entregaIdInput.value = entregaId;
             notaInput.value = nota;
 
-            // Mostrar nombre del archivo o mensaje por defecto
             const nombreArchivo = archivo ? archivo.split('/').pop() : 'No hay archivo';
             archivoEl.textContent = nombreArchivo;
 
-            // Configurar botón de descarga
             if (archivo) {
-                descargarBtn.onclick = () => window.open(archivo, '_blank');
+                const rutaDescarga = '../../../../docs/uploads/' + archivo;
+                descargarBtn.onclick = () => window.open(rutaDescarga, '_blank');
                 descargarBtn.disabled = false;
             } else {
                 descargarBtn.onclick = null;
@@ -40,56 +39,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Guardar nota al pulsar PUNTUAR
-    puntuarBtn.addEventListener('click', () => {
-        const entregaId = entregaIdInput.value;
-        const nota = notaInput.value.trim();
+    // Guardar nota
+puntuarBtn.addEventListener('click', () => {
+    const entregaId = entregaIdInput.value;
+    const nota = notaInput.value.trim();
 
-        if (nota === '' || isNaN(nota) || nota < 0 || nota > 10) {
-            alert('Por favor, introduce una nota válida entre 0 y 10.');
-            return;
-        }
+    // Validación más clara y segura
+    const notaNum = parseFloat(nota);
+    if (nota === '' || isNaN(notaNum) || notaNum < 0 || notaNum > 10) {
+        alert('Por favor, introduce una nota válida entre 0 y 10.');
+        return;
+    }
 
-        fetch('guardarNota.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: `id_entrega=${encodeURIComponent(entregaId)}&nota=${encodeURIComponent(nota)}`
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Nota guardada correctamente.');
+    fetch('guardarNota.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `id_entrega=${encodeURIComponent(entregaId)}&nota=${encodeURIComponent(notaNum)}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Nota guardada correctamente.');
 
-                // Actualizar visualmente la nota en la tabla
-                const boton = Array.from(botones).find(b => b.getAttribute('data-id') === entregaId);
-                if (boton) {
-                    boton.setAttribute('data-nota', nota);
-                    const fila = boton.closest('tr');
+            // Actualiza el botón y la celda correspondiente
+            const boton = Array.from(botones).find(b => b.getAttribute('data-id') === entregaId);
+            if (boton) {
+                boton.setAttribute('data-nota', notaNum);
+                const fila = boton.closest('tr');
+                if (fila) {
                     const celdaNota = fila.querySelector('td:nth-child(3)');
                     if (celdaNota) {
-                        celdaNota.textContent = parseFloat(nota).toFixed(1) + ' / 10';
+                        celdaNota.textContent = notaNum.toFixed(1) + ' / 10';
                     }
                 }
-
-                cerrarPopup();
-            } else {
-                alert('Error al guardar la nota: ' + (data.message || 'Error desconocido.'));
             }
-        })
-        .catch(() => {
-            alert('Error al comunicarse con el servidor.');
-        });
-    });
 
-    // Cerrar popup si el usuario hace clic fuera del contenido
+            cerrarPopup();
+        } else {
+            alert('Error al guardar la nota: ' + (data.message || 'Error desconocido.'));
+        }
+    })
+    .catch(() => {
+        alert('Error al comunicarse con el servidor.');
+    });
+});
+
+
+    // Cerrar popup al hacer clic fuera
     window.addEventListener('click', (e) => {
         if (e.target === popup) {
             cerrarPopup();
         }
     });
 
-    // Función para cerrar el popup
-    window.cerrarPopup = function() {
+    // Función global para cerrar
+    window.cerrarPopup = function () {
         if (popup) {
             popup.classList.add('oculto');
         }

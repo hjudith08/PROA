@@ -3,10 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // conexion al servidor
-$conexion = new mysqli("localhost", "root", "", "proa");
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
-}
+include __DIR__ . '../../../includes/conexion.inc';
 
 // id guardado de la pagina de inicio para mostrar los alumnos de la asignatura que tenga ese id
 $idAsignatura = isset($_GET['id']) ? intval($_GET['id']) : 0;
@@ -15,18 +12,18 @@ $idAsignatura = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $sqlProfesores = "SELECT * FROM usuarios WHERE rol_id = 'profesor'";
 
 if (!empty($_GET['departamento_profesor'])) {
-    $valores = array_map([$conexion, 'real_escape_string'], $_GET['departamento_profesor']);
+    $valores = array_map([$conn_proa, 'real_escape_string'], $_GET['departamento_profesor']);
     if (count($valores) > 0) {
         $sqlProfesores .= " AND departamento_profesor IN ('" . implode("','", $valores) . "')";
     }
 }
 
 // ejecutar la consulta final
-$resultadoProfesores = $conexion->query($sqlProfesores);
+$resultadoProfesores = $conn_proa->query($sqlProfesores);
 
 // obtener profesores ya asociados a esta asignatura
 $sqlAsociados = "SELECT dni_profesor FROM profesores_asignaturas WHERE id_asignatura = ?";
-$stmt = $conexion->prepare($sqlAsociados);
+$stmt = $conn_proa->prepare($sqlAsociados);
 $stmt->bind_param("i", $idAsignatura);
 $stmt->execute();
 $resultadoAsociados = $stmt->get_result();
@@ -116,7 +113,7 @@ while ($fila = $resultadoAsociados->fetch_assoc()) {
                     <div class="tarjeta">
                         <div class="contenido-tarjeta">
                             <!-- el form hace que una vez editado los alumnos de la asignatura te lleva a otro documento
-                             php que es el que se encarga de añadir o eliminar un alumno de la asignatura -->
+                            php que es el que se encarga de añadir o eliminar un alumno de la asignatura -->
                             <form method="POST" action="asociarProfesores.php">
                                 <input type="hidden" name="id_asignatura" value="<?= htmlspecialchars($idAsignatura) ?>" />
                                 <div class="lista-asignaturas scrollbar" id="lista-asignaturas">

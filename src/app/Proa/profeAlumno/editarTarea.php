@@ -4,7 +4,7 @@ include '../../includes/conexion.inc';
 $tarea = null;
 if (isset($_GET['id_tarea'])) {
     $id_tarea = intval($_GET['id_tarea']);
-    $stmt = $conn->prepare("SELECT * FROM tareas WHERE id_tarea = ?");
+    $stmt = $conn_proa->prepare("SELECT * FROM tareas WHERE id_tarea = ?");
     $stmt->bind_param("i", $id_tarea);
     $stmt->execute();
     $resultado = $stmt->get_result();
@@ -14,7 +14,6 @@ if (isset($_GET['id_tarea'])) {
     $stmt->close();
 }
 
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +28,8 @@ $conn->close();
     <link rel="stylesheet" href="../../../css/proaCSS/crearEditarTarea.css">
     <script src="../../../js/proaJS/funcionesBase.js" defer></script>
     <script src="../../../js/proaJS/funcionesBase.js" defer></script>
+    <!-- para el calendario -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <!-- Cuerpo de la página web -->
 <body>
@@ -63,6 +64,25 @@ $conn->close();
 </div>
 <!-- Footer de Proa -->
 <?php include '../../includes/proaInc/footerProa.inc'; ?>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+<script>
+    flatpickr("#dateRange", {
+        mode: "range",
+        dateFormat: "Y-m-d",
+        defaultDate: [
+            "<?= htmlspecialchars($tarea['fecha_apertura'] ?? '') ?>",
+            "<?= htmlspecialchars($tarea['fecha_entrega'] ?? '') ?>"
+        ],
+        onChange: function(selectedDates, dateStr, instance) {
+            if (selectedDates.length === 2) {
+                const fechaApertura = instance.formatDate(selectedDates[0], "Y-m-d");
+                const fechaEntrega = instance.formatDate(selectedDates[1], "Y-m-d");
+                document.getElementById('fechaApertura').value = fechaApertura;
+                document.getElementById('fechaEntrega').value = fechaEntrega;
+            }
+        }
+    });
+</script>
 </body>
 </html>

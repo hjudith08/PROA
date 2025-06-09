@@ -3,7 +3,7 @@
 <?php
 $pagina_actual = basename($_SERVER['PHP_SELF']);
 
-if ($pagina_actual == 'loginProa.php') {
+if ($pagina_actual == 'LoginProa.php') {
 
 echo '<footer class="footer-proa">
         <span class="footer-texto">Powered by</span>

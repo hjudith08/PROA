@@ -27,7 +27,7 @@ $sqlTarea = "SELECT
             JOIN asignaturas a ON t.id_asignatura = a.id_asignatura
             WHERE t.id_tarea = ?";
 
-$stmtTarea = $conn->prepare($sqlTarea);
+$stmtTarea = $conn_proa->prepare($sqlTarea);
 $stmtTarea->bind_param("i", $id_tarea);
 $stmtTarea->execute();
 $resultTarea = $stmtTarea->get_result();
@@ -40,7 +40,7 @@ $tarea = $resultTarea->fetch_assoc();
 
 // Obtener grupo del alumno
 $sqlGrupo = "SELECT grupo_id FROM usuarios WHERE dni = ?";
-$stmtGrupo = $conn->prepare($sqlGrupo);
+$stmtGrupo = $conn_proa->prepare($sqlGrupo);
 $stmtGrupo->bind_param("s", $dni_alumno);
 $stmtGrupo->execute();
 $grupo = $stmtGrupo->get_result()->fetch_assoc();
@@ -49,7 +49,7 @@ $grupo_id = $grupo['grupo_id'] ?? null;
 // Verificar que el alumno está matriculado en la asignatura
 $sqlMatricula = "SELECT 1 FROM alumnos_asignaturas 
                  WHERE dni_alumno = ? AND id_asignatura = ?";
-$stmtMatricula = $conn->prepare($sqlMatricula);
+$stmtMatricula = $conn_proa->prepare($sqlMatricula);
 $stmtMatricula->bind_param("si", $dni_alumno, $tarea['id_asignatura']);
 $stmtMatricula->execute();
 $matriculado = $stmtMatricula->get_result()->num_rows > 0;
@@ -63,7 +63,7 @@ $sqlEntrega = "SELECT
                 archivo_entregado, fecha_entrega, nota, comentarios_profesor
                FROM entregas 
                WHERE id_tarea = ? AND dni_alumno = ?";
-$stmtEntrega = $conn->prepare($sqlEntrega);
+$stmtEntrega = $conn_proa->prepare($sqlEntrega);
 $stmtEntrega->bind_param("is", $id_tarea, $dni_alumno);
 $stmtEntrega->execute();
 $entrega = $stmtEntrega->get_result()->fetch_assoc();

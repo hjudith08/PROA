@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Insertar en la base de datos
     try {
-        $conn->begin_transaction();
+        $conn_proa->begin_transaction();
 
         // 1. Insertar en la tabla entregas
         $sqlEntrega = "INSERT INTO entregas (
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         archivo_entregado = VALUES(archivo_entregado),
                         fecha_entrega = VALUES(fecha_entrega)";
 
-        $stmtEntrega = $conn->prepare($sqlEntrega);
+        $stmtEntrega = $conn_proa->prepare($sqlEntrega);
         $stmtEntrega->bind_param("isss", $id_tarea, $dni_alumno, $nombre_archivo, $grupo_id);
         $stmtEntrega->execute();
 
@@ -69,18 +69,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         nombre_original, ruta, dni_alumno, id_tarea
                     ) VALUES (?, ?, ?, ?)";
 
-        $stmtArchivo = $conn->prepare($sqlArchivo);
+        $stmtArchivo = $conn_proa->prepare($sqlArchivo);
         $stmtArchivo->bind_param("sssi", $archivo['name'], $nombre_archivo, $dni_alumno, $id_tarea);
         $stmtArchivo->execute();
 
-        $conn->commit();
+        $conn_proa->commit();
 
         // Redireccionar a la página de la tarea
-        header("Location: ../Proa/profeAlumno/verTarea.php?id_tarea=" . urlencode($id_tarea));
+        header("Location: ../proa/profeAlumno/verTarea.php?id_tarea=" . urlencode($id_tarea));
         exit;
 
     } catch (Exception $e) {
-        $conn->rollback();
+        $conn_proa->rollback();
 
         // Eliminar el archivo si hubo error
         if (file_exists($ruta_destino)) {

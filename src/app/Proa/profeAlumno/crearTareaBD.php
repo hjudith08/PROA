@@ -44,23 +44,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $stmt = $conn->prepare("INSERT INTO tareas (id_asignatura, titulo, descripcion, fecha_apertura, fecha_entrega, puntuacion_maxima, archivo_adjunto, creado_por, grupo_id) 
+    $stmt = $conn_proa->prepare("INSERT INTO tareas (id_asignatura, titulo, descripcion, fecha_apertura, fecha_entrega, puntuacion_maxima, archivo_adjunto, creado_por, grupo_id) 
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
     $stmt->bind_param("isssssisi", $id_asignatura, $titulo, $descripcion, $fecha_apertura, $fecha_entrega, $puntuacion_maxima, $archivo_nombre, $creado_por, $grupo_id);
 
     if ($stmt->execute()) {
-        echo "<script>
-            alert('¡Tarea creada con éxito!');
-            window.location.href = 'crearTarea.php?id=$id_asignatura';
-        </script>";
+        header("Location: tareas.php?id=$id_asignatura&creado=ok");
         exit;
     } else {
         echo "Error al crear la tarea: " . $stmt->error;
     }
 
     $stmt->close();
-    $conn->close();
+    $conn_proa->close();
 }
 
 ?>

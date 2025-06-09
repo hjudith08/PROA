@@ -1,14 +1,14 @@
 <?php
-require_once 'includes/eduSync/MySQL.inc';
+require_once 'app/includes/conexion.inc';
 
-if (!isset($conn)) {
+if (!isset($conn_edusync)) {
     die("Error de conexión");
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET['token'])) {
     $token = $_GET['token'];
 
-    $stmt = $conn->prepare("SELECT id, validez_token FROM usuarios WHERE token = ?");
+    $stmt = $conn_edusync->prepare("SELECT id, validez_token FROM usuarios WHERE token = ?");
     $stmt->bind_param("s", $token);
     $stmt->execute();
     $stmt->store_result();
@@ -18,27 +18,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET['token'])) {
         $stmt->fetch();
 
         if (strtotime($validez_token) >= time()) {
-            $update = $conn->prepare("UPDATE usuarios SET estado = 1, token = NULL, validez_token = NULL WHERE id = ?");
+            $update = $conn_edusync->prepare("UPDATE usuarios SET estado = 1, token = NULL, validez_token = NULL WHERE id = ?");
             $update->bind_param("i", $id);
             $update->execute();
             $update->close();
 
-            header("Location: app/eduSync/mensaje.php?tipo=exito");
+            header("Location: /PROA/src/app/eduSync/mensaje.php?tipo=exito");
             exit;
         } else {
-            header("Location: app/eduSync/mensaje.php?tipo=expirado");
+            header("Location: /PROA/src/app/eduSync/mensaje.php?tipo=expirado");
             exit;
         }
     } else {
-        header("Location: app/eduSync/mensaje.php?tipo=invalido");
+        header("Location: /PROA/src/app/eduSync/mensaje.php?tipo=invalido");
         exit;
     }
 
     $stmt->close();
 } else {
-    header("Location: app/eduSync/mensaje.php?tipo=sin_token");
+    header("Location: /PROA/src/app/eduSync/mensaje.php?tipo=sin_token");
     exit;
 }
 
-$conn->close();
+$conn_edusync->close();
 ?>

@@ -14,7 +14,7 @@
 <body>
 
     <!-- header -->
-    <?php include '../includes/eduSyncINC/menuEduSync.inc'; ?>
+    <?php include '../includes/eduSyncInc/menuEduSync.inc'; ?>
 
     <!-- primera sección información PROA -->
     <div class="contenido">
@@ -122,14 +122,15 @@
                     </div>
                 </div>
                 <?php
-                if (!isset($dataEdu['id'])) {
+                if (isset($_SESSION['usuario_id'])) {
+                    // Usuario logueado: lleva a la demo de PROA
                     ?>
-                    <a href="loginRegistro.php" class="boton-demo">¡Prueba PROA Gratis!</a>
-
+                    <a href="../proa/LoginProa.php" class="boton-demo">¡Prueba PROA Gratis!</a>
                     <?php
                 } else {
+                    // Usuario NO logueado: lleva al registro/login de EduSync
                     ?>
-                    <a href="../proa/loginProa.php" class="boton-demo">¡Prueba PROA Gratis!</a>
+                    <a href="loginRegistro.php" class="boton-demo">¡Prueba PROA Gratis!</a>
                     <?php
                 }
                 ?>
@@ -147,7 +148,7 @@
         <!-- fin de la quinta sección -->
         <!-- footer -->
     </div>
-    <?php include '../includes/eduSyncINC/footerEduSync.inc'; ?>
+    <?php include '../includes/eduSyncInc/footerEduSync.inc'; ?>
 
     <!-- botón para volver arriba -->
     <a href="#" class="scroll-to-top" aria-label="Subir al inicio">

@@ -9,7 +9,7 @@ if ($id_tarea <= 0 || $id_asignatura <= 0) {
 }
 
 // Eliminar la tarea (y opcionalmente sus entregas si la tabla entregas existe)
-$stmt = $conn->prepare("DELETE FROM tareas WHERE id_tarea = ?");
+$stmt = $conn_proa->prepare("DELETE FROM tareas WHERE id_tarea = ?");
 $stmt->bind_param("i", $id_tarea);
 $stmt->execute();
 

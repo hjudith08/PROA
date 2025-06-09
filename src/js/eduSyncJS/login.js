@@ -8,27 +8,8 @@ const loginBtn = document.getElementById("iniciar-sesion");
 const contenedor = document.getElementById("contenedor");
 
 // Array para almacenar los usuarios cargados
-let usuarios = [];
-
 // =============================================
-// SECCIÓN 2: FUNCIONES DE CARGA DE DATOS
-// =============================================
-/**
- * Carga los usuarios desde el archivo JSON
- * @async
- */
-async function cargarUsuarios() {
-    try {
-        const response = await fetch('../../../api/v0.0/data/usuariosEduSync.json');
-        usuarios = await response.json();
-    } catch (error) {
-        console.error("Error cargando usuarios:", error);
-        mostrarError("Error al cargar la base de datos");
-    }
-}
-
-// =============================================
-// SECCIÓN 3: FUNCIONES DE MANEJO DE MENSAJES
+// SECCIÓN 2: FUNCIONES DE MANEJO DE MENSAJES
 // =============================================
 /**
 
@@ -80,36 +61,7 @@ function eliminarMensajesAnteriores() {
 }
 
 // =============================================
-// SECCIÓN 4: MANEJADORES DE EVENTOS - LOGIN
-// =============================================
-loginForm.addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const email = loginForm.querySelector("#email").value;
-    const password = loginForm.querySelector("#password").value;
-
-    await cargarUsuarios();
-
-    const usuario = usuarios.find(u => u.email === email && u.password === password);
-
-    if (usuario) {
-        mostrarMensaje("Inicio de sesión exitoso. Redirigiendo...");
-
-        // Guardar email en localStorage (opcional)
-        localStorage.setItem("usuarioActivo", usuario.email);
-
-        setTimeout(() => {
-            window.location.href = "../Sesion/index.html";
-        }, 500);
-    } else {
-        mostrarError("Email o contraseña incorrectos");
-    }
-});
-
-
-
-// =============================================
-// SECCIÓN 6: MANEJADORES DE INTERFAZ - CAMBIO ENTRE FORMULARIOS
+// SECCIÓN 3: MANEJADORES DE INTERFAZ - CAMBIO ENTRE FORMULARIOS
 // =============================================
 loginBtn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -119,4 +71,12 @@ loginBtn.addEventListener("click", (e) => {
 registerBtn.addEventListener("click", (e) => {
     e.preventDefault();
     contenedor.classList.remove("panel-derecho-activo");
+});
+
+// Detectar si hay un error en la URL y forzar vista de login
+window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('error')) {
+        contenedor.classList.add("panel-derecho-activo");
+    }
 });

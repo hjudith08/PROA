@@ -459,6 +459,10 @@ footer {
     text-align: center;
 }
 
+span {
+    font-size: .9rem;
+}
+
 .contenido-tutorial {
     max-height: 60vh;
     overflow-y: auto;

@@ -10,7 +10,7 @@ if ($id_asignatura <= 0 || empty($dni_alumno)) {
 }
 
 // Consulta para obtener las tareas y las entregas del alumno
-$stmt = $conn->prepare("
+$stmt = $conn_proa->prepare("
     SELECT 
         t.id_tarea,
         t.titulo,
@@ -87,14 +87,14 @@ document.getElementById('filtro-tareas-estado').addEventListener('change', funct
     });
 });
 
-// click en lña fila y redirigir
+// click en la fila y redirigir
 document.querySelectorAll('tbody .fila').forEach(fila => {
     fila.style.cursor = 'pointer';  // para que se note que es clicable
     fila.addEventListener('click', () => {
         const idTarea = fila.getAttribute('data-id');
         if (idTarea) {
             // Redirigir a verTarea.php con el id_tarea como parámetro GET
-            window.location.href = `verTarea.php?id_tarea=${idTarea}`;
+            window.location.href = `verTarea.php?id_tarea=${idTarea}&dni=<?= urlencode($dni_alumno) ?>`;
         }
     });
 });

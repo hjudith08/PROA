@@ -19,7 +19,7 @@ if (!$id_entrega || !is_numeric($nota) || $nota < 0 || $nota > 10) {
 }
 
 // Preparar y ejecutar la actualización
-$stmt = $conn->prepare("UPDATE entregas SET nota = ? WHERE id_entrega = ?");
+$stmt = $conn_proa->prepare("UPDATE entregas SET nota = ? WHERE id_entrega = ?");
 if (!$stmt) {
     echo json_encode(['success' => false, 'message' => 'Error en la consulta']);
     exit;

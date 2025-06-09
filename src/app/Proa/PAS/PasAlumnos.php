@@ -3,10 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // conexion al servidor
-$conexion = new mysqli("localhost", "root", "", "proa");
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
-}
+include __DIR__ . '../../../includes/conexion.inc';
 
 // id guardado de la pagina de inicio para mostrar los alumnos de la asignatura que tenga ese id
 $idAsignatura = isset($_GET['id']) ? intval($_GET['id']) : 0;
@@ -15,18 +12,18 @@ $idAsignatura = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $sqlAlumnos = "SELECT dni, nombre, apellido1, apellido2 FROM usuarios WHERE rol_id = 'alumno'";
 
 if (!empty($_GET['carrera_alumno'])) {
-    $carreras = array_map([$conexion, 'real_escape_string'], $_GET['carrera_alumno']);
+    $carreras = array_map([$conn_proa, 'real_escape_string'], $_GET['carrera_alumno']);
     if (count($carreras) > 0) {
         $sqlAlumnos .= " AND carrera_alumno IN ('" . implode("','", $carreras) . "')";
     }
 }
 
 // ejecutar la consulta final
-$resultadoAlumnos = $conexion->query($sqlAlumnos);
+$resultadoAlumnos = $conn_proa->query($sqlAlumnos);
 
 // obtener alumnos ya asociados a esta asignatura
 $sqlAsociados = "SELECT dni_alumno FROM alumnos_asignaturas WHERE id_asignatura = ?";
-$stmt = $conexion->prepare($sqlAsociados);
+$stmt = $conn_proa->prepare($sqlAsociados);
 $stmt->bind_param("i", $idAsignatura);
 $stmt->execute();
 $resultadoAsociados = $stmt->get_result();

@@ -1,20 +1,17 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "proa";
-
-// Crear conexión usando mysqli
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Establecer codificación de caracteres
-if (!$conn->set_charset('utf8mb4')) {
-    die("Error al establecer la codificación de caracteres: " . $conn->error);
+// EduSync
+$conn_edusync = new mysqli("localhost", "root", "", "proa");
+if ($conn_edusync->connect_error) {
+    die("Conexión fallida a EduSync: " . $conn_edusync->connect_error);
 }
+//edusync1234*
+$conn_edusync->set_charset('utf8mb4');
 
-// Verificar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+// PROA
+$conn_proa = new mysqli("localhost", "root", "", "proa");
+if ($conn_proa->connect_error) {
+    die("Conexión fallida a PROA: " . $conn_proa->connect_error);
 }
+//proa1234*
+$conn_proa->set_charset('utf8mb4');
 ?>
-

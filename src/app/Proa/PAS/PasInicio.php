@@ -3,10 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // conexion al servidor
-$conexion = new mysqli("localhost", "root", "", "proa");
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
-}
+include __DIR__ . '../../../includes/conexion.inc';
 
 /* consulta base de datos todas las asignaturas, 1=1
 se usa para evitar problemas de sintaxis al construir 
@@ -18,7 +15,7 @@ $condiciones = [];
 
 // fFiltrado por tipo de titulación
 if (!empty($_GET['tipo_titulacion'])) {
-    $tipos = array_map([$conexion, 'real_escape_string'], $_GET['tipo_titulacion']);
+    $tipos = array_map([$conn_proa, 'real_escape_string'], $_GET['tipo_titulacion']);
     $condiciones[] = "tipo_titulacion IN ('" . implode("','", $tipos) . "')";
 }
 
@@ -40,7 +37,7 @@ if (!empty($condiciones)) {
 }
 
 // ejecutar la consulta final
-$resultado = $conexion->query($sql);
+$resultado = $conn_proa->query($sql);
 ?>
 
 
@@ -169,7 +166,7 @@ $resultado = $conexion->query($sql);
                                 } else {
                                     echo "<p>No se encontraron asignaturas.</p>";
                                 }
-                                $conexion->close();
+                                $conn_proa->close();
                                 ?>
                             </div>
                         </form>

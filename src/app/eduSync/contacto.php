@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - EduSync</title>
-   <link rel="icon" href="../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
+    <link rel="icon" href="../../imagenes/LogoEduSyncBlancoV3.png" type="image/png">
     <link rel="stylesheet" href="../../css/edusyncCSS/estilosBaseEduSync.css">
     <link rel="stylesheet" href="../../css/edusyncCSS/contactoEduSync.css"> 
     <script src="../../js/eduSyncJS/funcionesBaseEduSync.js" defer></script>
     
 </head>
 <body>
+    
     <!-- Cabecera -->
     <?php include '../includes/eduSyncInc/menuEduSync.inc'; ?>
 

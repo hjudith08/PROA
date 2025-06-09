@@ -53,7 +53,7 @@
 
 .popup-contenido {
     background: white;
-    padding: 25px 30px;
+    padding: 50px 30px;
     border-radius: 15px;
     width: 500px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -73,9 +73,23 @@
     cursor: pointer;
 }
 
-.popup-fila {
+.popup-fila-titulo {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    gap: 5px;
+}
+
+.popup-fila-adj {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+}
+
+.popup-fila {
+    display: flex;
+    justify-content: right;
     align-items: center;
     font-size: 20px;
 }
@@ -149,6 +163,29 @@
 #popup-archivo {
     color: black;
 }
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #28a745;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 1000;
+}
+
+.toast.visible {
+  opacity: 1;
+}
+
+.toast.oculto {
+  display: none;
+}
+
 
 /* ==================== RESPONSIVE DESIGN ==================== */
 

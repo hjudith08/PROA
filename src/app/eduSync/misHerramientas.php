@@ -52,7 +52,7 @@
               cualquier
               dispositivo. Su experiencia visual es atractiva y optimizada para un uso cómodo y eficiente.
             </p>
-            <a href="../proa/loginProa.php" class="botonDemo_misHerramientas">Entrar demo PROA</a>
+            <a href="../proa/LoginProa.php" class="botonDemo_misHerramientas">Entrar demo PROA</a>
           </div>
         </div>
       </main>
@@ -66,4 +66,4 @@
 
 </body>
 
-</html>
+</html> 

@@ -160,6 +160,8 @@
   font-size: 16px;
   cursor: pointer;
 }
+
+
 /* Media Queries para tablets y desktop */
 @media (min-width: 768px) {
 

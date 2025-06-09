@@ -1,117 +1,126 @@
 <?php
-include __DIR__ . '/../../conexion.inc';  // Ajusta la ruta a tu conexión
+include __DIR__ . '/../../conexion.inc';
 
-if (!isset($_GET['id'])) {
-    die('Asignatura no especificada.');
+$idAsignatura = $_GET['id'] ?? 0;
+if ($idAsignatura <= 0) die("ID inválido");
+
+// Obtener el objetivo de la asignatura
+$objetivo = 'Objetivo no disponible';
+
+$sqlObjetivo = "SELECT objetivo_asignatura FROM asignaturas WHERE id_asignatura = ?";
+$stmt = $conn_proa->prepare($sqlObjetivo);
+
+if ($stmt) {
+    $stmt->bind_param("i", $idAsignatura);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result && $fila = $result->fetch_assoc()) {
+        $objetivo = trim($fila['objetivo_asignatura']);
+
+        // Asegura codificación correcta
+        if (!mb_detect_encoding($objetivo, 'UTF-8', true)) {
+            $objetivo = utf8_encode($objetivo);
+        }
+
+        if ($objetivo === '') {
+            $objetivo = 'Este objetivo aún no ha sido definido.';
+        }
+    }
+
+    $stmt->close();
 }
 
-$id_asignatura = intval($_GET['id']);
-
-// Obtener datos asignatura
-$stmt = $conn->prepare("SELECT nombre, descripcion, tipo_titulacion, curso, cuatrimestre, objetivo_asignatura, informacion_extra, grupo_id FROM asignaturas WHERE id_asignatura = ?");
-$stmt->bind_param("i", $id_asignatura);
+// Obtener datos de los profesores
+$sqlProfesor = "SELECT u.nombre, u.apellido1, u.apellido2, u.email, u.despacho
+                FROM profesores_asignaturas pa
+                JOIN usuarios u ON pa.dni_profesor = u.dni
+                WHERE pa.id_asignatura = ?";
+$stmt = $conn_proa->prepare($sqlProfesor);
+$stmt->bind_param("i", $idAsignatura);
 $stmt->execute();
-$result = $stmt->get_result();
-$asignatura = $result->fetch_assoc();
+$resultProfesores = $stmt->get_result();
 
-if (!$asignatura) {
-    die('Asignatura no encontrada.');
+$profesores = [];
+while ($fila = $resultProfesores->fetch_assoc()) {
+    $profesores[] = $fila;
 }
+$stmt->close();
 
-// Obtener profesor que corresponde a ese grupo y es profesor
-$rol_profesor = 'profesor';  // Cambia si el rol tiene otro id
-$stmt_profesor = $conn->prepare("SELECT nombre, apellido1, apellido2, email, despacho FROM usuarios WHERE grupo_id = ? AND rol_id = ? LIMIT 1");
-$stmt_profesor->bind_param("ss", $asignatura['grupo_id'], $rol_profesor);
-$stmt_profesor->execute();
-$result_profesor = $stmt_profesor->get_result();
-$profesor = $result_profesor->fetch_assoc();
-
-// Obtener tareas
+// Obtener tareas asociadas
 $tareas = [];
-$stmt_tareas = $conn->prepare("SELECT descripcion, fecha_entrega FROM tareas WHERE id_asignatura = ? ORDER BY fecha_entrega ASC");
-$stmt_tareas->bind_param("i", $id_asignatura);
-$stmt_tareas->execute();
-$result_tareas = $stmt_tareas->get_result();
-while ($fila = $result_tareas->fetch_assoc()) {
+$sqlTareas = "SELECT t.fecha_entrega, t.descripcion, a.nombre
+              FROM tareas t
+              JOIN asignaturas a ON t.id_asignatura = a.id_asignatura
+              WHERE t.id_asignatura = ?
+              ORDER BY t.fecha_entrega ASC";
+$stmt = $conn_proa->prepare($sqlTareas);
+$stmt->bind_param("i", $idAsignatura);
+$stmt->execute();
+$resultTareas = $stmt->get_result();
+while ($fila = $resultTareas->fetch_assoc()) {
     $tareas[] = $fila;
 }
+$stmt->close();
 ?>
 
-
-
+<!-- HTML con los datos -->
 <main class="content">
-    <button class="hamburguesa" aria-label="Abrir menú">☰</button>
     <nav class="menu-movil">
         <ul>
-            <li>
-                <a href="inicioGeneral.php">
-                    <img src="images/homeb.png" alt="Inicio" />
-                    Inicio General
-                </a>
-            </li>
-            <li>
-                <a href="EditarInicioAsignaturas.php">
-                    <img src="images/bookb.png" alt="Asignaturas" />
-                    Asignaturas
-                </a>
-            </li>
+            <li><a href="#"><img src="images/homeb.png" alt="Inicio" />Inicio General</a></li>
+            <li><a href="#"><img src="images/bookb.png" alt="Asignaturas" />Asignaturas</a></li>
         </ul>
     </nav>
 
-
-
-    <div class="contenedor-flex-principal">
-        <!-- IZQUIERDA: Información Asignatura -->
-        <div class="contenedor-tareas">
-            <div class="cabecera-tareas">
-                <h1>INFORMACIÓN ASIGNATURA</h1>
+    <div class="contenedor-asignatura">
+        <div class="info-asignatura">
+            <div class="card card-con-boton">
+                <h3>Objetivo asignatura</h3>
+                <p><?= nl2br(htmlspecialchars($objetivo)) ?></p>
             </div>
-            <div class="tabla-flex-container">
-                <ul class="asignaturas informacionAsig">
-                    <li>
-                        <h3>Objetivo asignatura</h3>
-                        <p><?= htmlspecialchars($asignatura['objetivo_asignatura']) ?></p>
-                    </li>
-                    <li>
-                        <h3>Profesor</h3>
-                        <p><?= htmlspecialchars($profesor['nombre'] . ' ' . $profesor['apellido1'] . ' ' . $profesor['apellido2']) ?></p>
 
-                        <h3>Email</h3>
-                        <p><?= htmlspecialchars($profesor['email']) ?></p>
-
-                        <h3>Despacho</h3>
-                        <p><?= htmlspecialchars($profesor['despacho']) ?></p>
-                    </li>
-
-                    <li>
-                        <h3>Extra</h3>
-                        <p><?= htmlspecialchars($asignatura['informacion_extra']) ?></p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- DERECHA: Lista de Tareas -->
-        <div class="contenedor-tareas">
-            <div class="cabecera-tareas">
-                <h1>TAREAS</h1>
-            </div>
-            <div class="tabla-flex-container">
-                <ul class="tareas">
-                    <?php foreach ($tareas as $tarea): ?>
-                        <li>
-                            <div>
-                                <p class="texto-lista-tareas"><?= htmlspecialchars($tarea['descripcion']) ?></p>
-                                <div class="encabezado-item">
-                                    <div class="rectangulo-fecha"><?= strtoupper(date('d M', strtotime($tarea['fecha_entrega']))) ?></div>
-                                </div>
-                            </div>
-                        </li>
+            <div class="card">
+                <h3>Datos profesor</h3>
+                <?php if (!empty($profesores)): ?>
+                    <?php foreach ($profesores as $prof): ?>
+                        <p>
+                            <?= htmlspecialchars($prof['nombre'] . ' ' . $prof['apellido1'] . ' ' . $prof['apellido2']) ?><br>
+                            Despacho <?= htmlspecialchars($prof['despacho']) ?><br>
+                            <a href="mailto:<?= htmlspecialchars($prof['email']) ?>"><?= htmlspecialchars($prof['email']) ?></a>
+                        </p>
                     <?php endforeach; ?>
-                </ul>
+                <?php else: ?>
+                    <p>No hay profesores asignados a esta asignatura.</p>
+                <?php endif; ?>
             </div>
         </div>
+
+        <!-- Tareas -->
+        <section class="bloque-info">
+            <div class="cabecera-tareas">
+                <h1>TAREAS POR REALIZAR</h1>
+            </div>
+            <div class="tabla-container">
+                <table class="tabla-asignaturas">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Descripción</th>
+                            <th>Asignatura</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($tareas as $tarea): ?>
+                            <tr>
+                                <td><?= date('d M', strtotime($tarea['fecha_entrega'])) ?></td>
+                                <td><?= htmlspecialchars($tarea['descripcion']) ?></td>
+                                <td><?= htmlspecialchars($tarea['nombre']) ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </div>
 </main>
-
-

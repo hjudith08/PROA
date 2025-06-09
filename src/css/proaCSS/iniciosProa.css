@@ -90,17 +90,36 @@
         color: var(--color-header);
     }
 
+
+
     .mensaje-exito {
-        background-color: #d4edda;
-        color: #155724;
-        border: 1px solid #c3e6cb;
-        padding: 10px 20px;
-        margin: 15px auto;
-        width: fit-content;
-        border-radius: 8px;
+        color: #28a745;
+        margin-top: 5px;
         font-weight: bold;
+        font-size: 0.9rem;
+        text-align: center;
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+        border-radius: 4px;
+        padding: 8px 15px;
+        order: 6;
+        animation: fadeIn 0.3s ease-in-out;
     }
 
+          .error-mensaje {
+        color: #dc3545;
+        margin-top: 5px;
+        font-weight: bold;
+        font-size: 0.9rem;
+        text-align: center;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 4px;
+        padding: 8px 15px;
+        order: 3;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+    
     .menu-btn.activo .icono-activo {
         filter: brightness(0);
     }
@@ -218,9 +237,7 @@
         list-style: none;
         padding: 0;
     }
-    ul.asignaturas{
-        display: grid;
-    }
+
     ul.informacionAsig{
         display: flex;
     }
@@ -279,11 +296,91 @@
         display: grid;
     }
     
+    /*inicio asignatura*/
+    .contenedor-asignatura {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .info-asignatura {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 40px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 48%;
+    }
+
+    .card-con-boton {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-boton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: auto;
+        padding-top: 1rem;
+    }
+
+    .subtitulo {
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .boton-revisar-profesor {
+        margin: 2px;
+        display: flex;
+        justify-content: center;
+        padding: 6px 12px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        width: 135px;
+        height: 38px;
+        background: #FEFEFF;
+        border: 1px solid #75619E;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        color: #3F2A52;
+    }
+
+    .boton-revisar-profesor:hover {
+        background-color: rgba(99, 45, 200, 0.2);
+    }
+
+    /*tabla tareas inicio general-asignatura*/
+    .tabla-tareas {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .tabla-tareas th {
+        color: #6a47ad;
+        font-weight: bold;
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 2px solid #6a47ad;
+    }
+
+    .tabla-tareas td {
+        padding: 0.75rem;
+        border-bottom: 1px solid #ccc;
+    }
+
 
     .contenedor-tareas {
         background-color: white;
         border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         overflow: hidden;
     }   
     .cabecera-tareas {
@@ -344,7 +441,7 @@
 
     .rectangulo-fecha {
         background-color: #ffffff;
-        color: rgba(161, 0, 255, 0.65);
+        color: var(--color-principal);
         padding: 10px 16px;
         border-radius: 8px;
         font-weight: bold;
@@ -371,8 +468,7 @@
     }
 
     .botonesEditaryVer button:hover {
-        background-color: #b784d8;
-        color: white;
+        background-color: rgba(99, 45, 200, 0.2);   
     }
 
 
@@ -391,9 +487,8 @@
         padding: 1rem;
     }
 
-    /* Contenedor principal para distribuir los bloques de asignaturas y tareas */
     .contenedor-flex-principal {
-        display: flex;
+        display: block;
         justify-content: space-between;
         gap: 2rem;
         width: 100%;
@@ -401,7 +496,6 @@
         padding-top: -100px;
     }
 
-    /* Estilos individuales para cada bloque */
     .contenedor-flex-principal .contenedor-tareas {
         flex: 1 1 48%;
     }
@@ -502,6 +596,7 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
         z-index: 1000;
         overflow: hidden;
+        z-index: 3;
     }
     @media screen and (max-width: 777px) {
     :root {
@@ -524,6 +619,10 @@
             box-sizing: border-box;
         }
 
+        ul.asignaturas, ul.informacionAsig,
+    ul.tareas {
+        grid-template-columns: inherit;
+    }
         .content {
             padding-top: 1rem;;
         }
@@ -646,7 +745,7 @@
         .encabezado-item {
             flex-direction: column;
             gap: 0.5rem;
-            align-items: flex-start;
+            padding: 1rem;
         }
 
         /* Aquí lo más importante para que los botones no se corten */
@@ -698,9 +797,9 @@
             /* Más estrecho que 100% */
             max-width: 700px;
             /* O cualquier otro valor acorde al diseño */ 
-            font-size: .8rem;
-            /* Para centrarla horizontalmente */
+            font-size: .7rem;
             border-collapse: collapse;
+            table-layout: fixed;
         }
 
         .asignaturas li:hover {

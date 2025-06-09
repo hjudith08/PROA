@@ -1,0 +1,209 @@
+/*Aquí empezamos con los filtros*/
+
+
+#filtro-tareas {
+    border: 1px solid #75619E;
+}
+
+.filtros-tareas {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #75619E;
+    background-color: white;
+    font-size: 0.9rem;
+    margin-left: auto;
+    display: block;
+    width: fit-content;
+}
+
+
+.contenedor-filtros{
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #75619E;
+    background-color: white;
+    font-size: 0.9rem;
+    margin-left: auto;
+    display: block;
+    width: fit-content;
+}
+
+    .contenedor-filtros select {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: transparent;
+        font-family: 'Segoe UI', sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        color: #3F2A52;
+        padding: 0 5px;
+        outline: none;
+        cursor: pointer;
+}
+
+/*Eliminamos los estilos predeterminados de la tabla*/
+.contenedor-tareasAlumno table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 2rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    table-layout: fixed;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.contenedor-tareasAlumno table, th, td {
+    background: none;
+    color: inherit;
+    text-align: inherit;
+    margin-top: 1rem;
+}
+
+/*Empezamos a añadir estilos*/
+
+/*Arreglamos los bordes de la tabla*/
+.contenedor-tareasAlumno thead tr:first-child th:first-child {
+    border-top-left-radius: 4px;
+}
+.contenedor-tareasAlumno thead tr:first-child th:last-child {
+    border-top-right-radius: 4px;
+}
+.contenedor-tareasAlumno tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 4px;
+}
+.contenedor-tareasAlumno tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 4px;
+}
+
+/*Estilos encabezado tabla*/
+.contenedor-tareasAlumno thead th {   
+    font-weight: bold;
+    padding: 1.25rem 4rem;
+    padding-right: fill;
+    background-color: #e1e1e1;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+}
+
+.contenedor-tareasAlumno thead{
+    border: 1px solid #ccc;
+}
+
+/*Estilos contenido tabla*/
+.contenedor-tareasAlumno tbody>tr:nth-of-type(odd) {
+    background-color: #f8f5ff;
+}
+
+.contenedor-tareasAlumno tbody tr:hover{
+    background: #EDE7F6;
+    border-radius: 2rem;
+    box-shadow: white;
+}
+
+.contenedor-tareasAlumno tbody td{
+    align-items: center;
+    padding: 1.25rem 4.35rem;
+}
+
+.contenedor-tareasAlumno tbody{
+    border: 1px solid #ccc;
+}
+
+.contenedor-tareasAlumno th{
+    align-items: center;
+}
+
+.contenedor-tareasAlumno td{
+    align-items: center;
+}
+
+@media screen and (max-width: 777px) {
+  .contenedor-tareasAlumno table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+    width: 100%;
+    border: none;
+  }
+
+  .contenedor-tareasAlumno thead {
+    display: none; /* Oculta encabezado en móvil */
+  }
+
+  .contenedor-tareasAlumno table{
+    border: none;
+  }
+
+  .contenedor-tareasAlumno tbody tr {
+    margin-bottom: 1rem;
+    background: #f8f5ff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .contenedor-tareasAlumno tbody td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .contenedor-tareasAlumno tbody td::before {
+    position: absolute;
+    left: 1rem;
+    width: 45%;
+    white-space: nowrap;
+    font-weight: bold;
+    color: #3F2A52;
+  }
+  
+  .contenedor-tareasAlumno tbody tr:hover{
+    background: #EDE7F6;
+    border-radius: 8px;
+    box-shadow: white;
+  }
+
+  /* Etiquetas antes de cada dato, como "Nombre Tarea", etc. */
+  .estado-tarea::before       { content: "Estado:"; }
+  .fecha-apertura::before     { content: "Apertura:"; }
+  .fecha-entrega::before      { content: "Entrega:"; }
+  .calificacion::before       { content: "Calificación:"; }
+
+
+.nombre-tarea {
+  display: flex;
+  align-items: center;
+  justify-content: center;      /* Centra horizontalmente */
+  text-align: center;           /* Asegura centrado del texto */
+  background-color: #3F2A52;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+     /* botones responsive */
+    .boton-revisar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+  /* Filtro responsive */
+  .contenedor-filtros {
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+  }
+
+}
